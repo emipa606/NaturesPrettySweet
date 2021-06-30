@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <BiomeDef>
     <defName>TKKN_Grasslands</defName>
@@ -7,8 +7,8 @@
     <workerClass>TKKN_NPS.NPS_BiomeWorker_Prairie</workerClass>
     <animalDensity>1.3</animalDensity>
     <plantDensity>0.8</plantDensity>
-   <settlementSelectionWeight>0.95</settlementSelectionWeight>
-	<implemented>true</implemented>
+    <settlementSelectionWeight>0.95</settlementSelectionWeight>
+    <implemented>true</implemented>
     <forageability>1.2</forageability>
     <foragedFood>RawBerries</foragedFood>
     <texture>TKKN_NPS/World/Biomes/Grasslands</texture>
@@ -70,21 +70,21 @@
       <SnowHard>4</SnowHard>
     </baseWeatherCommonalities>
     <wildPlants>
-		<TKKN_PlantTallGrasses>5.0</TKKN_PlantTallGrasses>
-		<Plant_TallGrass>5.0</Plant_TallGrass>
-		<Plant_Grass>3.0</Plant_Grass>
-		<Plant_Dandelion>0.5</Plant_Dandelion>
-		<TKKN_PlantSunflower>0.2</TKKN_PlantSunflower>
-		<Plant_Bush>0.7</Plant_Bush>
-		<TKKN_PlantWildflowers>0.05</TKKN_PlantWildflowers>
-		<Plant_TreeOak>0.05</Plant_TreeOak>
-		<Plant_Berry>0.2</Plant_Berry>
-		<TKKN_PlantWildCorn>0.1</TKKN_PlantWildCorn>		
-	   <TKKN_PlantWildRice>.6</TKKN_PlantWildRice>
-	   <TKKN_PlantCatTails>.6</TKKN_PlantCatTails>
-	   <TKKN_PlantLilypad>.5</TKKN_PlantLilypad>
-		<TKKN_SaltCrystal>2</TKKN_SaltCrystal>
-		<TKKN_PlantBarnacles>2</TKKN_PlantBarnacles>
+      <TKKN_PlantTallGrasses>5.0</TKKN_PlantTallGrasses>
+      <Plant_TallGrass>5.0</Plant_TallGrass>
+      <Plant_Grass>3.0</Plant_Grass>
+      <Plant_Dandelion>0.5</Plant_Dandelion>
+      <TKKN_PlantSunflower>0.2</TKKN_PlantSunflower>
+      <Plant_Bush>0.7</Plant_Bush>
+      <TKKN_PlantWildflowers>0.05</TKKN_PlantWildflowers>
+      <Plant_TreeOak>0.05</Plant_TreeOak>
+      <Plant_Berry>0.2</Plant_Berry>
+      <TKKN_PlantWildCorn>0.1</TKKN_PlantWildCorn>
+      <TKKN_PlantWildRice>.6</TKKN_PlantWildRice>
+      <TKKN_PlantCatTails>.6</TKKN_PlantCatTails>
+      <TKKN_PlantLilypad>.5</TKKN_PlantLilypad>
+      <TKKN_SaltCrystal>2</TKKN_SaltCrystal>
+      <TKKN_PlantBarnacles>2</TKKN_PlantBarnacles>
     </wildPlants>
     <wildAnimals>
       <Muffalo>1</Muffalo>
@@ -114,7 +114,7 @@
     <workerClass>TKKN_NPS.NPS_BiomeWorker_Savanna</workerClass>
     <animalDensity>1.8</animalDensity>
     <plantDensity>0.8</plantDensity>
-	<implemented>true</implemented>
+    <implemented>true</implemented>
     <forageability>1.2</forageability>
     <foragedFood>RawBerries</foragedFood>
     <settlementSelectionWeight>0.95</settlementSelectionWeight>
@@ -177,24 +177,24 @@
       <SnowHard>4</SnowHard>
     </baseWeatherCommonalities>
     <wildPlants>
-		<TKKN_PlantTallGrasses>7.0</TKKN_PlantTallGrasses>
-		<Plant_Grass>10.0</Plant_Grass>
-		<Plant_TallGrass>15.0</Plant_TallGrass>
-		<Plant_Dandelion>0.8</Plant_Dandelion>
-		<Plant_Bush>0.7</Plant_Bush>
-		<Plant_PincushionCactus>0.6</Plant_PincushionCactus>
-		<Plant_Agave>0.3</Plant_Agave>
-		<TKKN_PlantTreeAcacia>0.11</TKKN_PlantTreeAcacia>
-		<TKKN_PlantTreeGum>0.11</TKKN_PlantTreeGum>
-		<TKKN_PlantTreeBaobab>0.11</TKKN_PlantTreeBaobab>
-		<Plant_TreeDrago>0.11</Plant_TreeDrago>
-		<Plant_Berry>0.1</Plant_Berry>
-		<!-- because these are special, aritfically inflate their numbers -->
-	   <TKKN_PlantWildRice>2.2</TKKN_PlantWildRice>
-	   <TKKN_PlantCatTails>2.3</TKKN_PlantCatTails>
-		<TKKN_SaltCrystal>2</TKKN_SaltCrystal>
-		<TKKN_PlantBarnacles>2</TKKN_PlantBarnacles>
-	   <TKKN_PlantLilypad>2.2</TKKN_PlantLilypad>
+      <TKKN_PlantTallGrasses>7.0</TKKN_PlantTallGrasses>
+      <Plant_Grass>10.0</Plant_Grass>
+      <Plant_TallGrass>15.0</Plant_TallGrass>
+      <Plant_Dandelion>0.8</Plant_Dandelion>
+      <Plant_Bush>0.7</Plant_Bush>
+      <Plant_PincushionCactus>0.6</Plant_PincushionCactus>
+      <Plant_Agave>0.3</Plant_Agave>
+      <TKKN_PlantTreeAcacia>0.11</TKKN_PlantTreeAcacia>
+      <TKKN_PlantTreeGum>0.11</TKKN_PlantTreeGum>
+      <TKKN_PlantTreeBaobab>0.11</TKKN_PlantTreeBaobab>
+      <Plant_TreeDrago>0.11</Plant_TreeDrago>
+      <Plant_Berry>0.1</Plant_Berry>
+      <!-- because these are special, aritfically inflate their numbers -->
+      <TKKN_PlantWildRice>2.2</TKKN_PlantWildRice>
+      <TKKN_PlantCatTails>2.3</TKKN_PlantCatTails>
+      <TKKN_SaltCrystal>2</TKKN_SaltCrystal>
+      <TKKN_PlantBarnacles>2</TKKN_PlantBarnacles>
+      <TKKN_PlantLilypad>2.2</TKKN_PlantLilypad>
     </wildPlants>
     <wildAnimals>
       <Muffalo>0.2</Muffalo>

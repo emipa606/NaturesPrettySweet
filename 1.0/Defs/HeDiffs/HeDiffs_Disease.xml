@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <HediffDef ParentName="InfectionBase">
     <defName>TKKN_CommonCold</defName>
@@ -76,7 +76,6 @@
       </li>
     </stages>
   </HediffDef>
-
   <HediffDef ParentName="InfectionBase">
     <defName>TKKN_Animal_Common_Cold</defName>
     <label>common cold</label>
@@ -153,8 +152,7 @@
       </li>
     </stages>
   </HediffDef>
-  
- <HediffDef ParentName="MechanitesBase">
+  <HediffDef ParentName="MechanitesBase">
     <defName>TKKN_Allergies</defName>
     <label>allergies</label>
     <stages>
@@ -175,8 +173,7 @@
       </li>
     </stages>
   </HediffDef>
-  
- <HediffDef ParentName="MechanitesBase">
+  <HediffDef ParentName="MechanitesBase">
     <defName>TKKN_Animal_Allergies</defName>
     <label>allergies</label>
     <stages>
@@ -197,4 +194,4 @@
       </li>
     </stages>
   </HediffDef>
-  </Defs>
+</Defs>

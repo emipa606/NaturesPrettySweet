@@ -1,0 +1,4 @@
+# Changelog for NaturesPrettySweet
+
+1.0.1.0 - Updated to 1.2, fixed some code-bugs and xml-errors, modernized the patches
+

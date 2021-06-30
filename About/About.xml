@@ -1,138 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ModMetaData>
-	<name>Nature's Pretty Sweet</name>
-	<author>tkkntkkn</author>
-   <supportedVersions>
-      <li>1.0</li>
-      <li>1.1</li>
-   </supportedVersions>
-   <packageId>tkkntkkn.nps</packageId>
-	<description>			
-TKKNTKKN's Nature's Pretty Sweet adds additional terrain elements, weather and biomes. It also updates the map in response to weather, giving a more wild, untamed and alive feeling to the world.
+  <name>Nature's Pretty Sweet (Continued)</name>
+  <packageId>Mlie.NaturesPrettySweet</packageId>
+  <author>tkkntkkn</author>
+  <url>https://github.com/emipa606/NaturesPrettySweet</url>
+  <supportedVersions>
+    <li>1.0</li>
+    <li>1.1</li>
+    <li>1.2</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+  </loadAfter>
+  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+Update of tkkntkkns mod
+https://steamcommunity.com/sharedfiles/filedetails/?id=1211694919
 
-Requires a new save. Some of the weather affects might cause a little bit of lag (at high speeds or if you're really zoomed out) but you can turn them off in the options.
+- Since the original had a lot of reported bugs Id appreciate anyone to try this version out and report back any issues. Ive fixed various bugs but the design of the mod is still the same.
+
+[img]https://i.imgur.com/7Gzt3Rg.png[/img]
+
+[table]
+    [tr]
+        [td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
+        [td][url=https://github.com/emipa606/NaturesPrettySweet][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+    [/tr]
+[/table]
+	
+[img]https://i.imgur.com/NOW7jU1.png[/img]
+[url=http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]Full description! (I'm out of space here)[/url] 
+[url=https://www.patreon.com/tkkntkkn/]My patreon (upcoming updates are mentioned here, publically)![/url]
+[url=https://ko-fi.com/kamicomics/]Buy me a coffee![/url]
+
+[b]Dec 1 - Bug fix update and a few new things, see git, notes on update, or full description for deets [/b]
+
+[b]TKKNTKKN's Nature's Pretty Sweet makes the environment in RimWorld a unique and dangerous force to be reckoned with.[/b] The mod adds additional terrain elements, weather and biomes. It also updates the map in response to weather, giving a more wild, untamed and alive feeling to the world. Finally, it adds a variety of plants, springs, and other things (like barnacles) to the world, working to make each biome look and feel completely unique.
+
+[b]Requires a new save.* Some of the weather effects might cause a little bit of lag (at high speeds or if you're really zoomed out) but you can turn them off in the options. Map generation, your first save, and loading saves should take slightly longer than usual.[/b]
 
 Most new elements will generate in the standard biomes, but there are some biomes that guarantee new features, and a few elements are ONLY available in some biomes. Most of the elements were directly inspired by places I've camped in the US.
 
 There are also new resources, items, dangers, natural protection from raids and other effects. Resources can be harvested to get items, which can be sold or consumed.
 
-Added:
+The amount of additions and compatiability is too long to list here, [url=http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]so here's the full list![/url]
 
-	Weather:
-		Soil and sand will darken when wet. Wet sand and soil increase fertility. Deserts will see blooms after it rains.
-		Puddles form after rainfall and snow melt.
-		Rivers flood from rain, and are higher in the spring and lower in the fall.
-		Water freezes in the winter.
-		New weather:
-			Dust Storms (deserts only)
-			Overcast
-			Partially Cloudy
-		New Effects:
-			Lava Smoke
-			Frost
-			You can see pawns' breath in the cold
+[b]Compatability[/b] 
+Should be compatible with most other mods, unless they affect map/world generation. 
+I'm adding compatability patches as people request them. Currently have:
+[b]Vegetable garden[/b]
+[b]AnimalCollabProj[/b] 
+[b]Rainbeau's bridges[/b]
 
-	New Biomes:
-		Desert Salt Flats: 
-			Description: Desert with a lot of salt flats.
-			New plant: Salt weed, a special plant that grows only on salty earth. Separates salt from water.
-			New items: Salt and salted meat.
-			New floor: Salt the ground to prevent plants from growing for one year. Create a barrier around your base to protect from giant snails and fire.
-			New weather: Dust storms. Dry and wet versions.
-			Inspired by: Badlands Saltflats from Death Valley
-		Redwood Forest:
-			Description: Temperate area with a lot of rain and fog, redwood trees and old growth forest.
-			New trees: 
-				Redwoods, huge trees that take hundreds of years to grow and yields very large amounts of wood.
-				Old Growth Oaks, larger than your average oak.
-				Old Growth Hazel, larger than your average hazel.
-			New item: Red wood. Valuable, beautiful, fire resistant wood.
-			New weather: thick fog.
-			Inspired by: Redwood National Park in California
-		Volcanic Fields:
-			Description: Tropical. Tons of lava rock, rich soil, steam vents and lava. VERY DANGEROUS.
-			New animals: Fire salamandars and  lava pet rocks. Lava pet rocks naturally radiate heat. Very very very slow moving. Once tamed, can be cooled off and hauled to a room to heat it.
-			New item: Lava rock. A black stone that can be used for crafting.
-			New power source: steam vents. Just like geysers, but temporary. You can use the cheap vent generator to get power from a steam vent.
-			New terrains: 
-				Lava: Destroys/burns items, burns pawns. Hardens and cools into lava rock.
-				Lava rock. Plants cannot grow on lava rock, but there are more steam vents. You can mine lava rock here, and it is where pet lava rocks grow.
-			New building material: Lava rock blocks.
-			New terrain: Lava. Impassable terrain, but it generates heat.
-			Inspired by: Hawai'i Volcanoes National Park
-		Desert Oasis:
-			Description: Lush, life filled area that is affected by desert temperatures.
-			New element: Cold springs (see below)
-			New element: Wash. A dried riverbed that will flood in the spring.
-			Inspired by: Big Bend National Park in Texas
+[b]Added:[/b]
 
-	Reworked Terrains:
-		Beaches
-			Tides - very large bodies of waters will rise and fall like tides and waves.
-			Junk, shells and treasure might be left behind on the shore. They will wash away if not collected before the next tide.
-			New animals: giant crabs
-			Inspired by: A combination of beaches in Florida and beaches in the pacific northwest.
-		River banks
-			River banks will flood in the spring and recede in the fall
-			Rivers will flood after a large rain storn or snow melt.
-			Rivers will leave behind rich soil after flooding.			
+Weather:
+[list]
+[*]Soil and sand will darken when wet. Wet sand and soil increase fertility. Deserts will see a lot of growth after it rains.
+[*]Puddles form after rainfall and snow melt.
+[*]Rivers flood from rain, and are higher in the spring and lower in the fall.
+[*]Water freezes in the winter.
+[*]New weather:
+[list]
+[*]Dust Storms (deserts only)
+[*]Overcast
+[*]Windy
+[*]Volcanic Ash
+[/list]
+[*]New Effects:
+[list]
+[*]Frost on ground and plants
+[*]Snow appears on trees and bushes
+[*]You can see pawns' breath in the cold
+[*]Pawns wear a path through snow and frost
+[*]Pawns pack soil down into paths, and make stone smooth by walking on it.
+[/list]
+[*]Misc New Stuff:
+[list]
+[*]Pawns can swim and will use water to cool off if overheated
+[*]Wild versions of a lot of crops that replace berries in certain biomes (for example, wild corn in the desert, wild rice in the marsh)
+[/list]
+[/list]
+
+New Biomes: [url=http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]See full description for details![/url]
+[list]
+[*]Desert Salt Flats - desert with salt flats; allows harvesting and selling salt
+[*]Redwood Forest - rich forest with a lot of rain and huge redwood trees
+[*]Volcanic Fields - lava fields and lava rock; dangerous.
+[*]Desert Oasis - desert with a single spring surrounded by a lot of rich soil
+[*]Prairie Grasslands - grasslands with almost no trees or rocks, but a lot of nice soil.
+[*]Savanna - grasslands with more trees, tons of animals. Has seasonal rain and herd migration
+
+Reworked Biomes:
+[*]Desert, Arid Shrublands, Extreme desert
+[list]
+[*]Added new weathers (dust storm)
+[*]Added new events (dust devils, superblooms, etc)
+[*]Added a ton of new plants (cacti, ocotillo, etc). These plants will bloom after a rainfall
+[/list]
+[*]All other biomes have seasonal weather, diseases and events
+[*]Almost all other biomes will spawn springs, and have tides and flooding
+
+
+[*]New terrains: 
+[list]
+[*]Lava
+[*]Lava rock
+[*]Salt Fields
+[*]Salted Earth
+[/list]
+[*]New building material: Lava rock blocks, amber, petrified wood
+[*]New terrain: Lava. Impassable terrain, but it generates heat.
+
+Reworked Elements:
+[list]
+[*]Beaches
+[list]
+[*]Tides - very large bodies of waters will rise and fall like tides and waves.
+[*]Junk, shells and treasure might be left behind on the shore. They will wash away if not collected before the next tide.
+[/list]
+[*]River banks
+[list]
+[*]River banks will flood in the spring and recede in the fall
+[*]Rivers will flood after a large rainstorm or snow melt.
+[*]Rivers will leave behind rich soil after flooding.			
+[*]Adds water plants	
+[/list]
+[/list]
 			
-	New elements:
-		Hot springs:
-			Spawns in all biomes except...
-				Desert (all)
-				Volcanic Fields
-				Icesheet
-			Surrounded by rich soil and healroots
-			Usually spawns next to a river/creek/etc.
-			Resting in a hot spring will temporarily reduce pain and exhaustion. 
-			Gives off a small amount of heat.
-			Inspired by Arkansas Hot Springs
-		Cold spring:
-			Spawns in all biomes except...
-				Desert (except for the desert oasis)
-				Volcanic Fields
-				Icesheet
-				Tundra
-			Surrounded by rich soil and ambrosia
-			Usually spawns next to a river/creek/etc.
-			Resting in a cold spring will temporarily reduce pain and give joy. 
-			Gives off a small amount of chill.
-			Inspired by Crystal Springs and Blue Springs, FL
+New elements:
+[list]
+[*]Hot springs:
+[*]Surrounded by rich soil and healroots, plus water plants
+[*]Usually spawns next to a river/creek/etc.
+[*]Resting in a hot spring will temporarily reduce pain and exhaustion. 
+[*]Gives off a small amount of heat.
+[/list]
+[*]Cold spring:
+[*]Surrounded by rich soil and ambrosia, plus water plants
+[*]Usually spawns next to a river/creek/etc.
+[*]Resting in a cold spring will temporarily reduce pain and give joy. 
+[*]Gives off a small amount of chill.
+[*]Inspired by Crystal Springs and Blue Springs, FL
+[/list]
+[/list]
 
-	New minerals:
-		Amber (orange material)
-		Petrified Wood (dark brown marterial) (inspired by the Petrified Forest in Arizona)
+And a ton of minor additions to make the world feel more alive! [url=http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]Read them here![/url]
 
-	New sulptures:
-		Seashells
-		
-	New plants:
-		Hazelnuts, bushy-like trees that grow in temperate and boreal forests.
-		Ferns, moss, grasses and other cosmetic plants
-		
+If you like this mod, consider visiting the actual National and State Parks. Visitor numbers are really important, and these features all look waaaay better in real life :)
 
-If you like this mod, consider visiting the actual National and State Parks. Visitor numbers are really important, and these features all look waaaay bettter in real life :)
+*Currently requires a new game, because the biomes are generated when your world is generated. If you don't care about that, there's an option called "LEAVE ALONE: Regen cell lists". Click it, save and reload your file. Then uncheck it and save again. This will give you weather effects and tides. I use this option for debugging and resetting maps on my end. It's not tested or supported. Use at your own risk.
 
-Future Plans: (in no particular order)
-	Biome: Sequioa Forest from Sequoia National Park in California. Has huge trees that can be mined to build a base in.
-	Biome: Glaciers from Glacier National Park: will expand in the winter and shrink in the summer. Can be harvested for ice.
-	Biome: Lakes from Voyagers National Park: Biome filled with water that freezes into ice in the winter.
-	Biome: Geothermal Fields from Yellowstone National Park: Dangerous biome that spawns acid, geysers and hot springs.
-	Biome: Prairie biome inspired by the Great Plains. Fertile, flat land with few trees, lots of tornadoes and new animals. Add new, tornado proof area (storm cellar).
-	
-	Event: Polluted waters from Cuyahoga River: Rivers catch on fire and flood, leaving behind poisoned earth and garbage.
-	Event: Resource raids. Poachers or theives will arrive to steal resources.
-	Event: Wild flower bloom, inspired by the super bloom in Death Valley, California. In early spring a huge amount of flowers bloom. Gives mood bonus.
-	Event: Bluebell bloom, inspired by all the bluebells in Texas. In early spring a huge amount of flowers bloom. Gives mood bonus.
-	Event: Destructive floods, pawn drowning.
-	
-	Additions: River Delta and flooding from New Orleans, Louisiana: River flooding leaves behind fertilizer that will make a temporary, hyper rich soil.
-	Additions: Cave dwellings from Gila Cliff dwellings: Ancient dwellings with loot. You can also live in them.
-	Additions: Cave formations inspired by Colossal Cave in New Mexico, Florida Caverns in Florida, and Carlsbad caverns in New Mexico. Natural sculptures that are incredibly beautiful and valuable.
-	Additions: White Gypsum from White Sands, New Mexico - spawns in scrublands. Watching the sunrise and sunset here gives "unreal sunset" and "unreal sunrise" bonus.	
-	Additions : Fossils, river washes, harvestable ice for coolers, more mood bonuses and take aways, etc. 
-			
-	</description>
+[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[/list]
+</description>
 </ModMetaData>
+

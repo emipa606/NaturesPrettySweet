@@ -1,8 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
-
-<WeatherDef>
+  <WeatherDef>
     <defName>TKKN_WindStorm</defName>
     <label>wind storm</label>
     <description>A wind storm. High winds and a little rain. Help turbines but tears out plants and hinders shooting.</description>
@@ -18,8 +16,8 @@
       <max>40000</max>
     </durationRange>
     <rainRate>.3</rainRate>
-    <moveSpeedMultiplier>0.8</moveSpeedMultiplier>	
-  <skyColorsDay>
+    <moveSpeedMultiplier>0.8</moveSpeedMultiplier>
+    <skyColorsDay>
       <sky>(0.8,0.8,0.8)</sky>
       <shadow>(0.92,0.92,0.92)</shadow>
       <overlay>(0.7,0.7,0.7)</overlay>
@@ -44,9 +42,7 @@
       <saturation>0.9</saturation>
     </skyColorsNightMid>
   </WeatherDef>
-
-  
-<WeatherDef>
+  <WeatherDef>
     <defName>TKKN_Windy</defName>
     <label>windy</label>
     <description>A blustery day. High winds help turbines but hinders shooting.</description>
@@ -82,9 +78,7 @@
       <saturation>1.25</saturation>
     </skyColorsNightMid>
   </WeatherDef>
-
-  
- <WeatherDef>
+  <WeatherDef>
     <defName>TKKN_Overcast</defName>
     <label>Overcast</label>
     <description>Cloudy, but no rain.</description>
@@ -94,7 +88,7 @@
     <ambientSounds>
       <li>AmbientWind_Clear</li>
     </ambientSounds>
-     <skyColorsDay>
+    <skyColorsDay>
       <sky>(0.8,0.8,0.8)</sky>
       <shadow>(0.92,0.92,0.92)</shadow>
       <overlay>(0.7,0.7,0.7)</overlay>
@@ -119,8 +113,6 @@
       <saturation>0.9</saturation>
     </skyColorsNightMid>
   </WeatherDef>
-  
-
   <WeatherDef>
     <defName>TKKN_ThickFog</defName>
     <label>thick fog</label>
@@ -140,7 +132,7 @@
         <li>(0, 0)</li>
         <li>(1300, 1)</li>
       </points>
-    </commonalityRainfallFactor>    
+    </commonalityRainfallFactor>
     <!-- Colors are Overcast -->
     <skyColorsDay>
       <sky>(0.9,0.9,0.9)</sky>
@@ -167,7 +159,6 @@
       <saturation>0.9</saturation>
     </skyColorsNightMid>
   </WeatherDef>
-
   <WeatherDef>
     <defName>TKKN_LavaSmoke</defName>
     <label>lava smoke</label>
@@ -186,7 +177,7 @@
         <li>(0, 0)</li>
         <li>(1300, 1)</li>
       </points>
-    </commonalityRainfallFactor>    
+    </commonalityRainfallFactor>
     <!-- Colors are reddish -->
     <skyColorsDay>
       <sky>(0.8,0.8,0.8)</sky>
@@ -213,8 +204,7 @@
       <saturation>0.9</saturation>
     </skyColorsNightMid>
   </WeatherDef>
-
-<WeatherDef>
+  <WeatherDef>
     <defName>TKKN_DustStorm</defName>
     <label>dust storm</label>
     <description>storms whip up dust, reducing visibilty and the accuracy of ranged weapons.</description>
@@ -236,7 +226,7 @@
         <li>(0, 0)</li>
         <li>(1300, 1)</li>
       </points>
-    </commonalityRainfallFactor>    
+    </commonalityRainfallFactor>
     <!-- Colors are brownish -->
     <skyColorsDay>
       <sky>(0.8,0.8,0.8)</sky>
@@ -263,7 +253,6 @@
       <saturation>0.9</saturation>
     </skyColorsNightMid>
   </WeatherDef>
-  
   <WeatherDef>
     <defName>TKKN_DryDustStorm</defName>
     <label>dry dust storm</label>
@@ -285,8 +274,8 @@
         <li>(0, 0)</li>
         <li>(1300, 1)</li>
       </points>
-    </commonalityRainfallFactor>    
-       <!-- Colors are brownish -->
+    </commonalityRainfallFactor>
+    <!-- Colors are brownish -->
     <skyColorsDay>
       <sky>(0.8,0.8,0.8)</sky>
       <shadow>(0.92,0.92,0.92)</shadow>
@@ -311,7 +300,5 @@
       <overlay>(0.46,0.39,0.35)</overlay>
       <saturation>0.9</saturation>
     </skyColorsNightMid>
-
   </WeatherDef>
-  
-  </Defs>
+</Defs>

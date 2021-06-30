@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
   <GameConditionDef>
     <defName>TKKN_WildFlowerBloom</defName>
     <conditionClass>TKKN_NPS.GameCondition_WildFlowerBloom</conditionClass>
@@ -10,10 +9,9 @@
     <exclusiveConditions>
       <li>ColdSnap</li>
       <li>VolcanicWinter</li>
-      <li>ToxicFallout</li>	  
+      <li>ToxicFallout</li>
     </exclusiveConditions>
-</GameConditionDef>
-  
+  </GameConditionDef>
   <GameConditionDef>
     <defName>TKKN_Superbloom</defName>
     <conditionClass>TKKN_NPS.GameCondition_Superbloom</conditionClass>
@@ -23,10 +21,9 @@
     <exclusiveConditions>
       <li>ColdSnap</li>
       <li>VolcanicWinter</li>
-      <li>ToxicFallout</li>	  
+      <li>ToxicFallout</li>
     </exclusiveConditions>
   </GameConditionDef>
-
   <GameConditionDef>
     <defName>TKKN_Drought</defName>
     <conditionClass>TKKN_NPS.GameCondition_Drought</conditionClass>
@@ -35,10 +32,9 @@
     <endMessage>The drought is ending.</endMessage>
     <canBePermanent>true</canBePermanent>
     <preventRain>true</preventRain>
-	<exclusiveConditions>
+    <exclusiveConditions>
       <li>TKKN_WildFlowerBloom</li>
       <li>TKKN_Superbloom</li>
     </exclusiveConditions>
   </GameConditionDef>
-
 </Defs>

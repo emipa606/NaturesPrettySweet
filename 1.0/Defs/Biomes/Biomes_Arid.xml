@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  
   <BiomeDef>
     <defName>TKKN_Desert</defName>
     <label>desert and salt fields</label>
@@ -12,7 +11,7 @@
     <texture>TKKN_NPS/World/Biomes/Saltfields</texture>
     <forageability>0.15</forageability>
     <foragedFood>RawAgave</foragedFood>
-	<implemented>true</implemented>
+    <implemented>true</implemented>
     <diseaseMtbDays>80</diseaseMtbDays>
     <diseases>
       <li>
@@ -66,26 +65,26 @@
       <SnowHard>3</SnowHard>
     </baseWeatherCommonalities>
     <wildPlants>
-		<Plant_Grass>6</Plant_Grass>
-		<Plant_SaguaroCactus>1</Plant_SaguaroCactus>
-		<Plant_PincushionCactus>1</Plant_PincushionCactus>
-		<Plant_Dandelion>0.5</Plant_Dandelion>
-		<Plant_TreePoplar>0.45</Plant_TreePoplar>
-		<Plant_Agave>0.25</Plant_Agave>
-		<Plant_Bush>0.25</Plant_Bush>
-		<TKKN_PlantCatTails>1</TKKN_PlantCatTails>
-		<TKKN_PlantLilypad>1</TKKN_PlantLilypad>
-		<TKKN_PlantCactusPricklyPear>.1</TKKN_PlantCactusPricklyPear>
-		<TKKN_PlantCactusSanPedro>.1</TKKN_PlantCactusSanPedro>
-		<TKKN_PlantCactusBarrel>.1</TKKN_PlantCactusBarrel>
-		<TKKN_PlantDesertShrubA>.2</TKKN_PlantDesertShrubA>
-		<TKKN_PlantDesertShrubB>.2</TKKN_PlantDesertShrubB>
-		<TKKN_PlantSucculants>.1</TKKN_PlantSucculants>
-		<TKKN_TreeOcotillo>.2</TKKN_TreeOcotillo>
-		<TKKN_PlantWildCorn>.1</TKKN_PlantWildCorn>
-		<TKKN_SaltCrystal>2</TKKN_SaltCrystal>
-		<TKKN_PlantBarnacles>2</TKKN_PlantBarnacles>
-	</wildPlants>
+      <Plant_Grass>6</Plant_Grass>
+      <Plant_SaguaroCactus>1</Plant_SaguaroCactus>
+      <Plant_PincushionCactus>1</Plant_PincushionCactus>
+      <Plant_Dandelion>0.5</Plant_Dandelion>
+      <Plant_TreePoplar>0.45</Plant_TreePoplar>
+      <Plant_Agave>0.25</Plant_Agave>
+      <Plant_Bush>0.25</Plant_Bush>
+      <TKKN_PlantCatTails>1</TKKN_PlantCatTails>
+      <TKKN_PlantLilypad>1</TKKN_PlantLilypad>
+      <TKKN_PlantCactusPricklyPear>.1</TKKN_PlantCactusPricklyPear>
+      <TKKN_PlantCactusSanPedro>.1</TKKN_PlantCactusSanPedro>
+      <TKKN_PlantCactusBarrel>.1</TKKN_PlantCactusBarrel>
+      <TKKN_PlantDesertShrubA>.2</TKKN_PlantDesertShrubA>
+      <TKKN_PlantDesertShrubB>.2</TKKN_PlantDesertShrubB>
+      <TKKN_PlantSucculants>.1</TKKN_PlantSucculants>
+      <TKKN_TreeOcotillo>.2</TKKN_TreeOcotillo>
+      <TKKN_PlantWildCorn>.1</TKKN_PlantWildCorn>
+      <TKKN_SaltCrystal>2</TKKN_SaltCrystal>
+      <TKKN_PlantBarnacles>2</TKKN_PlantBarnacles>
+    </wildPlants>
     <wildAnimals>
       <Gazelle>0.1</Gazelle>
       <Emu>0.02</Emu>
@@ -103,7 +102,7 @@
       <li>Dromedary</li>
     </allowedPackAnimals>
   </BiomeDef>
-   <BiomeDef>
+  <BiomeDef>
     <defName>TKKN_Oasis</defName>
     <label>desert oasis</label>
     <description>A large amount of water surrounded by a very dry area. The oasis itself has rich soil and lots of animals, but is surrounded by extreme desert.</description>
@@ -114,7 +113,7 @@
     <forageability>0.9</forageability>
     <foragedFood>RawAgave</foragedFood>
     <texture>TKKN_NPS/World/Biomes/Oasis</texture>
-	<implemented>true</implemented>
+    <implemented>true</implemented>
     <diseaseMtbDays>80</diseaseMtbDays>
     <diseases>
       <li>
@@ -160,29 +159,29 @@
       <SnowHard>3</SnowHard>
     </baseWeatherCommonalities>
     <wildPlants>
-		<Plant_Grass>3</Plant_Grass>
-		<TKKN_PlantTreeBaobab>.5</TKKN_PlantTreeBaobab>
-		<TKKN_PlantTreeGum>.5</TKKN_PlantTreeGum>
-		<TKKN_PlantCactusPricklyPear>.3</TKKN_PlantCactusPricklyPear>
-		<TKKN_PlantCactusSanPedro>.5</TKKN_PlantCactusSanPedro>
-		<TKKN_PlantCactusBarrel>.5</TKKN_PlantCactusBarrel>
-		<TKKN_PlantDesertShrubA>1</TKKN_PlantDesertShrubA>
-		<TKKN_PlantDesertShrubB>1</TKKN_PlantDesertShrubB>
-		<TKKN_PlantSucculants>.5</TKKN_PlantSucculants>
-		<TKKN_TreeOcotillo>.3</TKKN_TreeOcotillo>
-		<TKKN_PlantWildCorn>.05</TKKN_PlantWildCorn>
-	   <TKKN_PlantWildRice>.6</TKKN_PlantWildRice>
-	   <TKKN_PlantCatTails>.6</TKKN_PlantCatTails>
-	   <TKKN_PlantLilypad>.5</TKKN_PlantLilypad>
-		<TKKN_SaltCrystal>2</TKKN_SaltCrystal>
-		<TKKN_PlantBarnacles>2</TKKN_PlantBarnacles>
-		<Plant_PincushionCactus>.5</Plant_PincushionCactus>
-		<Plant_Dandelion>0.2</Plant_Dandelion>
-		<Plant_TreePalm>0.3</Plant_TreePalm>
-		<Plant_TreeBamboo>0.3</Plant_TreeBamboo>
-		<Plant_Agave>0.3</Plant_Agave>
-		<Plant_Bush>0.25</Plant_Bush>
-	</wildPlants>
+      <Plant_Grass>3</Plant_Grass>
+      <TKKN_PlantTreeBaobab>.5</TKKN_PlantTreeBaobab>
+      <TKKN_PlantTreeGum>.5</TKKN_PlantTreeGum>
+      <TKKN_PlantCactusPricklyPear>.3</TKKN_PlantCactusPricklyPear>
+      <TKKN_PlantCactusSanPedro>.5</TKKN_PlantCactusSanPedro>
+      <TKKN_PlantCactusBarrel>.5</TKKN_PlantCactusBarrel>
+      <TKKN_PlantDesertShrubA>1</TKKN_PlantDesertShrubA>
+      <TKKN_PlantDesertShrubB>1</TKKN_PlantDesertShrubB>
+      <TKKN_PlantSucculants>.5</TKKN_PlantSucculants>
+      <TKKN_TreeOcotillo>.3</TKKN_TreeOcotillo>
+      <TKKN_PlantWildCorn>.05</TKKN_PlantWildCorn>
+      <TKKN_PlantWildRice>.6</TKKN_PlantWildRice>
+      <TKKN_PlantCatTails>.6</TKKN_PlantCatTails>
+      <TKKN_PlantLilypad>.5</TKKN_PlantLilypad>
+      <TKKN_SaltCrystal>2</TKKN_SaltCrystal>
+      <TKKN_PlantBarnacles>2</TKKN_PlantBarnacles>
+      <Plant_PincushionCactus>.5</Plant_PincushionCactus>
+      <Plant_Dandelion>0.2</Plant_Dandelion>
+      <Plant_TreePalm>0.3</Plant_TreePalm>
+      <Plant_TreeBamboo>0.3</Plant_TreeBamboo>
+      <Plant_Agave>0.3</Plant_Agave>
+      <Plant_Bush>0.25</Plant_Bush>
+    </wildPlants>
     <wildAnimals>
       <Gazelle>1</Gazelle>
       <Emu>0.2</Emu>
@@ -201,5 +200,4 @@
       <li>Dromedary</li>
     </allowedPackAnimals>
   </BiomeDef>
-
 </Defs>

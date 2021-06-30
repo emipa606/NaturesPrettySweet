@@ -1,42 +1,40 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<HediffDef>
-		<defName>TKKN_Wetness</defName>
-		<defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
-		<hediffClass>TKKN_NPS.Hediff_Wetness</hediffClass>
-		<label>wetness</label>
-		<stages>
-		  <li>
-			<label>dry</label>
-			<minSeverity>0</minSeverity>
-		  </li>
-		  <li>
-			<label>damp</label>
-			<minSeverity>0.04</minSeverity>
-		  </li>
-		  <li>
-			<label>soggy</label>
-			<minSeverity>0.35</minSeverity>
-		  </li>
-		  <li>
-			<label>wet</label>
-			<minSeverity>0.62</minSeverity>
-		  </li>
-		  <li>
-			<label>soaked</label>
-			<minSeverity>0.8</minSeverity>
-		  </li>
-		</stages>
-	</HediffDef>
-
-	
+  <HediffDef>
+    <defName>TKKN_Wetness</defName>
+    <defaultLabelColor>(0.8, 0.8, 0.35)</defaultLabelColor>
+    <hediffClass>TKKN_NPS.Hediff_Wetness</hediffClass>
+    <label>wetness</label>
+    <stages>
+      <li>
+        <label>dry</label>
+        <minSeverity>0</minSeverity>
+      </li>
+      <li>
+        <label>damp</label>
+        <minSeverity>0.04</minSeverity>
+      </li>
+      <li>
+        <label>soggy</label>
+        <minSeverity>0.35</minSeverity>
+      </li>
+      <li>
+        <label>wet</label>
+        <minSeverity>0.62</minSeverity>
+      </li>
+      <li>
+        <label>soaked</label>
+        <minSeverity>0.8</minSeverity>
+      </li>
+    </stages>
+  </HediffDef>
   <HediffDef>
     <defName>TKKN_Drowning</defName>
     <label>drowning</label>
     <lethalSeverity>1</lethalSeverity>
     <scenarioCanAdd>true</scenarioCanAdd>
     <stages>
-       <li>
+      <li>
         <label>treading water</label>
         <minSeverity>0.2</minSeverity>
         <capMods>

@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Patch>
-
-<!-- AridShrubland -->
-
-   <!--
+  <!-- AridShrubland -->
+  <!--
    <Operation Class="PatchOperationInsert">
       <xpath>/Defs/BiomeDef[defName = "AridShrubland"]</xpath>
       <value>
@@ -13,9 +11,9 @@
 	  </baseWeatherCommonalities>
       </value>
    </Operation>
--->   
-   <!-- tweaking plants generated -->
-   <!-- Operation Class="PatchOperationReplace">
+-->
+  <!-- tweaking plants generated -->
+  <!-- Operation Class="PatchOperationReplace">
       <xpath>/Defs/BiomeDef[defName = "AridShrubland"]/wildPlants/Plant_SaguaroCactus</xpath>
       <value><Plant_SaguaroCactus>.3</Plant_SaguaroCactus></value>
    </Operation>
@@ -30,7 +28,7 @@
    <Operation Class="PatchOperationRemove">
       <xpath>/Defs/BiomeDef[defName = "AridShrubland"]/wildPlants/Plant_Berry</xpath>
    </Operation -->
-   <!--
+  <!--
    <Operation Class="PatchOperationReplace">
       <xpath>/Defs/BiomeDef[defName = "AridShrubland"]/wildPlants</xpath>
       <value>
@@ -53,11 +51,10 @@
 	  </wildPlants>
       </value>
    </Operation>
--->   
-<!-- end AridShrubland -->
-
-<!-- Desert -->
-<!--
+-->
+  <!-- end AridShrubland -->
+  <!-- Desert -->
+  <!--
    <Operation Class="PatchOperationInsert">
       <xpath>/Defs/BiomeDef[defName = "Desert"]</xpath>
       <value>
@@ -92,8 +89,8 @@
 	  </wildPlants>
       </value>
    </Operation> 
-      -->   
-   <!-- Operation Class="PatchOperationInsert">
+      -->
+  <!-- Operation Class="PatchOperationInsert">
       <xpath>/Defs/BiomeDef[defName = "Desert"]</xpath>
       <value>
 	  <wildPlants>
@@ -107,11 +104,9 @@
 	  </wildPlants>
       </value>
    </Operation -->
-   
-<!-- end Desert -->
-
-<!-- extreme desert -->
-   <!--
+  <!-- end Desert -->
+  <!-- extreme desert -->
+  <!--
    <Operation Class="PatchOperationReplace">
       <xpath>/Defs/BiomeDef[defName = "ExtremeDesert"]/wildPlants</xpath>
       <value>
@@ -131,6 +126,6 @@
 	  </wildPlants>
       </value>
    </Operation>   
-   -->   
-<!-- end extreme desert -->
+   -->
+  <!-- end extreme desert -->
 </Patch>

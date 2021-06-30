@@ -1,41 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <ThingDef ParentName="PlantBase">
-	<defName>TKKN_SaltCrystal</defName>
-	<label>salt weed</label>
-	<description>A special plant that filters salt out of water. Salt is deposited on its branches.\n\nWhile salt is artificially created on the Glitterworlds, it is very rare and valuable on the rim, allowing for meat to be preserved and stopping giant snail attacks.</description>
-	<statBases>
-	  <MaxHitPoints>40</MaxHitPoints>
-	  <Flammability>0</Flammability>	  
-	</statBases>
-	<ingestible>
+    <defName>TKKN_SaltCrystal</defName>
+    <label>salt weed</label>
+    <description>A special plant that filters salt out of water. Salt is deposited on its branches.\n\nWhile salt is artificially created on the Glitterworlds, it is very rare and valuable on the rim, allowing for meat to be preserved and stopping giant snail attacks.</description>
+    <statBases>
+      <MaxHitPoints>40</MaxHitPoints>
+      <Flammability>0</Flammability>
+    </statBases>
+    <ingestible>
       <foodType>Plant</foodType>
       <preferability>NeverForNutrition</preferability>
-	</ingestible>	
-	<graphicData>
-	  <texPath>TKKN_NPS/Things/Plant/saltCrystalReady</texPath>
-	  <graphicClass>Graphic_Single</graphicClass>
-	</graphicData>
-	<selectable>true</selectable>
-	<pathCost>10</pathCost>
-	<plant>
-		<leaflessGraphicPath>TKKN_NPS/Things/Plant/saltCrystalDead</leaflessGraphicPath>
-		<immatureGraphicPath>TKKN_NPS/Things/Plant/saltCrystalBaby</immatureGraphicPath>	
-		<fertilityMin>100</fertilityMin>
-		<fertilitySensitivity>1</fertilitySensitivity>
-		<growDays>6.5</growDays>
-		<dieIfLeafless>false</dieIfLeafless>
-		<harvestTag>Standard</harvestTag>
-		<harvestedThingDef>TKKN_Salt</harvestedThingDef>
-		<harvestYield>3</harvestYield>
-		<topWindExposure>999</topWindExposure>
-			<wildClusterWeight>60</wildClusterWeight>
-		<wildClusterRadius>3</wildClusterRadius>
-         <visualSizeRange>0.7~1.2</visualSizeRange>
-	</plant>
+    </ingestible>
+    <graphicData>
+      <texPath>TKKN_NPS/Things/Plant/saltCrystalReady</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <selectable>true</selectable>
+    <pathCost>10</pathCost>
+    <plant>
+      <leaflessGraphicPath>TKKN_NPS/Things/Plant/saltCrystalDead</leaflessGraphicPath>
+      <immatureGraphicPath>TKKN_NPS/Things/Plant/saltCrystalBaby</immatureGraphicPath>
+      <fertilityMin>100</fertilityMin>
+      <fertilitySensitivity>1</fertilitySensitivity>
+      <growDays>6.5</growDays>
+      <dieIfLeafless>false</dieIfLeafless>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>TKKN_Salt</harvestedThingDef>
+      <harvestYield>3</harvestYield>
+      <topWindExposure>999</topWindExposure>
+      <wildClusterWeight>60</wildClusterWeight>
+      <wildClusterRadius>3</wildClusterRadius>
+      <visualSizeRange>0.7~1.2</visualSizeRange>
+    </plant>
   </ThingDef>
-
   <ThingDef ParentName="OrganicProductBase">
     <defName>TKKN_Salt</defName>
     <label>salt</label>
@@ -56,7 +54,6 @@
       <li>AnimalProductRaw</li>
     </thingCategories>
   </ThingDef>
-  
   <ThingDef ParentName="OrganicProductBase">
     <defName>TKKN_PreservedMeat</defName>
     <label>preservedmeat</label>
@@ -74,8 +71,8 @@
       <MarketValue>1.5</MarketValue>
       <Mass>0.018</Mass>
       <WorkToMake>700</WorkToMake>
-			<DeteriorationRate>2</DeteriorationRate>
-	  <Nutrition>.5</Nutrition>
+      <DeteriorationRate>2</DeteriorationRate>
+      <Nutrition>.5</Nutrition>
     </statBases>
     <ingestible>
       <foodType>Meal</foodType>
@@ -83,7 +80,7 @@
       <ingestEffect>EatVegetarian</ingestEffect>
       <ingestSound>Meal_Eat</ingestSound>
       <optimalityOffsetHumanlikes>6</optimalityOffsetHumanlikes>
-		</ingestible>
+    </ingestible>
     <comps>
       <li Class="CompProperties_Rottable">
         <rotDestroys>false</rotDestroys>
@@ -92,6 +89,4 @@
       <li Class="CompProperties_FoodPoisonable" />
     </comps>
   </ThingDef>
-
-
 </Defs>
