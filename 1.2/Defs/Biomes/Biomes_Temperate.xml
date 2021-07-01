@@ -114,7 +114,7 @@
       <Plant_Berry>0.1</Plant_Berry>
       <Plant_Healroot>0.05</Plant_Healroot>
       <TKKN_SaltCrystal>2</TKKN_SaltCrystal>
-      <TKKN_PlantBarnacles>2</TKKN_PlantBarnacles>
+      <TKKN_PlantBarnacles>0.1</TKKN_PlantBarnacles>
     </wildPlants>
     <wildAnimals>
       <Hare>1.00</Hare>
