@@ -18,8 +18,8 @@ namespace TKKN_NPS
             }
 
             GenTemperature.PushHeat(parent, Props.temperature);
-            MoteMaker.ThrowFireGlow(parent.Position, parent.Map, 1);
-            MoteMaker.ThrowSmoke(parent.Position.ToVector3(), parent.Map, 1);
+            FleckMaker.ThrowFireGlow(parent.DrawPos, parent.Map, 1);
+            FleckMaker.ThrowSmoke(parent.Position.ToVector3(), parent.Map, 1);
         }
     }
 }

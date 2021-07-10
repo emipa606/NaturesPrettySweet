@@ -34,7 +34,7 @@ namespace TKKN_NPS
             }
 
             //they are comfortable only at higher temp
-            var old = __result;
+            var unused = __result;
             __result.min += setTo;
             __result.max += setTo;
 

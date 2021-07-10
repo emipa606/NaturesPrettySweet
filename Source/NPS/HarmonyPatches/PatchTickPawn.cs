@@ -146,7 +146,7 @@ namespace TKKN_NPS
             var isWet = false;
             if (map.weatherManager.curWeather.rainRate > .001f)
             {
-                var room = c.GetRoom(map, RegionType.Set_All);
+                var room = c.GetRoom(map);
                 var roofed = map.roofGrid.Roofed(c);
                 var unused = room != null && room.UsesOutdoorTemperature;
                 if (!roofed)

@@ -474,12 +474,12 @@ namespace TKKN_NPS
                 }
                 else if (currentTerrain.HasTag("TKKN_Wet"))
                 {
-                    MoteMaker.MakeWaterSplash(location.ToVector3(), map, 1, 1);
+                    FleckMaker.WaterSplash(location.ToVector3(), map, 1, 1);
                 }
             }
             else if (Rand.Value < .04 && currentTerrain.HasTag("Lava"))
             {
-                MoteMaker.ThrowSmoke(location.ToVector3(), map, 5);
+                FleckMaker.ThrowSmoke(location.ToVector3(), map, 5);
             }
         }
 

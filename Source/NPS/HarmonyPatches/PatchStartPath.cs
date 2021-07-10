@@ -34,7 +34,7 @@ namespace TKKN_NPS
 
         public static bool TryRecoverFromUnwalkablePosition(bool error, Pawn pawn)
         {
-            var flag = false;
+            var tryRecoverFromUnwalkablePosition = false;
             foreach (var intVec3 in GenRadial.RadialPattern)
             {
                 var intVec = pawn.Position + intVec3;
@@ -50,16 +50,16 @@ namespace TKKN_NPS
 
                 pawn.Position = intVec;
                 pawn.Notify_Teleported(true, false);
-                flag = true;
+                tryRecoverFromUnwalkablePosition = true;
                 break;
             }
 
-            if (!flag)
+            if (!tryRecoverFromUnwalkablePosition)
             {
                 pawn.Destroy();
             }
 
-            return flag;
+            return tryRecoverFromUnwalkablePosition;
         }
 
         public static bool PawnCanOccupy(IntVec3 c, Pawn pawn)

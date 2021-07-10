@@ -1,3 +1,0 @@
-﻿namespace TKKN_NPS
-{
-}

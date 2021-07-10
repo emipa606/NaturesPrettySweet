@@ -4,8 +4,7 @@ using Verse;
 
 namespace TKKN_NPS.HarmonyPatches
 {
-    [HarmonyPatch(typeof(PlantUtility))]
-    [HarmonyPatch("CanEverPlantAt")]
+    [HarmonyPatch(typeof(PlantUtility), "CanEverPlantAt", typeof(ThingDef), typeof(IntVec3), typeof(Map), typeof(bool))]
     internal class Patch_CanEverPlantAt_PlantUtility
     {
         [HarmonyPostfix]

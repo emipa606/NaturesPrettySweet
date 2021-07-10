@@ -438,7 +438,7 @@ namespace TKKN_NPS
             var pawns = c.GetThingList(parent.Map);
             foreach (var thing in pawns)
             {
-                if (thing is Pawn pawn)
+                if (thing is Pawn)
                 {
                     //    pawn.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.NearNPS, null);
                 }

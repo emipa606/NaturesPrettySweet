@@ -179,7 +179,7 @@ namespace TKKN_NPS
                     }
 
                     var num = Rand.Range(0.6f, 1f);
-                    MoteMaker.ThrowTornadoDustPuff(new Vector3(realPosition.x, 0f, realPosition.y)
+                    FleckMaker.ThrowTornadoDustPuff(new Vector3(realPosition.x, 0f, realPosition.y)
                         {
                             y = AltitudeLayer.MoteOverhead.AltitudeFor()
                         } + Vector3Utility.RandomHorizontalOffset(1.5f), Map, Rand.Range(1.5f, 3f),

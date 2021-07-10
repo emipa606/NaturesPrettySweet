@@ -41,7 +41,7 @@ namespace TKKN_NPS
             var cellRect = section.CellRect;
             var num = Map.Size.z - 1;
             var num2 = Map.Size.x - 1;
-            var flag = false;
+            var b = false;
 
             var cellIndices = Map.cellIndices;
             for (var i = cellRect.minX; i <= cellRect.maxX; i++) // this is what renders it all blobby, I think
@@ -78,7 +78,7 @@ namespace TKKN_NPS
                     {
                         if (vertDepth[k] > 0.01f)
                         {
-                            flag = true;
+                            b = true;
                         }
 
                         subMesh.colors.Add(FrostDepthColor(vertDepth[k]));
@@ -86,7 +86,7 @@ namespace TKKN_NPS
                 }
             }
 
-            if (flag)
+            if (b)
             {
                 subMesh.disabled = false;
                 subMesh.FinalizeMesh(MeshParts.Colors);

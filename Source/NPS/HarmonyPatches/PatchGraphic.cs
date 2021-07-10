@@ -14,7 +14,7 @@ namespace TKKN_NPS
             public static bool Prefix(Vector3 loc, Rot4 rot, ThingDef thingDef, Thing thing, float extraRotation)
             {
                 var pawn = thing as Pawn;
-                if (pawn is not Pawn)
+                if (pawn is not { })
                 {
                     return true;
                 }

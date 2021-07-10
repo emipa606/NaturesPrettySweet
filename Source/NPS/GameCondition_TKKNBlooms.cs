@@ -11,7 +11,7 @@ namespace TKKN_NPS
         public void DoCellSteadyEffects(IntVec3 c)
         {
             //must be outdoors.
-            var map = SingleMap;
+            var unused = SingleMap;
             var biomeSettings = SingleMap.Biome.GetModExtension<BiomeSeasonalSettings>();
             var bloomPlants = biomeSettings.bloomPlants.ToList();
             if (bloomPlants.Count == 0)
@@ -19,7 +19,7 @@ namespace TKKN_NPS
                 return;
             }
 
-            var room = c.GetRoom(SingleMap, RegionType.Set_All);
+            var room = c.GetRoom(SingleMap);
             if (room != null)
             {
                 return;

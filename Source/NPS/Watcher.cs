@@ -235,25 +235,17 @@ namespace TKKN_NPS
                                 }
 
                                 var bankCheckTerrain = bankCheck.GetTerrain(map);
-                                if (!bankCheckTerrain.HasTag("TKKN_Wet") &&
-                                    terrain.defName != "TKKN_SandBeachWetSalt"
-                                ) // || ((terrain.defName == "WaterDeep" || terrain.defName == "WaterDeep" || terrain.defName == "WaterMovingDeep") && bankCheckTerrain.defName != terrain.defName))
+                                if (bankCheckTerrain.HasTag("TKKN_Wet") || terrain.defName == "TKKN_SandBeachWetSalt")
                                 {
-                                    //see if this cell has already been done, because we can have each cell in multiple flood levels.
-                                    cellData bankCell;
-                                    if (cellWeatherAffects.ContainsKey(bankCheck))
-                                    {
-                                        bankCell = cellWeatherAffects[bankCheck];
-                                    }
-                                    else
-                                    {
-                                        bankCell = new cellData();
-                                        bankCell.location = bankCheck;
-                                        bankCell.baseTerrain = bankCheckTerrain;
-                                    }
-
-                                    bankCell.floodLevel.Add(j);
+                                    continue;
                                 }
+
+                                //see if this cell has already been done, because we can have each cell in multiple flood levels.
+                                var bankCell = cellWeatherAffects.ContainsKey(bankCheck)
+                                    ? cellWeatherAffects[bankCheck]
+                                    : new cellData {location = bankCheck, baseTerrain = bankCheckTerrain};
+
+                                bankCell.floodLevel.Add(j);
                             }
                         }
                     }
@@ -662,7 +654,7 @@ namespace TKKN_NPS
             }
 
             var currentTerrain = c.GetTerrain(map);
-            var room = c.GetRoom(map, RegionType.Set_All);
+            var room = c.GetRoom(map);
             var roofed = map.roofGrid.Roofed(c);
             var unused = room != null && room.UsesOutdoorTemperature;
 
@@ -890,11 +882,10 @@ namespace TKKN_NPS
             }
 
             var cell = cellWeatherAffects[c];
-            var room = c.GetRoom(map, RegionType.Set_All);
-            var flag2 = room != null && room.UsesOutdoorTemperature;
+            var room = c.GetRoom(map);
 
             var isCold = false;
-            if (room == null || flag2)
+            if (room == null || room.UsesOutdoorTemperature)
             {
                 cell.temperature = map.mapTemperature.OutdoorTemp;
                 if (map.mapTemperature.OutdoorTemp < 0f)
@@ -908,7 +899,7 @@ namespace TKKN_NPS
                 return isCold;
             }
 
-            if (flag2)
+            if (room.UsesOutdoorTemperature)
             {
                 return isCold;
             }
@@ -931,11 +922,10 @@ namespace TKKN_NPS
             }
 
             var cell = cellWeatherAffects[c];
-            var room = c.GetRoom(map, RegionType.Set_All);
-            var flag2 = room != null && room.UsesOutdoorTemperature;
+            var room = c.GetRoom(map);
 
             var isHot = false;
-            if (room == null || flag2)
+            if (room == null || room.UsesOutdoorTemperature)
             {
                 cell.temperature = map.mapTemperature.OutdoorTemp;
                 if (map.mapTemperature.OutdoorTemp > 37f)
@@ -949,7 +939,7 @@ namespace TKKN_NPS
                 return isHot;
             }
 
-            if (flag2)
+            if (room.UsesOutdoorTemperature)
             {
                 return isHot;
             }
@@ -1279,8 +1269,8 @@ namespace TKKN_NPS
                 {
                     if (Rand.Value < .0009f)
                     {
-                        MoteMaker.ThrowHeatGlow(c, map, 5f);
-                        MoteMaker.ThrowSmoke(c.ToVector3(), map, 4f);
+                        FleckMaker.ThrowHeatGlow(c, map, 5f);
+                        FleckMaker.ThrowSmoke(c.ToVector3(), map, 4f);
                     }
                 }
                 else
@@ -1299,7 +1289,7 @@ namespace TKKN_NPS
                     */
                     if (Rand.Value < .0005f)
                     {
-                        MoteMaker.ThrowSmoke(c.ToVector3(), map, 4f);
+                        FleckMaker.ThrowSmoke(c.ToVector3(), map, 4f);
                     }
                 }
 
