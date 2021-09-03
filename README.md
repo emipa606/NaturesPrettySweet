@@ -1,6 +1,6 @@
 # NaturesPrettySweet
 
-![Image](https://i.imgur.com/WAEzk68.png)
+![Image](https://i.imgur.com/buuPQel.png)
 
 Update of tkkntkkns mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1211694919
@@ -8,7 +8,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=1211694919
 - Since the original had a lot of reported bugs Id appreciate anyone to try this version out and report back any issues. Ive fixed various bugs but the design of the mod is still the same.
 - Reduced the amount of barnacles spawned to more sensible levels
 
-![Image](https://i.imgur.com/7Gzt3Rg.png)
+![Image](https://i.imgur.com/pufA0kM.png)
 
 
 [table]
@@ -20,30 +20,30 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=1211694919
     [/tr]
 [/table]
 	
-![Image](https://i.imgur.com/NOW7jU1.png)
+![Image](https://i.imgur.com/Z4GOv8H.png)
 
-http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]Full description! (I&apos;m out of space here) 
+http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]Full description! (I'm out of space here) 
 https://www.patreon.com/tkkntkkn/]My patreon (upcoming updates are mentioned here, publically)!
 https://ko-fi.com/kamicomics/]Buy me a coffee!
 
 **Dec 1 - Bug fix update and a few new things, see git, notes on update, or full description for deets **
 
-**TKKNTKKN&apos;s Nature&apos;s Pretty Sweet makes the environment in RimWorld a unique and dangerous force to be reckoned with.** The mod adds additional terrain elements, weather and biomes. It also updates the map in response to weather, giving a more wild, untamed and alive feeling to the world. Finally, it adds a variety of plants, springs, and other things (like barnacles) to the world, working to make each biome look and feel completely unique.
+**TKKNTKKN's Nature's Pretty Sweet makes the environment in RimWorld a unique and dangerous force to be reckoned with.** The mod adds additional terrain elements, weather and biomes. It also updates the map in response to weather, giving a more wild, untamed and alive feeling to the world. Finally, it adds a variety of plants, springs, and other things (like barnacles) to the world, working to make each biome look and feel completely unique.
 
-**Requires a new save.* Some of the weather effects might cause a little bit of lag (at high speeds or if you&apos;re really zoomed out) but you can turn them off in the options. Map generation, your first save, and loading saves should take slightly longer than usual.**
+**Requires a new save.* Some of the weather effects might cause a little bit of lag (at high speeds or if you're really zoomed out) but you can turn them off in the options. Map generation, your first save, and loading saves should take slightly longer than usual.**
 
-Most new elements will generate in the standard biomes, but there are some biomes that guarantee new features, and a few elements are ONLY available in some biomes. Most of the elements were directly inspired by places I&apos;ve camped in the US.
+Most new elements will generate in the standard biomes, but there are some biomes that guarantee new features, and a few elements are ONLY available in some biomes. Most of the elements were directly inspired by places I've camped in the US.
 
 There are also new resources, items, dangers, natural protection from raids and other effects. Resources can be harvested to get items, which can be sold or consumed.
 
-The amount of additions and compatiability is too long to list here, http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]so here&apos;s the full list!
+The amount of additions and compatiability is too long to list here, http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]so here's the full list!
 
 **Compatability** 
 Should be compatible with most other mods, unless they affect map/world generation. 
-I&apos;m adding compatability patches as people request them. Currently have:
+I'm adding compatability patches as people request them. Currently have:
 **Vegetable garden**
 **AnimalCollabProj** 
-**Rainbeau&apos;s bridges**
+**Rainbeau's bridges**
 
 **Added:**
 
@@ -68,7 +68,7 @@ Weather:
 
 - Frost on ground and plants
 - Snow appears on trees and bushes
-- You can see pawns&apos; breath in the cold
+- You can see pawns' breath in the cold
 - Pawns wear a path through snow and frost
 - Pawns pack soil down into paths, and make stone smooth by walking on it.
 
@@ -165,9 +165,9 @@ And a ton of minor additions to make the world feel more alive! http://www.kamic
 
 If you like this mod, consider visiting the actual National and State Parks. Visitor numbers are really important, and these features all look waaaay better in real life :)
 
-*Currently requires a new game, because the biomes are generated when your world is generated. If you don&apos;t care about that, there&apos;s an option called &quot;LEAVE ALONE: Regen cell lists&quot;. Click it, save and reload your file. Then uncheck it and save again. This will give you weather effects and tides. I use this option for debugging and resetting maps on my end. It&apos;s not tested or supported. Use at your own risk.
+*Currently requires a new game, because the biomes are generated when your world is generated. If you don't care about that, there's an option called "LEAVE ALONE: Regen cell lists". Click it, save and reload your file. Then uncheck it and save again. This will give you weather effects and tides. I use this option for debugging and resetting maps on my end. It's not tested or supported. Use at your own risk.
 
-![Image](https://i.imgur.com/Rs6T6cr.png)
+![Image](https://i.imgur.com/PwoNOj4.png)
 
 
 

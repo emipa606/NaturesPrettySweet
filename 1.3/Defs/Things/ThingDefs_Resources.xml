@@ -5,7 +5,7 @@
     <label>redwood</label>
     <description>Wood from redwood and sequoia trees or other fibrous plants. Red, valuable and more fireproof than regular wood. Useful for building structures, weapons, and even simple prosthetics. A raw stick of wood can be used as a weapon in a pinch.</description>
     <graphicData>
-      <texPath>Things/Item/Resource/WoodLog</texPath>
+      <texPath>TKKN_NPS/Things/Resource/RedWoodLog</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <equippedAngleOffset>-20</equippedAngleOffset>

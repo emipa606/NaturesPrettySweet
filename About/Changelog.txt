@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.0.4.0 - New redwoodlog-texture, thanks Delta
+
+
 1.0.3.0 - Mod updated for 1.3 and passed autotests
 
 
