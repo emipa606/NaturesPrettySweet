@@ -19,7 +19,7 @@ namespace TKKN_NPS
         {
             base.Tick();
 
-            if (!Settings.allowPawnsToGetWet || !pawn.Position.IsValid || pawn.MapHeld == null ||
+            if (!pawn.Position.IsValid || pawn.MapHeld == null ||
                 !pawn.Position.InBounds(pawn.MapHeld))
             {
                 return;
@@ -119,7 +119,7 @@ namespace TKKN_NPS
                 }
             }
 
-            rate -= (float) timeDrying / 250;
+            rate -= (float)timeDrying / 250;
 //			Log.Warning(rate.ToString());
             return rate;
         }

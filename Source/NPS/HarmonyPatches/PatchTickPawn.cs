@@ -105,7 +105,7 @@ namespace TKKN_NPS
                 var weight = 0f;
                 foreach (var apparel1 in apparel)
                 {
-                    weight += (float) apparel1.HitPoints / 10000;
+                    weight += (float)apparel1.HitPoints / 10000;
                 }
 
                 damage += weight / 5000;
@@ -130,6 +130,11 @@ namespace TKKN_NPS
 
         public static void MakeWet(Pawn pawn)
         {
+            if (!Settings.allowPawnsToGetWet)
+            {
+                return;
+            }
+
             var hediffDef = HediffDefOf.TKKN_Wetness;
             if (pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null || !pawn.RaceProps.Humanlike)
             {
@@ -148,7 +153,7 @@ namespace TKKN_NPS
             {
                 var room = c.GetRoom(map);
                 var roofed = map.roofGrid.Roofed(c);
-                var unused = room != null && room.UsesOutdoorTemperature;
+                var unused = room is { UsesOutdoorTemperature: true };
                 if (!roofed)
                 {
                     isWet = true;
@@ -200,8 +205,8 @@ namespace TKKN_NPS
             //damage plants and remove snow/frost where they are. This will hopefully generate paths as pawns walk :)
             if (watcher.checkIfCold(pawn.Position))
             {
-                map.GetComponent<FrostGrid>().AddDepth(pawn.Position, (float) -.05);
-                map.snowGrid.AddDepth(pawn.Position, (float) -.05);
+                map.GetComponent<FrostGrid>().AddDepth(pawn.Position, (float)-.05);
+                map.snowGrid.AddDepth(pawn.Position, (float)-.05);
             }
 
             //pack down the soil only if the pawn is moving AND is in our colony
@@ -241,7 +246,7 @@ namespace TKKN_NPS
                 return;
             }
 
-            var moteThrown = (MoteThrown) ThingMaker.MakeThing(ThingDef.Named("TKKN_Mote_ColdBreath"));
+            var moteThrown = (MoteThrown)ThingMaker.MakeThing(ThingDef.Named("TKKN_Mote_ColdBreath"));
             moteThrown.airTimeLeft = 99999f;
             moteThrown.Scale = Rand.Range(.5f, 1.5f);
             moteThrown.rotationRate = Rand.Range(-30f, 30f);

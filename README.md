@@ -10,21 +10,10 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=1211694919
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 
-
-[table]
-    [tr]
-        [td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-        [td]https://github.com/emipa606/NaturesPrettySweet]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-    [/tr]
-[/table]
 	
 ![Image](https://i.imgur.com/Z4GOv8H.png)
 
 http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]Full description! (I'm out of space here) 
-https://www.patreon.com/tkkntkkn/]My patreon (upcoming updates are mentioned here, publically)!
-https://ko-fi.com/kamicomics/]Buy me a coffee!
 
 **Dec 1 - Bug fix update and a few new things, see git, notes on update, or full description for deets **
 
