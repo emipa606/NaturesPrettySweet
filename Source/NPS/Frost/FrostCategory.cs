@@ -1,12 +1,11 @@
-﻿namespace TKKN_NPS
+﻿namespace TKKN_NPS;
+
+public enum FrostCategory : byte
 {
-    public enum FrostCategory : byte
-    {
-        None,
-        Dusting,
-        Thin,
-        Medium,
-        Thick,
-        Frost
-    }
+    None,
+    Dusting,
+    Thin,
+    Medium,
+    Thick,
+    Frost
 }

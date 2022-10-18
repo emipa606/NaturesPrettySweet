@@ -1,48 +1,42 @@
 ﻿using Verse;
 using Verse.Noise;
 
-namespace TKKN_NPS
+namespace TKKN_NPS;
+
+public class LavaComp : SpringComp
 {
-    public class LavaComp : SpringComp
+    public override void specialCellAffects(IntVec3 c)
     {
-        public override void specialCellAffects(IntVec3 c)
+        base.specialCellAffects(c);
+        if (terrainType == "wet")
         {
-            base.specialCellAffects(c);
-            if (terrainType == "wet")
-            {
-                parent.Map.GetComponent<Watcher>().lavaCellsList.Add(c);
-            }
-            else
-            {
-                parent.Map.GetComponent<Watcher>().lavaCellsList.Remove(c);
-            }
+            parent.Map.GetComponent<Watcher>().lavaCellsList.Add(c);
         }
-
-        public override void fillBorder()
+        else
         {
+            parent.Map.GetComponent<Watcher>().lavaCellsList.Remove(c);
         }
+    }
 
-        public new void changeShape()
-        {
-            ModuleBase moduleBase = new Perlin(1.1, 2, 0.5, 2, Rand.Range(0, Props.radius), QualityMode.Medium);
-            moduleBase = new ScaleBias(0.2, 0.2, moduleBase);
+    public override void fillBorder()
+    {
+    }
 
-            ModuleBase moduleBase2 = new DistFromAxis(new FloatRange(0, Props.radius).RandomInRange);
-            moduleBase2 = new ScaleBias(.2, .2, moduleBase2);
-            moduleBase2 = new Clamp(0, 1, moduleBase2);
+    public new void changeShape()
+    {
+        ModuleBase moduleBase = new Perlin(1.1, 2, 0.5, 2, Rand.Range(0, Props.radius), QualityMode.Medium);
+        moduleBase = new ScaleBias(0.2, 0.2, moduleBase);
 
-            terrainNoise = new Add(moduleBase, moduleBase2);
-        }
+        ModuleBase moduleBase2 = new DistFromAxis(new FloatRange(0, Props.radius).RandomInRange);
+        moduleBase2 = new ScaleBias(.2, .2, moduleBase2);
+        moduleBase2 = new Clamp(0, 1, moduleBase2);
 
-        public override bool doBorder(IntVec3 c)
-        {
-            var currentTerrain = c.GetTerrain(parent.Map);
-            if (currentTerrain == Props.wetTile)
-            {
-                return false;
-            }
+        terrainNoise = new Add(moduleBase, moduleBase2);
+    }
 
-            return true;
-        }
+    public override bool doBorder(IntVec3 c)
+    {
+        var currentTerrain = c.GetTerrain(parent.Map);
+        return currentTerrain != Props.wetTile;
     }
 }

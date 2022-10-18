@@ -28,6 +28,7 @@
   <!-- Error Messages -->
   <TKKN_NPS_MustPlaceOnSteamVent>You must place this on a steam vent</TKKN_NPS_MustPlaceOnSteamVent>
   <!-- Settings: -->
+  <TKKN_CurrentModVersion_text>Installed mod-version: {0}</TKKN_CurrentModVersion_text>
   <TKKN_allowPlantEffects_title>Allow plant effects</TKKN_allowPlantEffects_title>
   <TKKN_allowPlantEffects_text>Plants will die when walked on, super bloom and wildflower blooms will happen, plants will die without water, plants will get snow on them in winter.</TKKN_allowPlantEffects_text>
   <TKKN_spawnLavaOnlyInBiome_title>Lava eruptions outside of volcanic fields</TKKN_spawnLavaOnlyInBiome_title>

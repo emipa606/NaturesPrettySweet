@@ -4,60 +4,59 @@ using Verse;
 using Verse.AI;
 using Verse.AI.Group;
 
-namespace TKKN_NPS
+namespace TKKN_NPS;
+
+//pawns will go sit in cold springs to cool off if there is no better option
+[HarmonyPatch(typeof(JobGiver_SeekSafeTemperature))]
+[HarmonyPatch("TryGiveJob")]
+internal class PatchTryGiveJob
 {
-    //pawns will go sit in cold springs to cool off if there is no better option
-    [HarmonyPatch(typeof(JobGiver_SeekSafeTemperature))]
-    [HarmonyPatch("TryGiveJob")]
-    internal class PatchTryGiveJob
+    public static void Postfix(ref Job __result, Pawn pawn)
     {
-        public static void Postfix(ref Job __result, Pawn pawn)
+        if (__result != null)
         {
-            if (__result != null)
+            return;
+        }
+
+        if (Find.CurrentMap.GetComponent<Watcher>().activeSprings.Count != 0)
+        {
+            __result = null;
+            return;
+        }
+
+        var isHot = false;
+        foreach (var hediff in pawn.health.hediffSet.hediffs)
+        {
+            if (hediff.def != RimWorld.HediffDefOf.Heatstroke ||
+                hediff.CurStageIndex < (int)TemperatureInjuryStage.Serious)
             {
-                return;
+                continue;
             }
 
-            if (Find.CurrentMap.GetComponent<Watcher>().activeSprings.Count != 0)
-            {
-                __result = null;
-                return;
-            }
+            isHot = true;
+            break;
+        }
 
-            var isHot = false;
-            foreach (var hediff in pawn.health.hediffSet.hediffs)
-            {
-                if (hediff.def != RimWorld.HediffDefOf.Heatstroke ||
-                    hediff.CurStageIndex < (int) TemperatureInjuryStage.Serious)
-                {
-                    continue;
-                }
+        if (!isHot)
+        {
+            __result = null;
+            return;
+        }
 
-                isHot = true;
-                break;
-            }
+        var terrain = pawn.Position.GetTerrain(Find.CurrentMap);
+        if (terrain.defName == "TKKN_ColdSpringsWater")
+        {
+            __result = new Job(RimWorld.JobDefOf.Wait_SafeTemperature, 500, true);
+            return;
+        }
 
-            if (!isHot)
-            {
-                __result = null;
-                return;
-            }
+        //send them to closest spring to relax
 
-            var terrain = pawn.Position.GetTerrain(Find.CurrentMap);
-            if (terrain.defName == "TKKN_ColdSpringsWater")
-            {
-                __result = new Job(RimWorld.JobDefOf.Wait_SafeTemperature, 500, true);
-                return;
-            }
-
-            //send them to closest spring to relax
-
-            var thing = GenClosest.ClosestThingReachable(pawn.GetLord().CurLordToil.FlagLoc, pawn.Map,
-                ThingRequest.ForDef(ThingDefOf.TKKN_ColdSpring), PathEndMode.Touch, TraverseParms.For(pawn), -1f);
-            if (thing != null)
-            {
-                __result = new Job(RimWorld.JobDefOf.GotoSafeTemperature, thing.Position);
-            }
+        var thing = GenClosest.ClosestThingReachable(pawn.GetLord().CurLordToil.FlagLoc, pawn.Map,
+            ThingRequest.ForDef(ThingDefOf.TKKN_ColdSpring), PathEndMode.Touch, TraverseParms.For(pawn), -1f);
+        if (thing != null)
+        {
+            __result = new Job(RimWorld.JobDefOf.GotoSafeTemperature, thing.Position);
         }
     }
 }

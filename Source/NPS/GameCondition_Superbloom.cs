@@ -1,10 +1,9 @@
-﻿namespace TKKN_NPS
+﻿namespace TKKN_NPS;
+
+public class GameCondition_Superbloom : GameCondition_TKKNBlooms
 {
-    public class GameCondition_Superbloom : GameCondition_TKKNBlooms
+    public GameCondition_Superbloom()
     {
-        public GameCondition_Superbloom()
-        {
-            howManyBlooms = 3;
-        }
+        howManyBlooms = 3;
     }
 }

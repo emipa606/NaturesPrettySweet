@@ -2,37 +2,36 @@
 using Verse;
 using Verse.AI;
 
-namespace TKKN_NPS
+namespace TKKN_NPS;
+
+[HarmonyPatch(typeof(Reachability), "CanReach", typeof(IntVec3), typeof(LocalTargetInfo), typeof(PathEndMode),
+    typeof(TraverseParms))]
+internal class PatchCanReach
 {
-    [HarmonyPatch(typeof(Reachability), "CanReach", typeof(IntVec3), typeof(LocalTargetInfo), typeof(PathEndMode),
-        typeof(TraverseParms))]
-    internal class PatchCanReach
+    [HarmonyPostfix]
+    public static void Postfix(IntVec3 start, LocalTargetInfo dest, PathEndMode peMode,
+        TraverseParms traverseParams, ref bool __result)
     {
-        [HarmonyPostfix]
-        public static void Postfix(IntVec3 start, LocalTargetInfo dest, PathEndMode peMode,
-            TraverseParms traverseParams, bool __result)
+        if (__result == false)
         {
-            if (__result == false)
-            {
-                return;
-            }
+            return;
+        }
 
-            if (traverseParams.pawn == null)
-            {
-                return;
-            }
+        if (traverseParams.pawn == null)
+        {
+            return;
+        }
 
-            if (!traverseParams.pawn.RaceProps.Animal)
-            {
-                return;
-            }
+        if (!traverseParams.pawn.RaceProps.Animal)
+        {
+            return;
+        }
 
-            var c = dest.Cell;
-            if (c.GetTerrain(traverseParams.pawn.Map).HasTag("TKKN_Swim") ||
-                c.GetTerrain(traverseParams.pawn.Map).HasTag("TKKN_Lava"))
-            {
-                __result = false;
-            }
+        var c = dest.Cell;
+        if (c.GetTerrain(traverseParams.pawn.Map).HasTag("TKKN_Swim") ||
+            c.GetTerrain(traverseParams.pawn.Map).HasTag("TKKN_Lava"))
+        {
+            __result = false;
         }
     }
 }

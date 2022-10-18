@@ -1,10 +1,9 @@
-﻿namespace TKKN_NPS
+﻿namespace TKKN_NPS;
+
+public class CompProperties_SpringLava : CompProperties_Springs
 {
-    public class CompProperties_SpringLava : CompProperties_Springs
+    public CompProperties_SpringLava()
     {
-        public CompProperties_SpringLava()
-        {
-            compClass = typeof(LavaComp);
-        }
+        compClass = typeof(LavaComp);
     }
 }

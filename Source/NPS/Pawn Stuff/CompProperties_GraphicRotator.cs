@@ -1,10 +1,9 @@
-﻿namespace TKKN_NPS
+﻿namespace TKKN_NPS;
+
+public class CompProperties_GraphicRotator : CompProperties_GraphicRotatorCon
 {
-    public class CompProperties_GraphicRotator : CompProperties_GraphicRotatorCon
+    public CompProperties_GraphicRotator()
     {
-        public CompProperties_GraphicRotator()
-        {
-            compClass = typeof(Comp_GraphicRotator);
-        }
+        compClass = typeof(Comp_GraphicRotator);
     }
 }

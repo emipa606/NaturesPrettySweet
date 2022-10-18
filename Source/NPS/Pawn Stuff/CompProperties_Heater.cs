@@ -1,10 +1,9 @@
-﻿namespace TKKN_NPS
+﻿namespace TKKN_NPS;
+
+public class CompProperties_Heater : CompProperties_HeaterCon
 {
-    public class CompProperties_Heater : CompProperties_HeaterCon
+    public CompProperties_Heater()
     {
-        public CompProperties_Heater()
-        {
-            compClass = typeof(Comp_Heater);
-        }
+        compClass = typeof(Comp_Heater);
     }
 }

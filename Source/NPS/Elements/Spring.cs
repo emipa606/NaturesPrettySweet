@@ -1,8 +1,7 @@
 ﻿using Verse;
 
-namespace TKKN_NPS
+namespace TKKN_NPS;
+
+public class Spring : ThingWithComps
 {
-    public class Spring : ThingWithComps
-    {
-    }
 }

@@ -2,15 +2,14 @@
 using HarmonyLib;
 using Verse;
 
-namespace TKKN_NPS
+namespace TKKN_NPS;
+
+[StaticConstructorOnStartup]
+internal class HarmonyMain
 {
-    [StaticConstructorOnStartup]
-    internal class HarmonyMain
+    static HarmonyMain()
     {
-        static HarmonyMain()
-        {
-            var harmony = new Harmony("com.github.tkkntkkn.Natures-Pretty-Sweet");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
-        }
+        var harmony = new Harmony("com.github.tkkntkkn.Natures-Pretty-Sweet");
+        harmony.PatchAll(Assembly.GetExecutingAssembly());
     }
 }
