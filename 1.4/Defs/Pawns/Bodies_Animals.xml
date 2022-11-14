@@ -30,7 +30,7 @@
     <skinCovered>false</skinCovered>
   </BodyPartDef>
   <BodyPartDef>
-    <defName>Lung</defName>
+    <defName>NpsLung</defName>
     <label>lung</label>
     <hitPoints>90</hitPoints>
     <skinCovered>false</skinCovered>
@@ -40,7 +40,7 @@
     <spawnThingOnRemoved>Lung</spawnThingOnRemoved>
   </BodyPartDef>
   <BodyPartDef>
-    <defName>Kidney</defName>
+    <defName>NpsKidney</defName>
     <label>kidney</label>
     <hitPoints>90</hitPoints>
     <skinCovered>false</skinCovered>
@@ -68,25 +68,25 @@
           <depth>Inside</depth>
         </li>
         <li>
-          <def>Lung</def>
+          <def>NpsLung</def>
           <customLabel>left lung</customLabel>
           <coverage>0.04</coverage>
           <depth>Inside</depth>
         </li>
         <li>
-          <def>Lung</def>
+          <def>NpsLung</def>
           <customLabel>right lung</customLabel>
           <coverage>0.04</coverage>
           <depth>Inside</depth>
         </li>
         <li>
-          <def>Kidney</def>
+          <def>NpsKidney</def>
           <customLabel>left kidney</customLabel>
           <coverage>0.03</coverage>
           <depth>Inside</depth>
         </li>
         <li>
-          <def>Kidney</def>
+          <def>NpsKidney</def>
           <customLabel>right kidney</customLabel>
           <coverage>0.03</coverage>
           <depth>Inside</depth>
@@ -147,7 +147,7 @@
     </corePart>
   </BodyDef>
   <BodyPartDef>
-    <defName>Foot</defName>
+    <defName>SnailFoot</defName>
     <label>foot</label>
     <hitPoints>300</hitPoints>
     <frostbiteVulnerability>0.5</frostbiteVulnerability>
@@ -165,7 +165,7 @@
       <depth>Outside</depth>
       <parts>
         <li>
-          <def>Foot</def>
+          <def>SnailFoot</def>
           <coverage>0.1</coverage>
           <height>Bottom</height>
         </li>
