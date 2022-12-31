@@ -9,7 +9,7 @@
     <windSpeedFactor>2</windSpeedFactor>
     <accuracyMultiplier>0.5</accuracyMultiplier>
     <ambientSounds>
-      <li>AmbientWind_Storm</li>
+      <li>Ambient_Wind_Storm</li>
     </ambientSounds>
     <durationRange>
       <min>15000</min>
@@ -51,7 +51,7 @@
     <windSpeedFactor>1.5</windSpeedFactor>
     <accuracyMultiplier>0.75</accuracyMultiplier>
     <ambientSounds>
-      <li>AmbientWind_Storm</li>
+      <li>Ambient_Wind_Storm</li>
     </ambientSounds>
     <skyColorsDay>
       <sky>(1,1,1)</sky>
@@ -86,7 +86,7 @@
     <favorability>Neutral</favorability>
     <perceivePriority>0</perceivePriority>
     <ambientSounds>
-      <li>AmbientWind_Clear</li>
+      <li>Ambient_Wind_Clear</li>
     </ambientSounds>
     <skyColorsDay>
       <sky>(0.8,0.8,0.8)</sky>
@@ -121,7 +121,7 @@
     <accuracyMultiplier>0.5</accuracyMultiplier>
     <favorability>Neutral</favorability>
     <ambientSounds>
-      <li>AmbientWind_Fog</li>
+      <li>Ambient_Wind_Fog</li>
     </ambientSounds>
     <overlayClasses>
       <li>WeatherOverlay_Fog</li>
@@ -167,7 +167,7 @@
     <accuracyMultiplier>0.5</accuracyMultiplier>
     <favorability>Bad</favorability>
     <ambientSounds>
-      <li>AmbientWind_Fog</li>
+      <li>Ambient_Wind_Fog</li>
     </ambientSounds>
     <overlayClasses>
       <li>TKKN_NPS.WeatherOverlay_LavaSmoke</li>
@@ -215,7 +215,7 @@
     <moveSpeedMultiplier>0.8</moveSpeedMultiplier>
     <favorability>Bad</favorability>
     <ambientSounds>
-      <li>AmbientWind_Storm</li>
+      <li>Ambient_Wind_Storm</li>
     </ambientSounds>
     <overlayClasses>
       <li>TKKN_NPS.WeatherOverlay_DustStorm</li>
@@ -264,7 +264,7 @@
     <moveSpeedMultiplier>0.8</moveSpeedMultiplier>
     <favorability>Bad</favorability>
     <ambientSounds>
-      <li>AmbientWind_Storm</li>
+      <li>Ambient_Wind_Storm</li>
     </ambientSounds>
     <overlayClasses>
       <li>TKKN_NPS.WeatherOverlay_DustStorm</li>
