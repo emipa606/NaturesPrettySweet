@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.4.4 - Fixed somewhat better biome-textures for Grasslands, Prairie and Savanna
+
+
 1.4.3 - Fixed weather-ambient sound, thanks Salthos
 
 
