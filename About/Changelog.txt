@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.4.5 - Added load-order for Smart Minify
+
+
 1.4.4 - Fixed somewhat better biome-textures for Grasslands, Prairie and Savanna
 
 
