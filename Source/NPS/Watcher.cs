@@ -591,23 +591,29 @@ public class Watcher : MapComponent
                     cell.baseTerrain = TerrainDefOf.TKKN_RiverDeposit;
                 }
 
-                if (flood == "high")
+                switch (flood)
                 {
-                    cell.setTerrain("flooded");
-                }
-                else if (flood == "low")
-                {
-                    cell.overrideType = "dry";
-                    cell.setTerrain("flooded");
-                }
-                else if (i < howManyFloodSteps / 2)
-                {
-                    cell.setTerrain("flooded");
-                }
-                else
-                {
-                    cell.overrideType = "dry";
-                    cell.setTerrain("flooded");
+                    case "high":
+                        cell.setTerrain("flooded");
+                        break;
+                    case "low":
+                        cell.overrideType = "dry";
+                        cell.setTerrain("flooded");
+                        break;
+                    default:
+                    {
+                        if (i < howManyFloodSteps / 2)
+                        {
+                            cell.setTerrain("flooded");
+                        }
+                        else
+                        {
+                            cell.overrideType = "dry";
+                            cell.setTerrain("flooded");
+                        }
+
+                        break;
+                    }
                 }
             }
         }
@@ -675,14 +681,15 @@ public class Watcher : MapComponent
             {
                 var defName = "";
 
-                if (currentTerrain.defName == "TKKN_Lava")
+                switch (currentTerrain.defName)
                 {
-                    defName = "TKKN_LavaRock";
-                }
-                else if (currentTerrain.defName == "TKKN_LavaRock_RoughHewn" &&
-                         map.Biome.defName == "TKKN_VolcanicFlow")
-                {
-                    defName = "TKKN_SteamVent";
+                    case "TKKN_Lava":
+                        defName = "TKKN_LavaRock";
+                        break;
+                    case "TKKN_LavaRock_RoughHewn" when
+                        map.Biome.defName == "TKKN_VolcanicFlow":
+                        defName = "TKKN_SteamVent";
+                        break;
                 }
 
                 if (defName != "")
@@ -799,36 +806,14 @@ public class Watcher : MapComponent
             }
         }
 
-        /* MAKE THIS A WEATHER
-        #region heat
-        Thing overlayHeat = (Thing)(from t in c.GetThingList(this.map)
-                                    where t.def.defName == "TKKN_HeatWaver"
-                                    select t).FirstOrDefault<Thing>();
-        if (this.checkIfHot(c))
+        switch (cell.howWet)
         {
-            if (overlayHeat == null && Settings.showHot)
-            {
-                Thing heat = ThingMaker.MakeThing(ThingDefOf.TKKN_HeatWaver, null);
-                GenSpawn.Spawn(heat, c, map);
-            }
-        }
-        else
-        {
-            if (overlayHeat != null)
-            {
-                overlayHeat.Destroy();
-            }
-        }
-        #endregion
-        */
-
-        if (cell.howWet < 3 && Settings.showRain && (cell.isMelt || gettingWet))
-        {
-            cell.howWet += 2;
-        }
-        else if (cell.howWet > -1)
-        {
-            cell.howWet--;
+            case < 3 when Settings.showRain && (cell.isMelt || gettingWet):
+                cell.howWet += 2;
+                break;
+            case > -1:
+                cell.howWet--;
+                break;
         }
 
         //PUDDLES
@@ -836,32 +821,26 @@ public class Watcher : MapComponent
             where t.def.defName == "TKKN_FilthPuddle"
             select t).FirstOrDefault();
 
-        if (cell.howWet == 3 && !isCold && MaxPuddles > totalPuddles &&
-            cell.currentTerrain.defName != "TKKN_SandBeachWetSalt")
+        switch (cell.howWet)
         {
-            if (puddle == null)
+            case 3 when !isCold && MaxPuddles > totalPuddles &&
+                        cell.currentTerrain.defName != "TKKN_SandBeachWetSalt":
             {
-                FilthMaker.TryMakeFilth(c, map, ThingDef.Named("TKKN_FilthPuddle"));
-                totalPuddles++;
+                if (puddle == null)
+                {
+                    FilthMaker.TryMakeFilth(c, map, ThingDef.Named("TKKN_FilthPuddle"));
+                    totalPuddles++;
+                }
+
+                break;
             }
-        }
-        else if (cell.howWet <= 0 && puddle != null)
-        {
-            puddle.Destroy();
-            totalPuddles--;
+            case <= 0 when puddle != null:
+                puddle.Destroy();
+                totalPuddles--;
+                break;
         }
 
         cell.isMelt = false;
-
-        /*CELL SHOULD BE HANDLING THIS NOW:
-        //since it changes, make sure the lava list is still good:
-
-        if (currentTerrain.defName == "TKKN_Lava") {
-            this.lavaCellsList.Add(c);
-        } else {
-            this.lavaCellsList.Remove(c);
-        }
-        */
 
         cellWeatherAffects[c] = cell;
     }
@@ -1108,57 +1087,65 @@ public class Watcher : MapComponent
         var half = (int)Math.Round((howManyTideSteps - 1M) / 2);
         var max = howManyTideSteps - 1;
 
-        if (tideType == "normal" && tideLevel == half || tideType == "high" && tideLevel == max ||
-            tideType == "low" && tideLevel == 0)
+        switch (tideType)
         {
-            return;
-        }
-
-        if (tideType == "normal" && tideLevel == max)
-        {
-            tideLevel--;
-            return;
+            case "normal" when tideLevel == half:
+            case "high" when tideLevel == max:
+            case "low" when tideLevel == 0:
+                return;
+            case "normal" when tideLevel == max:
+                tideLevel--;
+                return;
         }
 
         var cellsToChange = tideCellsList[tideLevel];
         foreach (var c in cellsToChange)
         {
             var cell = cellWeatherAffects[c];
-            if (tideType == "high")
+            switch (tideType)
             {
-                cell.overrideType = "wet";
-            }
-            else if (tideType == "low")
-            {
-                cell.overrideType = "dry";
+                case "high":
+                    cell.overrideType = "wet";
+                    break;
+                case "low":
+                    cell.overrideType = "dry";
+                    break;
             }
 
             cell.setTerrain("tide");
         }
 
-        if (tideType == "high")
+        switch (tideType)
         {
-            if (tideLevel < max)
+            case "high":
             {
-                tideLevel++;
+                if (tideLevel < max)
+                {
+                    tideLevel++;
+                }
+
+                break;
             }
-        }
-        else if (tideType == "low")
-        {
-            if (tideLevel > 0)
+            case "low":
             {
+                if (tideLevel > 0)
+                {
+                    tideLevel--;
+                }
+
+                break;
+            }
+            case "normal" when tideLevel > half:
                 tideLevel--;
-            }
-        }
-        else if (tideType == "normal")
-        {
-            if (tideLevel > half)
+                break;
+            case "normal":
             {
-                tideLevel--;
-            }
-            else if (tideLevel < half)
-            {
-                tideLevel++;
+                if (tideLevel < half)
+                {
+                    tideLevel++;
+                }
+
+                break;
             }
         }
     }
@@ -1179,7 +1166,7 @@ public class Watcher : MapComponent
         var things = c.GetThingList(map);
         foreach (var thing in things.ToList())
         {
-            if (!(thing is Plant))
+            if (thing is not Plant)
             {
                 continue;
             }
@@ -1223,28 +1210,6 @@ public class Watcher : MapComponent
 
             cell.baseTerrain = c.GetTerrain(map);
             removeFromLava.Add(c);
-
-
-            //moving this to a harmony patch
-            /*
-            List<Thing> things = c.GetThingList(this.map);
-            for (int j = things.Count - 1; j >= 0; j--)
-            {
-                //thing.TryAttachFire(5);
-                FireUtility.TryStartFireIn(c, this.map, 5f);
-
-                Thing thing = things[j];
-                float statValue = thing.GetStatValue(StatDefOf.Flammability, true);
-                bool alt = thing.def.altitudeLayer == AltitudeLayer.Item;
-                if (statValue == 0f && alt == true)
-                {
-                    if (!thing.Destroyed && thing.def.destroyable)
-                    {
-                        thing.Destroy(DestroyMode.Vanish);
-                    }
-                }
-            }
-            */
         }
 
         foreach (var c in removeFromLava)
@@ -1272,18 +1237,6 @@ public class Watcher : MapComponent
             }
             else
             {
-                /*
-                if (Rand.Value < .0001f)
-                {
-
-                    MoteThrown moteThrown = (MoteThrown)ThingMaker.MakeThing(ThingDef.Named("TKKN_HeatWaver"), null);
-                    moteThrown.Scale = Rand.Range(2f, 4f) * 2;
-                    moteThrown.exactPosition = c.ToVector3();
-                    moteThrown.SetVelocity(Rand.Bool ? -90 : 90, 0.12f);
-                    GenSpawn.Spawn(moteThrown, c, this.map);
-                }
-                else 
-                */
                 if (Rand.Value < .0005f)
                 {
                     FleckMaker.ThrowSmoke(c.ToVector3(), map, 4f);

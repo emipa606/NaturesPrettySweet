@@ -404,9 +404,9 @@ public class SpringComp : SpringCompAbstract
             status = "stable";
         }
 
-        if (parent.Map.GetComponent<Watcher>().cellWeatherAffects.ContainsKey(c))
+        if (parent.Map.GetComponent<Watcher>().cellWeatherAffects.TryGetValue(c, out var affect))
         {
-            parent.Map.GetComponent<Watcher>().cellWeatherAffects[c].baseTerrain = c.GetTerrain(parent.Map);
+            affect.baseTerrain = c.GetTerrain(parent.Map);
         }
 
         terrainType = "";

@@ -375,7 +375,7 @@ public class cellData : IExposable
         }
 
         if (map.zoneManager.ZoneAt(location) is Zone_Growing &&
-            currentTerrain.defName is not ("TKKN_DirtPath" and "TKKN_SandPath"))
+            currentTerrain.defName is not ("TKKN_DirtPath" or "TKKN_SandPath"))
         {
             return;
         }
@@ -416,39 +416,6 @@ public class cellData : IExposable
         changeTerrain(terrain);
         baseTerrain = terrain;
     }
-    /*
-    public void doFrostOverlay(string action) {
-        if (action == "add")
-        {
-            if (!Settings.showCold) {
-                return;
-            }
-            Thing overlayIce = (Thing)(from t in location.GetThingList(this.map)
-                                       where t.def.defName == "TKKN_IceOverlay"
-                                       select t).FirstOrDefault<Thing>();
-            if ((weather.freezeTerrain == null || currentTerrain != weather.freezeTerrain || weather.isSalty) && !currentTerrain.HasTag("Water") && overlayIce == null)
-            {
-                Thing ice = ThingMaker.MakeThing(ThingDefOf.TKKN_IceOverlay, null);
-                GenSpawn.Spawn(ice, location, map);
-            }
-        }
-        else
-        {
-            Thing overlayIce = (Thing)(from t in location.GetThingList(this.map)
-                                       where t.def.defName == "TKKN_IceOverlay"
-                                       select t).FirstOrDefault<Thing>();
-            if (overlayIce != null)
-            {
-                if (isFrozen)
-                {
-                    isMelt = true;
-                }
-                overlayIce.Destroy();
-            }
-
-        }
-    }
-    */
 
     private void changeTerrain(TerrainDef terrain)
     {

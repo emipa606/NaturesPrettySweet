@@ -44,17 +44,15 @@ public class JobGiver_RelaxInSpring : ThinkNode_JobGiver
     {
         bool Validator(IntVec3 pos)
         {
-            if (spring.def.defName == "TKKN_HotSpring")
+            switch (spring.def.defName)
             {
-                return pos.GetTerrain(spring.Map).defName == "TKKN_HotSpringsWater";
+                case "TKKN_HotSpring":
+                    return pos.GetTerrain(spring.Map).defName == "TKKN_HotSpringsWater";
+                case "TKKN_ColdSpring":
+                    return pos.GetTerrain(spring.Map).defName == "TKKN_ColdSpringsWater";
+                default:
+                    return false;
             }
-
-            if (spring.def.defName == "TKKN_ColdSpring")
-            {
-                return pos.GetTerrain(spring.Map).defName == "TKKN_ColdSpringsWater";
-            }
-
-            return false;
         }
 
         spring.MapHeld.regionAndRoomUpdater.Enabled = true;

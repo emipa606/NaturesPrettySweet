@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Collections.Generic;
+using HarmonyLib;
 using RimWorld;
 
 namespace TKKN_NPS;
@@ -8,7 +9,7 @@ namespace TKKN_NPS;
 public static class PatchCommonalityOfDisease
 {
     [HarmonyPrefix]
-    public static void Prefix(BiomeDef __instance)
+    public static void Prefix(BiomeDef __instance, ref Dictionary<IncidentDef, float> ___cachedDiseaseCommonalities)
     {
         var biomeSettings = __instance.GetModExtension<BiomeSeasonalSettings>();
         if (biomeSettings == null || biomeSettings.diseaseCacheUpdated)
@@ -16,8 +17,7 @@ public static class PatchCommonalityOfDisease
             return;
         }
 
-        // Log.Warning("updating cachedDiseaseCommonalities");
-        Traverse.Create(__instance).Field("cachedDiseaseCommonalities").SetValue(null);
+        ___cachedDiseaseCommonalities = null;
         biomeSettings.diseaseCacheUpdated = true;
     }
 }

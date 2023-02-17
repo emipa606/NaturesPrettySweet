@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.4.8 - Removed some reflection-code, fixed crab-meat
+
+
 1.4.7 - Fixed patch-error when Biomes Islands is loaded
 
 

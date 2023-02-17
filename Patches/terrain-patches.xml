@@ -338,4 +338,22 @@
       </li>
     </value>
   </Operation>
+  <Operation Class="PatchOperationSequence" MayRequire="Ludeon.Rimworld.Royalty">
+    <success>Always</success>
+    <operations>
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.Rimworld.Royalty">
+        <xpath>Defs</xpath>
+        <value>
+          <TerrainDef ParentName="FineTileStoneBase" MayRequire="Ludeon.Rimworld.Royalty">
+            <defName>TKKN_FineTileBasalt</defName>
+            <label>basalt fine tile</label>
+            <color>(50,50,50)</color>
+            <costList>
+              <TKKN_BlockLava>20</TKKN_BlockLava>
+            </costList>
+          </TerrainDef>
+        </value>
+      </li>
+    </operations>
+  </Operation>
 </Patch>

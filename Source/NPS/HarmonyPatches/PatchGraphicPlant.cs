@@ -65,9 +65,9 @@ public static class PatchGraphicPlant
                         __instance.def.graphicData.color, __instance.def.graphicData.colorTwo));
             }
 
-            if (map.GetComponent<Watcher>().graphicHolder.ContainsKey(id))
+            if (map.GetComponent<Watcher>().graphicHolder.TryGetValue(id, out var value))
             {
-                __result = map.GetComponent<Watcher>().graphicHolder[id];
+                __result = value;
             }
 
             return;
@@ -123,9 +123,9 @@ public static class PatchGraphicPlant
                     __instance.def.graphicData.colorTwo));
         }
 
-        if (map.GetComponent<Watcher>().graphicHolder.ContainsKey(id))
+        if (map.GetComponent<Watcher>().graphicHolder.TryGetValue(id, out var value1))
         {
-            __result = map.GetComponent<Watcher>().graphicHolder[id];
+            __result = value1;
         }
     }
 }
