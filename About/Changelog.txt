@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.4.7 - Fixed patch-error when Biomes Islands is loaded
+
+
 1.4.6 - Added fine basalt floors
 
 
