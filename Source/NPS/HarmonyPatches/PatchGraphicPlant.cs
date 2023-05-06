@@ -114,6 +114,11 @@ public static class PatchGraphicPlant
         }
 
 
+        if (string.IsNullOrEmpty(path))
+        {
+            return;
+        }
+
         if (!map.GetComponent<Watcher>().graphicHolder.ContainsKey(id))
         {
             //only load the image once.

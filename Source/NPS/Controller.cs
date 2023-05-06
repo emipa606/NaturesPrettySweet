@@ -14,8 +14,7 @@ public class Controller : Mod
     {
         settings = GetSettings<Settings>();
         currentVersion =
-            VersionFromManifest.GetVersionFromModMetaData(
-                ModLister.GetActiveModWithIdentifier("Mlie.NaturesPrettySweet"));
+            VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
 
     public override void DoSettingsWindowContents(Rect inRect)
@@ -26,15 +25,5 @@ public class Controller : Mod
     public override string SettingsCategory()
     {
         return "Nature's Pretty Sweet";
-    }
-
-    // ReSharper disable once MissingXmlDoc
-    public override void WriteSettings()
-    {
-        settings?.Write();
-
-        if (Current.ProgramState != ProgramState.Playing)
-        {
-        }
     }
 }

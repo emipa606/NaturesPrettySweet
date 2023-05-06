@@ -33,18 +33,9 @@ public class cellData : IExposable
     public int tideLevel = -1;
 
 
-    public TerrainWeatherReactions weather
-    {
-        get
-        {
-            if (baseTerrain.HasModExtension<TerrainWeatherReactions>())
-            {
-                return baseTerrain.GetModExtension<TerrainWeatherReactions>();
-            }
-
-            return null;
-        }
-    }
+    public TerrainWeatherReactions weather => baseTerrain.HasModExtension<TerrainWeatherReactions>()
+        ? baseTerrain.GetModExtension<TerrainWeatherReactions>()
+        : null;
 
     public TerrainDef currentTerrain => location.GetTerrain(map);
 
@@ -89,39 +80,30 @@ public class cellData : IExposable
             return;
         }
 
-        //change the terrain
-        if (type == "frozen")
+        switch (type)
         {
-            setFrozenTerrain();
-        }
-        else if (type == "dry")
-        {
-            setWetTerrain();
-        }
-        else if (type == "wet")
-        {
-            setWetTerrain();
-        }
-        else if (type == "thaw")
-        {
-            if (isFrozen)
-            {
+            //change the terrain
+            case "frozen":
+                setFrozenTerrain(true);
+                break;
+            case "dry":
+            case "wet":
+                setWetTerrain();
+                break;
+            case "thaw" when isFrozen:
                 howWet = 1;
                 setWetTerrain();
                 isFrozen = false;
-            }
-            else
-            {
-                setFrozenTerrain();
-            }
-        }
-        else if (type == "flooded")
-        {
-            setFloodedTerrain();
-        }
-        else if (type == "tide")
-        {
-            setTidesTerrain();
+                break;
+            case "thaw":
+                setFrozenTerrain(false);
+                break;
+            case "flooded":
+                setFloodedTerrain();
+                break;
+            case "tide":
+                setTidesTerrain();
+                break;
         }
 
         overrideType = "";
@@ -179,15 +161,15 @@ public class cellData : IExposable
         //			*/
     }
 
-    public void setFrozenTerrain()
+    public void setFrozenTerrain(bool frozen)
     {
-        if (!Settings.showCold)
+        if (frozen)
         {
-            return;
-        }
+            if (!(temperature < 0) || !(temperature < weather.freezeAt) || weather.freezeTerrain == null)
+            {
+                return;
+            }
 
-        if (temperature < 0 && temperature < weather.freezeAt && weather.freezeTerrain != null)
-        {
             if (isFlooded && weather.freezeTerrain != currentTerrain)
             {
                 if (currentTerrain.HasModExtension<TerrainWeatherReactions>())
@@ -207,23 +189,22 @@ public class cellData : IExposable
 
             isFrozen = true;
             isThawed = false;
+            return;
         }
-        else if (temperature > 0)
+
+        if (isThawed)
         {
-            if (isThawed)
-            {
-                return;
-            }
-
-            if (baseTerrain.defName == "TKKN_Lava")
-            {
-                map.GetComponent<Watcher>().lavaCellsList.Add(location);
-            }
-
-            isFrozen = false;
-            isThawed = true;
-            changeTerrain(baseTerrain);
+            return;
         }
+
+        if (baseTerrain.defName == "TKKN_Lava")
+        {
+            map.GetComponent<Watcher>().lavaCellsList.Add(location);
+        }
+
+        isFrozen = false;
+        isThawed = true;
+        changeTerrain(baseTerrain);
     }
 
     public void setFloodedTerrain()

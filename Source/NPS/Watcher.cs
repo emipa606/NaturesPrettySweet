@@ -241,8 +241,8 @@ public class Watcher : MapComponent
                             }
 
                             //see if this cell has already been done, because we can have each cell in multiple flood levels.
-                            var bankCell = cellWeatherAffects.ContainsKey(bankCheck)
-                                ? cellWeatherAffects[bankCheck]
+                            var bankCell = cellWeatherAffects.TryGetValue(bankCheck, out var affect)
+                                ? affect
                                 : new cellData { location = bankCheck, baseTerrain = bankCheckTerrain };
 
                             bankCell.floodLevel.Add(j);
@@ -740,10 +740,10 @@ public class Watcher : MapComponent
         }
 
         var isCold = checkIfCold(c);
-        cell.setTerrain(isCold ? "frozen" : "thaw");
 
         if (isCold)
         {
+            cell.setTerrain("frozen");
             //handle frost based on snowing
             if (!roofed && map.weatherManager.SnowRate > 0.001f)
             {
@@ -756,6 +756,7 @@ public class Watcher : MapComponent
         }
         else
         {
+            cell.setTerrain("thaw");
             var frosty = cell.temperature * -.025f;
 //				float frosty = this.map.mapTemperature.OutdoorTemp * -.03f;
             map.GetComponent<FrostGrid>().AddDepth(c, frosty);
@@ -849,6 +850,11 @@ public class Watcher : MapComponent
     {
         if (!Settings.showCold)
         {
+            if (cellWeatherAffects.TryGetValue(c, out var affect) && affect.temperature < -998)
+            {
+                affect.temperature = c.GetTemperature(map);
+            }
+
             return false;
         }
 
