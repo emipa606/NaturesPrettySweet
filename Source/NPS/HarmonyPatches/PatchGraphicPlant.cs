@@ -28,9 +28,9 @@ public static class PatchGraphicPlant
         if (__instance.AmbientTemperature > 21)
         {
             var watcher = map.GetComponent<Watcher>();
-            if (watcher.cellWeatherAffects[__instance.Position] != null)
+
+            if (watcher.cellWeatherAffects.TryGetValue(__instance.Position, out var cell))
             {
-                var cell = watcher.cellWeatherAffects[__instance.Position];
                 var location = Find.WorldGrid.LongLatOf(__instance.MapHeld.Tile);
                 var season = GenDate.Season(Find.TickManager.TicksAbs, location);
 

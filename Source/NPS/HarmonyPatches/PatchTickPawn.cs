@@ -210,9 +210,9 @@ internal class PatchTickPawn
         }
 
         //pack down the soil only if the pawn is moving AND is in our colony
-        if (pawn.pather.MovingNow && pawn.IsColonist)
+        if (pawn.pather.MovingNow && pawn.IsColonist &&
+            watcher.cellWeatherAffects.TryGetValue(pawn.Position, out var cell))
         {
-            var cell = watcher.cellWeatherAffects[pawn.Position];
             cell.doPack();
         }
 

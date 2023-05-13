@@ -546,7 +546,11 @@ public class Watcher : MapComponent
                 var makeSand = tideCellsList[i];
                 foreach (var c in makeSand)
                 {
-                    var cell = cellWeatherAffects[c];
+                    if (!cellWeatherAffects.TryGetValue(c, out var cell))
+                    {
+                        continue;
+                    }
+
                     cell.baseTerrain = TerrainDefOf.TKKN_SandBeachWetSalt;
                     map.terrainGrid.SetTerrain(c, TerrainDefOf.TKKN_SandBeachWetSalt);
                 }
@@ -570,7 +574,11 @@ public class Watcher : MapComponent
                 var makeSand = tideCellsList[i];
                 foreach (var c in makeSand)
                 {
-                    var cell = cellWeatherAffects[c];
+                    if (!cellWeatherAffects.TryGetValue(c, out var cell))
+                    {
+                        continue;
+                    }
+
                     cell.setTerrain("tide");
                 }
             }
@@ -585,7 +593,11 @@ public class Watcher : MapComponent
             var makeWater = floodCellsList[i];
             foreach (var c in makeWater)
             {
-                var cell = cellWeatherAffects[c];
+                if (!cellWeatherAffects.TryGetValue(c, out var cell))
+                {
+                    continue;
+                }
+
                 if (!cell.baseTerrain.HasTag("TKKN_Wet"))
                 {
                     cell.baseTerrain = TerrainDefOf.TKKN_RiverDeposit;
@@ -646,12 +658,11 @@ public class Watcher : MapComponent
 
     public void doCellEnvironment(IntVec3 c)
     {
-        if (!cellWeatherAffects.ContainsKey(c))
+        if (!cellWeatherAffects.TryGetValue(c, out var cell))
         {
             return;
         }
 
-        var cell = cellWeatherAffects[c];
         cell.DoCellSteadyEffects();
 
         if (ticks % 2 == 0)
@@ -858,12 +869,11 @@ public class Watcher : MapComponent
             return false;
         }
 
-        if (!cellWeatherAffects.ContainsKey(c))
+        if (!cellWeatherAffects.TryGetValue(c, out var cell))
         {
             return false;
         }
 
-        var cell = cellWeatherAffects[c];
         var room = c.GetRoom(map);
 
         var isCold = false;
@@ -903,7 +913,11 @@ public class Watcher : MapComponent
             return false;
         }
 
-        var cell = cellWeatherAffects[c];
+        if (!cellWeatherAffects.TryGetValue(c, out var cell))
+        {
+            return false;
+        }
+
         var room = c.GetRoom(map);
 
         var isHot = false;
@@ -1030,11 +1044,14 @@ public class Watcher : MapComponent
             return;
         }
 
-
         var cellsToChange = floodCellsList[floodLevel];
         foreach (var c in cellsToChange)
         {
-            var cell = cellWeatherAffects[c];
+            if (!cellWeatherAffects.TryGetValue(c, out var cell))
+            {
+                continue;
+            }
+
             if (overrideType != "")
             {
                 cell.overrideType = overrideType;
@@ -1107,7 +1124,11 @@ public class Watcher : MapComponent
         var cellsToChange = tideCellsList[tideLevel];
         foreach (var c in cellsToChange)
         {
-            var cell = cellWeatherAffects[c];
+            if (!cellWeatherAffects.TryGetValue(c, out var cell))
+            {
+                continue;
+            }
+
             switch (tideType)
             {
                 case "high":
@@ -1206,7 +1227,10 @@ public class Watcher : MapComponent
 
         foreach (var c in lavaCellsList)
         {
-            var cell = cellWeatherAffects[c];
+            if (!cellWeatherAffects.TryGetValue(c, out var cell))
+            {
+                continue;
+            }
 
             //check to see if it's still lava. Ignore roughhewn because lava can freeze/rain will cool it.
             if (c.GetTerrain(map).HasTag("Lava") || c.GetTerrain(map).defName == "TKKN_LavaRock_RoughHewn")

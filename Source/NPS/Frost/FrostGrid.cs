@@ -107,7 +107,12 @@ public sealed class FrostGrid : MapComponent
 
     private void CheckVisualOrPathCostChange(IntVec3 c, float oldDepth, float newDepth)
     {
-        map.GetComponent<Watcher>().cellWeatherAffects[c].frostLevel = newDepth;
+        if (!map.GetComponent<Watcher>().cellWeatherAffects.TryGetValue(c, out var cell))
+        {
+            return;
+        }
+
+        cell.frostLevel = newDepth;
         if (Mathf.Approximately(oldDepth, newDepth))
         {
             return;

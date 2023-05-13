@@ -326,7 +326,11 @@ public class SpringComp : SpringCompAbstract
             return;
         }
 
-        var thingDef = source.RandomElementByWeight(x => PlantChoiceWeight(x, map));
+        if (!source.TryRandomElementByWeight(def => PlantChoiceWeight(def, map), out var thingDef))
+        {
+            return;
+        }
+
         var plant = (Plant)ThingMaker.MakeThing(thingDef);
         plant.Growth = Rand.Range(0.07f, 1f);
         if (plant.def.plant.LimitedLifespan)
@@ -339,8 +343,7 @@ public class SpringComp : SpringCompAbstract
 
     private float PlantChoiceWeight(ThingDef def, Map map)
     {
-        var num = map.Biome.CommonalityOfPlant(def);
-        return num * def.plant.wildClusterWeight;
+        return map.Biome.CommonalityOfPlant(def) * def.plant.wildClusterWeight;
     }
 
     public void AffectCell(IntVec3 c)
