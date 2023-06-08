@@ -999,7 +999,7 @@ public class Watcher : MapComponent
 
     public void doFloods()
     {
-        if (ticks % 300 == 0)
+        if (!Settings.doFloods || ticks % 300 == 0)
         {
             return;
         }

@@ -52,4 +52,6 @@
   <TKKN_showTempReadout_text>Temperaturanzeige unten links anzeigen</TKKN_showTempReadout_text>
   <TKKN_regen_title>LEAVE ALONE: Zellenlisten regenerieren</TKKN_regen_title>
   <TKKN_regen_text>Regeneriert das Terrain auf der aktuell geladenen Karte, so dass Sie Überschwemmungen, Gezeiten und/oder eine Oase in einem Spielstand erhalten können, der vor dem Hinzufügen dieser Mod erstellt wurde. Nachdem Sie diese Einstellung gespeichert haben, erstellen Sie eine neue Speicherdatei für Ihr Spiel (für den Fall, dass etwas schief geht), und laden Sie das Spiel neu. Sobald Sie das Spiel neu laden, ENTFERNEN Sie das Häkchen in diesem Kästchen.</TKKN_regen_text>
+  <TKKN_doFloods_title>Überschwemmungen</TKKN_doFloods_title>
+  <TKKN_doFloods_text>Flüsse werden steigen und fallen</TKKN_doFloods_text>
 </LanguageData>

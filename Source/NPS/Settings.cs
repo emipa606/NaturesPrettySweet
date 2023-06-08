@@ -39,6 +39,7 @@ public class Settings : ModSettings
     public static bool showDevReadout;
 
     public static bool showUpdateNotes = true;
+    public static bool doFloods = true;
 
     static Settings()
     {
@@ -73,6 +74,10 @@ public class Settings : ModSettings
             "TKKN_doTides_title".Translate(),
             ref doTides,
             "TKKN_doTides_text".Translate());
+        list.CheckboxLabeled(
+            "TKKN_doFloods_title".Translate(),
+            ref doFloods,
+            "TKKN_doFloods_text".Translate());
         list.Gap();
         list.CheckboxLabeled(
             "TKKN_doDirtPath_title".Translate(),
@@ -145,6 +150,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref showHot, "allowPlantEffects", true, true);
         Scribe_Values.Look(ref showRain, "showRain", true, true);
         Scribe_Values.Look(ref doTides, "doTides", true, true);
+        Scribe_Values.Look(ref doFloods, "doFloods", true, true);
         Scribe_Values.Look(ref allowPawnsToGetWet, "allowPawnsToGetWet", true, true);
         Scribe_Values.Look(ref allowPawnsSwim, "allowPawnsSwim", true, true);
         Scribe_Values.Look(ref showDevReadout, "showDevReadout", false, true);

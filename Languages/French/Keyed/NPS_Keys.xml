@@ -52,4 +52,6 @@
   <TKKN_showTempReadout_text>Afficher la lecture de la température en bas à gauche</TKKN_showTempReadout_text>
   <TKKN_regen_title>LAISSER EN LIGNE : Régénérer les listes de cellules</TKKN_regen_title>
   <TKKN_regen_text>Régénère le terrain sur la carte actuellement chargée afin que vous puissiez obtenir des inondations, des marées et/ou une oasis dans une sauvegarde effectuée avant l'ajout de ce mod. Après avoir enregistré ce paramètre, créez un nouveau fichier de sauvegarde pour votre jeu (au cas où les choses tourneraient mal), puis rechargez le jeu. Une fois le jeu rechargé, décochez cette case.</TKKN_regen_text>
+  <TKKN_doFloods_title>Faire des inondations</TKKN_doFloods_title>
+  <TKKN_doFloods_text>Les fleuves et les rivières s'élèvent et s'abaissent</TKKN_doFloods_text>
 </LanguageData>

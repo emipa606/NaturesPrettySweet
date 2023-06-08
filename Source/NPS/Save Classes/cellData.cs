@@ -209,7 +209,7 @@ public class cellData : IExposable
 
     public void setFloodedTerrain()
     {
-        if (!Settings.showRain)
+        if (!Settings.showRain || !Settings.doTides)
         {
             return;
         }
@@ -255,21 +255,19 @@ public class cellData : IExposable
             return;
         }
 
-        if (overrideType == "dry")
+        switch (overrideType)
         {
-            changeTerrain(baseTerrain);
-        }
-        else if (overrideType == "wet")
-        {
-            changeTerrain(weather.tideTerrain);
-        }
-        else if (currentTerrain != baseTerrain)
-        {
-            changeTerrain(baseTerrain);
-        }
-        else
-        {
-            changeTerrain(weather.tideTerrain);
+            case "dry":
+                changeTerrain(baseTerrain);
+                break;
+            case "wet":
+                changeTerrain(weather.tideTerrain);
+                break;
+            default:
+            {
+                changeTerrain(currentTerrain != baseTerrain ? baseTerrain : weather.tideTerrain);
+                break;
+            }
         }
 
         if (weather.tideTerrain == null)
@@ -411,18 +409,24 @@ public class cellData : IExposable
         //spawn special things when it rains.
         if (Rand.Value < .009)
         {
-            if (baseTerrain.defName == "TKKN_Lava")
+            switch (baseTerrain.defName)
             {
-                GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_LavaRock), location, map);
-            }
-            else if (baseTerrain.defName == "TKKN_SandBeachWetSalt")
-            {
-                Log.Warning("Spawning crab");
-                GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_crab), location, map);
-            }
-            else if (currentTerrain.HasTag("TKKN_Wet"))
-            {
-                FleckMaker.WaterSplash(location.ToVector3(), map, 1, 1);
+                case "TKKN_Lava":
+                    GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_LavaRock), location, map);
+                    break;
+                case "TKKN_SandBeachWetSalt":
+                    Log.Warning("Spawning crab");
+                    GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_crab), location, map);
+                    break;
+                default:
+                {
+                    if (currentTerrain.HasTag("TKKN_Wet"))
+                    {
+                        FleckMaker.WaterSplash(location.ToVector3(), map, 1, 1);
+                    }
+
+                    break;
+                }
             }
         }
         else if (Rand.Value < .04 && currentTerrain.HasTag("Lava"))
@@ -438,76 +442,79 @@ public class cellData : IExposable
         {
             var leaveWhat = Rand.Value;
             var allowed = new List<string>();
-            if (leaveWhat > 0.1f)
+            switch (leaveWhat)
             {
-                //leave trash;
-                allowed = new List<string>
+                case > 0.1f:
+                    //leave trash;
+                    allowed = new List<string>
+                    {
+                        "Filth_Slime",
+                        "TKKN_FilthShells",
+                        "TKKN_FilthPuddle",
+                        "TKKN_FilthSeaweed",
+                        "TKKN_FilthDriftwood",
+                        "TKKN_Sculpture_Shell",
+                        "Kibble",
+                        "EggRoeFertilized",
+                        "EggRoeUnfertilized"
+                    };
+                    break;
+                case > 0.05f:
+                    //leave resource;
+                    allowed = new List<string>
+                    {
+                        "Steel",
+                        "Cloth",
+                        "WoodLog",
+                        "Synthread",
+                        "Hyperweave",
+                        "Kibble",
+                        "SimpleProstheticLeg",
+                        "MedicineIndustrial",
+                        "ComponentIndustrial",
+                        "Neutroamine",
+                        "Chemfuel",
+                        "MealSurvivalPack",
+                        "Pemmican"
+                    };
+                    break;
+                case > 0.03f:
                 {
-                    "Filth_Slime",
-                    "TKKN_FilthShells",
-                    "TKKN_FilthPuddle",
-                    "TKKN_FilthSeaweed",
-                    "TKKN_FilthDriftwood",
-                    "TKKN_Sculpture_Shell",
-                    "Kibble",
-                    "EggRoeFertilized",
-                    "EggRoeUnfertilized"
-                };
-            }
-            else if (leaveWhat > 0.05f)
-            {
-                //leave resource;
-                allowed = new List<string>
-                {
-                    "Steel",
-                    "Cloth",
-                    "WoodLog",
-                    "Synthread",
-                    "Hyperweave",
-                    "Kibble",
-                    "SimpleProstheticLeg",
-                    "MedicineIndustrial",
-                    "ComponentIndustrial",
-                    "Neutroamine",
-                    "Chemfuel",
-                    "MealSurvivalPack",
-                    "Pemmican"
-                };
-            }
-            else if (leaveWhat > 0.03f)
-            {
-                // leave treasure.
-                allowed = new List<string>
-                {
-                    "Silver",
-                    "Plasteel",
-                    "Gold",
-                    "Uranium",
-                    "Jade",
-                    "Heart",
-                    "Lung",
-                    "BionicEye",
-                    "ScytherBlade",
-                    "ElephantTusk"
-                };
+                    // leave treasure.
+                    allowed = new List<string>
+                    {
+                        "Silver",
+                        "Plasteel",
+                        "Gold",
+                        "Uranium",
+                        "Jade",
+                        "Heart",
+                        "Lung",
+                        "BionicEye",
+                        "ScytherBlade",
+                        "ElephantTusk"
+                    };
 
-                string text = "TKKN_NPS_TreasureWashedUpText".Translate();
-                Messages.Message(text, MessageTypeDefOf.NeutralEvent);
-            }
-            else if (leaveWhat > 0.02f)
-            {
-                //leave ultrarare
-                allowed = new List<string>
+                    string text = "TKKN_NPS_TreasureWashedUpText".Translate();
+                    Messages.Message(text, MessageTypeDefOf.NeutralEvent);
+                    break;
+                }
+                case > 0.02f:
                 {
-                    "AIPersonaCore",
-                    "MechSerumHealer",
-                    "MechSerumNeurotrainer",
-                    "ComponentSpacer",
-                    "MedicineUltratech",
-                    "ThrumboHorn"
-                };
-                string text = "TKKN_NPS_UltraRareWashedUpText".Translate();
-                Messages.Message(text, MessageTypeDefOf.NeutralEvent);
+                    //leave ultrarare
+                    allowed = new List<string>
+                    {
+                        "AIPersonaCore",
+                        "MechSerumHealer",
+                        "MechSerumNeurotrainer",
+                        "ComponentSpacer",
+                        "MedicineUltratech",
+                        "ThrumboHorn"
+                    };
+                    string text = "TKKN_NPS_UltraRareWashedUpText".Translate();
+                    Messages.Message(text, MessageTypeDefOf.NeutralEvent);
+                    break;
+                }
             }
 
             if (allowed.Count <= 0)

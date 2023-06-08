@@ -52,4 +52,6 @@
   <TKKN_showTempReadout_text>在左下方显示温度读数</TKKN_showTempReadout_text>
   <TKKN_regen_title>放着不管：再生细胞列表</TKKN_regen_title>
   <TKKN_regen_text>在当前加载的地图上重新生成地形，这样你就可以在添加此MOD之前的保存中获得洪水、潮汐和/或绿洲。保存这个设置后，为你的游戏制作一个新的保存文件（以防事情变得很糟糕），然后重新加载游戏。一旦你重新加载，取消勾选此框。</TKKN_regen_text>
+  <TKKN_doFloods_title>做洪水</TKKN_doFloods_title>
+  <TKKN_doFloods_text>河流会上升和下降</TKKN_doFloods_text>
 </LanguageData>

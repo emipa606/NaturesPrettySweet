@@ -357,7 +357,7 @@ public class DustDevil : ThingWithComps
                     break;
             }
 
-            var amount = Mathf.Max(GenMath.RoundRandom(30f * damageFactor), 1);
+            var amount = Mathf.Max(GenMath.RoundRandom(DustDevilAnimationSpeed * damageFactor), 1);
             thing.TakeDamage(new DamageInfo(DamageDefOf.TornadoScratch, amount, 0, angle, this))
                 .AssociateWithLog(battleLogEntry_DamageTaken);
         }

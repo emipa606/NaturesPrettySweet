@@ -49,6 +49,8 @@
   <TKKN_doWeather_text>If unchecked, none of the below will happen. If checked, only the ones checked below will happen.</TKKN_doWeather_text>
   <TKKN_doTides_title>Do Tides</TKKN_doTides_title>
   <TKKN_doTides_text>Oceans will rise and fall</TKKN_doTides_text>
+  <TKKN_doFloods_title>Do Floods</TKKN_doFloods_title>
+  <TKKN_doFloods_text>Rivers will rise and fall</TKKN_doFloods_text>
   <TKKN_doDirtPath_title>Generate paths</TKKN_doDirtPath_title>
   <TKKN_doDirtPath_text>Pawns will create natural paths when walking</TKKN_doDirtPath_text>
   <TKKN_showTempReadout_title>Show temperature readout</TKKN_showTempReadout_title>
