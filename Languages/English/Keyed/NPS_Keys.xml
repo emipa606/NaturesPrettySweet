@@ -47,6 +47,8 @@
   <TKKN_showRain_text>When it rains, the ground will get splatters and darken</TKKN_showRain_text>
   <TKKN_doWeather_title>Show weather effects (master)</TKKN_doWeather_title>
   <TKKN_doWeather_text>If unchecked, none of the below will happen. If checked, only the ones checked below will happen.</TKKN_doWeather_text>
+  <TKKN_weatherCellUpdateSpeed_title>Weather effects update-speed: {0}</TKKN_weatherCellUpdateSpeed_title>
+  <TKKN_weatherCellUpdateSpeed_text>How quickly effects like changing from water to ice happens. Lower this for performance gain, raise it for faster in-game visualizations.</TKKN_weatherCellUpdateSpeed_text>
   <TKKN_doTides_title>Do Tides</TKKN_doTides_title>
   <TKKN_doTides_text>Oceans will rise and fall</TKKN_doTides_text>
   <TKKN_doFloods_title>Do Floods</TKKN_doFloods_title>

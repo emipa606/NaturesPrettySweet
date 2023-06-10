@@ -54,4 +54,6 @@
   <TKKN_regen_text>Régénère le terrain sur la carte actuellement chargée afin que vous puissiez obtenir des inondations, des marées et/ou une oasis dans une sauvegarde effectuée avant l'ajout de ce mod. Après avoir enregistré ce paramètre, créez un nouveau fichier de sauvegarde pour votre jeu (au cas où les choses tourneraient mal), puis rechargez le jeu. Une fois le jeu rechargé, décochez cette case.</TKKN_regen_text>
   <TKKN_doFloods_title>Faire des inondations</TKKN_doFloods_title>
   <TKKN_doFloods_text>Les fleuves et les rivières s'élèvent et s'abaissent</TKKN_doFloods_text>
+  <TKKN_weatherCellUpdateSpeed_title>Vitesse de mise à jour des effets météorologiques : {0}</TKKN_weatherCellUpdateSpeed_title>
+  <TKKN_weatherCellUpdateSpeed_text>Vitesse à laquelle se produisent des effets tels que le passage de l'eau à la glace. Diminuez cette valeur pour améliorer les performances, augmentez-la pour obtenir des visualisations plus rapides dans le jeu.</TKKN_weatherCellUpdateSpeed_text>
 </LanguageData>

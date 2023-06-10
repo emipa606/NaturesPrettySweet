@@ -54,4 +54,6 @@
   <TKKN_regen_text>Regeneriert das Terrain auf der aktuell geladenen Karte, so dass Sie Überschwemmungen, Gezeiten und/oder eine Oase in einem Spielstand erhalten können, der vor dem Hinzufügen dieser Mod erstellt wurde. Nachdem Sie diese Einstellung gespeichert haben, erstellen Sie eine neue Speicherdatei für Ihr Spiel (für den Fall, dass etwas schief geht), und laden Sie das Spiel neu. Sobald Sie das Spiel neu laden, ENTFERNEN Sie das Häkchen in diesem Kästchen.</TKKN_regen_text>
   <TKKN_doFloods_title>Überschwemmungen</TKKN_doFloods_title>
   <TKKN_doFloods_text>Flüsse werden steigen und fallen</TKKN_doFloods_text>
+  <TKKN_weatherCellUpdateSpeed_title>Wettereffekte Aktualisierungsgeschwindigkeit: {0}</TKKN_weatherCellUpdateSpeed_title>
+  <TKKN_weatherCellUpdateSpeed_text>Wie schnell Effekte wie der Wechsel von Wasser zu Eis stattfinden. Verringern Sie diesen Wert, um die Leistung zu erhöhen, erhöhen Sie ihn für schnellere Visualisierungen im Spiel.</TKKN_weatherCellUpdateSpeed_text>
 </LanguageData>

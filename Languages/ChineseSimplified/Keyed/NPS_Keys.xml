@@ -54,4 +54,6 @@
   <TKKN_regen_text>在当前加载的地图上重新生成地形，这样你就可以在添加此MOD之前的保存中获得洪水、潮汐和/或绿洲。保存这个设置后，为你的游戏制作一个新的保存文件（以防事情变得很糟糕），然后重新加载游戏。一旦你重新加载，取消勾选此框。</TKKN_regen_text>
   <TKKN_doFloods_title>做洪水</TKKN_doFloods_title>
   <TKKN_doFloods_text>河流会上升和下降</TKKN_doFloods_text>
+  <TKKN_weatherCellUpdateSpeed_title>天气影响更新-速度：{0}。</TKKN_weatherCellUpdateSpeed_title>
+  <TKKN_weatherCellUpdateSpeed_text>诸如从水变成冰的效果发生的速度。降低这个值是为了提高性能，提高这个值是为了加快游戏中的视觉效果。</TKKN_weatherCellUpdateSpeed_text>
 </LanguageData>

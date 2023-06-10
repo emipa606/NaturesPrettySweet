@@ -40,6 +40,7 @@ public class Settings : ModSettings
 
     public static bool showUpdateNotes = true;
     public static bool doFloods = true;
+    public static float weatherCellUpdateSpeed = 0.0006f;
 
     static Settings()
     {
@@ -58,6 +59,13 @@ public class Settings : ModSettings
             "TKKN_doWeather_title".Translate(),
             ref doWeather,
             "TKKN_doWeather_text".Translate());
+        if (doWeather)
+        {
+            weatherCellUpdateSpeed = list.SliderLabeled(
+                "TKKN_weatherCellUpdateSpeed_title".Translate(weatherCellUpdateSpeed * 10000),
+                weatherCellUpdateSpeed, 0.0001f, 0.002f, 0.5f, "TKKN_weatherCellUpdateSpeed_text".Translate());
+        }
+
         list.CheckboxLabeled(
             "TKKN_showHot_title".Translate(),
             ref showHot,

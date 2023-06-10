@@ -1,5 +1,9 @@
 # Changelog for NaturesPrettySweet
 
+1.4.13 - Added an option to set the update speed of weather effect-changes on the terrain. A lower value will be less performance heavy but terrain changes will take longer.
+Used DeepL to update translations for ChineseSimplified, French, German, Russian
+
+
 1.4.12 - Added setting to disable floods.
 Used DeepL to update translations for ChineseSimplified, French, German, Russian
 
