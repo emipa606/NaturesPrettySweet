@@ -56,4 +56,6 @@
   <TKKN_doFloods_text>Flüsse werden steigen und fallen</TKKN_doFloods_text>
   <TKKN_weatherCellUpdateSpeed_title>Wettereffekte Aktualisierungsgeschwindigkeit: {0}</TKKN_weatherCellUpdateSpeed_title>
   <TKKN_weatherCellUpdateSpeed_text>Wie schnell Effekte wie der Wechsel von Wasser zu Eis stattfinden. Verringern Sie diesen Wert, um die Leistung zu erhöhen, erhöhen Sie ihn für schnellere Visualisierungen im Spiel.</TKKN_weatherCellUpdateSpeed_text>
+  <TKKN_doIce_title>Boden gefriert</TKKN_doIce_title>
+  <TKKN_doIce_text>Der Boden gefriert bei kalten Temperaturen</TKKN_doIce_text>
 </LanguageData>

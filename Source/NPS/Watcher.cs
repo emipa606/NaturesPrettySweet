@@ -754,7 +754,11 @@ public class Watcher : MapComponent
 
         if (isCold)
         {
-            cell.setTerrain("frozen");
+            if (Settings.doIce)
+            {
+                cell.setTerrain("frozen");
+            }
+
             //handle frost based on snowing
             if (!roofed && map.weatherManager.SnowRate > 0.001f)
             {

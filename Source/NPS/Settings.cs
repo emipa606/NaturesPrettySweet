@@ -41,6 +41,7 @@ public class Settings : ModSettings
     public static bool showUpdateNotes = true;
     public static bool doFloods = true;
     public static float weatherCellUpdateSpeed = 0.0006f;
+    public static bool doIce = showCold;
 
     static Settings()
     {
@@ -74,6 +75,14 @@ public class Settings : ModSettings
             "TKKN_showCold_title".Translate(),
             ref showCold,
             "TKKN_showCold_text".Translate());
+        if (showCold)
+        {
+            list.CheckboxLabeled(
+                "TKKN_doIce_title".Translate(),
+                ref doIce,
+                "TKKN_doIce_text".Translate());
+        }
+
         list.CheckboxLabeled(
             "TKKN_showRain_title".Translate(),
             ref showRain,
@@ -159,6 +168,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref showRain, "showRain", true, true);
         Scribe_Values.Look(ref doTides, "doTides", true, true);
         Scribe_Values.Look(ref doFloods, "doFloods", true, true);
+        Scribe_Values.Look(ref doIce, "doIce", showCold, true);
         Scribe_Values.Look(ref allowPawnsToGetWet, "allowPawnsToGetWet", true, true);
         Scribe_Values.Look(ref allowPawnsSwim, "allowPawnsSwim", true, true);
         Scribe_Values.Look(ref showDevReadout, "showDevReadout", false, true);

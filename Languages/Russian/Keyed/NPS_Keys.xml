@@ -56,4 +56,6 @@
   <TKKN_doFloods_text>Реки будут подниматься и опускаться</TKKN_doFloods_text>
   <TKKN_weatherCellUpdateSpeed_title>Скорость обновления погодных эффектов: {0}</TKKN_weatherCellUpdateSpeed_title>
   <TKKN_weatherCellUpdateSpeed_text>Как быстро происходят такие эффекты, как переход от воды ко льду. Уменьшите этот показатель для повышения производительности, увеличьте - для ускорения визуализации в игре.</TKKN_weatherCellUpdateSpeed_text>
+  <TKKN_doIce_title>Промерзание грунта</TKKN_doIce_title>
+  <TKKN_doIce_text>При низких температурах рельеф промерзает</TKKN_doIce_text>
 </LanguageData>

@@ -61,39 +61,39 @@ public class BiomeSeasonalSettings : DefModExtension
 
     public void setWeatherBySeason(Map map, Season season, Quadrum quadrum)
     {
-        if (Season.Spring == season)
+        switch (season)
         {
-            map.Biome.baseWeatherCommonalities = springWeathers;
-        }
-        else if (Season.Summer == season)
-        {
-            map.Biome.baseWeatherCommonalities = summerWeathers;
-        }
-        else if (Season.Fall == season)
-        {
-            map.Biome.baseWeatherCommonalities = fallWeathers;
-        }
-        else if (Season.Winter == season)
-        {
-            map.Biome.baseWeatherCommonalities = winterWeathers;
-        }
-        else
-        {
-            if (Quadrum.Aprimay == quadrum)
-            {
+            case Season.Spring:
                 map.Biome.baseWeatherCommonalities = springWeathers;
-            }
-            else if (Quadrum.Decembary == quadrum)
-            {
-                map.Biome.baseWeatherCommonalities = winterWeathers;
-            }
-            else if (Quadrum.Jugust == quadrum)
-            {
-                map.Biome.baseWeatherCommonalities = fallWeathers;
-            }
-            else if (Quadrum.Septober == quadrum)
-            {
+                break;
+            case Season.Summer:
                 map.Biome.baseWeatherCommonalities = summerWeathers;
+                break;
+            case Season.Fall:
+                map.Biome.baseWeatherCommonalities = fallWeathers;
+                break;
+            case Season.Winter:
+                map.Biome.baseWeatherCommonalities = winterWeathers;
+                break;
+            default:
+            {
+                switch (quadrum)
+                {
+                    case Quadrum.Aprimay:
+                        map.Biome.baseWeatherCommonalities = springWeathers;
+                        break;
+                    case Quadrum.Decembary:
+                        map.Biome.baseWeatherCommonalities = winterWeathers;
+                        break;
+                    case Quadrum.Jugust:
+                        map.Biome.baseWeatherCommonalities = fallWeathers;
+                        break;
+                    case Quadrum.Septober:
+                        map.Biome.baseWeatherCommonalities = summerWeathers;
+                        break;
+                }
+
+                break;
             }
         }
     }
@@ -101,39 +101,39 @@ public class BiomeSeasonalSettings : DefModExtension
     public void setDiseaseBySeason(Season season, Quadrum quadrum)
     {
         var seasonalDiseases = new List<BiomeDiseaseRecord>();
-        if (Season.Spring == season && springDiseases != null)
+        switch (season)
         {
-            seasonalDiseases = springDiseases;
-        }
-        else if (Season.Summer == season && summerDiseases != null)
-        {
-            seasonalDiseases = summerDiseases;
-        }
-        else if (Season.Fall == season && fallDiseases != null)
-        {
-            seasonalDiseases = fallDiseases;
-        }
-        else if (Season.Winter == season && winterDiseases != null)
-        {
-            seasonalDiseases = winterDiseases;
-        }
-        else
-        {
-            if (Quadrum.Aprimay == quadrum && springDiseases != null)
-            {
+            case Season.Spring when springDiseases != null:
                 seasonalDiseases = springDiseases;
-            }
-            else if (Quadrum.Decembary == quadrum && winterDiseases != null)
-            {
-                seasonalDiseases = winterDiseases;
-            }
-            else if (Quadrum.Jugust == quadrum && summerDiseases != null)
-            {
+                break;
+            case Season.Summer when summerDiseases != null:
                 seasonalDiseases = summerDiseases;
-            }
-            else if (Quadrum.Septober == quadrum && fallDiseases != null)
-            {
+                break;
+            case Season.Fall when fallDiseases != null:
                 seasonalDiseases = fallDiseases;
+                break;
+            case Season.Winter when winterDiseases != null:
+                seasonalDiseases = winterDiseases;
+                break;
+            default:
+            {
+                switch (quadrum)
+                {
+                    case Quadrum.Aprimay when springDiseases != null:
+                        seasonalDiseases = springDiseases;
+                        break;
+                    case Quadrum.Decembary when winterDiseases != null:
+                        seasonalDiseases = winterDiseases;
+                        break;
+                    case Quadrum.Jugust when summerDiseases != null:
+                        seasonalDiseases = summerDiseases;
+                        break;
+                    case Quadrum.Septober when fallDiseases != null:
+                        seasonalDiseases = fallDiseases;
+                        break;
+                }
+
+                break;
             }
         }
 
@@ -149,39 +149,39 @@ public class BiomeSeasonalSettings : DefModExtension
     public void setIncidentsBySeason(Season season, Quadrum quadrum)
     {
         var seasonalIncidents = new List<TKKN_IncidentCommonalityRecord>();
-        if (Season.Spring == season && springEvents != null)
+        switch (season)
         {
-            seasonalIncidents = springEvents;
-        }
-        else if (Season.Summer == season && summerEvents != null)
-        {
-            seasonalIncidents = summerEvents;
-        }
-        else if (Season.Fall == season && fallEvents != null)
-        {
-            seasonalIncidents = fallEvents;
-        }
-        else if (Season.Winter == season && winterEvents != null)
-        {
-            seasonalIncidents = winterEvents;
-        }
-        else
-        {
-            if (Quadrum.Aprimay == quadrum && springEvents != null)
-            {
+            case Season.Spring when springEvents != null:
                 seasonalIncidents = springEvents;
-            }
-            else if (Quadrum.Decembary == quadrum && winterEvents != null)
-            {
-                seasonalIncidents = winterEvents;
-            }
-            else if (Quadrum.Jugust == quadrum && summerEvents != null)
-            {
+                break;
+            case Season.Summer when summerEvents != null:
                 seasonalIncidents = summerEvents;
-            }
-            else if (Quadrum.Septober == quadrum && fallEvents != null)
-            {
+                break;
+            case Season.Fall when fallEvents != null:
                 seasonalIncidents = fallEvents;
+                break;
+            case Season.Winter when winterEvents != null:
+                seasonalIncidents = winterEvents;
+                break;
+            default:
+            {
+                switch (quadrum)
+                {
+                    case Quadrum.Aprimay when springEvents != null:
+                        seasonalIncidents = springEvents;
+                        break;
+                    case Quadrum.Decembary when winterEvents != null:
+                        seasonalIncidents = winterEvents;
+                        break;
+                    case Quadrum.Jugust when summerEvents != null:
+                        seasonalIncidents = summerEvents;
+                        break;
+                    case Quadrum.Septober when fallEvents != null:
+                        seasonalIncidents = fallEvents;
+                        break;
+                }
+
+                break;
             }
         }
 

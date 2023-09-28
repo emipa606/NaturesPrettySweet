@@ -168,4 +168,6 @@ If you like this mod, consider visiting the actual National and State Parks. Vis
 -  If you have the solution for a problem, please post it to the GitHub repository.
 
 
-https://steamcommunity.com/sharedfiles/filedetails/changelog/2532618635]Last updated 2023-06-10
+
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2532618635]![Image](https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&style=plastic&color=9f1111&labelColor=black)
+
