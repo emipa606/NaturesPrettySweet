@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using UnityEngine;
 using Verse;
 
 namespace TKKN_NPS;
@@ -11,10 +10,9 @@ internal class PatchGraphic
     public static class PatchDrawWorker
     {
         [HarmonyPrefix]
-        public static bool Prefix(Vector3 loc, Rot4 rot, ThingDef thingDef, Thing thing, float extraRotation)
+        public static bool Prefix(Thing thing)
         {
-            var pawn = thing as Pawn;
-            if (pawn is not { })
+            if (thing is not Pawn pawn)
             {
                 return true;
             }
