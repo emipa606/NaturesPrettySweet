@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.4.16 - Added support for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2079784964]Rimbrellas![/url]
+
+
 1.4.15 - Fixed a nullcheck for the weather decider that broke mapgen when entering a desert or thundra biome in some instances
 
 

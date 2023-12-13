@@ -173,6 +173,11 @@ internal class PatchTickPawn
             return;
         }
 
+        if (HarmonyMain.RimBrellasActive && (bool)HarmonyMain.HasUmbrella.Invoke(pawn, [pawn]))
+        {
+            return;
+        }
+
         var hediff = HediffMaker.MakeHediff(hediffDef, pawn);
         hediff.Severity = 0;
         pawn.health.AddHediff(hediff);

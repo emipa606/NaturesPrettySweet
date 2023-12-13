@@ -27,6 +27,11 @@ public class JobGiver_Dryoff : ThinkNode_JobGiver
 
     private IntVec3 getDryCell(Pawn pawn)
     {
+        pawn.MapHeld.regionAndRoomUpdater.Enabled = true;
+        CellFinder.TryFindRandomCellNear(pawn.Position, pawn.MapHeld, 6, Validator, out var c);
+        pawn.MapHeld.regionAndRoomUpdater.Enabled = false;
+        return c;
+
         bool Validator(IntVec3 pos)
         {
             if (pos.GetTerrain(pawn.MapHeld).HasTag("TKKN_Wet"))
@@ -41,10 +46,5 @@ public class JobGiver_Dryoff : ThinkNode_JobGiver
 
             return pawn.MapHeld.roofGrid.Roofed(pos);
         }
-
-        pawn.MapHeld.regionAndRoomUpdater.Enabled = true;
-        CellFinder.TryFindRandomCellNear(pawn.Position, pawn.MapHeld, 6, Validator, out var c);
-        pawn.MapHeld.regionAndRoomUpdater.Enabled = false;
-        return c;
     }
 }

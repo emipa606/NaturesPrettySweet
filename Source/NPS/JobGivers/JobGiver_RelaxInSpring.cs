@@ -7,23 +7,11 @@ namespace TKKN_NPS;
 
 public class JobGiver_RelaxInSpring : ThinkNode_JobGiver
 {
-    private float radius = 30f;
-
     protected override Job TryGiveJob(Pawn pawn)
     {
         if (!JoyUtility.EnjoyableOutsideNow(pawn))
         {
             return null;
-        }
-
-        bool Validator(Thing t)
-        {
-            if (t.def.defName == "TKKN_HotSpring" && t.AmbientTemperature is < 26 and > 15)
-            {
-                return true;
-            }
-
-            return t.def.defName == "TKKN_ColdSpring" && t.AmbientTemperature > 24;
         }
 
         var hotSpring = GenClosest.ClosestThingReachable(pawn.GetLord().CurLordToil.FlagLoc, pawn.Map,
@@ -38,10 +26,25 @@ public class JobGiver_RelaxInSpring : ThinkNode_JobGiver
             ThingRequest.ForDef(ThingDefOf.TKKN_ColdSpring), PathEndMode.Touch, TraverseParms.For(pawn), -1f,
             Validator);
         return spring != null ? new Job(RimWorld.JobDefOf.GotoSafeTemperature, getSpringCell(spring)) : null;
+
+        bool Validator(Thing t)
+        {
+            if (t.def.defName == "TKKN_HotSpring" && t.AmbientTemperature is < 26 and > 15)
+            {
+                return true;
+            }
+
+            return t.def.defName == "TKKN_ColdSpring" && t.AmbientTemperature > 24;
+        }
     }
 
     private IntVec3 getSpringCell(Thing spring)
     {
+        spring.MapHeld.regionAndRoomUpdater.Enabled = true;
+        CellFinder.TryFindRandomCellNear(spring.Position, spring.Map, 6, Validator, out var c);
+        spring.MapHeld.regionAndRoomUpdater.Enabled = false;
+        return c;
+
         bool Validator(IntVec3 pos)
         {
             switch (spring.def.defName)
@@ -54,10 +57,5 @@ public class JobGiver_RelaxInSpring : ThinkNode_JobGiver
                     return false;
             }
         }
-
-        spring.MapHeld.regionAndRoomUpdater.Enabled = true;
-        CellFinder.TryFindRandomCellNear(spring.Position, spring.Map, 6, Validator, out var c);
-        spring.MapHeld.regionAndRoomUpdater.Enabled = false;
-        return c;
     }
 }
