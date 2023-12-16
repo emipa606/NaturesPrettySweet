@@ -53,6 +53,8 @@
   <TKKN_doTides_text>Oceans will rise and fall</TKKN_doTides_text>
   <TKKN_doFloods_title>Do Floods</TKKN_doFloods_title>
   <TKKN_doFloods_text>Rivers will rise and fall</TKKN_doFloods_text>
+  <TKKN_doSprings_title>Do Springs</TKKN_doSprings_title>
+  <TKKN_doSprings_text>Allows the spawning of hot and cold springs</TKKN_doSprings_text>
   <TKKN_doIce_title>   Ground freezes</TKKN_doIce_title>
   <TKKN_doIce_text>Terrain will freeze at cold temperatures</TKKN_doIce_text>
   <TKKN_doDirtPath_title>Generate paths</TKKN_doDirtPath_title>

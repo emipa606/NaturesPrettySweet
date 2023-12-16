@@ -96,6 +96,15 @@ public class BiomeSeasonalSettings : DefModExtension
                 break;
             }
         }
+
+        if (map.Biome.baseWeatherCommonalities?.Any() == false)
+        {
+            map.Biome.baseWeatherCommonalities =
+            [
+                ..new[]
+                    { new WeatherCommonalityRecord { commonality = 1f, weather = WeatherDefOf.Clear } }
+            ];
+        }
     }
 
     public void setDiseaseBySeason(Season season, Quadrum quadrum)

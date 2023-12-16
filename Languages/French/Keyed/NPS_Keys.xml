@@ -58,4 +58,6 @@
   <TKKN_weatherCellUpdateSpeed_text>Vitesse à laquelle se produisent des effets tels que le passage de l'eau à la glace. Diminuez cette valeur pour améliorer les performances, augmentez-la pour obtenir des visualisations plus rapides dans le jeu.</TKKN_weatherCellUpdateSpeed_text>
   <TKKN_doIce_title>Le sol gèle</TKKN_doIce_title>
   <TKKN_doIce_text>Le terrain gèle par temps froid</TKKN_doIce_text>
+  <TKKN_doSprings_title>Do Springs</TKKN_doSprings_title>
+  <TKKN_doSprings_text>Permet le frai de sources chaudes et froides</TKKN_doSprings_text>
 </LanguageData>

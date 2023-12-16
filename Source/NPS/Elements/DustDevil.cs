@@ -64,7 +64,7 @@ public class DustDevil : ThingWithComps
 
     private static readonly float ZOffsetBias = -4f * PartsDistanceFromCenter.min;
 
-    private static readonly List<Thing> tmpThings = new List<Thing>();
+    private static readonly List<Thing> tmpThings = [];
 
     private float direction;
 

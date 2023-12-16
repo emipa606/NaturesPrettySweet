@@ -58,4 +58,6 @@
   <TKKN_weatherCellUpdateSpeed_text>Как быстро происходят такие эффекты, как переход от воды ко льду. Уменьшите этот показатель для повышения производительности, увеличьте - для ускорения визуализации в игре.</TKKN_weatherCellUpdateSpeed_text>
   <TKKN_doIce_title>Промерзание грунта</TKKN_doIce_title>
   <TKKN_doIce_text>При низких температурах рельеф промерзает</TKKN_doIce_text>
+  <TKKN_doSprings_title>До Спрингс</TKKN_doSprings_title>
+  <TKKN_doSprings_text>Позволяет нереститься горячим и холодным источникам</TKKN_doSprings_text>
 </LanguageData>

@@ -18,7 +18,7 @@ public class Watcher : MapComponent
     public Dictionary<IntVec3, cellData> cellWeatherAffects = new Dictionary<IntVec3, cellData>();
     public int cycleIndex;
     public bool doCoast = true; //false if no coast
-    public List<List<IntVec3>> floodCellsList = new List<List<IntVec3>>();
+    public List<List<IntVec3>> floodCellsList = [];
 
     public int floodLevel; // 0 - 3
     public int floodThreat;
@@ -31,18 +31,18 @@ public class Watcher : MapComponent
 
     public int howManyTideSteps = 13;
     public float humidity;
-    public HashSet<IntVec3> lavaCellsList = new HashSet<IntVec3>();
+    public HashSet<IntVec3> lavaCellsList = [];
     public int MaxPuddles = 50;
     public Thing overlay;
 
     //used by weather
     public bool regenCellLists = true;
-    public List<IntVec3> swimmingCellsList = new List<IntVec3>();
+    public List<IntVec3> swimmingCellsList = [];
 
     public int ticks;
 
     //rebuild every save to keep file size down
-    public List<List<IntVec3>> tideCellsList = new List<List<IntVec3>>();
+    public List<List<IntVec3>> tideCellsList = [];
     public int tideLevel; // 0 - 13
     public int totalPuddles;
     public int totalSprings;
@@ -260,19 +260,19 @@ public class Watcher : MapComponent
 
 
         //rebuild lookup lists.
-        lavaCellsList = new HashSet<IntVec3>();
-        swimmingCellsList = new List<IntVec3>();
-        tideCellsList = new List<List<IntVec3>>();
-        floodCellsList = new List<List<IntVec3>>();
+        lavaCellsList = [];
+        swimmingCellsList = [];
+        tideCellsList = [];
+        floodCellsList = [];
 
         for (var k = 0; k < howManyTideSteps; k++)
         {
-            tideCellsList.Add(new List<IntVec3>());
+            tideCellsList.Add([]);
         }
 
         for (var k = 0; k < howManyFloodSteps; k++)
         {
-            floodCellsList.Add(new List<IntVec3>());
+            floodCellsList.Add([]);
         }
 
         var component = map.GetComponent<FrostGrid>();
@@ -397,6 +397,12 @@ public class Watcher : MapComponent
         {
             maxSprings = biomeSettings.maxSprings;
             springSpawnChance = biomeSettings.springSpawnChance;
+        }
+
+        if (!Settings.doSprings)
+        {
+            maxSprings = 0;
+            springSpawnChance = 0;
         }
 
         foreach (var element in DefDatabase<ElementSpawnDef>.AllDefs)

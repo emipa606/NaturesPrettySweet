@@ -58,4 +58,6 @@
   <TKKN_weatherCellUpdateSpeed_text>诸如从水变成冰的效果发生的速度。降低这个值是为了提高性能，提高这个值是为了加快游戏中的视觉效果。</TKKN_weatherCellUpdateSpeed_text>
   <TKKN_doIce_title>地面冻结</TKKN_doIce_title>
   <TKKN_doIce_text>地形在低温下会冻结</TKKN_doIce_text>
+  <TKKN_doSprings_title>多泉</TKKN_doSprings_title>
+  <TKKN_doSprings_text>允许温泉和冷泉产卵</TKKN_doSprings_text>
 </LanguageData>

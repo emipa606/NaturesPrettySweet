@@ -10,10 +10,10 @@ namespace TKKN_NPS;
 
 public class SpringComp : SpringCompAbstract
 {
-    private readonly List<IntVec3> affectableCells = new List<IntVec3>();
-    private readonly List<IntVec3> affectableCellsAtmosphere = new List<IntVec3>();
-    private readonly List<IntVec3> boundaryCells = new List<IntVec3>();
-    private readonly List<IntVec3> boundaryCellsRough = new List<IntVec3>();
+    private readonly List<IntVec3> affectableCells = [];
+    private readonly List<IntVec3> affectableCellsAtmosphere = [];
+    private readonly List<IntVec3> boundaryCells = [];
+    private readonly List<IntVec3> boundaryCellsRough = [];
     public int age;
 
     public string biomeName;

@@ -7,7 +7,7 @@ namespace TKKN_NPS;
 
 public class JobGiver_GoSwimming : JobGiver_Wander
 {
-    private static readonly List<IntVec3> swimmingSpots = new List<IntVec3>();
+    private static readonly List<IntVec3> swimmingSpots = [];
 
     public JobGiver_GoSwimming()
     {
