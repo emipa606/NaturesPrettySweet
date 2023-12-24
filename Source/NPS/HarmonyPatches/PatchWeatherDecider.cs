@@ -16,7 +16,7 @@ internal class PatchWeatherDecider
         {
             try
             {
-                if (___map.weatherManager.curWeather != null && !___map.weatherManager.curWeather.repeatable &&
+                if (___map.weatherManager.curWeather is { repeatable: false } &&
                     weather == ___map.weatherManager.curWeather)
                 {
                     __result = 0f;
