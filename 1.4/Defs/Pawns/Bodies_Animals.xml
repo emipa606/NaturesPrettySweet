@@ -58,6 +58,11 @@
       <depth>Outside</depth>
       <parts>
         <li>
+          <def>FootPebbel</def>
+          <coverage>0.01</coverage>
+          <height>Bottom</height>
+        </li>
+        <li>
           <def>Stomach</def>
           <coverage>0.04</coverage>
           <depth>Inside</depth>
@@ -147,12 +152,24 @@
     </corePart>
   </BodyDef>
   <BodyPartDef>
+    <defName>FootPebbel</defName>
+    <label>pebbel</label>
+    <hitPoints>500</hitPoints>
+    <frostbiteVulnerability>0</frostbiteVulnerability>
+    <skinCovered>false</skinCovered>
+    <tags>
+      <li>MovingLimbCore</li>
+      <li>MovingLimbSegment</li>
+    </tags>
+  </BodyPartDef>
+  <BodyPartDef>
     <defName>SnailFoot</defName>
     <label>foot</label>
     <hitPoints>300</hitPoints>
     <frostbiteVulnerability>0.5</frostbiteVulnerability>
     <skinCovered>true</skinCovered>
     <tags>
+      <li>MovingLimbCore</li>
       <li>MovingLimbSegment</li>
     </tags>
   </BodyPartDef>

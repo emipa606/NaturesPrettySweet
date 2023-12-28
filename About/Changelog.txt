@@ -1,5 +1,9 @@
 # Changelog for NaturesPrettySweet
 
+1.4.19 - Fixed spawning of giant snails and pet lava rocks
+Limited the spawning of steam vents to not overrun the map
+
+
 1.4.18 - Fixed steam-generator not being placeable
 
 

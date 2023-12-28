@@ -704,7 +704,8 @@ public class Watcher : MapComponent
                         defName = "TKKN_LavaRock";
                         break;
                     case "TKKN_LavaRock_RoughHewn" when
-                        map.Biome.defName == "TKKN_VolcanicFlow":
+                        map.Biome.defName == "TKKN_VolcanicFlow" &&
+                        map.listerThings.ThingsOfDef(ThingDefOf.TKKN_SteamVent).Count < 10:
                         defName = "TKKN_SteamVent";
                         break;
                 }
