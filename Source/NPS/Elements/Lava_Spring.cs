@@ -7,7 +7,7 @@ public class Lava_Spring : ThingWithComps
     public override void SpawnSetup(Map map, bool respawningAfterLoad)
     {
         base.SpawnSetup(map, respawningAfterLoad);
-        var unused = Map;
-        var unused1 = map.Biome;
+        _ = Map;
+        _ = map.Biome;
     }
 }

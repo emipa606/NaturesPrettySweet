@@ -153,7 +153,7 @@ internal class PatchTickPawn
         {
             var room = c.GetRoom(map);
             var roofed = map.roofGrid.Roofed(c);
-            var unused = room is { UsesOutdoorTemperature: true };
+            _ = room is { UsesOutdoorTemperature: true };
             if (!roofed)
             {
                 isWet = true;

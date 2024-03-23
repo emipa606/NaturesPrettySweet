@@ -400,8 +400,7 @@ public class SpringComp : SpringCompAbstract
         {
             if (!isSpawnCell)
             {
-                var unused =
-                    (ThingWithComps)GenSpawn.Spawn(ThingMaker.MakeThing(parent.def), c, parent.Map);
+                _ = (ThingWithComps)GenSpawn.Spawn(ThingMaker.MakeThing(parent.def), c, parent.Map);
             }
 
             status = "stable";

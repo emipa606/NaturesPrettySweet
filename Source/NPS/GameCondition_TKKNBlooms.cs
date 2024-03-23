@@ -11,7 +11,7 @@ public class GameCondition_TKKNBlooms : GameCondition
     public void DoCellSteadyEffects(IntVec3 c)
     {
         //must be outdoors.
-        var unused = SingleMap;
+        _ = SingleMap;
         var biomeSettings = SingleMap.Biome.GetModExtension<BiomeSeasonalSettings>();
         var bloomPlants = biomeSettings.bloomPlants.ToList();
         if (bloomPlants.Count == 0)

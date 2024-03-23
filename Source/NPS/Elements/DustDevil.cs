@@ -194,7 +194,7 @@ public class DustDevil : ThingWithComps
         }
     }
 
-    public override void Draw()
+    protected override void DrawAt(Vector3 drawLoc, bool flip = false)
     {
         Rand.PushState();
         Rand.Seed = thingIDNumber;

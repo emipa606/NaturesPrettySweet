@@ -34,7 +34,7 @@ internal class PatchComfortableTemperatureRange
         }
 
         //they are comfortable only at higher temp
-        var unused = __result;
+        _ = __result;
         __result.min += setTo;
         __result.max += setTo;
 

@@ -51,6 +51,7 @@ internal class PatchWeatherDecider
                 }
 
                 var biome = ___map.Biome;
+                // ReSharper disable once ForCanBeConvertedToForeach
                 for (var i = 0; i < biome.baseWeatherCommonalities.Count; i++)
                 {
                     var weatherCommonalityRecord = biome.baseWeatherCommonalities[i];

@@ -50,7 +50,7 @@ internal class PatchTryGiveJob
             return;
         }
 
-        //send them to closest spring to relax
+        //send them to the closest spring to relax
 
         var thing = GenClosest.ClosestThingReachable(pawn.GetLord().CurLordToil.FlagLoc, pawn.Map,
             ThingRequest.ForDef(ThingDefOf.TKKN_ColdSpring), PathEndMode.Touch, TraverseParms.For(pawn), -1f);

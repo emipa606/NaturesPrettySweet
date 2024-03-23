@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace TKKN_NPS;
@@ -120,12 +121,12 @@ public sealed class FrostGrid : MapComponent
 
         if (Mathf.Abs(oldDepth - newDepth) > 0.15f || Rand.Value < 0.0125f)
         {
-            map.mapDrawer.MapMeshDirty(c, MapMeshFlag.Snow, true, false);
-            map.mapDrawer.MapMeshDirty(c, MapMeshFlag.Things, true, false);
+            map.mapDrawer.MapMeshDirty(c, MapMeshFlagDefOf.Snow, true, false);
+            map.mapDrawer.MapMeshDirty(c, MapMeshFlagDefOf.Things, true, false);
         }
         else if (newDepth == 0f)
         {
-            map.mapDrawer.MapMeshDirty(c, MapMeshFlag.Snow, true, false);
+            map.mapDrawer.MapMeshDirty(c, MapMeshFlagDefOf.Snow, true, false);
         }
     }
 

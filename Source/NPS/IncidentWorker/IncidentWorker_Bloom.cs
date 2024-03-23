@@ -16,7 +16,7 @@ public class IncidentWorker_Bloom : IncidentWorker_TKKN_Weather
         }
 
         var map = (Map)parms.target;
-        var unused = CellFinder.RandomNotEdgeCell(15, map);
+        _ = CellFinder.RandomNotEdgeCell(15, map);
 
         //can the biome support it?
         var biomeSettings = map.Biome.GetModExtension<BiomeSeasonalSettings>();

@@ -5,7 +5,7 @@ using Verse;
 namespace TKKN_NPS;
 
 [HarmonyPatch(typeof(GenSpawn), "Spawn", typeof(Thing), typeof(IntVec3), typeof(Map), typeof(Rot4), typeof(WipeMode),
-    typeof(bool))]
+    typeof(bool), typeof(bool))]
 internal class PatchGenSpawnSpawn
 {
     // Dont let it spawn  in lave

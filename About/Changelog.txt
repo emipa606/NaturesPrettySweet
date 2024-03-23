@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.5.0 - Mod updated for 1.5 and passed autotests
+
+
 1.4.19 - Fixed spawning of giant snails and pet lava rocks
 Limited the spawning of steam vents to not overrun the map
 

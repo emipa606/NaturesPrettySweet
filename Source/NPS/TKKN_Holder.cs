@@ -4,5 +4,5 @@ namespace TKKN_NPS;
 
 public class TKKN_Holder
 {
-    public static HashSet<string> modsPatched = [];
+    public static readonly HashSet<string> modsPatched = [];
 }

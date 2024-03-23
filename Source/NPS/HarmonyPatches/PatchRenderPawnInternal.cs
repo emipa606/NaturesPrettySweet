@@ -3,18 +3,23 @@ using Verse;
 
 namespace TKKN_NPS;
 
-[HarmonyPatch(typeof(PawnRenderer), "RenderPawnInternal")]
+[HarmonyPatch(typeof(PawnRenderNodeWorker_Body), "CanDrawNow")]
 internal class PatchRenderPawnInternal
 {
-    [HarmonyPrefix]
-    public static void Prefix(ref bool renderBody, ref float angle, PawnRenderer __instance)
+    [HarmonyPostfix]
+    public static void Postfix(PawnRenderNode node, PawnDrawParms parms, ref bool __result)
     {
+        if (!__result)
+        {
+            return;
+        }
+
         if (!Settings.allowPawnsSwim)
         {
             return;
         }
 
-        var pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
+        var pawn = parms.pawn;
         if (pawn is not { Position.IsValid: true } || pawn.Dead)
         {
             return;
@@ -33,7 +38,7 @@ internal class PatchRenderPawnInternal
 
         if (terrain.HasTag("TKKN_Swim"))
         {
-            renderBody = false;
+            __result = false;
         }
     }
 }

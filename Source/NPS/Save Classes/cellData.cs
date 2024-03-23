@@ -8,6 +8,7 @@ namespace TKKN_NPS;
 
 public class cellData : IExposable
 {
+    public readonly int packAt = 750;
     public TerrainDef baseTerrain;
     public HashSet<int> floodLevel = [];
     public float frostLevel;
@@ -26,8 +27,6 @@ public class cellData : IExposable
     public TerrainDef originalTerrain;
 
     public string overrideType = "";
-
-    public int packAt = 750;
     public float temperature = -9999;
 
     public int tideLevel = -1;
@@ -544,7 +543,7 @@ public class cellData : IExposable
                     continue;
                 }
 
-                var unused = currentTerrain;
+                _ = currentTerrain;
                 var thingWeather = plantDef.GetModExtension<ThingWeatherReaction>();
                 var okTerrains = thingWeather.allowedTerrains;
                 if (okTerrains == null || !okTerrains.Contains<TerrainDef>(currentTerrain))
@@ -630,7 +629,7 @@ public class cellData : IExposable
 
             if (plant.def.HasModExtension<ThingWeatherReaction>())
             {
-                var unused = currentTerrain;
+                _ = currentTerrain;
                 var thingWeather = plant.def.GetModExtension<ThingWeatherReaction>();
                 var okTerrains = thingWeather.allowedTerrains;
                 if (okTerrains.Contains<TerrainDef>(currentTerrain))

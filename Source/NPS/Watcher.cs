@@ -8,8 +8,15 @@ using Verse.Noise;
 
 namespace TKKN_NPS;
 
-public class Watcher : MapComponent
+public class Watcher(Map map) : MapComponent(map)
 {
+    public readonly Dictionary<string, Graphic> graphicHolder = new Dictionary<string, Graphic>();
+    public readonly int howManyFloodSteps = 5;
+
+    public readonly int howManyTideSteps = 13;
+
+    public readonly int MaxPuddles = 50;
+
     //used to save data about active springs.
     public Dictionary<int, springData> activeSprings = new Dictionary<int, springData>();
 
@@ -25,14 +32,8 @@ public class Watcher : MapComponent
     public float[] frostGrid;
 
     public ModuleBase frostNoise;
-
-    public Dictionary<string, Graphic> graphicHolder = new Dictionary<string, Graphic>();
-    public int howManyFloodSteps = 5;
-
-    public int howManyTideSteps = 13;
     public float humidity;
     public HashSet<IntVec3> lavaCellsList = [];
-    public int MaxPuddles = 50;
     public Thing overlay;
 
     //used by weather
@@ -50,9 +51,6 @@ public class Watcher : MapComponent
 //		public Map mapRef;
 
     /* STANDARD STUFF */
-    public Watcher(Map map) : base(map)
-    {
-    }
 
     public override void MapComponentTick()
     {
@@ -154,7 +152,7 @@ public class Watcher : MapComponent
 
         if (regenCellLists)
         {
-            //spawn oasis. Do before cell list building so it's stored correctly.
+            //spawn oasis. Do before cell list building, so it's stored correctly.
             spawnOasis();
             fixLava();
 
@@ -337,7 +335,7 @@ public class Watcher : MapComponent
 
     public void spawnSpecialPlants(IntVec3 c)
     {
-        var unused = new List<ThingDef>
+        _ = new List<ThingDef>
         {
             ThingDef.Named("TKKN_SaltCrystal"),
             ThingDef.Named("TKKN_PlantBarnacles")
@@ -679,7 +677,7 @@ public class Watcher : MapComponent
         var currentTerrain = c.GetTerrain(map);
         var room = c.GetRoom(map);
         var roofed = map.roofGrid.Roofed(c);
-        var unused = room is { UsesOutdoorTemperature: true };
+        _ = room is { UsesOutdoorTemperature: true };
 
         var gettingWet = false;
         cell.gettingWet = false;
@@ -1111,7 +1109,7 @@ public class Watcher : MapComponent
 
     private void doTides()
     {
-        //notes to future me: use this.howManyTideSteps - 1 so we always have a little bit of wet sand, or else it looks stupid.
+        //notes to future me: use this.howManyTideSteps - 1, so we always have a little bit of wet sand, or else it looks stupid.
         if (!doCoast || !Settings.doTides || ticks % 100 != 0)
         {
             return;

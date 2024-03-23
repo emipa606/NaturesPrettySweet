@@ -27,6 +27,6 @@ internal class PatchSpawnSetupPawn
             Log.Message($"{__instance} spawns in lava, setting on fire");
         }
 
-        __instance.TryAttachFire(10f);
+        __instance.TryAttachFire(10f, __instance);
     }
 }

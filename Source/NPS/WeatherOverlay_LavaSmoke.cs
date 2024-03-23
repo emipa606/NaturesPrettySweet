@@ -6,7 +6,7 @@ namespace TKKN_NPS;
 [StaticConstructorOnStartup]
 public class WeatherOverlay_LavaSmoke : SkyOverlay
 {
-    public static Material material = new Material(MatLoader.LoadMat("Weather/FogOverlayWorld"));
+    public static readonly Material material = new Material(MatLoader.LoadMat("Weather/FogOverlayWorld"));
 
     public WeatherOverlay_LavaSmoke()
     {

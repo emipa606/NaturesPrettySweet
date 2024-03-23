@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace TKKN_NPS;
@@ -12,7 +13,7 @@ internal class SectionLayer_Frost : SectionLayer
 
     public SectionLayer_Frost(Section section) : base(section)
     {
-        relevantChangeTypes = MapMeshFlag.Snow;
+        relevantChangeTypes = MapMeshFlagDefOf.Snow;
     }
 
     public override bool Visible => true;

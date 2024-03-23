@@ -12,8 +12,7 @@ internal class HarmonyMain
 
     static HarmonyMain()
     {
-        var harmony = new Harmony("com.github.tkkntkkn.Natures-Pretty-Sweet");
-        harmony.PatchAll(Assembly.GetExecutingAssembly());
+        new Harmony("com.github.tkkntkkn.Natures-Pretty-Sweet").PatchAll(Assembly.GetExecutingAssembly());
 
         RimBrellasActive = ModLister.GetActiveModWithIdentifier("battlemage64.Rimbrellas") != null;
 
