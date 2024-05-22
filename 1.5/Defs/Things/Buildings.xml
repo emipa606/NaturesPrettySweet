@@ -277,7 +277,7 @@
     <description>Temporary natural steam source from lava rock.</description>
     <size>(1,1)</size>
     <neverOverlapFloors>true</neverOverlapFloors>
-    <blocksPlants>true</blocksPlants>
+    <blockPlants>true</blockPlants>
     <building>
       <isEdifice>false</isEdifice>
       <claimable>false</claimable>

@@ -1,20 +1,17 @@
-# NaturesPrettySweet
+# [Nature's Pretty Sweet (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2532618635)
 
 ![Image](https://i.imgur.com/buuPQel.png)
-
 Update of tkkntkkns mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1211694919
 
 - Since the original had a lot of reported bugs Id appreciate anyone to try this version out and report back any issues. Ive fixed various bugs but the design of the mod is still the same.
 - Reduced the amount of barnacles spawned to more sensible levels
-- Added support for https://steamcommunity.com/sharedfiles/filedetails/?id=2079784964]Rimbrellas!
+- Added support for [https://steamcommunity.com/sharedfiles/filedetails/?id=2079784964](Rimbrellas!)
 
 ![Image](https://i.imgur.com/pufA0kM.png)
-
 	
 ![Image](https://i.imgur.com/Z4GOv8H.png)
-
-http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]Full description! (I'm out of space here) 
+[http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/](Full description! (I'm out of space here)) 
 
 **Dec 1 - Bug fix update and a few new things, see git, notes on update, or full description for deets **
 
@@ -26,7 +23,7 @@ Most new elements will generate in the standard biomes, but there are some biome
 
 There are also new resources, items, dangers, natural protection from raids and other effects. Resources can be harvested to get items, which can be sold or consumed.
 
-The amount of additions and compatiability is too long to list here, http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]so here's the full list!
+The amount of additions and compatiability is too long to list here, [http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/](so here's the full list!)
 
 **Compatability** 
 Should be compatible with most other mods, unless they affect map/world generation. 
@@ -73,7 +70,7 @@ Weather:
 
 
 
-New Biomes: http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]See full description for details!
+New Biomes: [http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/](See full description for details!)
 
 
 - Desert Salt Flats - desert with salt flats; allows harvesting and selling salt
@@ -151,7 +148,7 @@ New elements:
 
 
 
-And a ton of minor additions to make the world feel more alive! http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]Read them here!
+And a ton of minor additions to make the world feel more alive! [http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/](Read them here!)
 
 If you like this mod, consider visiting the actual National and State Parks. Visitor numbers are really important, and these features all look waaaay better in real life :)
 
@@ -160,16 +157,14 @@ If you like this mod, consider visiting the actual National and State Parks. Vis
 ![Image](https://i.imgur.com/PwoNOj4.png)
 
 
-
 -  See if the the error persists if you just have this mod and its requirements active.
 -  If not, try adding your other mods until it happens again.
--  Post your error-log using https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib or the standalone https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader and command Ctrl+F12
+-  Post your error-log using [https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] or the standalone [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404](Uploader) and command Ctrl+F12
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
--  Use https://github.com/RimSort/RimSort/releases/latest]RimSort to sort your mods
+-  Use [https://github.com/RimSort/RimSort/releases/latest](RimSort) to sort your mods
 
 
 
-https://steamcommunity.com/sharedfiles/filedetails/changelog/2532618635]![Image](https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&style=plastic&color=9f1111&labelColor=black)
-
+[https://steamcommunity.com/sharedfiles/filedetails/changelog/2532618635]![Image]((https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&style=plastic&color=9f1111&labelColor=black))
