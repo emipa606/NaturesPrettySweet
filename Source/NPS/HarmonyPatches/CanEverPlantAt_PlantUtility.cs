@@ -4,10 +4,10 @@ using Verse;
 
 namespace TKKN_NPS.HarmonyPatches;
 
-[HarmonyPatch(typeof(PlantUtility), "CanEverPlantAt", typeof(ThingDef), typeof(IntVec3), typeof(Map), typeof(bool))]
-internal class Patch_CanEverPlantAt_PlantUtility
+[HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt), typeof(ThingDef), typeof(IntVec3), typeof(Map),
+    typeof(bool))]
+internal class CanEverPlantAt_PlantUtility
 {
-    [HarmonyPostfix]
     public static void Postfix(ThingDef plantDef, IntVec3 c, Map map, ref bool __result)
     {
         if (!__result)

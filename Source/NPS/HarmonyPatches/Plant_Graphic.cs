@@ -5,11 +5,9 @@ using Verse;
 namespace TKKN_NPS;
 
 //swap out plant graphics based on seasonal effects
-[HarmonyPatch(typeof(Plant))]
-[HarmonyPatch("Graphic", MethodType.Getter)]
-public static class PatchGraphicPlant
+[HarmonyPatch(typeof(Plant), nameof(Plant.Graphic), MethodType.Getter)]
+public static class Plant_Graphic
 {
-    [HarmonyPostfix]
     public static void Postfix(Plant __instance, ref Graphic __result)
     {
         var id = __instance.def.defName;

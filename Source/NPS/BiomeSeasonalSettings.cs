@@ -61,6 +61,15 @@ public class BiomeSeasonalSettings : DefModExtension
 
     public void setWeatherBySeason(Map map, Season season, Quadrum quadrum)
     {
+        if (springWeathers == null || !springWeathers.Any() ||
+            summerWeathers == null || !summerWeathers?.Any() == false ||
+            fallWeathers == null || !fallWeathers?.Any() == false ||
+            winterWeathers == null || !winterWeathers?.Any() == false)
+        {
+            return;
+        }
+
+
         switch (season)
         {
             case Season.Spring:

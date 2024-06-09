@@ -4,11 +4,11 @@ using Verse.AI;
 
 namespace TKKN_NPS;
 
-[HarmonyPatch(typeof(Reachability), "CanReach", typeof(IntVec3), typeof(LocalTargetInfo), typeof(PathEndMode),
+[HarmonyPatch(typeof(Reachability), nameof(Reachability.CanReach), typeof(IntVec3), typeof(LocalTargetInfo),
+    typeof(PathEndMode),
     typeof(TraverseParms))]
-internal class PatchCanReach
+internal class Reachability_CanReach
 {
-    [HarmonyPostfix]
     public static void Postfix(IntVec3 start, LocalTargetInfo dest, PathEndMode peMode,
         TraverseParms traverseParams, ref bool __result)
     {

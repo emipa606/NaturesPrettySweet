@@ -4,12 +4,11 @@ using Verse;
 
 namespace TKKN_NPS;
 
-[HarmonyPatch(typeof(GenSpawn), "Spawn", typeof(Thing), typeof(IntVec3), typeof(Map), typeof(Rot4), typeof(WipeMode),
-    typeof(bool), typeof(bool))]
-internal class PatchGenSpawnSpawn
+[HarmonyPatch(typeof(GenSpawn), nameof(GenSpawn.Spawn), typeof(Thing), typeof(IntVec3), typeof(Map), typeof(Rot4),
+    typeof(WipeMode), typeof(bool), typeof(bool))]
+internal class GenSpawn_Spawn
 {
     // Dont let it spawn  in lave
-    [HarmonyPostfix]
     public static void Postfix(Thing newThing, IntVec3 loc, Map map)
     {
         var terrain = loc.GetTerrain(map);

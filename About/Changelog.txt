@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.5.2 - Fixed weather decider for Deserts and other biomes without any seasonal weather settings
+
+
 1.5.1 - Fixed changed field-name
 
 

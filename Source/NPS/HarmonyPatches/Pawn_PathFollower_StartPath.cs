@@ -5,12 +5,10 @@ using Verse.AI;
 
 namespace TKKN_NPS;
 
-[HarmonyPatch(typeof(Pawn_PathFollower))]
-[HarmonyPatch("StartPath")]
-public static class PatchStartPath
+[HarmonyPatch(typeof(Pawn_PathFollower), nameof(Pawn_PathFollower.StartPath))]
+public static class Pawn_PathFollower_StartPath
 {
-    [HarmonyPrefix]
-    public static bool Prefix(Pawn_PathFollower __instance, Pawn ___pawn)
+    public static bool Prefix(Pawn ___pawn)
     {
         if (!___pawn.RaceProps.Animal)
         {
@@ -23,10 +21,10 @@ public static class PatchStartPath
             return true;
         }
 
-        return PawnCanOccupy(___pawn.Position, ___pawn) || TryRecoverFromUnwalkablePosition(true, ___pawn);
+        return PawnCanOccupy(___pawn.Position, ___pawn) || TryRecoverFromUnwalkablePosition(___pawn);
     }
 
-    public static bool TryRecoverFromUnwalkablePosition(bool error, Pawn pawn)
+    public static bool TryRecoverFromUnwalkablePosition(Pawn pawn)
     {
         var tryRecoverFromUnwalkablePosition = false;
         foreach (var intVec3 in GenRadial.RadialPattern)

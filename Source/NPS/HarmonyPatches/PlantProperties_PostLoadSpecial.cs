@@ -5,11 +5,10 @@ using Verse;
 namespace TKKN_NPS;
 
 //load the extra plant graphics
-[HarmonyPatch(typeof(PlantProperties), "PostLoadSpecial")]
-public static class PostLoadSpecialPatch
+[HarmonyPatch(typeof(PlantProperties), nameof(PlantProperties.PostLoadSpecial))]
+public static class PlantProperties_PostLoadSpecial
 {
-    [HarmonyPostfix]
-    public static void Postfix(Plant __instance, ThingDef parentDef)
+    public static void Postfix(Plant __instance)
     {
         if (!__instance.def.HasModExtension<ThingWeatherReaction>())
         {

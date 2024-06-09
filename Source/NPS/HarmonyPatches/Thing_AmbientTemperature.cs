@@ -3,11 +3,9 @@ using Verse;
 
 namespace TKKN_NPS;
 
-[HarmonyPatch(typeof(Thing))]
-[HarmonyPatch("AmbientTemperature", MethodType.Getter)]
-internal class PatchAmbientTemperature
+[HarmonyPatch(typeof(Thing), nameof(Thing.AmbientTemperature), MethodType.Getter)]
+internal class Thing_AmbientTemperature
 {
-    [HarmonyPostfix]
     public static void Postfix(Thing __instance, ref float __result)
     {
         var temperature = __result;

@@ -4,9 +4,8 @@ using Verse;
 
 namespace TKKN_NPS;
 
-[HarmonyPatch(typeof(MouseoverReadout))]
-[HarmonyPatch("MouseoverReadoutOnGUI")]
-internal class PatchMouseoverReadout
+[HarmonyPatch(typeof(MouseoverReadout), nameof(MouseoverReadout.MouseoverReadoutOnGUI))]
+internal class MouseoverReadout_MouseoverReadoutOnGUI
 {
     private static void Postfix()
     {

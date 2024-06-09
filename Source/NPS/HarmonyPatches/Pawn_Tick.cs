@@ -4,11 +4,9 @@ using Verse;
 
 namespace TKKN_NPS;
 
-[HarmonyPatch(typeof(Pawn))]
-[HarmonyPatch("Tick")]
-internal class PatchTickPawn
+[HarmonyPatch(typeof(Pawn), nameof(Pawn.Tick))]
+internal class Pawn_Tick
 {
-    [HarmonyPostfix]
     public static void Postfix(Pawn __instance)
     {
         if (__instance is not { Spawned: true })
@@ -120,9 +118,11 @@ internal class PatchTickPawn
 
             string text = "TKKN_NPS_DrowningText".Translate();
             Messages.Message(text, MessageTypeDefOf.NeutralEvent);
+            return;
         }
-        else if (pawn.RaceProps.Humanlike &&
-                 pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.TKKN_Drowning) != null)
+
+        if (pawn.RaceProps.Humanlike &&
+            pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.TKKN_Drowning) != null)
         {
             pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.TKKN_Drowning));
         }

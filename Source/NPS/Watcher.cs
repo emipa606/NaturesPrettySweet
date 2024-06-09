@@ -651,7 +651,7 @@ public class Watcher(Map map) : MapComponent(map)
             return;
         }
 
-        //					Log.Warning("Updating seasonal settings");
+        //Log.Message("[NPS]: Updating seasonal settings");
         biomeSettings.setWeatherBySeason(map, season, quadrum);
         biomeSettings.setDiseaseBySeason(season, quadrum);
         biomeSettings.setIncidentsBySeason(season, quadrum);

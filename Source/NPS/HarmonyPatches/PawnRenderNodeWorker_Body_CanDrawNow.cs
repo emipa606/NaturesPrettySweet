@@ -3,11 +3,10 @@ using Verse;
 
 namespace TKKN_NPS;
 
-[HarmonyPatch(typeof(PawnRenderNodeWorker_Body), "CanDrawNow")]
-internal class PatchRenderPawnInternal
+[HarmonyPatch(typeof(PawnRenderNodeWorker_Body), nameof(PawnRenderNodeWorker_Body.CanDrawNow))]
+internal class PawnRenderNodeWorker_Body_CanDrawNow
 {
-    [HarmonyPostfix]
-    public static void Postfix(PawnRenderNode node, PawnDrawParms parms, ref bool __result)
+    public static void Postfix(PawnDrawParms parms, ref bool __result)
     {
         if (!__result)
         {

@@ -4,11 +4,9 @@ using RimWorld.Planet;
 
 namespace TKKN_NPS;
 
-[HarmonyPatch(typeof(BiomeWorker_TemperateForest))]
-[HarmonyPatch("GetScore")]
-public static class PatchGetScoreTempForest
+[HarmonyPatch(typeof(BiomeWorker_TemperateForest), nameof(BiomeWorker_TemperateForest.GetScore))]
+public static class BiomeWorker_TemperateForest_GetScore
 {
-    [HarmonyPostfix]
     public static void Postfix(Tile tile, ref float __result)
     {
         if (__result is -100f or 0f)

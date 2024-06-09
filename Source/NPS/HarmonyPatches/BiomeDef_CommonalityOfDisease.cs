@@ -4,11 +4,9 @@ using RimWorld;
 
 namespace TKKN_NPS;
 
-[HarmonyPatch(typeof(BiomeDef))]
-[HarmonyPatch("CommonalityOfDisease")]
-public static class PatchCommonalityOfDisease
+[HarmonyPatch(typeof(BiomeDef), nameof(BiomeDef.CommonalityOfDisease))]
+public static class BiomeDef_CommonalityOfDisease
 {
-    [HarmonyPrefix]
     public static void Prefix(BiomeDef __instance, ref Dictionary<IncidentDef, float> ___cachedDiseaseCommonalities)
     {
         var biomeSettings = __instance.GetModExtension<BiomeSeasonalSettings>();

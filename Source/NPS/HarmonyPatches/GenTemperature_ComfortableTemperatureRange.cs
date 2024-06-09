@@ -5,10 +5,9 @@ using Verse;
 
 namespace TKKN_NPS;
 
-[HarmonyPatch(typeof(GenTemperature), "ComfortableTemperatureRange", typeof(Pawn))]
-internal class PatchComfortableTemperatureRange
+[HarmonyPatch(typeof(GenTemperature), nameof(GenTemperature.ComfortableTemperatureRange), typeof(Pawn))]
+internal class GenTemperature_ComfortableTemperatureRange
 {
-    [HarmonyPostfix]
     public static void Postfix(Pawn p, ref FloatRange __result)
     {
         if (Find.TickManager.Paused)
