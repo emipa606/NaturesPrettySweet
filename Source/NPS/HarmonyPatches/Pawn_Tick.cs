@@ -110,7 +110,7 @@ internal class Pawn_Tick
             HealthUtility.AdjustSeverity(pawn, HediffDef.Named("TKKN_Drowning"), damage);
 
             var hediffDef = HediffDefOf.TKKN_Drowning;
-            if (!pawn.Faction.IsPlayer || pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null ||
+            if (pawn.Faction == null || !pawn.Faction.IsPlayer || pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null ||
                 !pawn.RaceProps.Humanlike)
             {
                 return;
