@@ -1008,7 +1008,7 @@ public class Watcher(Map map) : MapComponent(map)
 
     public void doFloods()
     {
-        if (!Settings.doFloods || ticks % 300 == 0)
+        if (!Settings.doFloods || ticks % 300 != 0)
         {
             return;
         }
