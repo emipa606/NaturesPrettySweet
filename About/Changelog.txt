@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.5.3 - Fix for flood-check triggering too often, and a small faction-nullcheck. Thanks Ferris!
+
+
 1.5.2 - Fixed weather decider for Deserts and other biomes without any seasonal weather settings
 
 
