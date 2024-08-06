@@ -23,6 +23,11 @@ public class JobGiver_GoSwimming : JobGiver_Wander
             return null;
         }
 
+        if (!pawn.RaceProps.Humanlike)
+        {
+            return null;
+        }
+
         var nextMoveOrderIsWait = pawn.mindState.nextMoveOrderIsWait;
         pawn.mindState.nextMoveOrderIsWait = !pawn.mindState.nextMoveOrderIsWait;
         if (nextMoveOrderIsWait)

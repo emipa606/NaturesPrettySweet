@@ -10,6 +10,11 @@ public class JobGiver_Dryoff : ThinkNode_JobGiver
 {
     protected override Job TryGiveJob(Pawn pawn)
     {
+        if (!pawn.RaceProps.Humanlike)
+        {
+            return null;
+        }
+
         var hediffDef = HediffDefOf.TKKN_Wetness;
 
         if (pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef) is Hediff_Wetness wetness &&

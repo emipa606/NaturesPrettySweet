@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.5.4 - Fixed an issue with penned animals trying to path to cells outside of the pen.
+
+
 1.5.3 - Fix for flood-check triggering too often, and a small faction-nullcheck. Thanks Ferris!
 
 

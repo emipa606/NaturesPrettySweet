@@ -370,7 +370,6 @@ public class Watcher(Map map) : MapComponent(map)
             return;
         }
 
-        Log.Warning("Spawning Barnacle");
         var barnacles = ThingDef.Named("TKKN_PlantBarnacles");
         var barnaclePlant = (Plant)ThingMaker.MakeThing(barnacles);
         barnaclePlant.Growth = Rand.Range(0.07f, 1f);

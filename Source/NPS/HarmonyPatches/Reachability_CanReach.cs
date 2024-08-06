@@ -9,8 +9,7 @@ namespace TKKN_NPS;
     typeof(TraverseParms))]
 internal class Reachability_CanReach
 {
-    public static void Postfix(IntVec3 start, LocalTargetInfo dest, PathEndMode peMode,
-        TraverseParms traverseParams, ref bool __result)
+    public static void Postfix(LocalTargetInfo dest, TraverseParms traverseParams, ref bool __result)
     {
         if (__result == false)
         {

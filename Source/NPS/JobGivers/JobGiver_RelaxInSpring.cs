@@ -14,6 +14,11 @@ public class JobGiver_RelaxInSpring : ThinkNode_JobGiver
             return null;
         }
 
+        if (!pawn.RaceProps.Humanlike)
+        {
+            return null;
+        }
+
         var hotSpring = GenClosest.ClosestThingReachable(pawn.GetLord().CurLordToil.FlagLoc, pawn.Map,
             ThingRequest.ForDef(ThingDefOf.TKKN_HotSpring), PathEndMode.Touch, TraverseParms.For(pawn), -1f,
             Validator);

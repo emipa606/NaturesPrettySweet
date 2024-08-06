@@ -12,7 +12,7 @@ internal class JobGiver_SeekSafeTemperature_TryGiveJob
 {
     public static void Postfix(ref Job __result, Pawn pawn)
     {
-        if (__result != null)
+        if (__result != null || pawn?.RaceProps?.CanPassFences == false)
         {
             return;
         }

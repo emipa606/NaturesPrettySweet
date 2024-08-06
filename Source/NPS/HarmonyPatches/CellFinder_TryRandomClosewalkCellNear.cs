@@ -12,7 +12,7 @@ public static class CellFinder_TryRandomClosewalkCellNear
     {
         // don't enter on deep water or Lava
         __result = CellFinder.TryFindRandomReachableCellNearPosition(root, root, map, radius,
-            TraverseParms.For(TraverseMode.NoPassClosedDoors),
+            TraverseParms.For(TraverseMode.NoPassClosedDoors).WithFenceblocked(true),
             c => c.Standable(map) && !c.GetTerrain(map).HasTag("TKKN_Lava") && !c.GetTerrain(map).HasTag("TKKN_Swim") &&
                  (extraValidator == null || extraValidator(c)), null, out result);
         //			Log.Warning("result " + result.ToString());
