@@ -373,6 +373,30 @@
       <TKKN_BlockLava>4</TKKN_BlockLava>
     </costList>
   </TerrainDef>
+  <TerrainDef MayRequire="Ludeon.RimWorld.Ideology" ParentName="SpikecoreStoneTile">
+    <defName>TKKN_Tile_SpikecoreBasalt</defName>
+    <label>basalt spikecore tile</label>
+    <color>(50,50,50)</color>
+    <costList>
+      <TKKN_BlockLava>20</TKKN_BlockLava>
+    </costList>
+  </TerrainDef>
+  <TerrainDef MayRequire="Ludeon.RimWorld.Ideology" ParentName="TotemicStoneTile">
+    <defName>TKKN_Tile_TotemicBasalt</defName>
+    <label>totemic basalt tile</label>
+    <color>(50,50,50)</color>
+    <costList>
+      <TKKN_BlockLava>20</TKKN_BlockLava>
+    </costList>
+  </TerrainDef>
+  <TerrainDef MayRequire="Ludeon.RimWorld.Ideology" ParentName="MorbidStoneTile">
+    <defName>TKKN_Tile_MorbidBasalt</defName>
+    <label>morbid basalt tile</label>
+    <color>(50,50,50)</color>
+    <costList>
+      <TKKN_BlockLava>20</TKKN_BlockLava>
+    </costList>
+  </TerrainDef>
   <TerrainDef Abstract="True" ParentName="FloorBase" Name="SpecialTileBase">
     <renderPrecedence>220</renderPrecedence>
     <description>Carefully-cut and fit fancy tiles. They are pretty to look at, but they take a long time to lay.</description>

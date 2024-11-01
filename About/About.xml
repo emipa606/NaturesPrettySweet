@@ -158,9 +158,8 @@ New elements:
 [*]Gives off a small amount of chill.
 [*]Inspired by Crystal Springs and Blue Springs, FL
 [/list]
-[/list]
 
-And a ton of minor additions to make the world feel more alive! [url=http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]Read them here![/url]
+And a ton of minor additions to make the world feel more alive! [strike][url=http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]Read them here![/url][/strike] [url=https://web.archive.org/web/20220124054452/https://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]Archived page[/url]
 
 If you like this mod, consider visiting the actual National and State Parks. Visitor numbers are really important, and these features all look waaaay better in real life :)
 
@@ -175,8 +174,8 @@ If you like this mod, consider visiting the actual National and State Parks. Vis
 [*] Do not report errors by making a discussion-thread, I get no notification of that.
 [*] If you have the solution for a problem, please post it to the GitHub repository.
 [*] Use [url=https://github.com/RimSort/RimSort/releases/latest]RimSort[/url] to sort your mods
-[/list]
+[/list] 
 
-[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2532618635][img]https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url]</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.5.4</modVersion>
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2532618635][img]https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags: environment,  weather,  biomes</description>
+  <modVersion IgnoreIfNoMatchingField="True">1.5.5</modVersion>
 </ModMetaData>

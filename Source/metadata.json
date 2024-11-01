@@ -3,5 +3,10 @@
   "CanAdd": "1",
   "CanRemove": "1",
   "PreviewVersion": "1.5",
-  "SocialImageSet": true
+  "SocialImageSet": true,
+  "SearchTags": [
+    "environment",
+    " weather",
+    " biomes"
+  ]
 }
