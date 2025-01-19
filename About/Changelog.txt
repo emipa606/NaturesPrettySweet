@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.5.6 - Fixed Dandelion patch to not block planting
+
+
 1.5.5 - Added in basalt versions of the ideology specific floor tiles
 
 

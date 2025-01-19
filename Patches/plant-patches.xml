@@ -6,16 +6,14 @@
       <texPath>TKKN_NPS/Things/Plant/Grass</texPath>
     </value>
   </Operation>
-  <Operation Class="PatchOperationReplace">
+  <Operation Class="PatchOperationAdd">
     <xpath>/Defs/ThingDef[defName = "Plant_Dandelion"]/plant</xpath>
     <value>
-      <plant>
-        <harvestTag>Standard</harvestTag>
-        <harvestedThingDef>TKKN_WildGreens</harvestedThingDef>
-        <harvestYield>5</harvestYield>
-        <harvestWork>100</harvestWork>
-        <harvestAfterGrowth>0.10</harvestAfterGrowth>
-      </plant>
+      <harvestTag>Standard</harvestTag>
+      <harvestedThingDef>TKKN_WildGreens</harvestedThingDef>
+      <harvestYield>5</harvestYield>
+      <harvestWork>100</harvestWork>
+      <harvestAfterGrowth>0.10</harvestAfterGrowth>
     </value>
   </Operation>
   <Operation Class="PatchOperationReplace">
