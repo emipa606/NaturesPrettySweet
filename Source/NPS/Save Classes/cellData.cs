@@ -436,6 +436,11 @@ public class cellData : IExposable
 
     private void leaveLoot()
     {
+        if (!Settings.leaveStuff)
+        {
+            return;
+        }
+
         var leaveSomething = Rand.Value;
         if (leaveSomething < 0.001f)
         {

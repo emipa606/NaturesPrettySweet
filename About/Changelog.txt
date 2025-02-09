@@ -1,5 +1,9 @@
 # Changelog for NaturesPrettySweet
 
+1.5.7 - Added option to turn off things washing up on land after floods/tides
+Used DeepL to update translations for ChineseSimplified, French, German, Russian
+
+
 1.5.6 - Fixed Dandelion patch to not block planting
 
 

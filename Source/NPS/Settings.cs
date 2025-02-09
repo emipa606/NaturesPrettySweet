@@ -6,6 +6,7 @@ namespace TKKN_NPS;
 
 public class Settings : ModSettings
 {
+    public static bool leaveStuff = true;
     public static Dictionary<string, IntVec3> wetCells;
 
     public static Dictionary<string, int> totalThings = new Dictionary<string, int>
@@ -97,6 +98,11 @@ public class Settings : ModSettings
             ref doFloods,
             "TKKN_doFloods_text".Translate());
         list.CheckboxLabeled(
+            "TKKN_leaveStuff_title".Translate(),
+            ref leaveStuff,
+            "TKKN_leaveStuff_text".Translate());
+
+        list.CheckboxLabeled(
             "TKKN_doSprings_title".Translate(),
             ref doSprings,
             "TKKN_doSprings_text".Translate());
@@ -173,6 +179,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref showRain, "showRain", true, true);
         Scribe_Values.Look(ref doTides, "doTides", true, true);
         Scribe_Values.Look(ref doFloods, "doFloods", true, true);
+        Scribe_Values.Look(ref leaveStuff, "leaveStuff", true, true);
         Scribe_Values.Look(ref doSprings, "doSprings", true, true);
         Scribe_Values.Look(ref doIce, "doIce", showCold, true);
         Scribe_Values.Look(ref allowPawnsToGetWet, "allowPawnsToGetWet", true, true);

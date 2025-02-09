@@ -57,6 +57,8 @@
   <TKKN_doSprings_text>Allows the spawning of hot and cold springs</TKKN_doSprings_text>
   <TKKN_doIce_title>   Ground freezes</TKKN_doIce_title>
   <TKKN_doIce_text>Terrain will freeze at cold temperatures</TKKN_doIce_text>
+  <TKKN_leaveStuff_title>Washup things</TKKN_leaveStuff_title>
+  <TKKN_leaveStuff_text>After floods, items can washup on land</TKKN_leaveStuff_text>
   <TKKN_doDirtPath_title>Generate paths</TKKN_doDirtPath_title>
   <TKKN_doDirtPath_text>Pawns will create natural paths when walking</TKKN_doDirtPath_text>
   <TKKN_showTempReadout_title>Show temperature readout</TKKN_showTempReadout_title>
