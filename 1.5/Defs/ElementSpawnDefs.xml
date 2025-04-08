@@ -71,7 +71,6 @@
     </terrainValidationDisallowed>
     <terrainValidationAllowed>
       <li>WaterShallow</li>
-      <li>WaterMovingShallow</li>
     </terrainValidationAllowed>
     <forbiddenBiomes>
       <li>Ocean</li>
@@ -88,7 +87,6 @@
     </terrainValidationDisallowed>
     <terrainValidationAllowed>
       <li>WaterShallow</li>
-      <li>WaterMovingShallow</li>
     </terrainValidationAllowed>
     <forbiddenBiomes>
       <li>TKKN_VolcanicFlow</li>

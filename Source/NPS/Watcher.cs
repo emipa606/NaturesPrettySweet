@@ -75,7 +75,7 @@ public class Watcher(Map map) : MapComponent(map)
             // this.checkRandomTerrain(); triggering on atmosphere affects
             doTides();
             doFloods();
-            var num = Mathf.RoundToInt(map.Area * Settings.weatherCellUpdateSpeed);
+            var num = Mathf.RoundToInt(map.Area * Settings.weatherCellUpdateSpeed / 2);
             var area = map.Area;
             for (var i = 0; i < num; i++)
             {

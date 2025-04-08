@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.5.8 - Springs just spawn in still water, lowered the lowest weather update setting
+
+
 1.5.7 - Added option to turn off things washing up on land after floods/tides
 Used DeepL to update translations for ChineseSimplified, French, German, Russian
 
