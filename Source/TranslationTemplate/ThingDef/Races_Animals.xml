@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: giant crab -->
+  <TKKN_crab.label>giant crab</TKKN_crab.label>
+  <!-- EN: A huge, armored decapod crustacean, full of meat. Generally docile -->
+  <TKKN_crab.description>A huge, armored decapod crustacean, full of meat. Generally docile</TKKN_crab.description>
+  <!-- EN: head -->
+  <TKKN_crab.tools.head.label>head</TKKN_crab.tools.head.label>
+  <!-- EN: giant snails -->
+  <TKKN_giantsnail.label>giant snails</TKKN_giantsnail.label>
+  <!-- EN: Slow moving, armoured herbivores. Salt is deadly to them. -->
+  <TKKN_giantsnail.description>Slow moving, armoured herbivores. Salt is deadly to them.</TKKN_giantsnail.description>
+  <!-- EN: head -->
+  <TKKN_giantsnail.tools.head.label>head</TKKN_giantsnail.tools.head.label>
+  <!-- EN: pet lava rock -->
+  <TKKN_petlavarock.label>pet lava rock</TKKN_petlavarock.label>
+  <!-- EN: Slow moving animals who generate heat. -->
+  <TKKN_petlavarock.description>Slow moving animals who generate heat.</TKKN_petlavarock.description>
+  <!-- EN: head -->
+  <TKKN_petlavarock.tools.head.label>head</TKKN_petlavarock.tools.head.label>
+  <!-- EN: fire salamander -->
+  <TKKN_salamander.label>fire salamander</TKKN_salamander.label>
+  <!-- EN: Small, fast lizards that glow -->
+  <TKKN_salamander.description>Small, fast lizards that glow</TKKN_salamander.description>
+  <!-- EN: left claw -->
+  <TKKN_salamander.tools.left_claw.label>left claw</TKKN_salamander.tools.left_claw.label>
+  <!-- EN: right claw -->
+  <TKKN_salamander.tools.right_claw.label>right claw</TKKN_salamander.tools.right_claw.label>
+  <!-- EN: head -->
+  <TKKN_salamander.tools.head.label>head</TKKN_salamander.tools.head.label>
+  <!-- EN: tumbleweed -->
+  <TKKN_Tumbleweed.label>tumbleweed</TKKN_Tumbleweed.label>
+  <!-- EN: A small animal that has cleverly disguised iteself like a rolling bush. -->
+  <TKKN_Tumbleweed.description>A small animal that has cleverly disguised iteself like a rolling bush.</TKKN_Tumbleweed.description>
+  <!-- EN: head -->
+  <TKKN_Tumbleweed.tools.head.label>head</TKKN_Tumbleweed.tools.head.label>
+</LanguageData>

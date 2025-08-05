@@ -50,7 +50,7 @@ internal class GenTemperature_ComfortableTemperatureRange
         //	Log.Warning(p.Name.ToString() + " temp old: " + old.ToString() + " temp range: " + __result.ToString() + " temp: " + p.AmbientTemperature);
     }
 
-    public static int getOffSet(Hediff_Wetness wetness, Pawn pawn)
+    private static int getOffSet(Hediff_Wetness wetness, Pawn pawn)
     {
         //soaked
         var setTo = 40;

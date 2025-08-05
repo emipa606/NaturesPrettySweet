@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: roe (fert.) -->
+  <EggRoeFertilized.label>roe (fert.)</EggRoeFertilized.label>
+  <!-- EN: Fertilized  eggs from a sea animal. If all goes Plant_Grass, it should hatch. -->
+  <EggRoeFertilized.description>Fertilized  eggs from a sea animal. If all goes Plant_Grass, it should hatch.</EggRoeFertilized.description>
+  <!-- EN: roe (unfert.) -->
+  <EggRoeUnfertilized.label>roe (unfert.)</EggRoeUnfertilized.label>
+  <!-- EN: Unfertilized eggs from a sea animal. -->
+  <EggRoeUnfertilized.description>Unfertilized eggs from a sea animal.</EggRoeUnfertilized.description>
+  <!-- EN: snail egg (fert.) -->
+  <EggSnailFertilized.label>snail egg (fert.)</EggSnailFertilized.label>
+  <!-- EN: Fertilized snail egg. If all goes Plant_Grass, it should hatch into a giant snail. A delicacy. -->
+  <EggSnailFertilized.description>Fertilized snail egg. If all goes Plant_Grass, it should hatch into a giant snail. A delicacy.</EggSnailFertilized.description>
+  <!-- EN: snail egg (unfert.) -->
+  <EggSnailUnfertilized.label>snail egg (unfert.)</EggSnailUnfertilized.label>
+  <!-- EN: Unfertilized snail egg. A delicacy. -->
+  <EggSnailUnfertilized.description>Unfertilized snail egg. A delicacy.</EggSnailUnfertilized.description>
+  <!-- EN: redwood -->
+  <RedWoodLog.label>redwood</RedWoodLog.label>
+  <!-- EN: Wood from redwood and sequoia trees or other fibrous plants. Red, valuable and more fireproof than regular wood. Useful for building structures, weapons, and even simple prosthetics. A raw stick of wood can be used as a weapon in a pinch. -->
+  <RedWoodLog.description>Wood from redwood and sequoia trees or other fibrous plants. Red, valuable and more fireproof than regular wood. Useful for building structures, weapons, and even simple prosthetics. A raw stick of wood can be used as a weapon in a pinch.</RedWoodLog.description>
+  <!-- EN: redwood -->
+  <RedWoodLog.stuffProps.stuffAdjective>redwood</RedWoodLog.stuffProps.stuffAdjective>
+  <!-- EN: log -->
+  <RedWoodLog.tools.log.label>log</RedWoodLog.tools.log.label>
+  <!-- EN: Amber -->
+  <TKKN_Amber.label>Amber</TKKN_Amber.label>
+  <!-- EN: Ancient tree sap that has been preserved. Sometimes it has small creatures inside it. A soft resin that polishes up beautifully. -->
+  <TKKN_Amber.description>Ancient tree sap that has been preserved. Sometimes it has small creatures inside it. A soft resin that polishes up beautifully.</TKKN_Amber.description>
+  <!-- EN: amber -->
+  <TKKN_Amber.stuffProps.stuffAdjective>amber</TKKN_Amber.stuffProps.stuffAdjective>
+  <!-- EN: basalt blocks -->
+  <TKKN_BlockLava.label>basalt blocks</TKKN_BlockLava.label>
+  <!-- EN: Blocks of solid basalt. -->
+  <TKKN_BlockLava.description>Blocks of solid basalt.</TKKN_BlockLava.description>
+  <!-- EN: basalt -->
+  <TKKN_BlockLava.stuffProps.stuffAdjective>basalt</TKKN_BlockLava.stuffProps.stuffAdjective>
+  <!-- EN: cattails -->
+  <TKKN_Cattails.label>cattails</TKKN_Cattails.label>
+  <!-- EN: Raw cattail flowers. -->
+  <TKKN_Cattails.description>Raw cattail flowers.</TKKN_Cattails.description>
+  <!-- EN: basalt chunk -->
+  <TKKN_ChunkLava.label>basalt chunk</TKKN_ChunkLava.label>
+  <!-- EN: A chunk of rock. Can be cut into usable stone blocks. -->
+  <TKKN_ChunkLava.description>A chunk of rock. Can be cut into usable stone blocks.</TKKN_ChunkLava.description>
+  <!-- EN: basalt -->
+  <TKKN_LavaRock.label>basalt</TKKN_LavaRock.label>
+  <!-- EN: Lava that has cooled into a black rock with flecks of lava glass. -->
+  <TKKN_LavaRock.description>Lava that has cooled into a black rock with flecks of lava glass.</TKKN_LavaRock.description>
+  <!-- EN: amber -->
+  <TKKN_MinableAmber.label>amber</TKKN_MinableAmber.label>
+  <!-- EN: Rock containing bits of preserved sap. -->
+  <TKKN_MinableAmber.description>Rock containing bits of preserved sap.</TKKN_MinableAmber.description>
+  <!-- EN: petrified wood -->
+  <TKKN_MinablePetrifiedWood.label>petrified wood</TKKN_MinablePetrifiedWood.label>
+  <!-- EN: Rock containing bits of petrified wood. -->
+  <TKKN_MinablePetrifiedWood.description>Rock containing bits of petrified wood.</TKKN_MinablePetrifiedWood.description>
+  <!-- EN: petrified wood -->
+  <TKKN_PetrifiedWood.label>petrified wood</TKKN_PetrifiedWood.label>
+  <!-- EN: Ancient wood that has been preserved. Feels like rock. Very rare. -->
+  <TKKN_PetrifiedWood.description>Ancient wood that has been preserved. Feels like rock. Very rare.</TKKN_PetrifiedWood.description>
+  <!-- EN: petrified wood -->
+  <TKKN_PetrifiedWood.stuffProps.stuffAdjective>petrified wood</TKKN_PetrifiedWood.stuffProps.stuffAdjective>
+  <!-- EN: prickly pear -->
+  <TKKN_PricklyPear.label>prickly pear</TKKN_PricklyPear.label>
+  <!-- EN: Raw prickly pear fruit. -->
+  <TKKN_PricklyPear.description>Raw prickly pear fruit.</TKKN_PricklyPear.description>
+  <!-- EN: shellfish meat -->
+  <TKKN_ShellfishMeat.label>shellfish meat</TKKN_ShellfishMeat.label>
+  <!-- EN: Meat from shellfish. -->
+  <TKKN_ShellfishMeat.description>Meat from shellfish.</TKKN_ShellfishMeat.description>
+  <!-- EN: smoothed basalt -->
+  <TKKN_SmoothedLavaRock.label>smoothed basalt</TKKN_SmoothedLavaRock.label>
+  <!-- EN: Lava that has cooled into a black rock with flecks of lava glass. The flaky rock has been polished to a flat, smooth surface. -->
+  <TKKN_SmoothedLavaRock.description>Lava that has cooled into a black rock with flecks of lava glass. The flaky rock has been polished to a flat, smooth surface.</TKKN_SmoothedLavaRock.description>
+  <!-- EN: wild greens -->
+  <TKKN_WildGreens.label>wild greens</TKKN_WildGreens.label>
+  <!-- EN: Bitter, leavy greens and flowers harvested from wild plants. -->
+  <TKKN_WildGreens.description>Bitter, leavy greens and flowers harvested from wild plants.</TKKN_WildGreens.description>
+</LanguageData>

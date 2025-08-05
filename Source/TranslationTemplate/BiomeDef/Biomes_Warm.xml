@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Tallgrass Prairie -->
+  <TKKN_Grasslands.label>Tallgrass Prairie</TKKN_Grasslands.label>
+  <!-- EN: Extensive grasslands, high winds and bright sun. The soil is incredibly fertile but there is little protection from the elements, and seasonal droughts, fires and storms are punishing. -->
+  <TKKN_Grasslands.description>Extensive grasslands, high winds and bright sun. The soil is incredibly fertile but there is little protection from the elements, and seasonal droughts, fires and storms are punishing.</TKKN_Grasslands.description>
+  <!-- EN: Savanna -->
+  <TKKN_Savanna.label>Savanna</TKKN_Savanna.label>
+  <!-- EN: Extensive grasslands with scattered trees.  It has the most trees of the grasslands. The soil is rich but there is little protection from the elements. Seasonal droughts, wildfires and animal migrations occur. -->
+  <TKKN_Savanna.description>Extensive grasslands with scattered trees.  It has the most trees of the grasslands. The soil is rich but there is little protection from the elements. Seasonal droughts, wildfires and animal migrations occur.</TKKN_Savanna.description>
+</LanguageData>

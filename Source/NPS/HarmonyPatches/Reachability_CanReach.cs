@@ -11,7 +11,7 @@ internal class Reachability_CanReach
 {
     public static void Postfix(LocalTargetInfo dest, TraverseParms traverseParams, ref bool __result)
     {
-        if (__result == false)
+        if (!__result)
         {
             return;
         }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: drought -->
+  <TKKN_Drought.label>drought</TKKN_Drought.label>
+  <!-- EN: There's no rain in the forecast... for a very long time. -->
+  <TKKN_Drought.description>There's no rain in the forecast... for a very long time.</TKKN_Drought.description>
+  <!-- EN: The drought is ending. -->
+  <TKKN_Drought.endMessage>The drought is ending.</TKKN_Drought.endMessage>
+  <!-- EN: superbloom -->
+  <TKKN_Superbloom.label>superbloom</TKKN_Superbloom.label>
+  <!-- EN: An record setting amount of wildflowers are blooming! Make sure you go outside to see it. Watch out for allergies! -->
+  <TKKN_Superbloom.description>An record setting amount of wildflowers are blooming! Make sure you go outside to see it. Watch out for allergies!</TKKN_Superbloom.description>
+  <!-- EN: The superbloom is ending. -->
+  <TKKN_Superbloom.endMessage>The superbloom is ending.</TKKN_Superbloom.endMessage>
+  <!-- EN: wildflower bloom -->
+  <TKKN_WildFlowerBloom.label>wildflower bloom</TKKN_WildFlowerBloom.label>
+  <!-- EN: An unusual amount of wildflowers are blooming! Make sure you go outside to see it. Watch out for allergies! -->
+  <TKKN_WildFlowerBloom.description>An unusual amount of wildflowers are blooming! Make sure you go outside to see it. Watch out for allergies!</TKKN_WildFlowerBloom.description>
+  <!-- EN: The wildflower bloom is ending. -->
+  <TKKN_WildFlowerBloom.endMessage>The wildflower bloom is ending.</TKKN_WildFlowerBloom.endMessage>
+</LanguageData>

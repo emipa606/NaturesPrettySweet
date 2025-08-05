@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: preservedmeat -->
+  <TKKN_PreservedMeat.label>preservedmeat</TKKN_PreservedMeat.label>
+  <!-- EN: Meat preserved with salt. It lasts without refrigeration. -->
+  <TKKN_PreservedMeat.description>Meat preserved with salt. It lasts without refrigeration.</TKKN_PreservedMeat.description>
+  <!-- EN: salt -->
+  <TKKN_Salt.label>salt</TKKN_Salt.label>
+  <!-- EN: Crystal that aids in preserving meat and repelling slugs. Not very nutritious on its own. -->
+  <TKKN_Salt.description>Crystal that aids in preserving meat and repelling slugs. Not very nutritious on its own.</TKKN_Salt.description>
+  <!-- EN: salt weed -->
+  <TKKN_SaltCrystal.label>salt weed</TKKN_SaltCrystal.label>
+  <!-- EN: A special plant that filters salt out of water. Salt is deposited on its branches.\n\nWhile salt is artificially created on the Glitterworlds, it is very rare and valuable on the rim, allowing for meat to be preserved and stopping giant snail attacks. -->
+  <TKKN_SaltCrystal.description>A special plant that filters salt out of water. Salt is deposited on its branches.
+
+While salt is artificially created on the Glitterworlds, it is very rare and valuable on the rim, allowing for meat to be preserved and stopping giant snail attacks.</TKKN_SaltCrystal.description>
+</LanguageData>

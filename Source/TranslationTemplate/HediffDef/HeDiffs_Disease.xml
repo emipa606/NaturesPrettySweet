@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: allergies -->
+  <TKKN_Allergies.label>allergies</TKKN_Allergies.label>
+  <!-- EN: The immune system is overreacting! -->
+  <TKKN_Allergies.description>The immune system is overreacting!</TKKN_Allergies.description>
+  <!-- EN: stuffed up head and runny eyes -->
+  <TKKN_Allergies.stages.stuffed_up_head_and_runny_eyes.label>stuffed up head and runny eyes</TKKN_Allergies.stages.stuffed_up_head_and_runny_eyes.label>
+  <!-- EN: allergies -->
+  <TKKN_Animal_Allergies.label>allergies</TKKN_Animal_Allergies.label>
+  <!-- EN: The immune system is overreacting! -->
+  <TKKN_Animal_Allergies.description>The immune system is overreacting!</TKKN_Animal_Allergies.description>
+  <!-- EN: stuffed up head and runny eyes -->
+  <TKKN_Animal_Allergies.stages.stuffed_up_head_and_runny_eyes.label>stuffed up head and runny eyes</TKKN_Animal_Allergies.stages.stuffed_up_head_and_runny_eyes.label>
+  <!-- EN: common cold -->
+  <TKKN_Animal_Common_Cold.label>common cold</TKKN_Animal_Common_Cold.label>
+  <!-- EN: A common enough virus that can be deadly -->
+  <TKKN_Animal_Common_Cold.description>A common enough virus that can be deadly</TKKN_Animal_Common_Cold.description>
+  <!-- EN: minor -->
+  <TKKN_Animal_Common_Cold.stages.minor.label>minor</TKKN_Animal_Common_Cold.stages.minor.label>
+  <!-- EN: major -->
+  <TKKN_Animal_Common_Cold.stages.major.label>major</TKKN_Animal_Common_Cold.stages.major.label>
+  <!-- EN: extreme -->
+  <TKKN_Animal_Common_Cold.stages.extreme.label>extreme</TKKN_Animal_Common_Cold.stages.extreme.label>
+  <!-- EN: common cold -->
+  <TKKN_CommonCold.label>common cold</TKKN_CommonCold.label>
+  <!-- EN: A common enough virus that can be deadly -->
+  <TKKN_CommonCold.description>A common enough virus that can be deadly</TKKN_CommonCold.description>
+  <!-- EN: minor -->
+  <TKKN_CommonCold.stages.minor.label>minor</TKKN_CommonCold.stages.minor.label>
+  <!-- EN: major -->
+  <TKKN_CommonCold.stages.major.label>major</TKKN_CommonCold.stages.major.label>
+  <!-- EN: extreme -->
+  <TKKN_CommonCold.stages.extreme.label>extreme</TKKN_CommonCold.stages.extreme.label>
+</LanguageData>

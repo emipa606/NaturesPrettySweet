@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: make basalt blocks -->
+  <MakeStoneBlocksLavaRock.label>make basalt blocks</MakeStoneBlocksLavaRock.label>
+  <!-- EN: Cuts basalt chunks into usable blocks. -->
+  <MakeStoneBlocksLavaRock.description>Cuts basalt chunks into usable blocks.</MakeStoneBlocksLavaRock.description>
+  <!-- EN: Cutting stone blocks from chunk. -->
+  <MakeStoneBlocksLavaRock.jobString>Cutting stone blocks from chunk.</MakeStoneBlocksLavaRock.jobString>
+</LanguageData>

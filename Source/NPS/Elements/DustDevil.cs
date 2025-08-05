@@ -51,16 +51,16 @@ public class DustDevil : ThingWithComps
 
     private const float MaxMidOffset = 2f;
 
-    private static readonly MaterialPropertyBlock matPropertyBlock = new MaterialPropertyBlock();
+    private static readonly MaterialPropertyBlock matPropertyBlock = new();
 
     private static ModuleBase directionNoise;
 
-    private static readonly IntRange DurationTicks = new IntRange(2700, 10080);
+    private static readonly IntRange DurationTicks = new(2700, 10080);
 
     private static readonly Material DustDevilMaterial = MaterialPool.MatFrom("Things/Ethereal/Tornado",
         ShaderDatabase.Transparent, MapMaterialRenderQueues.Tornado);
 
-    private static readonly FloatRange PartsDistanceFromCenter = new FloatRange(1f, 5f);
+    private static readonly FloatRange PartsDistanceFromCenter = new(1f, 5f);
 
     private static readonly float ZOffsetBias = -4f * PartsDistanceFromCenter.min;
 
@@ -113,7 +113,7 @@ public class DustDevil : ThingWithComps
         CreateSustainer();
     }
 
-    public override void Tick()
+    protected override void Tick()
     {
         if (!Spawned)
         {
@@ -139,10 +139,7 @@ public class DustDevil : ThingWithComps
         }
         else
         {
-            if (directionNoise == null)
-            {
-                directionNoise = new Perlin(0.0020000000949949026, 2.0, 0.5, 4, 1948573612, QualityMode.Medium);
-            }
+            directionNoise ??= new Perlin(0.0020000000949949026, 2.0, 0.5, 4, 1948573612, QualityMode.Medium);
 
             direction +=
                 (float)directionNoise.GetValue(Find.TickManager.TicksAbs, thingIDNumber % 500 * 1000f, 0.0) *
@@ -241,7 +238,7 @@ public class DustDevil : ThingWithComps
         Graphics.DrawMesh(MeshPool.plane10, matrix, DustDevilMaterial, 0, null, 0, matPropertyBlock);
     }
 
-    private float AdjustedDistanceFromCenter(float distanceFromCenter)
+    private static float AdjustedDistanceFromCenter(float distanceFromCenter)
     {
         var num = Mathf.Min(distanceFromCenter / 8f, 1f);
         num *= num;

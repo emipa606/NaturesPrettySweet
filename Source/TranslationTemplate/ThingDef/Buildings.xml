@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Cold Spring -->
+  <TKKN_ColdSpring.label>Cold Spring</TKKN_ColdSpring.label>
+  <!-- EN: Very cold water from under the earth. The water keeps the air around it cool. -->
+  <TKKN_ColdSpring.description>Very cold water from under the earth. The water keeps the air around it cool.</TKKN_ColdSpring.description>
+  <!-- EN: dustdevil -->
+  <TKKN_DustDevil.label>dustdevil</TKKN_DustDevil.label>
+  <!-- EN: Hot Spring -->
+  <TKKN_HotSpring.label>Hot Spring</TKKN_HotSpring.label>
+  <!-- EN: Water naturally heated by the earth. The water has healing properties. -->
+  <TKKN_HotSpring.description>Water naturally heated by the earth. The water has healing properties.</TKKN_HotSpring.description>
+  <!-- EN: Lava Eruption -->
+  <TKKN_Lava_Spring.label>Lava Eruption</TKKN_Lava_Spring.label>
+  <!-- EN: Spews molten lava, which hardens into lava rock. -->
+  <TKKN_Lava_Spring.description>Spews molten lava, which hardens into lava rock.</TKKN_Lava_Spring.description>
+  <!-- EN: Oasis -->
+  <TKKN_OasisSpring.label>Oasis</TKKN_OasisSpring.label>
+  <!-- EN: Very cold water from under the earth. The water keeps the air around it cool. -->
+  <TKKN_OasisSpring.description>Very cold water from under the earth. The water keeps the air around it cool.</TKKN_OasisSpring.description>
+  <!-- EN: redwood -->
+  <TKKN_RedwoodDead.label>redwood</TKKN_RedwoodDead.label>
+  <!-- EN: A huge, dead tree. Its roots are shallow, and when it gets too large, it topples over. \n\n Yeilds red wood, which is valuable and rare. -->
+  <TKKN_RedwoodDead.description>A huge, dead tree. Its roots are shallow, and when it gets too large, it topples over. 
+
+ Yeilds red wood, which is valuable and rare.</TKKN_RedwoodDead.description>
+  <!-- EN: sea shell -->
+  <TKKN_Sculpture_Shell.label>sea shell</TKKN_Sculpture_Shell.label>
+  <!-- EN: The beautiful, hard, protective shell of long dead sea animals. -->
+  <TKKN_Sculpture_Shell.description>The beautiful, hard, protective shell of long dead sea animals.</TKKN_Sculpture_Shell.description>
+  <!-- EN: steam generator -->
+  <TKKN_SteamGenerator.label>steam generator</TKKN_SteamGenerator.label>
+  <!-- EN: Produces electricity from steam vents in lava fields. Must be placed on a steam vent. -->
+  <TKKN_SteamGenerator.description>Produces electricity from steam vents in lava fields. Must be placed on a steam vent.</TKKN_SteamGenerator.description>
+  <!-- EN: steam vent -->
+  <TKKN_SteamVent.label>steam vent</TKKN_SteamVent.label>
+  <!-- EN: Temporary natural steam source from lava rock. -->
+  <TKKN_SteamVent.description>Temporary natural steam source from lava rock.</TKKN_SteamVent.description>
+</LanguageData>

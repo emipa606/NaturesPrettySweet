@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: relaxed from cold spring -->
+  <TKKN_coldspring_chill_out.label>relaxed from cold spring</TKKN_coldspring_chill_out.label>
+  <!-- EN: Relaxed from a cold spring -->
+  <TKKN_coldspring_chill_out.description>Relaxed from a cold spring</TKKN_coldspring_chill_out.description>
+  <!-- EN: relaxing in a cold spring -->
+  <TKKN_coldspring_chill_out.labelNoun>relaxing in a cold spring</TKKN_coldspring_chill_out.labelNoun>
+  <!-- EN: relaxed from hot spring -->
+  <TKKN_hotspring_chill_out.label>relaxed from hot spring</TKKN_hotspring_chill_out.label>
+  <!-- EN: Relaxed from a hot spring -->
+  <TKKN_hotspring_chill_out.description>Relaxed from a hot spring</TKKN_hotspring_chill_out.description>
+  <!-- EN: relaxing in a hot spring -->
+  <TKKN_hotspring_chill_out.labelNoun>relaxing in a hot spring</TKKN_hotspring_chill_out.labelNoun>
+</LanguageData>

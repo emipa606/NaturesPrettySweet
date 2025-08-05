@@ -45,9 +45,7 @@ internal class FrostUtility
         switch (category)
         {
             case FrostCategory.None:
-                return 0;
             case FrostCategory.Dusting:
-                return 0;
             case FrostCategory.Thin:
                 return 0;
             case FrostCategory.Medium:

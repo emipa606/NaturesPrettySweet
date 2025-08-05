@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: herd migration -->
+  <TKKN_SpecialHerdMigration.label>herd migration</TKKN_SpecialHerdMigration.label>
+  <!-- EN: Animal migration: {0} -->
+  <TKKN_SpecialHerdMigration.letterLabel>Animal migration: {0}</TKKN_SpecialHerdMigration.letterLabel>
+  <!-- EN: A group of {0} is passing through the area.\n\nThey won't attack unless provoked. -->
+  <TKKN_SpecialHerdMigration.letterText>A group of {0} is passing through the area.
+
+They won't attack unless provoked.</TKKN_SpecialHerdMigration.letterText>
+  <!-- EN: superbloom -->
+  <TKKN_Superbloom.label>superbloom</TKKN_Superbloom.label>
+  <!-- EN: TKKN_NPS_SuperbloomLbl -->
+  <TKKN_Superbloom.letterLabel>TKKN_NPS_SuperbloomLbl</TKKN_Superbloom.letterLabel>
+  <!-- EN: TKKN_NPS_SuperbloomTxt -->
+  <TKKN_Superbloom.letterText>TKKN_NPS_SuperbloomTxt</TKKN_Superbloom.letterText>
+  <!-- EN: wild flower bloom -->
+  <TKKN_WildFlowerBloom.label>wild flower bloom</TKKN_WildFlowerBloom.label>
+  <!-- EN: TKKN_NPS_WildFlowerBloomLbl -->
+  <TKKN_WildFlowerBloom.letterLabel>TKKN_NPS_WildFlowerBloomLbl</TKKN_WildFlowerBloom.letterLabel>
+  <!-- EN: TKKN_NPS_WildFlowerBloomTxt -->
+  <TKKN_WildFlowerBloom.letterText>TKKN_NPS_WildFlowerBloomTxt</TKKN_WildFlowerBloom.letterText>
+</LanguageData>

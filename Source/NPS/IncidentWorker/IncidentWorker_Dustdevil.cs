@@ -69,7 +69,7 @@ public class IncidentWorker_Dustdevil : IncidentWorker
         return true;
     }
 
-    private bool AnyPawnOfPlayerFactionAt(IntVec3 c, Map map)
+    private static bool AnyPawnOfPlayerFactionAt(IntVec3 c, Map map)
     {
         var thingList = c.GetThingList(map);
         foreach (var thing in thingList)

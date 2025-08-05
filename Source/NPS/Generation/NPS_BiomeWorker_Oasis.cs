@@ -6,9 +6,9 @@ namespace TKKN_NPS;
 
 internal class NPS_BiomeWorker_Oasis : BiomeWorker_Desert
 {
-    public override float GetScore(Tile tile, int id)
+    public override float GetScore(BiomeDef biome, Tile tile, PlanetTile planetTile)
     {
-        if (!(base.GetScore(tile, id) > 0))
+        if (!(base.GetScore(biome, tile, planetTile) > 0))
         {
             return 0f;
         }

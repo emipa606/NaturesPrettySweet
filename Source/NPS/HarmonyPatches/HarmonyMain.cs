@@ -14,7 +14,17 @@ internal class HarmonyMain
     {
         new Harmony("com.github.tkkntkkn.Natures-Pretty-Sweet").PatchAll(Assembly.GetExecutingAssembly());
 
-        RimBrellasActive = ModLister.GetActiveModWithIdentifier("battlemage64.Rimbrellas") != null;
+        if (ModLister.BiotechInstalled)
+        {
+            Settings.doIce = false;
+            Settings.doTides = false;
+            Settings.doFloods = false;
+            Settings.leaveStuff = false;
+            Settings.allowPawnsToGetWet = false;
+            Settings.allowPawnsSwim = false;
+        }
+
+        RimBrellasActive = ModLister.GetActiveModWithIdentifier("battlemage64.Rimbrellas", true) != null;
 
         if (!RimBrellasActive)
         {

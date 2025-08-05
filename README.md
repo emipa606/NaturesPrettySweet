@@ -1,9 +1,12 @@
-# [Nature's Pretty Sweet (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2532618635)
+# [Nature's Pretty Sweet (Continued)]()
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
 Update of tkkntkkns mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1211694919
+
+**The release of RimWorld 1.6 added improved support for [Asset Bundles](https://github.com/emipa606/AssetBuilder/blob/main/README.md)**.
+To avoid doubling the size of the mod, it was re-released using only Asset Bundles, you can find the previous version of this mod [here](https://steamcommunity.com/sharedfiles/filedetails/?id=2532618635).
 
 - Since the original had a lot of reported bugs Id appreciate anyone to try this version out and report back any issues. Ive fixed various bugs but the design of the mod is still the same.
 - Reduced the amount of barnacles spawned to more sensible levels
@@ -158,7 +161,7 @@ If you like this mod, consider visiting the actual National and State Parks. Vis
 
 
 
--  See if the the error persists if you just have this mod and its requirements active.
+-  See if the error persists if you just have this mod and its requirements active.
 -  If not, try adding your other mods until it happens again.
 -  Post your error-log using [HugsLib](https://steamcommunity.com/workshop/filedetails/?id=818773962) or the standalone [Uploader](https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404) and command Ctrl+F12
 -  For best support, please use the Discord-channel for error-reporting.
@@ -166,6 +169,4 @@ If you like this mod, consider visiting the actual National and State Parks. Vis
 -  If you have the solution for a problem, please post it to the GitHub repository.
 -  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
- 
-
-[![Image](https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/2532618635) | tags: environment,  weather,  biomes
+  | tags: environment,  weather,  biomes

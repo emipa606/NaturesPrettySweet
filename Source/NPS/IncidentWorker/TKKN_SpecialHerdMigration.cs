@@ -9,9 +9,9 @@ namespace TKKN_NPS;
 
 public class TKKN_SpecialHerdMigration : IncidentWorker
 {
-    private static readonly IntRange AnimalsCount = new IntRange(50, 70);
+    private static readonly IntRange AnimalsCount = new(50, 70);
     public Map map;
-    public BiomeSeasonalSettings mod;
+    private BiomeSeasonalSettings mod;
 
     protected override bool CanFireNowSub(IncidentParms parms)
     {
@@ -41,7 +41,8 @@ public class TKKN_SpecialHerdMigration : IncidentWorker
             select k;
         if (possibleAnimals.Any())
         {
-            return possibleAnimals.TryRandomElementByWeight(x => x.RaceProps.wildness, out animalKind);
+            return possibleAnimals.TryRandomElementByWeight(x => x.race.GetStatValueAbstract(StatDefOf.Wildness),
+                out animalKind);
         }
 
         animalKind = null;
@@ -76,7 +77,7 @@ public class TKKN_SpecialHerdMigration : IncidentWorker
         return true;
     }
 
-    private bool TryFindStartAndEndCells(Map localMap, out IntVec3 start, out IntVec3 end)
+    private static bool TryFindStartAndEndCells(Map localMap, out IntVec3 start, out IntVec3 end)
     {
         if (!RCellFinder.TryFindRandomPawnEntryCell(out start, localMap, CellFinder.EdgeRoadChance_Animal))
         {
@@ -105,7 +106,7 @@ public class TKKN_SpecialHerdMigration : IncidentWorker
         return end.IsValid;
     }
 
-    private List<Pawn> GenerateAnimals(PawnKindDef animalKind, int tile)
+    private static List<Pawn> GenerateAnimals(PawnKindDef animalKind, int tile)
     {
         var randomInRange = AnimalsCount.RandomInRange;
         var list = new List<Pawn>();

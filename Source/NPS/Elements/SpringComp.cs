@@ -14,20 +14,20 @@ public class SpringComp : SpringCompAbstract
     private readonly List<IntVec3> affectableCellsAtmosphere = [];
     private readonly List<IntVec3> boundaryCells = [];
     private readonly List<IntVec3> boundaryCellsRough = [];
-    public int age;
+    private int age;
 
-    public string biomeName;
-    public int makeAnotherAt = 400;
+    private string biomeName;
+    private int makeAnotherAt = 400;
 
-    public bool spawnThings;
-    public string status = "spawning";
-    public ModuleBase terrainNoise;
-    public string terrainType = "wet";
-    public float width;
+    private bool spawnThings;
+    private string status = "spawning";
+    protected ModuleBase terrainNoise;
+    protected string terrainType = "wet";
+    private float width;
 
-    public CompProperties_Springs Props => (CompProperties_Springs)props;
+    protected CompProperties_Springs Props => (CompProperties_Springs)props;
 
-    public int getID()
+    private int getID()
     {
         var numOnly = parent.ThingID.Replace(parent.def.defName, "");
         return int.Parse(numOnly);
@@ -142,9 +142,9 @@ public class SpringComp : SpringCompAbstract
                 }
             }
 
-            foreach (var cell in affectableCellsAtmosphere)
+            foreach (var unused in affectableCellsAtmosphere)
             {
-                atmosphereAffectCell(cell);
+                atmosphereAffectCell();
             }
         }
 
@@ -159,7 +159,7 @@ public class SpringComp : SpringCompAbstract
         saveValues();
     }
 
-    public void setCellsToAffect()
+    private void setCellsToAffect()
     {
         if (status == "stable")
         {
@@ -211,7 +211,7 @@ public class SpringComp : SpringCompAbstract
         }, maxArea);
     }
 
-    public void saveValues()
+    private void saveValues()
     {
         var savedData = parent.Map.GetComponent<Watcher>().activeSprings[getID()];
         if (savedData == null)
@@ -226,7 +226,7 @@ public class SpringComp : SpringCompAbstract
         savedData.width = width;
     }
 
-    public void changeShape()
+    protected virtual void changeShape()
     {
         if (Props.howOftenToChange == 0)
         {
@@ -243,7 +243,7 @@ public class SpringComp : SpringCompAbstract
         terrainNoise = new Add(moduleBase, moduleBase2);
     }
 
-    public override void springTerrain(IntVec3 loc)
+    protected override void springTerrain(IntVec3 loc)
     {
         if (terrainNoise == null)
         {
@@ -276,7 +276,7 @@ public class SpringComp : SpringCompAbstract
         terrainType = "dry";
     }
 
-    public void checkIfDespawn()
+    private void checkIfDespawn()
     {
         if (biomeName == Props.commonBiome)
         {
@@ -310,7 +310,7 @@ public class SpringComp : SpringCompAbstract
         }
     }
 
-    private void genPlants(IntVec3 c, Map map, List<ThingDef> list)
+    private static void genPlants(IntVec3 c, Map map, List<ThingDef> list)
     {
         if (c.GetEdifice(map) != null || c.GetCover(map) != null)
         {
@@ -341,12 +341,12 @@ public class SpringComp : SpringCompAbstract
         GenSpawn.Spawn(plant, c, map);
     }
 
-    private float PlantChoiceWeight(ThingDef def, Map map)
+    private static float PlantChoiceWeight(ThingDef def, Map map)
     {
         return map.Biome.CommonalityOfPlant(def) * def.plant.wildClusterWeight;
     }
 
-    public void AffectCell(IntVec3 c)
+    private void AffectCell(IntVec3 c)
     {
         var isSpawnCell = false;
         if (!c.InBounds(parent.Map))
@@ -425,7 +425,7 @@ public class SpringComp : SpringCompAbstract
         return !currentTerrain.HasTag("TKKN_Wet");
     }
 
-    protected void atmosphereAffectCell(IntVec3 c)
+    private void atmosphereAffectCell()
     {
         GenTemperature.PushHeat(parent, Props.temperature);
     }
@@ -457,7 +457,7 @@ public class SpringComp : SpringCompAbstract
         FilthMaker.RemoveAllFilth(c, parent.Map);
     }
 
-    public override void specialFXAffect(IntVec3 c)
+    protected override void specialFXAffect(IntVec3 c)
     {
         base.specialFXAffect(c);
     }

@@ -24,7 +24,7 @@ public static class Pawn_PathFollower_StartPath
         return PawnCanOccupy(___pawn.Position, ___pawn) || TryRecoverFromUnwalkablePosition(___pawn);
     }
 
-    public static bool TryRecoverFromUnwalkablePosition(Pawn pawn)
+    private static bool TryRecoverFromUnwalkablePosition(Pawn pawn)
     {
         var tryRecoverFromUnwalkablePosition = false;
         foreach (var intVec3 in GenRadial.RadialPattern)
@@ -54,7 +54,7 @@ public static class Pawn_PathFollower_StartPath
         return tryRecoverFromUnwalkablePosition;
     }
 
-    public static bool PawnCanOccupy(IntVec3 c, Pawn pawn)
+    private static bool PawnCanOccupy(IntVec3 c, Pawn pawn)
     {
         if (!c.Walkable(pawn.Map))
         {

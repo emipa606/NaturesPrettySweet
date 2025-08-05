@@ -38,6 +38,6 @@ internal class GenSpawn_Spawn
         }
 
         GenExplosion.DoExplosion(loc, map, 1, DamageDefOf.Flame, null, -1, -1f, null, null, null, null, null, 1f, 1,
-            null, false, null, 0f, 1, 1f, false, null, null, null, true, 1f, 0f, true, null, 0);
+            null, null, 0, false, null, 0f, 1, 1f, false, null, null, null, true, 1f, 0f, true, null, 0);
     }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: giant sunflower -->
+  <TKKN_PlantSunflower.label>giant sunflower</TKKN_PlantSunflower.label>
+  <!-- EN: A tall flower named because it turns its face to follow the sun. -->
+  <TKKN_PlantSunflower.description>A tall flower named because it turns its face to follow the sun.</TKKN_PlantSunflower.description>
+  <!-- EN: Tall Prairie Grasses -->
+  <TKKN_PlantTallGrasses.label>Tall Prairie Grasses</TKKN_PlantTallGrasses.label>
+  <!-- EN: A mix of hardy prairie grasses, like purple needlegrass, wild oats, foxtail, ryegrass, and buffalo grass. -->
+  <TKKN_PlantTallGrasses.description>A mix of hardy prairie grasses, like purple needlegrass, wild oats, foxtail, ryegrass, and buffalo grass.</TKKN_PlantTallGrasses.description>
+  <!-- EN: umbrella thorn acacia tree -->
+  <TKKN_PlantTreeAcacia.label>umbrella thorn acacia tree</TKKN_PlantTreeAcacia.label>
+  <!-- EN: Hardy plant known to tolerate high alkalinity, drought, high temperatures, sandy and stony soils, strongly sloped rooting surfaces, and sand blasting. -->
+  <TKKN_PlantTreeAcacia.description>Hardy plant known to tolerate high alkalinity, drought, high temperatures, sandy and stony soils, strongly sloped rooting surfaces, and sand blasting.</TKKN_PlantTreeAcacia.description>
+  <!-- EN: baobab tree -->
+  <TKKN_PlantTreeBaobab.label>baobab tree</TKKN_PlantTreeBaobab.label>
+  <!-- EN: Long lived tree that store water in their trunks. -->
+  <TKKN_PlantTreeBaobab.description>Long lived tree that store water in their trunks.</TKKN_PlantTreeBaobab.description>
+  <!-- EN: gum tree -->
+  <TKKN_PlantTreeGum.label>gum tree</TKKN_PlantTreeGum.label>
+  <!-- EN: Smooth barked, fast growing tree that guzzles water and repells insects. -->
+  <TKKN_PlantTreeGum.description>Smooth barked, fast growing tree that guzzles water and repells insects.</TKKN_PlantTreeGum.description>
+  <!-- EN: wild rice plant -->
+  <TKKN_PlantWildRice.label>wild rice plant</TKKN_PlantWildRice.label>
+  <!-- EN: Wild rice is hardy and grows in shallow water. It yeilds less rice than it's domesticated version. -->
+  <TKKN_PlantWildRice.description>Wild rice is hardy and grows in shallow water. It yeilds less rice than it's domesticated version.</TKKN_PlantWildRice.description>
+</LanguageData>

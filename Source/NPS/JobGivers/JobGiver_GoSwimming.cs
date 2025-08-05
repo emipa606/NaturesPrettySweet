@@ -60,12 +60,7 @@ public class JobGiver_GoSwimming : JobGiver_Wander
         for (var i = 0; i < 20; i++)
         {
             var c2 = c + GenAdj.AdjacentCellsAndInside[i];
-            if (!c2.InBounds(pawn.Map))
-            {
-                return IntVec3.Invalid;
-            }
-
-            if (!c2.Standable(pawn.Map))
+            if (!c2.InBounds(pawn.Map) || !c2.Standable(pawn.Map))
             {
                 return IntVec3.Invalid;
             }

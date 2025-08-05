@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: pebbel -->
+  <FootPebbel.label>pebbel</FootPebbel.label>
+  <!-- EN: left tentacle -->
+  <LeftTentacle.label>left tentacle</LeftTentacle.label>
+  <!-- EN: kidney -->
+  <NpsKidney.label>kidney</NpsKidney.label>
+  <!-- EN: lung -->
+  <NpsLung.label>lung</NpsLung.label>
+  <!-- EN: right tentacle -->
+  <RightTentacle.label>right tentacle</RightTentacle.label>
+  <!-- EN: foot -->
+  <SnailFoot.label>foot</SnailFoot.label>
+  <!-- EN: head -->
+  <Snailhead.label>head</Snailhead.label>
+  <!-- EN: snail shell -->
+  <SnailShell.label>snail shell</SnailShell.label>
+</LanguageData>

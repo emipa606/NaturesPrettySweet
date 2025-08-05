@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: rock -->
+  <Rock.label>rock</Rock.label>
+  <!-- EN: left lung -->
+  <Rock.corePart.parts.left_lung.customLabel>left lung</Rock.corePart.parts.left_lung.customLabel>
+  <!-- EN: right lung -->
+  <Rock.corePart.parts.right_lung.customLabel>right lung</Rock.corePart.parts.right_lung.customLabel>
+  <!-- EN: left kidney -->
+  <Rock.corePart.parts.left_kidney.customLabel>left kidney</Rock.corePart.parts.left_kidney.customLabel>
+  <!-- EN: right kidney -->
+  <Rock.corePart.parts.right_kidney.customLabel>right kidney</Rock.corePart.parts.right_kidney.customLabel>
+  <!-- EN: left eye -->
+  <Rock.corePart.parts.Neck.parts.Head.parts.left_eye.customLabel>left eye</Rock.corePart.parts.Neck.parts.Head.parts.left_eye.customLabel>
+  <!-- EN: right eye -->
+  <Rock.corePart.parts.Neck.parts.Head.parts.right_eye.customLabel>right eye</Rock.corePart.parts.Neck.parts.Head.parts.right_eye.customLabel>
+  <!-- EN: snail -->
+  <Snail.label>snail</Snail.label>
+  <!-- EN: left eye -->
+  <Snail.corePart.parts.Snailhead.parts.left_eye.customLabel>left eye</Snail.corePart.parts.Snailhead.parts.left_eye.customLabel>
+  <!-- EN: right eye -->
+  <Snail.corePart.parts.Snailhead.parts.right_eye.customLabel>right eye</Snail.corePart.parts.Snailhead.parts.right_eye.customLabel>
+</LanguageData>

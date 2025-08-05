@@ -6,7 +6,7 @@ namespace TKKN_NPS;
 
 public class Controller : Mod
 {
-    public static Settings settings;
+    private static Settings settings;
     public static string currentVersion;
 
     public Controller(ModContentPack content)
@@ -19,7 +19,7 @@ public class Controller : Mod
 
     public override void DoSettingsWindowContents(Rect inRect)
     {
-        settings.DoWindowContents(inRect);
+        Settings.DoWindowContents(inRect);
     }
 
     public override string SettingsCategory()

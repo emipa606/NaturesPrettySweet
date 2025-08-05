@@ -30,7 +30,7 @@ public class JobGiver_Dryoff : ThinkNode_JobGiver
         return job;
     }
 
-    private IntVec3 getDryCell(Pawn pawn)
+    private static IntVec3 getDryCell(Pawn pawn)
     {
         pawn.MapHeld.regionAndRoomUpdater.Enabled = true;
         CellFinder.TryFindRandomCellNear(pawn.Position, pawn.MapHeld, 6, Validator, out var c);

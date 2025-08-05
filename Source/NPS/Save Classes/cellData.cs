@@ -8,7 +8,7 @@ namespace TKKN_NPS;
 
 public class cellData : IExposable
 {
-    public readonly int packAt = 750;
+    private readonly int packAt = 750;
     public TerrainDef baseTerrain;
     public HashSet<int> floodLevel = [];
     public float frostLevel;
@@ -116,7 +116,7 @@ public class cellData : IExposable
         }
     }
 
-    public void setWetTerrain()
+    private void setWetTerrain()
     {
         if (!Settings.showRain)
         {
@@ -160,7 +160,7 @@ public class cellData : IExposable
         //			*/
     }
 
-    public void setFrozenTerrain(bool frozen)
+    private void setFrozenTerrain(bool frozen)
     {
         if (frozen)
         {
@@ -206,7 +206,7 @@ public class cellData : IExposable
         changeTerrain(baseTerrain);
     }
 
-    public void setFloodedTerrain()
+    private void setFloodedTerrain()
     {
         if (!Settings.showRain || !Settings.doTides)
         {
@@ -247,7 +247,7 @@ public class cellData : IExposable
         }
     }
 
-    public void setTidesTerrain()
+    private void setTidesTerrain()
     {
         if (!Settings.doTides)
         {

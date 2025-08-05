@@ -10,7 +10,7 @@ public class IncidentWorker_TKKN_Weather : IncidentWorker
     public string text;
     public ThingDef thingDef;
 
-    public bool settingsCheck()
+    protected bool settingsCheck()
     {
         return relevantSetting;
     }

@@ -5,9 +5,9 @@ namespace TKKN_NPS;
 
 public class Comp_Heater : ThingComp
 {
-    public int ticks;
+    private int ticks;
 
-    public CompProperties_Heater Props => (CompProperties_Heater)props;
+    private CompProperties_Heater Props => (CompProperties_Heater)props;
 
     public override void CompTick()
     {

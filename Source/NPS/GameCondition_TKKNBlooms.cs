@@ -6,7 +6,7 @@ namespace TKKN_NPS;
 
 public class GameCondition_TKKNBlooms : GameCondition
 {
-    public float howManyBlooms;
+    protected float howManyBlooms;
 
     public void DoCellSteadyEffects(IntVec3 c)
     {

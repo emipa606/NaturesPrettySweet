@@ -4,11 +4,11 @@ namespace TKKN_NPS;
 
 public class Comp_GraphicRotator : ThingComp
 {
-    public int curAngle;
-    public int ticks;
-    public int turnDegree;
+    private int curAngle;
+    private int ticks;
+    private int turnDegree;
 
-    public CompProperties_GraphicRotator Props => (CompProperties_GraphicRotator)props;
+    private CompProperties_GraphicRotator Props => (CompProperties_GraphicRotator)props;
 
     public override void CompTick()
     {

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: barnacles -->
+  <TKKN_PlantBarnacles.label>barnacles</TKKN_PlantBarnacles.label>
+  <!-- EN: Exclusively marine arthropods that tend to live in shallow and tidal waters -->
+  <TKKN_PlantBarnacles.description>Exclusively marine arthropods that tend to live in shallow and tidal waters</TKKN_PlantBarnacles.description>
+  <!-- EN: cattails -->
+  <TKKN_PlantCatTails.label>cattails</TKKN_PlantCatTails.label>
+  <!-- EN: Also known as bulrushes. A semi-aquatic plants with an brown, cigar-shaped, edible flower. -->
+  <TKKN_PlantCatTails.description>Also known as bulrushes. A semi-aquatic plants with an brown, cigar-shaped, edible flower.</TKKN_PlantCatTails.description>
+  <!-- EN: lilypad -->
+  <TKKN_PlantLilypad.label>lilypad</TKKN_PlantLilypad.label>
+  <!-- EN: Aquatic herbs that live in temperate and tropical climates. -->
+  <TKKN_PlantLilypad.description>Aquatic herbs that live in temperate and tropical climates.</TKKN_PlantLilypad.description>
+  <!-- EN: watercress -->
+  <TKKN_PlantWatercress.label>watercress</TKKN_PlantWatercress.label>
+  <!-- EN: Also known as yellowcress. Edible aquatic plant species that's sweeter in the winter -->
+  <TKKN_PlantWatercress.description>Also known as yellowcress. Edible aquatic plant species that's sweeter in the winter</TKKN_PlantWatercress.description>
+  <!-- EN: wildflowers -->
+  <TKKN_PlantWildflowers.label>wildflowers</TKKN_PlantWildflowers.label>
+  <!-- EN: Colorful, beautiful native plants. -->
+  <TKKN_PlantWildflowers.description>Colorful, beautiful native plants.</TKKN_PlantWildflowers.description>
+</LanguageData>

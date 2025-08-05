@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: drought -->
+  <TKKN_Drought.label>drought</TKKN_Drought.label>
+  <!-- EN: TKKN_NPS_DroughtLbl -->
+  <TKKN_Drought.letterLabel>TKKN_NPS_DroughtLbl</TKKN_Drought.letterLabel>
+  <!-- EN: TKKN_NPS_DroughtTxt -->
+  <TKKN_Drought.letterText>TKKN_NPS_DroughtTxt</TKKN_Drought.letterText>
+  <!-- EN: dustdevil -->
+  <TKKN_DustDevil.label>dustdevil</TKKN_DustDevil.label>
+  <!-- EN: Dust Devils! -->
+  <TKKN_DustDevil.letterLabel>Dust Devils!</TKKN_DustDevil.letterLabel>
+  <!-- EN: A dust devil has formed!\n\n It's less destructive than a tornado, but keep out of its way! -->
+  <TKKN_DustDevil.letterText>A dust devil has formed!
+
+ It's less destructive than a tornado, but keep out of its way!</TKKN_DustDevil.letterText>
+  <!-- EN: Lava Eruption! -->
+  <TKKN_LavaEruption.label>Lava Eruption!</TKKN_LavaEruption.label>
+</LanguageData>

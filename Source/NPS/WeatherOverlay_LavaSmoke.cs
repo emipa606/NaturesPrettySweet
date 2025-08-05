@@ -4,14 +4,14 @@ using Verse;
 namespace TKKN_NPS;
 
 [StaticConstructorOnStartup]
-public class WeatherOverlay_LavaSmoke : SkyOverlay
+public class WeatherOverlay_LavaSmoke : WeatherOverlayDualPanner
 {
-    public static readonly Material material = new Material(MatLoader.LoadMat("Weather/FogOverlayWorld"));
+    private static readonly Material material = new(MatLoader.LoadMat("Weather/FogOverlayWorld"));
 
     public WeatherOverlay_LavaSmoke()
     {
         worldOverlayMat = material;
-        OverlayColor = new Color(0.64f, 0.35f, 0.26f);
+        ForcedOverlayColor = new Color(0.64f, 0.35f, 0.26f);
 
         worldOverlayPanSpeed1 = 0.0003f;
         worldOverlayPanSpeed2 = 0.0001f;

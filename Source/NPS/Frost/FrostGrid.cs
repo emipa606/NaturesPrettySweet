@@ -9,17 +9,14 @@ public sealed class FrostGrid : MapComponent
     public const float MaxDepth = 1f;
     public const float currentFrost = 0f;
 
-    public readonly float[] depthGrid;
-
     private double totalDepth;
 
     public FrostGrid(Map map) : base(map)
     {
-        this.map = map;
-        depthGrid = new float[map.cellIndices.NumGridCells];
+        DepthGridDirect_Unsafe = new float[map.cellIndices.NumGridCells];
     }
 
-    internal float[] DepthGridDirect_Unsafe => depthGrid;
+    internal float[] DepthGridDirect_Unsafe { get; }
 
     public float TotalDepth => (float)totalDepth;
 
@@ -36,12 +33,12 @@ public sealed class FrostGrid : MapComponent
         var terrainDef = map.terrainGrid.TerrainAt(ind);
         return terrainDef.HasModExtension<TerrainWeatherReactions>()
             ? terrainDef.GetModExtension<TerrainWeatherReactions>().holdFrost
-            : terrainDef.holdSnow;
+            : terrainDef.holdSnowOrSand;
 
         //return terrainDef.affordances.Contains(TerrainAffordance.Light);
     }
 
-    public bool CanCoexistWithFrost(ThingDef def)
+    private bool CanCoexistWithFrost(ThingDef def)
     {
         return def.category != ThingCategory.Building; // || def.Fillage != FillCategory.Full;
     }
@@ -54,7 +51,7 @@ public sealed class FrostGrid : MapComponent
         }
 
         var num = map.cellIndices.CellToIndex(c);
-        var num2 = depthGrid[num];
+        var num2 = DepthGridDirect_Unsafe[num];
         if (num2 <= 0f && depthToAdd < 0f)
         {
             return;
@@ -67,7 +64,7 @@ public sealed class FrostGrid : MapComponent
 
         if (!CanHaveFrost(num))
         {
-            depthGrid[num] = 0f;
+            DepthGridDirect_Unsafe[num] = 0f;
             return;
         }
 
@@ -80,7 +77,7 @@ public sealed class FrostGrid : MapComponent
             return;
         }
 
-        depthGrid[num] = num3;
+        DepthGridDirect_Unsafe[num] = num3;
         CheckVisualOrPathCostChange(c, num2, num3);
     }
 
@@ -94,13 +91,13 @@ public sealed class FrostGrid : MapComponent
         var num = map.cellIndices.CellToIndex(c);
         if (!CanHaveFrost(num))
         {
-            depthGrid[num] = 0f;
+            DepthGridDirect_Unsafe[num] = 0f;
             return;
         }
 
         newDepth = Mathf.Clamp(newDepth, 0f, 1f);
-        var num2 = depthGrid[num];
-        depthGrid[num] = newDepth;
+        var num2 = DepthGridDirect_Unsafe[num];
+        DepthGridDirect_Unsafe[num] = newDepth;
         var num3 = newDepth - num2;
         totalDepth += num3;
         CheckVisualOrPathCostChange(c, num2, newDepth);
@@ -132,7 +129,7 @@ public sealed class FrostGrid : MapComponent
 
     public float GetDepth(IntVec3 c)
     {
-        return !c.InBounds(map) ? 0f : depthGrid[map.cellIndices.CellToIndex(c)];
+        return !c.InBounds(map) ? 0f : DepthGridDirect_Unsafe[map.cellIndices.CellToIndex(c)];
     }
 
     public FrostCategory GetCategory(IntVec3 c)

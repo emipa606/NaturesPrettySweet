@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: desert and salt fields -->
+  <TKKN_Desert.label>desert and salt fields</TKKN_Desert.label>
+  <!-- EN: A very dry area which supports little life. Salt fields are here. Deserts can be hot, or quite cold. -->
+  <TKKN_Desert.description>A very dry area which supports little life. Salt fields are here. Deserts can be hot, or quite cold.</TKKN_Desert.description>
+  <!-- EN: desert oasis -->
+  <TKKN_Oasis.label>desert oasis</TKKN_Oasis.label>
+  <!-- EN: A large amount of water surrounded by a very dry area. The oasis itself has rich soil and lots of animals, but is surrounded by extreme desert. -->
+  <TKKN_Oasis.description>A large amount of water surrounded by a very dry area. The oasis itself has rich soil and lots of animals, but is surrounded by extreme desert.</TKKN_Oasis.description>
+</LanguageData>

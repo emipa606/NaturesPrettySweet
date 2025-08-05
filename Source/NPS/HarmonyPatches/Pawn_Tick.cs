@@ -4,7 +4,7 @@ using Verse;
 
 namespace TKKN_NPS;
 
-[HarmonyPatch(typeof(Pawn), nameof(Pawn.Tick))]
+[HarmonyPatch(typeof(Pawn), "Tick")]
 internal class Pawn_Tick
 {
     public static void Postfix(Pawn __instance)
@@ -74,7 +74,7 @@ internal class Pawn_Tick
         }
     }
 
-    public static void DyingCheck(Pawn pawn, TerrainDef terrain)
+    private static void DyingCheck(Pawn pawn, TerrainDef terrain)
     {
         //drowning == immobile and in water
         if (pawn == null || terrain == null)
@@ -129,7 +129,7 @@ internal class Pawn_Tick
         }
     }
 
-    public static void MakeWet(Pawn pawn)
+    private static void MakeWet(Pawn pawn)
     {
         if (!Settings.allowPawnsToGetWet)
         {
@@ -184,7 +184,7 @@ internal class Pawn_Tick
         pawn.health.AddHediff(hediff);
     }
 
-    public static void BurnSnails(Pawn pawn)
+    private static void BurnSnails(Pawn pawn)
     {
         var battleLogEntry_DamageTaken = new BattleLogEntry_DamageTaken(pawn, RulePackDefOf.DamageEvent_Fire);
         Find.BattleLog.Add(battleLogEntry_DamageTaken);
@@ -194,7 +194,7 @@ internal class Pawn_Tick
         pawn.TakeDamage(dinfo).AssociateWithLog(battleLogEntry_DamageTaken);
     }
 
-    public static void MakePaths(Pawn pawn)
+    private static void MakePaths(Pawn pawn)
     {
         var map = pawn.Map;
         var watcher = map.GetComponent<Watcher>();
@@ -229,7 +229,7 @@ internal class Pawn_Tick
         }
     }
 
-    public static void MakeBreath(Pawn pawn)
+    private static void MakeBreath(Pawn pawn)
     {
         if (Find.TickManager.TicksGame % 150 != 0)
         {

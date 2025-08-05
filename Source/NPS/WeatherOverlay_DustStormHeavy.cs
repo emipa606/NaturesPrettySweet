@@ -4,7 +4,7 @@ using Verse;
 namespace TKKN_NPS;
 
 [StaticConstructorOnStartup]
-public class WeatherOverlay_DustStormHeavy : SkyOverlay
+public class WeatherOverlay_DustStormHeavy : WeatherOverlayDualPanner
 {
     private static readonly Material material;
 
@@ -17,7 +17,7 @@ public class WeatherOverlay_DustStormHeavy : SkyOverlay
     {
         worldOverlayMat = material;
 
-        OverlayColor = new Color(0.57f, 0.34f, 0.10f);
+        ForcedOverlayColor = new Color(0.57f, 0.34f, 0.10f);
 
         worldOverlayPanSpeed1 = 0.018f;
         worldPanDir1 = new Vector2(-1f, -0.26f);

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: drowning -->
+  <TKKN_Drowning.label>drowning</TKKN_Drowning.label>
+  <!-- EN: Too much liquid! -->
+  <TKKN_Drowning.description>Too much liquid!</TKKN_Drowning.description>
+  <!-- EN: treading water -->
+  <TKKN_Drowning.stages.treading_water.label>treading water</TKKN_Drowning.stages.treading_water.label>
+  <!-- EN: floundering -->
+  <TKKN_Drowning.stages.floundering.label>floundering</TKKN_Drowning.stages.floundering.label>
+  <!-- EN: drowning -->
+  <TKKN_Drowning.stages.drowning.label>drowning</TKKN_Drowning.stages.drowning.label>
+  <!-- EN: wetness -->
+  <TKKN_Wetness.label>wetness</TKKN_Wetness.label>
+  <!-- EN: Level of liquid saturation -->
+  <TKKN_Wetness.description>Level of liquid saturation</TKKN_Wetness.description>
+  <!-- EN: dry -->
+  <TKKN_Wetness.stages.dry.label>dry</TKKN_Wetness.stages.dry.label>
+  <!-- EN: damp -->
+  <TKKN_Wetness.stages.damp.label>damp</TKKN_Wetness.stages.damp.label>
+  <!-- EN: soggy -->
+  <TKKN_Wetness.stages.soggy.label>soggy</TKKN_Wetness.stages.soggy.label>
+  <!-- EN: wet -->
+  <TKKN_Wetness.stages.wet.label>wet</TKKN_Wetness.stages.wet.label>
+  <!-- EN: soaked -->
+  <TKKN_Wetness.stages.soaked.label>soaked</TKKN_Wetness.stages.soaked.label>
+</LanguageData>

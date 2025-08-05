@@ -22,7 +22,7 @@ public class LavaComp : SpringComp
     {
     }
 
-    public new void changeShape()
+    protected override void changeShape()
     {
         ModuleBase moduleBase = new Perlin(1.1, 2, 0.5, 2, Rand.Range(0, Props.radius), QualityMode.Medium);
         moduleBase = new ScaleBias(0.2, 0.2, moduleBase);

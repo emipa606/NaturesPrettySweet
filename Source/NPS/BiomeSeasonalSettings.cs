@@ -110,8 +110,7 @@ public class BiomeSeasonalSettings : DefModExtension
         {
             map.Biome.baseWeatherCommonalities =
             [
-                ..new[]
-                    { new WeatherCommonalityRecord { commonality = 1f, weather = WeatherDefOf.Clear } }
+                new WeatherCommonalityRecord { commonality = 1f, weather = WeatherDefOf.Clear }
             ];
         }
     }

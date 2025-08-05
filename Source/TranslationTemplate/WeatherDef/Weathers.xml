@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: dry dust storm -->
+  <TKKN_DryDustStorm.label>dry dust storm</TKKN_DryDustStorm.label>
+  <!-- EN: high winds and storms whip up dust, reducing visibilty and the accuracy of ranged weapons. -->
+  <TKKN_DryDustStorm.description>high winds and storms whip up dust, reducing visibilty and the accuracy of ranged weapons.</TKKN_DryDustStorm.description>
+  <!-- EN: dust storm -->
+  <TKKN_DustStorm.label>dust storm</TKKN_DustStorm.label>
+  <!-- EN: storms whip up dust, reducing visibilty and the accuracy of ranged weapons. -->
+  <TKKN_DustStorm.description>storms whip up dust, reducing visibilty and the accuracy of ranged weapons.</TKKN_DustStorm.description>
+  <!-- EN: lava smoke -->
+  <TKKN_LavaSmoke.label>lava smoke</TKKN_LavaSmoke.label>
+  <!-- EN: lava smoke reduces the accuracy of ranged weapons and poisons pawns. -->
+  <TKKN_LavaSmoke.description>lava smoke reduces the accuracy of ranged weapons and poisons pawns.</TKKN_LavaSmoke.description>
+  <!-- EN: Overcast -->
+  <TKKN_Overcast.label>Overcast</TKKN_Overcast.label>
+  <!-- EN: Cloudy, but no rain. -->
+  <TKKN_Overcast.description>Cloudy, but no rain.</TKKN_Overcast.description>
+  <!-- EN: thick fog -->
+  <TKKN_ThickFog.label>thick fog</TKKN_ThickFog.label>
+  <!-- EN: thick fog reduces the accuracy of ranged weapons. -->
+  <TKKN_ThickFog.description>thick fog reduces the accuracy of ranged weapons.</TKKN_ThickFog.description>
+  <!-- EN: wind storm -->
+  <TKKN_WindStorm.label>wind storm</TKKN_WindStorm.label>
+  <!-- EN: A wind storm. High winds and a little rain. Help turbines but tears out plants and hinders shooting. -->
+  <TKKN_WindStorm.description>A wind storm. High winds and a little rain. Help turbines but tears out plants and hinders shooting.</TKKN_WindStorm.description>
+  <!-- EN: windy -->
+  <TKKN_Windy.label>windy</TKKN_Windy.label>
+  <!-- EN: A blustery day. High winds help turbines but hinders shooting. -->
+  <TKKN_Windy.description>A blustery day. High winds help turbines but hinders shooting.</TKKN_Windy.description>
+</LanguageData>

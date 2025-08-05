@@ -20,38 +20,13 @@ public static class WeatherDecider_CurrentWeatherCommonality
         try
         {
             if (___map.weatherManager.curWeather is { repeatable: false } &&
-                weather == ___map.weatherManager.curWeather)
-            {
-                __result = 0f;
-                return false;
-            }
-
-            if (!weather.temperatureRange.Includes(___map.mapTemperature.OutdoorTemp))
-            {
-                __result = 0f;
-                return false;
-            }
-
-            if (weather.favorability < Favorability.Neutral && GenDate.DaysPassedSinceSettle < 8)
-            {
-                __result = 0f;
-                return false;
-            }
-
-            if (weather.rainRate > 0.1f && Find.TickManager.TicksGame < ___ticksWhenRainAllowedAgain)
-            {
-                __result = 0f;
-                return false;
-            }
-
-            if (weather.rainRate > 0.1f &&
-                ___map.gameConditionManager.ActiveConditions?.Any(x => x.def.preventRain) == true)
-            {
-                __result = 0f;
-                return false;
-            }
-
-            if (ModsConfig.AnomalyActive && weather.minMonolithLevel > Find.Anomaly.HighestLevelReached)
+                weather == ___map.weatherManager.curWeather ||
+                !weather.temperatureRange.Includes(___map.mapTemperature.OutdoorTemp) ||
+                weather.favorability < Favorability.Neutral && GenDate.DaysPassedSinceSettle < 8 ||
+                weather.rainRate > 0.1f && Find.TickManager.TicksGame < ___ticksWhenRainAllowedAgain ||
+                weather.rainRate > 0.1f &&
+                ___map.gameConditionManager.ActiveConditions?.Any(x => x.def.preventRain) == true ||
+                ModsConfig.AnomalyActive && weather.minMonolithLevel > Find.Anomaly.HighestLevelReached)
             {
                 __result = 0f;
                 return false;

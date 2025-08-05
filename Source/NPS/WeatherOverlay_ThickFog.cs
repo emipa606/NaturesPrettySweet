@@ -4,9 +4,9 @@ using Verse;
 namespace TKKN_NPS;
 
 [StaticConstructorOnStartup]
-public class WeatherOverlay_ThickFog : SkyOverlay
+public class WeatherOverlay_ThickFog : WeatherOverlayDualPanner
 {
-    public static readonly Material FogOverlayWorld = new Material(MatLoader.LoadMat("Weather/FogOverlayWorld"));
+    private static readonly Material FogOverlayWorld = new(MatLoader.LoadMat("Weather/FogOverlayWorld"));
 
     public WeatherOverlay_ThickFog()
     {

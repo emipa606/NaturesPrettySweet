@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: old growth hazelnut tree -->
+  <TKKN_OldGrowth_PlantTreeHazelnut.label>old growth hazelnut tree</TKKN_OldGrowth_PlantTreeHazelnut.label>
+  <!-- EN: A multi-stemmed woodland shrub with soft, saw-toothed, velvety leaves. -->
+  <TKKN_OldGrowth_PlantTreeHazelnut.description>A multi-stemmed woodland shrub with soft, saw-toothed, velvety leaves.</TKKN_OldGrowth_PlantTreeHazelnut.description>
+  <!-- EN: old growth oak tree -->
+  <TKKN_OldGrowth_PlantTreeOak.label>old growth oak tree</TKKN_OldGrowth_PlantTreeOak.label>
+  <!-- EN: A strong hardwood tree. Slow-going, but its wood is very strong. -->
+  <TKKN_OldGrowth_PlantTreeOak.description>A strong hardwood tree. Slow-going, but its wood is very strong.</TKKN_OldGrowth_PlantTreeOak.description>
+  <!-- EN: fern -->
+  <TKKN_PlantFern.label>fern</TKKN_PlantFern.label>
+  <!-- EN: A soft, leafy plant that reproduces using spores. -->
+  <TKKN_PlantFern.description>A soft, leafy plant that reproduces using spores.</TKKN_PlantFern.description>
+  <!-- EN: hazelnut tree -->
+  <TKKN_PlantTreeHazelnut.label>hazelnut tree</TKKN_PlantTreeHazelnut.label>
+  <!-- EN: A multi-stemmed woodland shrub with soft, saw-toothed, velvety leaves. -->
+  <TKKN_PlantTreeHazelnut.description>A multi-stemmed woodland shrub with soft, saw-toothed, velvety leaves.</TKKN_PlantTreeHazelnut.description>
+  <!-- EN: redwood -->
+  <TKKN_PlantTreeRedwood.label>redwood</TKKN_PlantTreeRedwood.label>
+  <!-- EN: A huge, very slow growing tree. Its roots are shallow, and when it gets too large, it topples over. \n\n Yields red wood, which is valuable and rare. -->
+  <TKKN_PlantTreeRedwood.description>A huge, very slow growing tree. Its roots are shallow, and when it gets too large, it topples over. 
+
+ Yields red wood, which is valuable and rare.</TKKN_PlantTreeRedwood.description>
+  <!-- EN: redwood -->
+  <TKKN_PlantTreeRedwoodDead.label>redwood</TKKN_PlantTreeRedwoodDead.label>
+  <!-- EN: A huge, very slow growing tree. This one has toppled over due to its weight. \n\n Yeilds red wood, which is valuable and rare. -->
+  <TKKN_PlantTreeRedwoodDead.description>A huge, very slow growing tree. This one has toppled over due to its weight. 
+
+ Yeilds red wood, which is valuable and rare.</TKKN_PlantTreeRedwoodDead.description>
+</LanguageData>

@@ -6,7 +6,7 @@ namespace TKKN_NPS;
 public class Hediff_Wetness : HediffWithComps
 {
     private int timeDrying;
-    public float wetnessLevel;
+    private float wetnessLevel;
 
     public override void ExposeData()
     {
@@ -49,7 +49,7 @@ public class Hediff_Wetness : HediffWithComps
         }
     }
 
-    public float wetnessRate()
+    private float wetnessRate()
     {
         var rate = 0f;
         //check if the pawn is in water

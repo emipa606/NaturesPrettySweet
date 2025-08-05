@@ -10,43 +10,43 @@ namespace TKKN_NPS;
 
 public class Watcher(Map map) : MapComponent(map)
 {
-    public readonly Dictionary<string, Graphic> graphicHolder = new Dictionary<string, Graphic>();
-    public readonly int howManyFloodSteps = 5;
+    public readonly Dictionary<string, Graphic> graphicHolder = new();
+    private readonly int howManyFloodSteps = 5;
 
-    public readonly int howManyTideSteps = 13;
+    private readonly int howManyTideSteps = 13;
 
-    public readonly int MaxPuddles = 50;
+    private readonly int MaxPuddles = 50;
 
     //used to save data about active springs.
-    public Dictionary<int, springData> activeSprings = new Dictionary<int, springData>();
+    public Dictionary<int, springData> activeSprings = new();
 
-    public BiomeSeasonalSettings biomeSettings;
-    public bool bugFixFrostIsRemoved;
-    public Dictionary<IntVec3, cellData> cellWeatherAffects = new Dictionary<IntVec3, cellData>();
-    public int cycleIndex;
-    public bool doCoast = true; //false if no coast
-    public List<List<IntVec3>> floodCellsList = [];
+    private BiomeSeasonalSettings biomeSettings;
+    private bool bugFixFrostIsRemoved;
+    public Dictionary<IntVec3, cellData> cellWeatherAffects = new();
+    private int cycleIndex;
+    private bool doCoast = true; //false if no coast
+    private List<List<IntVec3>> floodCellsList = [];
 
-    public int floodLevel; // 0 - 3
-    public int floodThreat;
+    private int floodLevel; // 0 - 3
+    private int floodThreat;
     public float[] frostGrid;
 
-    public ModuleBase frostNoise;
-    public float humidity;
+    private ModuleBase frostNoise;
+    private float humidity;
     public HashSet<IntVec3> lavaCellsList = [];
     public Thing overlay;
 
     //used by weather
-    public bool regenCellLists = true;
+    private bool regenCellLists = true;
     public List<IntVec3> swimmingCellsList = [];
 
-    public int ticks;
+    private int ticks;
 
     //rebuild every save to keep file size down
-    public List<List<IntVec3>> tideCellsList = [];
-    public int tideLevel; // 0 - 13
-    public int totalPuddles;
-    public int totalSprings;
+    private List<List<IntVec3>> tideCellsList = [];
+    private int tideLevel; // 0 - 13
+    private int totalPuddles;
+    private int totalSprings;
 
 //		public Map mapRef;
 
@@ -114,19 +114,11 @@ public class Watcher(Map map) : MapComponent(map)
 
     public override void FinalizeInit()
     {
-        /*
-        List<ThingDef> plants = map.Biome.AllWildPlants;
-        foreach(ThingDef plant in plants ){
-            Log.Warning("Wild plant: " + plant.defName);
-        }
-        */
-
         base.FinalizeInit();
         biomeSettings = map.Biome.GetModExtension<BiomeSeasonalSettings>();
         updateBiomeSettings(true);
 
         rebuildCellLists();
-        // this.map.GetComponent<FrostGrid>().Regenerate(); 
         if (TKKN_Holder.modsPatched.ToArray().Length > 0)
         {
             Log.Message($"TKKN NPS: Loaded patches for: {string.Join(", ", TKKN_Holder.modsPatched.ToArray())}");
@@ -134,7 +126,7 @@ public class Watcher(Map map) : MapComponent(map)
     }
 
 
-    public void rebuildCellLists()
+    private void rebuildCellLists()
     {
         if (Settings.regenCells)
         {
@@ -333,7 +325,7 @@ public class Watcher(Map map) : MapComponent(map)
         regenCellLists = false;
     }
 
-    public void spawnSpecialPlants(IntVec3 c)
+    private void spawnSpecialPlants(IntVec3 c)
     {
         _ = new List<ThingDef>
         {
@@ -381,7 +373,7 @@ public class Watcher(Map map) : MapComponent(map)
         GenSpawn.Spawn(barnaclePlant, c, map);
     }
 
-    public void spawnSpecialElements(IntVec3 c)
+    private void spawnSpecialElements(IntVec3 c)
     {
         var terrain = c.GetTerrain(map);
 
@@ -480,7 +472,7 @@ public class Watcher(Map map) : MapComponent(map)
         }
     }
 
-    public void spawnOasis()
+    private void spawnOasis()
     {
         if (map.Biome.defName == "TKKN_Oasis")
         {
@@ -496,7 +488,7 @@ public class Watcher(Map map) : MapComponent(map)
         }
     }
 
-    public void fixLava()
+    private void fixLava()
     {
         //set so the area people land in will most likely not be lava.
         if (map.Biome.defName != "TKKN_VolcanicFlow")
@@ -513,7 +505,7 @@ public class Watcher(Map map) : MapComponent(map)
         }
     }
 
-    public IntVec3 adjustForRotation(Rot4 rot, IntVec3 cell, int j)
+    private static IntVec3 adjustForRotation(Rot4 rot, IntVec3 cell, int j)
     {
         var newDirection = new IntVec3(cell.x, cell.y, cell.z);
         if (rot == Rot4.North)
@@ -609,27 +601,22 @@ public class Watcher(Map map) : MapComponent(map)
                 switch (flood)
                 {
                     case "high":
-                        cell.setTerrain("flooded");
                         break;
                     case "low":
                         cell.overrideType = "dry";
-                        cell.setTerrain("flooded");
                         break;
                     default:
                     {
-                        if (i < howManyFloodSteps / 2)
-                        {
-                            cell.setTerrain("flooded");
-                        }
-                        else
+                        if (i >= howManyFloodSteps / 2)
                         {
                             cell.overrideType = "dry";
-                            cell.setTerrain("flooded");
                         }
 
                         break;
                     }
                 }
+
+                cell.setTerrain("flooded");
             }
         }
     }
@@ -659,7 +646,7 @@ public class Watcher(Map map) : MapComponent(map)
     }
 
 
-    public void doCellEnvironment(IntVec3 c)
+    private void doCellEnvironment(IntVec3 c)
     {
         if (!cellWeatherAffects.TryGetValue(c, out var cell))
         {
@@ -894,12 +881,7 @@ public class Watcher(Map map) : MapComponent(map)
             }
         }
 
-        if (room == null)
-        {
-            return isCold;
-        }
-
-        if (room.UsesOutdoorTemperature)
+        if (room == null || room.UsesOutdoorTemperature)
         {
             return isCold;
         }
@@ -938,12 +920,7 @@ public class Watcher(Map map) : MapComponent(map)
             }
         }
 
-        if (room == null)
-        {
-            return isHot;
-        }
-
-        if (room.UsesOutdoorTemperature)
+        if (room == null || room.UsesOutdoorTemperature)
         {
             return isHot;
         }
@@ -958,13 +935,10 @@ public class Watcher(Map map) : MapComponent(map)
         return isHot;
     }
 
-    public static void CreepFrostAt(IntVec3 c, float baseAmount, Map map)
+    private static void CreepFrostAt(IntVec3 c, float baseAmount, Map map)
     {
-        if (map.GetComponent<Watcher>().frostNoise == null)
-        {
-            map.GetComponent<Watcher>().frostNoise = new Perlin(0.039999999105930328, 2.0, 0.5, 5,
-                Rand.Range(0, 651431), QualityMode.Medium);
-        }
+        map.GetComponent<Watcher>().frostNoise ??= new Perlin(0.039999999105930328, 2.0, 0.5, 5,
+            Rand.Range(0, 651431), QualityMode.Medium);
 
         var num = map.GetComponent<Watcher>().frostNoise.GetValue(c);
         num += 1f;
@@ -979,15 +953,11 @@ public class Watcher(Map map) : MapComponent(map)
         map.GetComponent<FrostGrid>().AddDepth(c, depthToAdd);
     }
 
-    public string getFloodType()
+    private string getFloodType()
     {
         var flood = "normal";
         var season = GenLocalDate.Season(map);
-        if (floodThreat > 1000000)
-        {
-            flood = "high";
-        }
-        else if (season.Label() == "spring")
+        if (floodThreat > 1000000 || season.Label() == "spring")
         {
             flood = "high";
         }
@@ -1005,7 +975,7 @@ public class Watcher(Map map) : MapComponent(map)
         return flood;
     }
 
-    public void doFloods()
+    private void doFloods()
     {
         if (!Settings.doFloods || ticks % 300 != 0)
         {
@@ -1185,7 +1155,7 @@ public class Watcher(Map map) : MapComponent(map)
         }
     }
 
-    public void hurtPlants(IntVec3 c, bool onlyLow, bool saveHarvest)
+    private void hurtPlants(IntVec3 c, bool onlyLow, bool saveHarvest)
     {
         if (!Settings.allowPlantEffects || ticks % 150 != 0)
         {
@@ -1229,7 +1199,7 @@ public class Watcher(Map map) : MapComponent(map)
         }
     }
 
-    public void checkThingsforLava()
+    private void checkThingsforLava()
     {
         var removeFromLava = new HashSet<IntVec3>();
 

@@ -5,7 +5,7 @@ namespace TKKN_NPS;
 
 internal class NPS_BiomeWorker_Redwoods : BiomeWorker_BorealForest
 {
-    public override float GetScore(Tile tile, int id)
+    public override float GetScore(BiomeDef biome, Tile tile, PlanetTile planetTile)
     {
         if (tile.WaterCovered)
         {

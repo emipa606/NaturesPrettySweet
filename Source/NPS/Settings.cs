@@ -9,14 +9,14 @@ public class Settings : ModSettings
     public static bool leaveStuff = true;
     public static Dictionary<string, IntVec3> wetCells;
 
-    public static Dictionary<string, int> totalThings = new Dictionary<string, int>
+    public static Dictionary<string, int> totalThings = new()
     {
         { "TKKN_Lava_Spring", 0 },
         { "TKKN_ColdSpring", 0 },
         { "TKKN_HotSpring", 0 }
     };
 
-    public static Dictionary<string, int> totalSpecialThings = new Dictionary<string, int>
+    public static Dictionary<string, int> totalSpecialThings = new()
     {
         { "TKKN_Total_Special_Elements", 0 },
         { "TKKN_Total_Discovered_Elements", 0 },
@@ -39,7 +39,7 @@ public class Settings : ModSettings
     public static bool doTides = true;
     public static bool showDevReadout;
 
-    public static bool showUpdateNotes = true;
+    private static bool showUpdateNotes = true;
     public static bool doFloods = true;
     public static float weatherCellUpdateSpeed = 0.0006f;
     public static bool doIce = showCold;
@@ -52,7 +52,7 @@ public class Settings : ModSettings
 
     public static bool showTempOverlay => showCold && showHot;
 
-    public void DoWindowContents(Rect inRect)
+    public static void DoWindowContents(Rect inRect)
     {
         var list = new Listing_Standard(GameFont.Small) { ColumnWidth = inRect.width / 2 };
         list.Begin(inRect);
@@ -77,7 +77,7 @@ public class Settings : ModSettings
             "TKKN_showCold_title".Translate(),
             ref showCold,
             "TKKN_showCold_text".Translate());
-        if (showCold)
+        if (showCold && !ModLister.OdysseyInstalled)
         {
             list.CheckboxLabeled(
                 "TKKN_doIce_title".Translate(),
@@ -89,18 +89,21 @@ public class Settings : ModSettings
             "TKKN_showRain_title".Translate(),
             ref showRain,
             "TKKN_showRain_text".Translate());
-        list.CheckboxLabeled(
-            "TKKN_doTides_title".Translate(),
-            ref doTides,
-            "TKKN_doTides_text".Translate());
-        list.CheckboxLabeled(
-            "TKKN_doFloods_title".Translate(),
-            ref doFloods,
-            "TKKN_doFloods_text".Translate());
-        list.CheckboxLabeled(
-            "TKKN_leaveStuff_title".Translate(),
-            ref leaveStuff,
-            "TKKN_leaveStuff_text".Translate());
+        if (!ModLister.OdysseyInstalled)
+        {
+            list.CheckboxLabeled(
+                "TKKN_doTides_title".Translate(),
+                ref doTides,
+                "TKKN_doTides_text".Translate());
+            list.CheckboxLabeled(
+                "TKKN_doFloods_title".Translate(),
+                ref doFloods,
+                "TKKN_doFloods_text".Translate());
+            list.CheckboxLabeled(
+                "TKKN_leaveStuff_title".Translate(),
+                ref leaveStuff,
+                "TKKN_leaveStuff_text".Translate());
+        }
 
         list.CheckboxLabeled(
             "TKKN_doSprings_title".Translate(),
@@ -129,14 +132,17 @@ public class Settings : ModSettings
             "TKKN_allowPlantEffects_title".Translate(),
             ref allowPlantEffects,
             "TKKN_allowPlantEffects_text".Translate());
-        list.CheckboxLabeled(
-            "TKKN_allowPawnsToGetWet_title".Translate(),
-            ref allowPawnsToGetWet,
-            "TKKN_allowPawnsToGetWet_text".Translate());
-        list.CheckboxLabeled(
-            "TKKN_allowPawnsSwim_title".Translate(),
-            ref allowPawnsSwim,
-            "TKKN_allowPawnsToSwim_text".Translate());
+        if (!ModLister.OdysseyInstalled)
+        {
+            list.CheckboxLabeled(
+                "TKKN_allowPawnsToGetWet_title".Translate(),
+                ref allowPawnsToGetWet,
+                "TKKN_allowPawnsToGetWet_text".Translate());
+            list.CheckboxLabeled(
+                "TKKN_allowPawnsSwim_title".Translate(),
+                ref allowPawnsSwim,
+                "TKKN_allowPawnsToSwim_text".Translate());
+        }
 
 
         //Development stuff

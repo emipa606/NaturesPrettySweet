@@ -24,6 +24,11 @@ internal class JobGiver_SeekSafeTemperature_TryGiveJob
         }
 
         var isHot = false;
+        if (pawn == null)
+        {
+            return;
+        }
+
         foreach (var hediff in pawn.health.hediffSet.hediffs)
         {
             if (hediff.def != RimWorld.HediffDefOf.Heatstroke ||

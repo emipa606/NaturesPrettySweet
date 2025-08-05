@@ -43,7 +43,7 @@ public class JobGiver_RelaxInSpring : ThinkNode_JobGiver
         }
     }
 
-    private IntVec3 getSpringCell(Thing spring)
+    private static IntVec3 getSpringCell(Thing spring)
     {
         spring.MapHeld.regionAndRoomUpdater.Enabled = true;
         CellFinder.TryFindRandomCellNear(spring.Position, spring.Map, 6, Validator, out var c);

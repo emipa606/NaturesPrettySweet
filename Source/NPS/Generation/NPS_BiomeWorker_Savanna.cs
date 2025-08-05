@@ -5,7 +5,7 @@ namespace TKKN_NPS;
 
 internal class NPS_BiomeWorker_Savanna : BiomeWorker_TemperateForest
 {
-    public override float GetScore(Tile tile, int id)
+    public override float GetScore(BiomeDef biome, Tile tile, PlanetTile planetTile)
     {
         //keep this the same, just make it fail more often. When it fails, shrubland will be rendered, instead.
         if (tile.WaterCovered)

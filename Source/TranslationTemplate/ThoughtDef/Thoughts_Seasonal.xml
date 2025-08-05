@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: It's a Superbloom! -->
+  <TKKN_Superbloom.stages.Its_a_Superbloom.label>It's a Superbloom!</TKKN_Superbloom.stages.Its_a_Superbloom.label>
+  <!-- EN: I can't believe how many flowers there are! -->
+  <TKKN_Superbloom.stages.Its_a_Superbloom.description>I can't believe how many flowers there are!</TKKN_Superbloom.stages.Its_a_Superbloom.description>
+  <!-- EN: Wildflowers are Blooming -->
+  <TKKN_WildFlowerBloom.stages.Wildflowers_are_Blooming.label>Wildflowers are Blooming</TKKN_WildFlowerBloom.stages.Wildflowers_are_Blooming.label>
+  <!-- EN: Spring is finally here! -->
+  <TKKN_WildFlowerBloom.stages.Wildflowers_are_Blooming.description>Spring is finally here!</TKKN_WildFlowerBloom.stages.Wildflowers_are_Blooming.description>
+</LanguageData>

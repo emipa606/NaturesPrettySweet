@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: make chemfuel from redwood logs -->
+  <MakeChemfuelFromRedWood.label>make chemfuel from redwood logs</MakeChemfuelFromRedWood.label>
+  <!-- EN: Make a batch of chemfuel by gasifying redwood logs. -->
+  <MakeChemfuelFromRedWood.description>Make a batch of chemfuel by gasifying redwood logs.</MakeChemfuelFromRedWood.description>
+  <!-- EN: Refining chemfuel from redwood. -->
+  <MakeChemfuelFromRedWood.jobString>Refining chemfuel from redwood.</MakeChemfuelFromRedWood.jobString>
+</LanguageData>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: giant crab -->
+  <TKKN_crab.label>giant crab</TKKN_crab.label>
+  <!-- EN: giant snail -->
+  <TKKN_giantsnail.label>giant snail</TKKN_giantsnail.label>
+  <!-- EN: Giant Snail -->
+  <TKKN_giantsnail.lifeStages.Giant_Snail.label>Giant Snail</TKKN_giantsnail.lifeStages.Giant_Snail.label>
+  <!-- EN: pet lava rock -->
+  <TKKN_petlavarock.label>pet lava rock</TKKN_petlavarock.label>
+  <!-- EN: pet lava rock -->
+  <TKKN_petlavarock.labelFemale>pet lava rock</TKKN_petlavarock.labelFemale>
+  <!-- EN: pet lava rock -->
+  <TKKN_petlavarock.labelMale>pet lava rock</TKKN_petlavarock.labelMale>
+  <!-- EN: pet lava pebble -->
+  <TKKN_petlavarock.lifeStages.pet_lava_pebble.label>pet lava pebble</TKKN_petlavarock.lifeStages.pet_lava_pebble.label>
+  <!-- EN: salamander -->
+  <TKKN_salamanders.label>salamander</TKKN_salamanders.label>
+  <!-- EN: tumbleweed -->
+  <TKKN_Tumbleweed.label>tumbleweed</TKKN_Tumbleweed.label>
+  <!-- EN: tumbleweed -->
+  <TKKN_Tumbleweed.labelFemale>tumbleweed</TKKN_Tumbleweed.labelFemale>
+  <!-- EN: tumbleweed -->
+  <TKKN_Tumbleweed.labelMale>tumbleweed</TKKN_Tumbleweed.labelMale>
+  <!-- EN: tumblesprout -->
+  <TKKN_Tumbleweed.lifeStages.tumblesprout.label>tumblesprout</TKKN_Tumbleweed.lifeStages.tumblesprout.label>
+</LanguageData>

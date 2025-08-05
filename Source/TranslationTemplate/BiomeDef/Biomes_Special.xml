@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: volcanic fields -->
+  <TKKN_VolcanicFlow.label>volcanic fields</TKKN_VolcanicFlow.label>
+  <!-- EN: Fresh lava means there is a lot of danger - and a lot of rich soil and geothermal vents. Constant molten lava means winter is mild. -->
+  <TKKN_VolcanicFlow.description>Fresh lava means there is a lot of danger - and a lot of rich soil and geothermal vents. Constant molten lava means winter is mild.</TKKN_VolcanicFlow.description>
+</LanguageData>

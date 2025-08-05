@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: barrel cactus -->
+  <TKKN_PlantCactusBarrel.label>barrel cactus</TKKN_PlantCactusBarrel.label>
+  <!-- EN: Cactus that grows towards the sun, causing it to lean and eventually fall over. -->
+  <TKKN_PlantCactusBarrel.description>Cactus that grows towards the sun, causing it to lean and eventually fall over.</TKKN_PlantCactusBarrel.description>
+  <!-- EN: prickly pear cactus -->
+  <TKKN_PlantCactusPricklyPear.label>prickly pear cactus</TKKN_PlantCactusPricklyPear.label>
+  <!-- EN: Cactus that produces fruit, called "pears". -->
+  <TKKN_PlantCactusPricklyPear.description>Cactus that produces fruit, called "pears".</TKKN_PlantCactusPricklyPear.description>
+  <!-- EN: san pedro cactus -->
+  <TKKN_PlantCactusSanPedro.label>san pedro cactus</TKKN_PlantCactusSanPedro.label>
+  <!-- EN: Fast growing cactus that grows in columns -->
+  <TKKN_PlantCactusSanPedro.description>Fast growing cactus that grows in columns</TKKN_PlantCactusSanPedro.description>
+  <!-- EN: desert shrub -->
+  <TKKN_PlantDesertShrubA.label>desert shrub</TKKN_PlantDesertShrubA.label>
+  <!-- EN: Hardy, low lying plant that grows in arid conditions. -->
+  <TKKN_PlantDesertShrubA.description>Hardy, low lying plant that grows in arid conditions.</TKKN_PlantDesertShrubA.description>
+  <!-- EN: desert shrub -->
+  <TKKN_PlantDesertShrubB.label>desert shrub</TKKN_PlantDesertShrubB.label>
+  <!-- EN: Hardy, low lying plant that grows in arid conditions. -->
+  <TKKN_PlantDesertShrubB.description>Hardy, low lying plant that grows in arid conditions.</TKKN_PlantDesertShrubB.description>
+  <!-- EN: succulant -->
+  <TKKN_PlantSucculants.label>succulant</TKKN_PlantSucculants.label>
+  <!-- EN: A decorative plant with leaves or petals that are thick and fleshy, to retain water in arid climates. -->
+  <TKKN_PlantSucculants.description>A decorative plant with leaves or petals that are thick and fleshy, to retain water in arid climates.</TKKN_PlantSucculants.description>
+  <!-- EN: wild corn plant -->
+  <TKKN_PlantWildCorn.label>wild corn plant</TKKN_PlantWildCorn.label>
+  <!-- EN: Wild corn is smaller and hardier than its domestic counterpart. Grows in a variety of soil, but produces small crops. -->
+  <TKKN_PlantWildCorn.description>Wild corn is smaller and hardier than its domestic counterpart. Grows in a variety of soil, but produces small crops.</TKKN_PlantWildCorn.description>
+  <!-- EN: ocotillo -->
+  <TKKN_TreeOcotillo.label>ocotillo</TKKN_TreeOcotillo.label>
+  <!-- EN: Unusual woody shrub that grows in arid conditions. Can be cut down for a little wood. -->
+  <TKKN_TreeOcotillo.description>Unusual woody shrub that grows in arid conditions. Can be cut down for a little wood.</TKKN_TreeOcotillo.description>
+</LanguageData>

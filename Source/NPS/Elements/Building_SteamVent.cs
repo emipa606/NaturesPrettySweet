@@ -24,7 +24,7 @@ internal class Building_SteamVent : Building
 
     private void StartSpray()
     {
-        SnowUtility.AddSnowRadial(this.OccupiedRect().RandomCell, Map, 4f, -0.06f);
+        WeatherBuildupUtility.AddSnowRadial(this.OccupiedRect().RandomCell, Map, 4f, -0.06f);
         spraySustainer = SoundDefOf.GeyserSpray.TrySpawnSustainer(new TargetInfo(Position, Map));
         spraySustainerStartTick = Find.TickManager.TicksGame;
     }
@@ -40,7 +40,7 @@ internal class Building_SteamVent : Building
         spraySustainer = null;
     }
 
-    public override void Tick()
+    protected override void Tick()
     {
         if (harvester == null)
         {
