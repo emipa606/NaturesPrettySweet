@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Nature's Pretty Sweet (Continued)</name>
+  <name>[Legacy] Nature's Pretty Sweet (Continued)</name>
   <packageId>Mlie.NaturesPrettySweet</packageId>
   <author>tkkntkkn</author>
   <url>https://github.com/emipa606/NaturesPrettySweet</url>
@@ -28,6 +28,10 @@
 Update of tkkntkkns mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1211694919
 
+[b]The release of RimWorld 1.6 added improved support for [url=https://github.com/emipa606/AssetBuilder/blob/main/README.md]Asset Bundles[/url].[/b]
+To avoid doubling the size of the mod, it was re-released using only Asset Bundles, you can find the new version of this mod [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3542949511]here[/url].
+This version will not receive any further updates.
+
 - Since the original had a lot of reported bugs Id appreciate anyone to try this version out and report back any issues. Ive fixed various bugs but the design of the mod is still the same.
 - Reduced the amount of barnacles spawned to more sensible levels
 - Added support for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2079784964]Rimbrellas![/url]
@@ -37,7 +41,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=1211694919
 [table]
     [tr]
         [td][url=https://dsc.gg/mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
-        [td][url=https://github.com/emipa606/NaturesPrettySweet][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+        [td][url=https://github.com/emipa606/NaturesPrettySweet/tree/legacy][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
     [/tr]
     [tr]
         [td][img]https://i.imgur.com/XLUGyo4.png[/img][/td]
@@ -177,5 +181,5 @@ If you like this mod, consider visiting the actual National and State Parks. Vis
 [/list] 
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2532618635][img]https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags: environment,  weather,  biomes</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.5.8</modVersion>
+  <modVersion IgnoreIfNoMatchingField="True">1.5.9</modVersion>
 </ModMetaData>

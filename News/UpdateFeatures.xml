@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="NaturesPrettySweet_UpdateFeatureBase">
+		<modNameReadable>NaturesPrettySweet</modNameReadable>
+		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2532618635</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="NaturesPrettySweet_UpdateFeatureBase">
+		<defName>NaturesPrettySweet_1_5_8</defName>
+		<assemblyVersion>1.5.8</assemblyVersion>
+		<content>This mod has been re-released for the new version of the game. This version will remain but will not be updated further.</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>
+

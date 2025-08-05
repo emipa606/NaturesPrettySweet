@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.5.9 - Last update of the legacy version of the mod
+
+
 1.5.8 - Springs just spawn in still water, lowered the lowest weather update setting
 
 
