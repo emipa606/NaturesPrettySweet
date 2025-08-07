@@ -1,4 +1,4 @@
-# [Nature's Pretty Sweet (Continued)]()
+# [Nature's Pretty Sweet (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3542949511)
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
@@ -8,9 +8,9 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=1211694919
 **The release of RimWorld 1.6 added improved support for [Asset Bundles](https://github.com/emipa606/AssetBuilder/blob/main/README.md)**.
 To avoid doubling the size of the mod, it was re-released using only Asset Bundles, you can find the previous version of this mod [here](https://steamcommunity.com/sharedfiles/filedetails/?id=2532618635).
 
-- Since the original had a lot of reported bugs Id appreciate anyone to try this version out and report back any issues. Ive fixed various bugs but the design of the mod is still the same.
 - Reduced the amount of barnacles spawned to more sensible levels
 - Added support for [Rimbrellas!](https://steamcommunity.com/sharedfiles/filedetails/?id=2079784964)
+- If Odyssey is installed, the water-freezing, flooding and swimming will be turned off to not conflict with the DLC-features.
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 	
@@ -153,8 +153,6 @@ New elements:
 
 And a ton of minor additions to make the world feel more alive! ~~[Read them here!](http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/)~~ [Archived page](https://web.archive.org/web/20220124054452/https://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/)
 
-If you like this mod, consider visiting the actual National and State Parks. Visitor numbers are really important, and these features all look waaaay better in real life :)
-
 *Currently requires a new game, because the biomes are generated when your world is generated. If you don't care about that, there's an option called "LEAVE ALONE: Regen cell lists". Click it, save and reload your file. Then uncheck it and save again. This will give you weather effects and tides. I use this option for debugging and resetting maps on my end. It's not tested or supported. Use at your own risk.
 
 ![Image](https://i.imgur.com/PwoNOj4.png)
@@ -169,4 +167,6 @@ If you like this mod, consider visiting the actual National and State Parks. Vis
 -  If you have the solution for a problem, please post it to the GitHub repository.
 -  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
-  | tags: environment,  weather,  biomes
+  | tags: environment,  weather,  biomes 
+
+[![Image](https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3542949511) | tags: environment,  weather,  biomes

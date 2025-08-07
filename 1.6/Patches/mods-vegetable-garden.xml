@@ -27,7 +27,7 @@
         <value>
           <label>wet garden soil</label>
           <Description>Wet till soil to make a small improvement in soil growing condition. Soil fertility is 20% of normal soil.</Description>
-          <texturePath>TKKN_NPS/Mods/VGP/WetFarmSoil</texturePath>
+          <texturePath>TKKN_NPS/Mods/VGP/Terrain/WetFarmSoil</texturePath>
           <EdgeType>FadeRough</EdgeType>
           <RenderPrecedence>335</RenderPrecedence>
           <PathCost>4</PathCost>
@@ -56,7 +56,7 @@
         <value>
           <label>wet plow soil</label>
           <Description>Wet plow soil for much improved growing conditions. Soil fertility 200% of normal soil.</Description>
-          <texturePath>TKKN_NPS/Mods/VGP/wetPlowedSoil</texturePath>
+          <texturePath>TKKN_NPS/Mods/VGP/Terrain/wetPlowedSoil</texturePath>
           <EdgeType>FadeRough</EdgeType>
           <RenderPrecedence>335</RenderPrecedence>
           <PathCost>5</PathCost>

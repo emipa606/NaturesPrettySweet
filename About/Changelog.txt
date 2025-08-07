@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.6.1 - Updated asset-bundle for terrain textures, not sure if it was an issue
+
+
 1.6.0 - Mod updated for 1.6 and passed autotests
 
 
