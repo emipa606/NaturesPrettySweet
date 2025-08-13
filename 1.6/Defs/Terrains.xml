@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-  <TerrainDef>
+  <TerrainDef ParentName="NaturalTerrainBase">
     <defName>TKKN_SandPath</defName>
     <label>sand path</label>
     <texturePath>TKKN_NPS/Terrain/PackedSand</texturePath>
@@ -24,7 +24,7 @@
     <holdSnowOrSand>true</holdSnowOrSand>
     <takeFootprints>False</takeFootprints>
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="NaturalTerrainBase">
     <defName>TKKN_DirtPath</defName>
     <label>dirt path</label>
     <layerable>true</layerable>
@@ -48,7 +48,7 @@
     <holdSnowOrSand>true</holdSnowOrSand>
     <takeFootprints>False</takeFootprints>
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="NaturalTerrainBase">
     <defName>TKKN_SaltField</defName>
     <label>salt field</label>
     <texturePath>TKKN_NPS/Terrain/saltField</texturePath>
@@ -146,7 +146,7 @@
     </tags>
     <fertility>0.001</fertility>
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="NaturalTerrainBase">
     <defName>TKKN_SoilWet</defName>
     <label>Wet Soil</label>
     <texturePath>TKKN_NPS/Terrain/wetSoil</texturePath>
@@ -175,7 +175,7 @@
     <avoidWander>True</avoidWander>
     <driesTo>Soil</driesTo>
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="NaturalTerrainBase">
     <defName>TKKN_SoilWetRich</defName>
     <label>Wet Rich Soil</label>
     <texturePath>TKKN_NPS/Terrain/wetSoilRich</texturePath>
@@ -204,7 +204,7 @@
     <avoidWander>True</avoidWander>
     <driesTo>SoilRich</driesTo>
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="NaturalTerrainBase">
     <defName>TKKN_SandWet</defName>
     <label>Wet Sand</label>
     <texturePath>TKKN_NPS/Terrain/wetSand</texturePath>
@@ -234,7 +234,7 @@
     <avoidWander>True</avoidWander>
     <driesTo>Sand</driesTo>
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="NaturalTerrainBase">
     <defName>TKKN_SandBeachWetSalt</defName>
     <label>wet sand</label>
     <texturePath>TKKN_NPS/Terrain/wetSand</texturePath>
@@ -297,7 +297,7 @@
       <li>Frozen</li>
     </tags>
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="NaturalTerrainBase">
     <defName>TKKN_WetMossyTerrain</defName>
     <label>wet lichen-covered dirt</label>
     <texturePath>TKKN_NPS/Terrain/wetMossy</texturePath>
@@ -326,7 +326,7 @@
     <avoidWander>true</avoidWander>
     <driesTo>MossyTerrain</driesTo>
   </TerrainDef>
-  <TerrainDef>
+  <TerrainDef ParentName="NaturalTerrainBase">
     <defName>TKKN_RiverDeposit</defName>
     <label>river deposit</label>
     <texturePath>Terrain/Surfaces/SoilRich</texturePath>

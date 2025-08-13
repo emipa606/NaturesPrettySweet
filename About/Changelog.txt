@@ -1,5 +1,9 @@
 # Changelog for NaturesPrettySweet
 
+1.6.3 - Fixed walkability for terrain-defs
+Used DeepL to update translations for ChineseSimplified, French, German, Russian
+
+
 1.6.2 - Pipes should now be buildable in corners
 
 
