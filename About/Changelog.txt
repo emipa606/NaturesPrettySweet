@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.6.4 - Fixed settings saving for allowPlantEffects
+
+
 1.6.3 - Fixed walkability for terrain-defs
 Used DeepL to update translations for ChineseSimplified, French, German, Russian
 

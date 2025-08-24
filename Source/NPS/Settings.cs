@@ -181,7 +181,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref doDirtPath, "doDirtPath", true, true);
         Scribe_Values.Look(ref showHot, "showHot", true, true);
         Scribe_Values.Look(ref showCold, "showCold", true, true);
-        Scribe_Values.Look(ref showHot, "allowPlantEffects", true, true);
+        Scribe_Values.Look(ref allowPlantEffects, "allowPlantEffects", true, true);
         Scribe_Values.Look(ref showRain, "showRain", true, true);
         Scribe_Values.Look(ref doTides, "doTides", true, true);
         Scribe_Values.Look(ref doFloods, "doFloods", true, true);
