@@ -179,7 +179,7 @@ public class Settings : ModSettings
         base.ExposeData();
 
         Scribe_Values.Look(ref doWeather, "doWeather", true, true);
-        Scribe_Values.Look(ref weatherCellUpdateSpeed, "doWeather", 0.0006f, true);
+        Scribe_Values.Look(ref weatherCellUpdateSpeed, "weatherCellUpdateSpeed", 0.0006f, true);
         Scribe_Values.Look(ref doDirtPath, "doDirtPath", true, true);
         Scribe_Values.Look(ref showHot, "showHot", true, true);
         Scribe_Values.Look(ref showCold, "showCold", true, true);

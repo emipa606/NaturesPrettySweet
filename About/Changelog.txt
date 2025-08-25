@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.6.5 - Settings and dlc fix, thanks rokel
+
+
 1.6.4 - Fixed settings saving for allowPlantEffects
 
 

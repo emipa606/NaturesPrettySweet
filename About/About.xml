@@ -58,13 +58,6 @@ There are also new resources, items, dangers, natural protection from raids and 
 
 The amount of additions and compatiability is too long to list here, [url=http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/]so here's the full list![/url]
 
-[b]Compatability[/b] 
-Should be compatible with most other mods, unless they affect map/world generation. 
-I'm adding compatability patches as people request them. Currently have:
-[b]Vegetable garden[/b]
-[b]AnimalCollabProj[/b] 
-[b]Rainbeau's bridges[/b]
-
 [b]Added:[/b]
 
 Weather:
@@ -173,5 +166,5 @@ And a ton of minor additions to make the world feel more alive! [strike][url=htt
 [/list]  | tags: environment,  weather,  biomes 
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/changelog/3542949511][img]https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags: environment,  weather,  biomes</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.6.4</modVersion>
+  <modVersion IgnoreIfNoMatchingField="True">1.6.5</modVersion>
 </ModMetaData>

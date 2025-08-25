@@ -30,13 +30,6 @@ There are also new resources, items, dangers, natural protection from raids and 
 
 The amount of additions and compatiability is too long to list here, [so here's the full list!](http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/)
 
-**Compatability** 
-Should be compatible with most other mods, unless they affect map/world generation. 
-I'm adding compatability patches as people request them. Currently have:
-**Vegetable garden**
-**AnimalCollabProj** 
-**Rainbeau's bridges**
-
 **Added:**
 
 Weather:
