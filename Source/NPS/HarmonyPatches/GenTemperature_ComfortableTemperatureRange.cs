@@ -54,20 +54,20 @@ internal class GenTemperature_ComfortableTemperatureRange
     {
         //soaked
         var setTo = 40;
-        switch (wetness.CurStage.label)
+        switch (wetness.CurStageIndex)
         {
-            case "dry":
+            case 0:
                 setTo = 0;
                 break;
-            case "damp":
+            case 1:
                 //damp
                 setTo = 5;
                 break;
-            case "soggy":
+            case 2:
                 //soggy
                 setTo = 10;
                 break;
-            case "wet":
+            case 3:
                 //wet
                 setTo = 20;
                 break;
