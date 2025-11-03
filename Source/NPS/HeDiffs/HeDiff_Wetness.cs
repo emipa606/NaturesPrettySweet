@@ -40,7 +40,7 @@ public class Hediff_Wetness : HediffWithComps
                 return;
             }
 
-            FilthMaker.TryMakeFilth(pawn.Position, pawn.MapHeld, ThingDef.Named("TKKN_FilthPuddle"));
+            FilthMaker.TryMakeFilth(pawn.Position, pawn.MapHeld, ThingDefOf.TKKN_FilthPuddle);
             Severity -= .3f;
         }
         else

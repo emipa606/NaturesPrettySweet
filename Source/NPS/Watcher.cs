@@ -168,7 +168,7 @@ public class Watcher(Map map) : MapComponent(map)
                     cell.originalTerrain = terrain;
                 }
 
-                if (terrain.defName == "TKKN_Lava")
+                if (terrain == TerrainDefOf.TKKN_Lava)
                 {
                     //fix for lava pathing. If lava is near lava, make it impassable.
                     var edgeLava = false;
@@ -182,8 +182,8 @@ public class Watcher(Map map) : MapComponent(map)
                         }
 
                         var lavaCheckTerrain = lavaCheck.GetTerrain(map);
-                        if (lavaCheckTerrain.defName != "TKKN_Lava" &&
-                            lavaCheckTerrain.defName != "TKKN_LavaDeep")
+                        if (lavaCheckTerrain != TerrainDefOf.TKKN_Lava &&
+                            lavaCheckTerrain != TerrainDefOf.TKKN_LavaDeep)
                         {
                             edgeLava = true;
                         }
@@ -194,7 +194,8 @@ public class Watcher(Map map) : MapComponent(map)
                         map.terrainGrid.SetTerrain(c, TerrainDefOf.TKKN_LavaDeep);
                     }
                 }
-                else if (rot.IsValid && terrain.defName is "Sand" or "TKKN_SandBeachWetSalt")
+                else if (rot.IsValid && terrain == RimWorld.TerrainDefOf.Sand ||
+                         terrain == TerrainDefOf.TKKN_SandBeachWetSalt)
                 {
                     //get all the sand pieces that are touching water.
                     for (var j = 0; j < howManyTideSteps; j++)
@@ -210,8 +211,8 @@ public class Watcher(Map map) : MapComponent(map)
                         break;
                     }
                 }
-                else if (terrain.HasTag("TKKN_Wet") && terrain.defName != "WaterOceanShallow" &&
-                         terrain.defName != "WaterOceanDeep")
+                else if (terrain.HasTag("TKKN_Wet") && terrain != RimWorld.TerrainDefOf.WaterOceanShallow &&
+                         terrain != RimWorld.TerrainDefOf.WaterOceanDeep)
                 {
                     for (var j = 0; j < howManyFloodSteps; j++)
                     {
@@ -225,7 +226,7 @@ public class Watcher(Map map) : MapComponent(map)
                             }
 
                             var bankCheckTerrain = bankCheck.GetTerrain(map);
-                            if (bankCheckTerrain.HasTag("TKKN_Wet") || terrain.defName == "TKKN_SandBeachWetSalt")
+                            if (bankCheckTerrain.HasTag("TKKN_Wet") || terrain == TerrainDefOf.TKKN_SandBeachWetSalt)
                             {
                                 continue;
                             }
@@ -278,7 +279,8 @@ public class Watcher(Map map) : MapComponent(map)
             //temp fix until I can figure out why regenerate wasn't working
 //				frostGrid.SetDepth(thiscell.Value.location, 0);
             component.SetDepth(thiscell.Value.location, thiscell.Value.frostLevel);
-
+            /*
+             Defs were removed in pre 1.0 version
             if (thiscell.Value.baseTerrain.defName == "TKKN_ColdSprings")
             {
                 thiscell.Value.baseTerrain = TerrainDefOf.TKKN_ColdSpringsWater;
@@ -288,7 +290,7 @@ public class Watcher(Map map) : MapComponent(map)
             {
                 thiscell.Value.baseTerrain = TerrainDefOf.TKKN_HotSpringsWater;
             }
-
+            */
             if (thiscell.Value.tideLevel > -1)
             {
                 tideCellsList[thiscell.Value.tideLevel].Add(thiscell.Key);
@@ -327,20 +329,13 @@ public class Watcher(Map map) : MapComponent(map)
 
     private void spawnSpecialPlants(IntVec3 c)
     {
-        _ = new List<ThingDef>
-        {
-            ThingDef.Named("TKKN_SaltCrystal"),
-            ThingDef.Named("TKKN_PlantBarnacles")
-        };
-
         //salt crystals:
         var terrain = c.GetTerrain(map);
-        if (terrain.defName is "TKKN_SaltField" or "TKKN_SandBeachWetSalt")
+        if (terrain == TerrainDefOf.TKKN_SaltField || terrain == TerrainDefOf.TKKN_SandBeachWetSalt)
         {
             if (c.GetEdifice(map) == null && c.GetCover(map) == null && Rand.Value < .003f)
             {
-                var thingDef = ThingDef.Named("TKKN_SaltCrystal");
-                var plant = (Plant)ThingMaker.MakeThing(thingDef);
+                var plant = (Plant)ThingMaker.MakeThing(ThingDefOf.TKKN_SaltCrystal);
                 plant.Growth = Rand.Range(0.07f, 1f);
                 if (plant.def.plant.LimitedLifespan)
                 {
@@ -352,7 +347,7 @@ public class Watcher(Map map) : MapComponent(map)
         }
 
         //barnacles and other ocean stuff
-        if (terrain.defName != "TKKN_SandBeachWetSalt")
+        if (terrain != TerrainDefOf.TKKN_SandBeachWetSalt)
         {
             return;
         }
@@ -362,8 +357,7 @@ public class Watcher(Map map) : MapComponent(map)
             return;
         }
 
-        var barnacles = ThingDef.Named("TKKN_PlantBarnacles");
-        var barnaclePlant = (Plant)ThingMaker.MakeThing(barnacles);
+        var barnaclePlant = (Plant)ThingMaker.MakeThing(ThingDefOf.TKKN_PlantBarnacles);
         barnaclePlant.Growth = Rand.Range(0.07f, 1f);
         if (barnaclePlant.def.plant.LimitedLifespan)
         {
@@ -474,11 +468,11 @@ public class Watcher(Map map) : MapComponent(map)
 
     private void spawnOasis()
     {
-        if (map.Biome.defName == "TKKN_Oasis")
+        if (map.Biome == BiomeDefOf.TKKN_Oasis)
         {
             //spawn a big ol cold spring
             var springSpot = CellFinderLoose.TryFindCentralCell(map, 10, 15, x => !x.Roofed(map));
-            var spring = (Spring)ThingMaker.MakeThing(ThingDef.Named("TKKN_OasisSpring"));
+            var spring = (Spring)ThingMaker.MakeThing(ThingDefOf.TKKN_OasisSpring);
             GenSpawn.Spawn(spring, springSpot, map);
         }
 
@@ -491,7 +485,7 @@ public class Watcher(Map map) : MapComponent(map)
     private void fixLava()
     {
         //set so the area people land in will most likely not be lava.
-        if (map.Biome.defName != "TKKN_VolcanicFlow")
+        if (map.Biome != BiomeDefOf.TKKN_VolcanicFlow)
         {
             return;
         }
@@ -669,8 +663,7 @@ public class Watcher(Map map) : MapComponent(map)
         cell.gettingWet = false;
 
         //check if the terrain has been floored
-        var cats = currentTerrain.designationCategory;
-        if (cats is { defName: "Floors" })
+        if (currentTerrain.designationCategory == DesignationCategoryDefOf.Floors)
         {
             cell.baseTerrain = currentTerrain;
         }
@@ -680,31 +673,18 @@ public class Watcher(Map map) : MapComponent(map)
         {
             if (c.InBounds(map))
             {
-                var defName = "";
-
-                switch (currentTerrain.defName)
-                {
-                    case "TKKN_Lava":
-                        defName = "TKKN_LavaRock";
-                        break;
-                    case "TKKN_LavaRock_RoughHewn" when
-                        map.Biome.defName == "TKKN_VolcanicFlow" &&
-                        map.listerThings.ThingsOfDef(ThingDefOf.TKKN_SteamVent).Count < 10:
-                        defName = "TKKN_SteamVent";
-                        break;
+                if (currentTerrain == TerrainDefOf.TKKN_Lava) {
+                    var thing = ThingMaker.MakeThing(ThingDefOf.TKKN_LavaRock);
+                    GenSpawn.Spawn(thing, c, map);
                 }
-
-                if (defName != "")
+                else if (currentTerrain == TerrainDefOf.TKKN_LavaRock_RoughHewn &&
+                         map.Biome == BiomeDefOf.TKKN_VolcanicFlow &&
+                         map.listerThings.ThingsOfDef(ThingDefOf.TKKN_SteamVent).Count < 10) 
                 {
-                    var check = (from t in c.GetThingList(map)
-                        where t.def.defName == defName
-                        select t).FirstOrDefault();
-                    if (check == null)
-                    {
-                        var thing = ThingMaker.MakeThing(ThingDef.Named(defName));
-                        GenSpawn.Spawn(thing, c, map);
-                    }
+                    var thing = ThingMaker.MakeThing(ThingDefOf.TKKN_SteamVent);
+                    GenSpawn.Spawn(thing, c, map);
                 }
+                
             }
         }
 
@@ -766,10 +746,12 @@ public class Watcher(Map map) : MapComponent(map)
             var frosty = cell.temperature * -.025f;
 //				float frosty = this.map.mapTemperature.OutdoorTemp * -.03f;
             map.GetComponent<FrostGrid>().AddDepth(c, frosty);
+            /*
             if (map.GetComponent<FrostGrid>().GetDepth(c) > .3f)
             {
                 // cell.isMelt = true;
             }
+            */
         }
 
 
@@ -825,17 +807,17 @@ public class Watcher(Map map) : MapComponent(map)
 
         //PUDDLES
         var puddle = (from t in c.GetThingList(map)
-            where t.def.defName == "TKKN_FilthPuddle"
+            where t.def == ThingDefOf.TKKN_FilthPuddle
             select t).FirstOrDefault();
 
         switch (cell.howWet)
         {
             case 3 when !isCold && MaxPuddles > totalPuddles &&
-                        cell.currentTerrain.defName != "TKKN_SandBeachWetSalt":
+                        cell.currentTerrain != TerrainDefOf.TKKN_SandBeachWetSalt:
             {
                 if (puddle == null)
                 {
-                    FilthMaker.TryMakeFilth(c, map, ThingDef.Named("TKKN_FilthPuddle"));
+                    FilthMaker.TryMakeFilth(c, map, ThingDefOf.TKKN_FilthPuddle);
                     totalPuddles++;
                 }
 
@@ -1211,7 +1193,7 @@ public class Watcher(Map map) : MapComponent(map)
             }
 
             //check to see if it's still lava. Ignore roughhewn because lava can freeze/rain will cool it.
-            if (c.GetTerrain(map).HasTag("Lava") || c.GetTerrain(map).defName == "TKKN_LavaRock_RoughHewn")
+            if (c.GetTerrain(map).HasTag("Lava") || c.GetTerrain(map) == TerrainDefOf.TKKN_LavaRock_RoughHewn)
             {
                 continue;
             }

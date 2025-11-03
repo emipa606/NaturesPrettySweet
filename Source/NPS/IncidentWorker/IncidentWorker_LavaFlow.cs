@@ -18,7 +18,7 @@ public class IncidentWorker_LavaFlow : IncidentWorker
             return false;
         }
 
-        if (Settings.spawnLavaOnlyInBiome && map.Biome.defName != "TKKN_VolcanicFlow")
+        if (Settings.spawnLavaOnlyInBiome && map.Biome != BiomeDefOf.TKKN_VolcanicFlow)
         {
             return false;
         }

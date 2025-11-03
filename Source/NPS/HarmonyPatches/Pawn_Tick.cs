@@ -15,8 +15,8 @@ internal class Pawn_Tick
         }
 
         var terrain = __instance.Position.GetTerrain(__instance.MapHeld);
-        if (terrain.defName is "TKKN_SaltField" or "TKKN_Salted_Earth" &&
-            __instance.def.defName == "TKKN_giantsnail")
+        if (__instance.def == ThingDefOf.TKKN_giantsnail &&
+            (terrain == TerrainDefOf.TKKN_SaltField || terrain == TerrainDefOf.TKKN_Salted_Earth))
         {
             BurnSnails(__instance);
             return;
@@ -41,7 +41,7 @@ internal class Pawn_Tick
         }
 
         HediffDef hediffDef;
-        if (terrain.defName == "TKKN_HotSpringsWater")
+        if (terrain == TerrainDefOf.TKKN_HotSpringsWater)
         {
             if (__instance.needs.comfort != null)
             {
@@ -56,7 +56,7 @@ internal class Pawn_Tick
             }
         }
 
-        if (terrain.defName != "TKKN_ColdSpringsWater")
+        if (terrain != TerrainDefOf.TKKN_ColdSpringsWater)
         {
             return;
         }
@@ -107,7 +107,7 @@ internal class Pawn_Tick
             }
 
             damage += weight / 5000;
-            HealthUtility.AdjustSeverity(pawn, HediffDef.Named("TKKN_Drowning"), damage);
+            HealthUtility.AdjustSeverity(pawn, HediffDefOf.TKKN_Drowning, damage);
 
             var hediffDef = HediffDefOf.TKKN_Drowning;
             if (pawn.Faction is not { IsPlayer: true } ||
@@ -252,7 +252,7 @@ internal class Pawn_Tick
             return;
         }
 
-        var moteThrown = (MoteThrown)ThingMaker.MakeThing(ThingDef.Named("TKKN_Mote_ColdBreath"));
+        var moteThrown = (MoteThrown)ThingMaker.MakeThing(ThingDefOf.TKKN_Mote_ColdBreath);
         moteThrown.airTimeLeft = 99999f;
         moteThrown.Scale = Rand.Range(.5f, 1.5f);
         moteThrown.rotationRate = Rand.Range(-30f, 30f);

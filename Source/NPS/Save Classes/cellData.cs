@@ -126,7 +126,7 @@ public class cellData : IExposable
         if (weather.wetTerrain != null && currentTerrain != weather.wetTerrain && howWet > weather.wetAt)
         {
             changeTerrain(weather.wetTerrain);
-            if (baseTerrain.defName == "TKKN_Lava")
+            if (baseTerrain == TerrainDefOf.TKKN_Lava)
             {
                 map.GetComponent<Watcher>().lavaCellsList.Remove(location);
             }
@@ -137,7 +137,7 @@ public class cellData : IExposable
         else if (howWet == 0 && currentTerrain != baseTerrain && isWet && !isFlooded)
         {
             changeTerrain(baseTerrain);
-            if (baseTerrain.defName == "TKKN_Lava")
+            if (baseTerrain == TerrainDefOf.TKKN_Lava)
             {
                 map.GetComponent<Watcher>().lavaCellsList.Add(location);
             }
@@ -180,7 +180,7 @@ public class cellData : IExposable
             else if (!isFrozen)
             {
                 changeTerrain(weather.freezeTerrain);
-                if (baseTerrain.defName == "TKKN_Lava")
+                if (baseTerrain == TerrainDefOf.TKKN_Lava)
                 {
                     map.GetComponent<Watcher>().lavaCellsList.Remove(location);
                 }
@@ -196,7 +196,7 @@ public class cellData : IExposable
             return;
         }
 
-        if (baseTerrain.defName == "TKKN_Lava")
+        if (baseTerrain == TerrainDefOf.TKKN_Lava)
         {
             map.GetComponent<Watcher>().lavaCellsList.Add(location);
         }
@@ -293,7 +293,7 @@ public class cellData : IExposable
 
         //KEEPING TO REMOVE OLD WAY OF DOING FROST
         var overlayIce = (from t in location.GetThingList(map)
-            where t.def.defName == "TKKN_IceOverlay"
+            where t.def == ThingDefOf.TKKN_IceOverlay
             select t).FirstOrDefault();
         if (overlayIce == null)
         {
@@ -313,12 +313,12 @@ public class cellData : IExposable
     {
         if (!Settings.doDirtPath)
         {
-            if (currentTerrain.defName == "TKKN_DirtPath")
+            if (currentTerrain == TerrainDefOf.TKKN_DirtPath)
             {
                 changeTerrain(RimWorld.TerrainDefOf.Soil);
             }
 
-            if (currentTerrain.defName == "TKKN_SandPath")
+            if (currentTerrain == TerrainDefOf.TKKN_SandPath)
             {
                 changeTerrain(RimWorld.TerrainDefOf.Sand);
             }
@@ -335,11 +335,11 @@ public class cellData : IExposable
         {
             howPacked--;
         }
-        else if (howPacked <= packAt / 2 && currentTerrain.defName == "TKKN_DirtPath")
+        else if (howPacked <= packAt / 2 && currentTerrain == TerrainDefOf.TKKN_DirtPath)
         {
             changeTerrain(RimWorld.TerrainDefOf.Soil);
         }
-        else if (howPacked <= packAt / 2 && currentTerrain.defName == "TKKN_SandPath")
+        else if (howPacked <= packAt / 2 && currentTerrain == TerrainDefOf.TKKN_SandPath)
         {
             changeTerrain(RimWorld.TerrainDefOf.Sand);
         }
@@ -353,14 +353,16 @@ public class cellData : IExposable
         }
 
         if (map.zoneManager.ZoneAt(location) is Zone_Growing &&
-            currentTerrain.defName is not ("TKKN_DirtPath" or "TKKN_SandPath"))
+            (currentTerrain != TerrainDefOf.TKKN_DirtPath &&
+             currentTerrain != TerrainDefOf.TKKN_SandPath))
         {
             return;
         }
 
         //don't pack if there's a growing zone.
-        if (baseTerrain.defName is "Soil" or "Sand" ||
-            baseTerrain.texturePath == "Terrain/Surfaces/RoughStone")
+        if (baseTerrain == RimWorld.TerrainDefOf.Soil 
+            || baseTerrain == RimWorld.TerrainDefOf.Sand
+            || baseTerrain.texturePath == "Terrain/Surfaces/RoughStone")
         {
             howPacked++;
         }
@@ -368,16 +370,16 @@ public class cellData : IExposable
         if (howPacked > packAt)
         {
             //	this.howPacked = this.packAt;
-            if (baseTerrain.defName == "Soil")
+            if (baseTerrain == RimWorld.TerrainDefOf.Soil)
             {
-                var packed = TerrainDef.Named("TKKN_DirtPath");
+                var packed = TerrainDefOf.TKKN_DirtPath;
                 changeTerrain(packed);
                 baseTerrain = packed;
             }
 
-            if (baseTerrain.defName == "Sand")
+            if (baseTerrain == RimWorld.TerrainDefOf.Sand)
             {
-                var packed = TerrainDef.Named("TKKN_SandPath");
+                var packed = TerrainDefOf.TKKN_SandPath;
                 changeTerrain(packed);
                 baseTerrain = packed;
             }
@@ -406,25 +408,17 @@ public class cellData : IExposable
     private void rainSpawns()
     {
         //spawn special things when it rains.
-        if (Rand.Value < .009)
-        {
-            switch (baseTerrain.defName)
-            {
-                case "TKKN_Lava":
-                    GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_LavaRock), location, map);
-                    break;
-                case "TKKN_SandBeachWetSalt":
-                    Log.Warning("Spawning crab");
-                    GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_crab), location, map);
-                    break;
-                default:
-                {
-                    if (currentTerrain.HasTag("TKKN_Wet"))
-                    {
-                        FleckMaker.WaterSplash(location.ToVector3(), map, 1, 1);
-                    }
-
-                    break;
+        if (Rand.Value < .009) {
+            if (baseTerrain == TerrainDefOf.TKKN_Lava) {
+                GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_LavaRock), location, map);
+            }
+            else if (baseTerrain == TerrainDefOf.TKKN_SandBeachWetSalt) {
+                //Log.Warning("Spawning crab");
+                GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_crab), location, map);
+            }
+            else {
+                if (currentTerrain.HasTag("TKKN_Wet")) {
+                    FleckMaker.WaterSplash(location.ToVector3(), map, 1, 1);
                 }
             }
         }

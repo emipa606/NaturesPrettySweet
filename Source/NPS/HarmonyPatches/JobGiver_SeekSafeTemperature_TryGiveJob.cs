@@ -48,7 +48,7 @@ internal class JobGiver_SeekSafeTemperature_TryGiveJob
         }
 
         var terrain = pawn.Position.GetTerrain(Find.CurrentMap);
-        if (terrain.defName == "TKKN_ColdSpringsWater")
+        if (terrain == TerrainDefOf.TKKN_ColdSpringsWater)
         {
             __result = new Job(RimWorld.JobDefOf.Wait_SafeTemperature, 500, true);
             return;
