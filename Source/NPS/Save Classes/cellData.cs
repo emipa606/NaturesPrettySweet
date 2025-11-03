@@ -62,7 +62,7 @@ public class cellData : IExposable
         Scribe_Defs.Look(ref originalTerrain, "originalTerrain");
     }
 
-    public void setTerrain(string type)
+    public void setTerrain(TerrainType type)
     {
         //Make sure it hasn't been made a floor or a floor hasn't been removed.
         if (!currentTerrain.HasModExtension<TerrainWeatherReactions>())
@@ -82,25 +82,25 @@ public class cellData : IExposable
         switch (type)
         {
             //change the terrain
-            case "frozen":
+            case TerrainType.Frozen:
                 setFrozenTerrain(true);
                 break;
-            case "dry":
-            case "wet":
+            case TerrainType.Dry:
+            case TerrainType.Wet:
                 setWetTerrain();
                 break;
-            case "thaw" when isFrozen:
+            case TerrainType.Thaw when isFrozen:
                 howWet = 1;
                 setWetTerrain();
                 isFrozen = false;
                 break;
-            case "thaw":
+            case TerrainType.Thaw:
                 setFrozenTerrain(false);
                 break;
-            case "flooded":
+            case TerrainType.Flooded:
                 setFloodedTerrain();
                 break;
-            case "tide":
+            case TerrainType.Tide:
                 setTidesTerrain();
                 break;
         }

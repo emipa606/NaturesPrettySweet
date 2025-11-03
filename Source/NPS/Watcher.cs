@@ -559,10 +559,10 @@ public class Watcher(Map map) : MapComponent(map)
             var max = 0;
             switch (level)
             {
-                case "normal":
+                case FloodType.Normal:
                     max = (int)Math.Floor((howManyTideSteps - 1) / 2M);
                     break;
-                case "high":
+                case FloodType.High:
                     max = howManyTideSteps - 1;
                     break;
             }
@@ -577,7 +577,7 @@ public class Watcher(Map map) : MapComponent(map)
                         continue;
                     }
 
-                    cell.setTerrain("tide");
+                    cell.setTerrain(TerrainType.Tide);
                 }
             }
 
@@ -603,9 +603,9 @@ public class Watcher(Map map) : MapComponent(map)
 
                 switch (flood)
                 {
-                    case "high":
+                    case FloodType.High:
                         break;
-                    case "low":
+                    case FloodType.Low:
                         cell.overrideType = "dry";
                         break;
                     default:
@@ -619,7 +619,7 @@ public class Watcher(Map map) : MapComponent(map)
                     }
                 }
 
-                cell.setTerrain("flooded");
+                cell.setTerrain(TerrainType.Flooded);
             }
         }
     }
@@ -708,13 +708,13 @@ public class Watcher(Map map) : MapComponent(map)
 
                 gettingWet = true;
                 cell.gettingWet = true;
-                cell.setTerrain("wet");
+                cell.setTerrain(TerrainType.Wet);
             }
             else if (Settings.showRain && !roofed && map.weatherManager.curWeather.snowRate > .001f)
             {
                 gettingWet = true;
                 cell.gettingWet = true;
-                cell.setTerrain("wet");
+                cell.setTerrain(TerrainType.Wet);
             }
             else
             {
@@ -724,7 +724,7 @@ public class Watcher(Map map) : MapComponent(map)
                 }
 
                 //DRY GROUND
-                cell.setTerrain("dry");
+                cell.setTerrain(TerrainType.Dry);
             }
         }
 
@@ -734,7 +734,7 @@ public class Watcher(Map map) : MapComponent(map)
         {
             if (Settings.doIce)
             {
-                cell.setTerrain("frozen");
+                cell.setTerrain(TerrainType.Frozen);
             }
 
             //handle frost based on snowing
@@ -749,7 +749,7 @@ public class Watcher(Map map) : MapComponent(map)
         }
         else
         {
-            cell.setTerrain("thaw");
+            cell.setTerrain(TerrainType.Thaw);
             var frosty = cell.temperature * -.025f;
 //				float frosty = this.map.mapTemperature.OutdoorTemp * -.03f;
             frostGridComponent.AddDepth(c, frosty);
@@ -939,17 +939,17 @@ public class Watcher(Map map) : MapComponent(map)
         frostGridComponent.AddDepth(c, depthToAdd);
     }
 
-    private string getFloodType()
+    private FloodType getFloodType()
     {
-        var flood = "normal";
+        var flood = FloodType.Normal;
         var season = GenLocalDate.Season(map);
-        if (floodThreat > 1000000 || season.Label() == "spring")
+        if (floodThreat > 1000000 || season == Season.Spring)
         {
-            flood = "high";
+            flood = FloodType.High;
         }
-        else if (season.Label() == "fall")
+        else if (season == Season.Fall)
         {
-            flood = "low";
+            flood = FloodType.Low;
         }
 
         var isDrought = map.gameConditionManager.GetActiveCondition<GameCondition_Drought>();
@@ -976,34 +976,34 @@ public class Watcher(Map map) : MapComponent(map)
 
 
         var overrideType = "";
-        if (floodLevel < max && flood == "high")
+        if (floodLevel < max && flood == FloodType.High)
         {
             overrideType = "wet";
         }
-        else if (floodLevel > 0 && flood == "low")
+        else if (floodLevel > 0 && flood == FloodType.Low)
         {
             overrideType = "dry";
         }
-        else if (floodLevel < half && flood == "normal")
+        else if (floodLevel < half && flood == FloodType.Normal)
         {
             overrideType = "wet";
         }
-        else if (floodLevel > half && flood == "normal")
+        else if (floodLevel > half && flood == FloodType.Normal)
         {
             overrideType = "dry";
         }
 
-        if (floodLevel == howManyFloodSteps && flood == "high")
+        if (floodLevel == howManyFloodSteps && flood == FloodType.High)
         {
             return;
         }
 
-        if (floodLevel == 0 && flood == "low")
+        if (floodLevel == 0 && flood == FloodType.Low)
         {
             return;
         }
 
-        if (floodLevel == half && flood == "normal")
+        if (floodLevel == half && flood == FloodType.Normal)
         {
             return;
         }
@@ -1021,45 +1021,45 @@ public class Watcher(Map map) : MapComponent(map)
                 cell.overrideType = overrideType;
             }
 
-            cell.setTerrain("flooded");
+            cell.setTerrain(TerrainType.Flooded);
         }
 
-        if (floodLevel < max && flood == "high")
+        if (floodLevel < max && flood == FloodType.High)
         {
             floodLevel++;
         }
-        else if (floodLevel > 0 && flood == "low")
+        else if (floodLevel > 0 && flood == FloodType.Low)
         {
             floodLevel--;
         }
-        else if (floodLevel < half && flood == "normal")
+        else if (floodLevel < half && flood == FloodType.Normal)
         {
             floodLevel++;
         }
-        else if (floodLevel > half && flood == "normal")
+        else if (floodLevel > half && flood == FloodType.Normal)
         {
             floodLevel--;
         }
     }
 
-    private string getTideLevel()
+    private FloodType getTideLevel()
     {
         if (map.gameConditionManager.ConditionIsActive(GameConditionDefOf.Eclipse))
         {
-            return "high";
+            return FloodType.High;
         }
 
         if (GenLocalDate.HourOfDay(map) > 4 && GenLocalDate.HourOfDay(map) < 8)
         {
-            return "low";
+            return FloodType.Low;
         }
 
         if (GenLocalDate.HourOfDay(map) > 15 && GenLocalDate.HourOfDay(map) < 20)
         {
-            return "high";
+            return FloodType.High;
         }
 
-        return "normal";
+        return FloodType.Normal;
     }
 
     private void doTides()
@@ -1076,11 +1076,11 @@ public class Watcher(Map map) : MapComponent(map)
 
         switch (tideType)
         {
-            case "normal" when tideLevel == half:
-            case "high" when tideLevel == max:
-            case "low" when tideLevel == 0:
+            case FloodType.Normal when tideLevel == half:
+            case FloodType.High when tideLevel == max:
+            case FloodType.Low when tideLevel == 0:
                 return;
-            case "normal" when tideLevel == max:
+            case FloodType.Normal when tideLevel == max:
                 tideLevel--;
                 return;
         }
@@ -1095,20 +1095,20 @@ public class Watcher(Map map) : MapComponent(map)
 
             switch (tideType)
             {
-                case "high":
+                case FloodType.High:
                     cell.overrideType = "wet";
                     break;
-                case "low":
+                case FloodType.Low:
                     cell.overrideType = "dry";
                     break;
             }
 
-            cell.setTerrain("tide");
+            cell.setTerrain(TerrainType.Tide);
         }
 
         switch (tideType)
         {
-            case "high":
+            case FloodType.High:
             {
                 if (tideLevel < max)
                 {
@@ -1117,7 +1117,7 @@ public class Watcher(Map map) : MapComponent(map)
 
                 break;
             }
-            case "low":
+            case FloodType.Low:
             {
                 if (tideLevel > 0)
                 {
@@ -1126,10 +1126,10 @@ public class Watcher(Map map) : MapComponent(map)
 
                 break;
             }
-            case "normal" when tideLevel > half:
+            case FloodType.Normal when tideLevel > half:
                 tideLevel--;
                 break;
-            case "normal":
+            case FloodType.Normal:
             {
                 if (tideLevel < half)
                 {
