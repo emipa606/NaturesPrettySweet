@@ -29,7 +29,7 @@ internal class Pawn_Tick
             {
                 MakePaths(__instance);
                 MakeBreath(__instance);
-                MakeWet(__instance);
+                MakeWet(__instance, terrain);
                 DyingCheck(__instance, terrain);
             }
         }
@@ -129,7 +129,7 @@ internal class Pawn_Tick
         }
     }
 
-    private static void MakeWet(Pawn pawn)
+    private static void MakeWet(Pawn pawn, TerrainDef currentTerrain)
     {
         if (!Settings.allowPawnsToGetWet)
         {
@@ -162,7 +162,6 @@ internal class Pawn_Tick
         }
         else
         {
-            var currentTerrain = c.GetTerrain(map);
             if (currentTerrain.HasTag("TKKN_Wet"))
             {
                 isWet = true;
