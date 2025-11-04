@@ -1185,8 +1185,9 @@ public class Watcher(Map map) : MapComponent(map)
         }
     }
     private HashSet<IntVec3> removeFromLava = new HashSet<IntVec3>();
-    private void checkThingsforLava()
-    {
+    private void checkThingsforLava() {
+        if (lavaCellsList.Count==0)
+            return;
         removeFromLava.Clear();
 
         foreach (var c in lavaCellsList)
