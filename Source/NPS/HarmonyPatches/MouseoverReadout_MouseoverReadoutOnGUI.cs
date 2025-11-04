@@ -7,13 +7,25 @@ namespace TKKN_NPS;
 [HarmonyPatch(typeof(MouseoverReadout), nameof(MouseoverReadout.MouseoverReadoutOnGUI))]
 internal class MouseoverReadout_MouseoverReadoutOnGUI
 {
+    private static Map cachedMap;
+    private static FrostGrid cachedFrostGrid;
+
     private static void Postfix()
     {
+        if (Event.current.type != EventType.Repaint || Find.MainTabsRoot.OpenTab != null)
+        {
+            return;
+        }
         var c = UI.MouseCell();
         var map = Find.CurrentMap;
         if (!c.InBounds(map))
         {
             return;
+        }
+        if (cachedMap != map) 
+        {
+            cachedMap = map;
+            cachedFrostGrid = map.GetComponent<FrostGrid>();
         }
 
         Rect rect;
@@ -108,7 +120,7 @@ internal class MouseoverReadout_MouseoverReadoutOnGUI
         }
 
 
-        depth = map.GetComponent<FrostGrid>().GetDepth(c);
+        depth = cachedFrostGrid.GetDepth(c);
         if (!(depth > 0.01f))
         {
             return;
