@@ -347,10 +347,6 @@ public class cellData : IExposable
 
     public void doPack()
     {
-        if (!Settings.doDirtPath)
-        {
-            return;
-        }
 
         if (map.zoneManager.ZoneAt(location) is Zone_Growing &&
             (currentTerrain != TerrainDefOf.TKKN_DirtPath &&

@@ -194,16 +194,22 @@ internal class Pawn_Tick
         pawn.TakeDamage(dinfo).AssociateWithLog(battleLogEntry_DamageTaken);
     }
 
+    private static Map cachedMap;
+    private static Watcher watcher;
     private static void MakePaths(Pawn pawn)
     {
-        var map = pawn.Map;
-        var watcher = map.GetComponent<Watcher>();
+        if (cachedMap != pawn.Map)
+        {
+            cachedMap = pawn.Map;
+            watcher = cachedMap.GetComponent<Watcher>();
+        }
+
         if (watcher == null)
         {
             return;
         }
 
-        if (!pawn.Position.InBounds(map) || !pawn.RaceProps.Humanlike)
+        if (!pawn.Position.InBounds(cachedMap) || !pawn.RaceProps.Humanlike)
         {
             return;
         }
@@ -211,22 +217,24 @@ internal class Pawn_Tick
         //damage plants and remove snow/frost where they are. This will hopefully generate paths as pawns walk :)
         if (watcher.checkIfCold(pawn.Position))
         {
-            map.GetComponent<FrostGrid>().AddDepth(pawn.Position, (float)-.05);
-            map.snowGrid.AddDepth(pawn.Position, (float)-.05);
+            watcher.frostGridComponent.AddDepth(pawn.Position, (float)-.05);
+            cachedMap.snowGrid.AddDepth(pawn.Position, (float)-.05);
         }
 
-        //pack down the soil only if the pawn is moving AND is in our colony
-        if (pawn.pather.MovingNow && pawn.IsColonist &&
-            watcher.cellWeatherAffects.TryGetValue(pawn.Position, out var cell))
-        {
-            cell.doPack();
+        if (Settings.doDirtPath) {
+            //pack down the soil only if the pawn is moving AND is in our colony
+            if (pawn.pather.MovingNow && pawn.IsColonist &&
+                watcher.cellWeatherAffects.TryGetValue(pawn.Position, out var cell)) {
+                cell.doPack();
+            }
         }
 
+        /*
         if (Settings.allowPlantEffects)
         {
             //this will be handled by the terrain changing in doPack
             //		watcher.hurtPlants(pawn.Position, true, true);
-        }
+        }*/
     }
 
     private static void MakeBreath(Pawn pawn)
@@ -236,9 +244,6 @@ internal class Pawn_Tick
             return;
         }
 
-        var map = pawn.Map;
-        var watcher = map.GetComponent<Watcher>();
-
         var isCold = watcher.checkIfCold(pawn.Position);
         if (!isCold)
         {
@@ -247,7 +252,7 @@ internal class Pawn_Tick
 
         var head = pawn.Position;
         head.z += 1;
-        if (!head.ShouldSpawnMotesAt(map) || map.moteCounter.SaturatedLowPriority)
+        if (!head.ShouldSpawnMotesAt(cachedMap) || cachedMap.moteCounter.SaturatedLowPriority)
         {
             return;
         }
@@ -258,6 +263,6 @@ internal class Pawn_Tick
         moteThrown.rotationRate = Rand.Range(-30f, 30f);
         moteThrown.exactPosition = head.ToVector3();
         moteThrown.SetVelocity(Rand.Range(20, 30), Rand.Range(0.5f, 0.7f));
-        GenSpawn.Spawn(moteThrown, head, map);
+        GenSpawn.Spawn(moteThrown, head, cachedMap);
     }
 }

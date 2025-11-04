@@ -48,7 +48,7 @@ public class Watcher(Map map) : MapComponent(map)
     private int totalPuddles;
     private int totalSprings;
     
-    private FrostGrid frostGridComponent;
+    public FrostGrid frostGridComponent;
     private float outdoorTemp;
 
 //		public Map mapRef;
