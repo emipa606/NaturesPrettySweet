@@ -15,14 +15,6 @@ internal class Pawn_Tick
         }
 
         var terrain = __instance.Position.GetTerrain(__instance.MapHeld);
-        if (__instance.def == ThingDefOf.TKKN_giantsnail &&
-            (terrain == TerrainDefOf.TKKN_SaltField || terrain == TerrainDefOf.TKKN_Salted_Earth))
-        {
-            BurnSnails(__instance);
-            return;
-        }
-
-
         if (!__instance.Dead)
         {
             if (!Find.TickManager.Paused)

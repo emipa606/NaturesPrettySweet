@@ -558,6 +558,12 @@
         <eggLayIntervalDays>7</eggLayIntervalDays>
         <eggCountRange>10</eggCountRange>
       </li>
+      <li Class="TKKN_NPS.CompProperties_DeadlySalt">
+        <deadlyTerrain>
+          <li>TKKN_SaltField</li>
+          <li>TKKN_Salted_Earth</li>
+        </deadlyTerrain>
+      </li>
     </comps>
     <race>
       <body>Snail</body>
