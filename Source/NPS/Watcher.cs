@@ -840,19 +840,19 @@ public class Watcher(Map map) : MapComponent(map)
         cellWeatherAffects[c] = cell;
     }
 
-    public bool checkIfCold(IntVec3 c)
-    {
+    public bool checkIfCold(IntVec3 c) {
+        var cellAffected = cellWeatherAffects.TryGetValue(c, out var cell);
         if (!Settings.showCold)
         {
-            if (cellWeatherAffects.TryGetValue(c, out var affect) && affect.temperature < -998)
+            if (cellAffected && cell.temperature < -998)
             {
-                affect.temperature = c.GetTemperature(map);
+                cell.temperature = c.GetTemperature(map);
             }
 
             return false;
         }
 
-        if (!cellWeatherAffects.TryGetValue(c, out var cell))
+        if (!cellAffected)
         {
             return false;
         }
@@ -866,10 +866,7 @@ public class Watcher(Map map) : MapComponent(map)
             {
                 isCold = true;
             }
-        }
 
-        if (room == null || room.UsesOutdoorTemperature)
-        {
             return isCold;
         }
 
