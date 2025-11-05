@@ -130,9 +130,7 @@ internal class Pawn_Tick
         var isWet = false;
         if (map.weatherManager.curWeather.rainRate > .001f)
         {
-            var room = c.GetRoom(map);
             var roofed = map.roofGrid.Roofed(c);
-            _ = room is { UsesOutdoorTemperature: true };
             if (!roofed)
             {
                 isWet = true;

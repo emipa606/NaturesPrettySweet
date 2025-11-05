@@ -8,10 +8,10 @@ public class GameCondition_TKKNBlooms : GameCondition
 {
     protected float howManyBlooms;
 
-    public void DoCellSteadyEffects(IntVec3 c)
+    public override void DoCellSteadyEffects(IntVec3 c, Map map)
     {
         //must be outdoors.
-        _ = SingleMap;
+        //_ = SingleMap;
         var biomeSettings = SingleMap.Biome.GetModExtension<BiomeSeasonalSettings>();
         var bloomPlants = biomeSettings.bloomPlants.ToList();
         if (bloomPlants.Count == 0)

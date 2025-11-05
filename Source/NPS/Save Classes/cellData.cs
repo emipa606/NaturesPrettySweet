@@ -538,7 +538,7 @@ public class cellData : IExposable
                     continue;
                 }
 
-                _ = currentTerrain;
+                //_ = currentTerrain;
                 var thingWeather = plantDef.GetModExtension<ThingWeatherReaction>();
                 var okTerrains = thingWeather.allowedTerrains;
                 if (okTerrains == null || !okTerrains.Contains<TerrainDef>(currentTerrain))
@@ -624,7 +624,7 @@ public class cellData : IExposable
 
             if (plant.def.HasModExtension<ThingWeatherReaction>())
             {
-                _ = currentTerrain;
+                //_ = currentTerrain;
                 var thingWeather = plant.def.GetModExtension<ThingWeatherReaction>();
                 var okTerrains = thingWeather.allowedTerrains;
                 if (okTerrains.Contains<TerrainDef>(currentTerrain))
