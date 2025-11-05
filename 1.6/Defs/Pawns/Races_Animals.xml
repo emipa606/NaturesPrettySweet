@@ -281,10 +281,13 @@
       </li>
     </tools>
     <comps>
+      <!--
+      Serves no function
       <li Class="TKKN_NPS.CompProperties_GraphicRotator">
         <howManyDegrees>2</howManyDegrees>
         <howOften>1</howOften>
       </li>
+      -->
     </comps>
     <race>
       <body>QuadrupedAnimalWithPawsAndTail</body>
