@@ -9,30 +9,25 @@ internal class Pawn_Tick
 {
     public static void Postfix(Pawn __instance)
     {
-        if (__instance is not { Spawned: true })
+        if (__instance is not ({ Spawned: true } and { Dead: false }))
         {
             return;
         }
 
         var terrain = __instance.Position.GetTerrain(__instance.MapHeld);
-        if (!__instance.Dead)
-        {
-            if (!Find.TickManager.Paused)
-            {
-                MakePaths(__instance);
-                MakeBreath(__instance);
-                MakeWet(__instance, terrain);
-                DyingCheck(__instance, terrain);
-            }
-        }
+        if (terrain == null)
+            return;
+        MakePaths(__instance);
+        MakeBreath(__instance);
+        MakeWet(__instance, terrain);
+        DyingCheck(__instance, terrain);
 
-        if (!__instance.Spawned || __instance.Dead ||
-            __instance.RaceProps.Humanlike && __instance.needs == null)
+        if (__instance.RaceProps.Humanlike && __instance.needs == null)
         {
             return;
         }
 
-        HediffDef hediffDef;
+        
         if (terrain == TerrainDefOf.TKKN_HotSpringsWater)
         {
             if (__instance.needs.comfort != null)
@@ -40,24 +35,17 @@ internal class Pawn_Tick
                 __instance.needs.comfort.lastComfortUseTick--;
             }
 
-            hediffDef = HediffDefOf.TKKN_hotspring_chill_out;
+            HediffDef hediffDef = HediffDefOf.TKKN_hotspring_chill_out;
             if (__instance.health.hediffSet.GetFirstHediffOfDef(hediffDef) == null)
             {
                 var hediff = HediffMaker.MakeHediff(hediffDef, __instance);
                 __instance.health.AddHediff(hediff);
             }
         }
-
-        if (terrain != TerrainDefOf.TKKN_ColdSpringsWater)
-        {
-            return;
-        }
-
-        {
-            __instance.needs.rest.TickResting(.05f);
-            hediffDef = HediffDefOf.TKKN_coldspring_chill_out;
-            if (__instance.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null)
-            {
+        else if (terrain == TerrainDefOf.TKKN_ColdSpringsWater) {
+            __instance.needs.rest?.TickResting(.05f);
+            HediffDef hediffDef = HediffDefOf.TKKN_coldspring_chill_out;
+            if (__instance.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null) {
                 return;
             }
 
@@ -69,12 +57,12 @@ internal class Pawn_Tick
     private static void DyingCheck(Pawn pawn, TerrainDef terrain)
     {
         //drowning == immobile and in water
-        if (pawn == null || terrain == null)
+        if (!pawn.RaceProps.Humanlike)
         {
             return;
         }
 
-        if (pawn.RaceProps.Humanlike && pawn.health.Downed && terrain.HasTag("TKKN_Wet"))
+        if (pawn.health.Downed && terrain.HasTag("TKKN_Wet"))
         {
             var damage = .0005f;
             //if they're awake, take less damage
@@ -103,8 +91,7 @@ internal class Pawn_Tick
 
             var hediffDef = HediffDefOf.TKKN_Drowning;
             if (pawn.Faction is not { IsPlayer: true } ||
-                pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null ||
-                !pawn.RaceProps.Humanlike)
+                pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null)
             {
                 return;
             }
@@ -114,8 +101,7 @@ internal class Pawn_Tick
             return;
         }
 
-        if (pawn.RaceProps.Humanlike &&
-            pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.TKKN_Drowning) != null)
+        if (pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.TKKN_Drowning) != null)
         {
             pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.TKKN_Drowning));
         }
@@ -129,7 +115,7 @@ internal class Pawn_Tick
         }
 
         var hediffDef = HediffDefOf.TKKN_Wetness;
-        if (pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null || !pawn.RaceProps.Humanlike)
+        if (!pawn.RaceProps.Humanlike || pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null)
         {
             return;
         }
@@ -175,15 +161,7 @@ internal class Pawn_Tick
         pawn.health.AddHediff(hediff);
     }
 
-    private static void BurnSnails(Pawn pawn)
-    {
-        var battleLogEntry_DamageTaken = new BattleLogEntry_DamageTaken(pawn, RulePackDefOf.DamageEvent_Fire);
-        Find.BattleLog.Add(battleLogEntry_DamageTaken);
-        var dinfo = new DamageInfo(DamageDefOf.Flame, 100, -1f, 0, null, null, null,
-            DamageInfo.SourceCategory.ThingOrUnknown, pawn);
-        dinfo.SetBodyRegion(BodyPartHeight.Undefined, BodyPartDepth.Outside);
-        pawn.TakeDamage(dinfo).AssociateWithLog(battleLogEntry_DamageTaken);
-    }
+    
 
     private static Map cachedMap;
     private static Watcher watcher;
@@ -200,7 +178,7 @@ internal class Pawn_Tick
             return;
         }
 
-        if (!pawn.Position.InBounds(cachedMap) || !pawn.RaceProps.Humanlike)
+        if (!pawn.RaceProps.Humanlike || !pawn.Position.InBounds(cachedMap))
         {
             return;
         }
