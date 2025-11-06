@@ -77,7 +77,7 @@ public class Settings : ModSettings
             "TKKN_showCold_title".Translate(),
             ref showCold,
             "TKKN_showCold_text".Translate());
-        if (showCold && !ModLister.OdysseyInstalled)
+        if (showCold && !ModsConfig.OdysseyActive)
         {
             list.CheckboxLabeled(
                 "TKKN_doIce_title".Translate(),
@@ -89,7 +89,7 @@ public class Settings : ModSettings
             "TKKN_showRain_title".Translate(),
             ref showRain,
             "TKKN_showRain_text".Translate());
-        if (!ModLister.OdysseyInstalled)
+        if (!ModsConfig.OdysseyActive)
         {
             list.CheckboxLabeled(
                 "TKKN_doTides_title".Translate(),
@@ -132,7 +132,7 @@ public class Settings : ModSettings
             "TKKN_allowPlantEffects_title".Translate(),
             ref allowPlantEffects,
             "TKKN_allowPlantEffects_text".Translate());
-        if (!ModLister.OdysseyInstalled)
+        if (!ModsConfig.OdysseyActive)
         {
             list.CheckboxLabeled(
                 "TKKN_allowPawnsToGetWet_title".Translate(),
