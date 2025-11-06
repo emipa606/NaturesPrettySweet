@@ -15,12 +15,20 @@ public class Hediff_Wetness : HediffWithComps
         Scribe_Values.Look(ref timeDrying, "timeDrying");
     }
 
+    private IntVec3 position;
+    private Map map;
+
     public override void Tick()
     {
         base.Tick();
-
-        if (!pawn.Position.IsValid || pawn.MapHeld == null ||
-            !pawn.Position.InBounds(pawn.MapHeld))
+        position = pawn.Position;
+        
+        if (!position.IsValid)
+        {
+            return;
+        }
+        map = pawn.MapHeld;
+        if(map == null||!position.InBounds(map))
         {
             return;
         }
@@ -40,7 +48,7 @@ public class Hediff_Wetness : HediffWithComps
                 return;
             }
 
-            FilthMaker.TryMakeFilth(pawn.Position, pawn.MapHeld, ThingDefOf.TKKN_FilthPuddle);
+            FilthMaker.TryMakeFilth(position, map, ThingDefOf.TKKN_FilthPuddle);
             Severity -= .3f;
         }
         else
@@ -53,7 +61,7 @@ public class Hediff_Wetness : HediffWithComps
     {
         var rate = 0f;
         //check if the pawn is in water
-        var terrain = pawn.Position.GetTerrain(pawn.MapHeld);
+        var terrain = position.GetTerrain(map);
         if (terrain != null && terrain.HasTag("TKKN_Wet"))
         {
             //deep water gets them soaked.
@@ -73,15 +81,17 @@ public class Hediff_Wetness : HediffWithComps
 
 
         //check if the pawn is wet from the weather
-        var roofed = pawn.MapHeld.roofGrid.Roofed(pawn.Position);
-        if (!roofed && pawn.MapHeld.weatherManager.curWeather.rainRate > .001f)
+        var roofed = map.roofGrid.Roofed(position);
+        if (!roofed)
         {
-            rate = pawn.MapHeld.weatherManager.curWeather.rainRate / 10;
-        }
-
-        if (!roofed && pawn.MapHeld.weatherManager.curWeather.snowRate > .001f)
-        {
-            rate = pawn.MapHeld.weatherManager.curWeather.snowRate / 100;
+            if (map.weatherManager.curWeather.rainRate > .001f) 
+            {
+                rate = map.weatherManager.curWeather.rainRate / 10;
+            }
+            else if (map.weatherManager.curWeather.snowRate > .001f) 
+            {
+                rate = map.weatherManager.curWeather.snowRate / 100;
+            }
         }
 
         if (rate == 0f)
@@ -103,12 +113,12 @@ public class Hediff_Wetness : HediffWithComps
         //check if the pawn is near a heat source
         foreach (var c in GenAdj.CellsAdjacentCardinal(pawn))
         {
-            if (!c.InBounds(pawn.MapHeld) || !c.IsValid)
+            if (!c.InBounds(map) || !c.IsValid)
             {
                 continue;
             }
 
-            var things = c.GetThingList(pawn.MapHeld);
+            var things = c.GetThingList(map);
             foreach (var thing in things)
             {
                 var heater = thing.TryGetComp<CompHeatPusher>();
