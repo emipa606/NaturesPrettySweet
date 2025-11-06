@@ -20,10 +20,18 @@ public class SpringComp : SpringCompAbstract
     private int makeAnotherAt = 400;
 
     private bool spawnThings;
-    private string status = "spawning";
+    private StatusType status = StatusType.spawning;
     protected ModuleBase terrainNoise;
-    protected string terrainType = "wet";
+    protected TerrainType? terrainType = TerrainType.Wet;
     private float width;
+
+    private enum StatusType : byte
+    {
+        spawning,
+        stable,
+        expand,
+        despawn
+    }
 
     protected CompProperties_Springs Props => (CompProperties_Springs)props;
 
@@ -45,13 +53,13 @@ public class SpringComp : SpringCompAbstract
                 biomeName = savedData.biomeName;
                 makeAnotherAt = savedData.makeAnotherAt;
                 age = savedData.age;
-                status = savedData.status;
+                Enum.TryParse(savedData.status, out status);
                 width = savedData.width;
             }
         }
         else
         {
-            status = "spawning";
+            status = StatusType.spawning;
             biomeName = parent.Map.Biome.defName;
             width = Props.startingRadius;
 
@@ -61,7 +69,7 @@ public class SpringComp : SpringCompAbstract
                 biomeName = biomeName,
                 makeAnotherAt = makeAnotherAt,
                 age = age,
-                status = status,
+                status = nameof(status),
                 width = width
             };
 
@@ -87,13 +95,13 @@ public class SpringComp : SpringCompAbstract
             changeShape();
         }
 
-        if (status == "spawning")
+        if (status == StatusType.spawning)
         {
             var radius = width;
             width += .5f;
             if (radius == Props.radius)
             {
-                status = "stable";
+                status = StatusType.stable;
             }
         }
 
@@ -101,18 +109,18 @@ public class SpringComp : SpringCompAbstract
         if (Props.canReproduce && Rand.Value + makeAnother > .01f)
         {
             //see if we're going to add another spring spawner.
-            status = "expand";
+            status = StatusType.expand;
             makeAnotherAt += Props.weight;
         }
 
-        if (status != "despawn")
+        if (status != StatusType.despawn)
         {
-            if (status != "stable")
+            if (status != StatusType.stable)
             {
                 setCellsToAffect();
                 foreach (var cell in affectableCells)
                 {
-                    terrainType = "wet";
+                    terrainType = TerrainType.Wet;
                     AffectCell(cell);
                     specialFXAffect(cell);
                 }
@@ -130,7 +138,7 @@ public class SpringComp : SpringCompAbstract
                         continue;
                     }
 
-                    terrainType = "dry";
+                    terrainType = TerrainType.Dry;
                     AffectCell(cell);
                 }
             }
@@ -148,7 +156,7 @@ public class SpringComp : SpringCompAbstract
             }
         }
 
-        if (Props.canReproduce && status == "despawn")
+        if (Props.canReproduce && status == StatusType.despawn)
         {
             parent.Map.GetComponent<Watcher>().activeSprings.Remove(getID());
             parent.Destroy();
@@ -161,7 +169,7 @@ public class SpringComp : SpringCompAbstract
 
     private void setCellsToAffect()
     {
-        if (status == "stable")
+        if (status == StatusType.stable)
         {
             return;
         }
@@ -222,7 +230,7 @@ public class SpringComp : SpringCompAbstract
         savedData.biomeName = biomeName;
         savedData.makeAnotherAt = makeAnotherAt;
         savedData.age = age;
-        savedData.status = status;
+        savedData.status = nameof(status);
         savedData.width = width;
     }
 
@@ -247,7 +255,7 @@ public class SpringComp : SpringCompAbstract
     {
         if (terrainNoise == null)
         {
-            terrainType = "dry";
+            terrainType = TerrainType.Dry;
             return;
         }
 
@@ -264,7 +272,7 @@ public class SpringComp : SpringCompAbstract
 
         if (value < .8f)
         {
-            terrainType = "wet";
+            terrainType = TerrainType.Wet;
             return;
         }
 
@@ -273,7 +281,7 @@ public class SpringComp : SpringCompAbstract
             spawnThings = true;
         }
 
-        terrainType = "dry";
+        terrainType = TerrainType.Dry;
     }
 
     private void checkIfDespawn()
@@ -282,14 +290,14 @@ public class SpringComp : SpringCompAbstract
         {
             if (Rand.Value < .0001f)
             {
-                status = "despawn";
+                status = StatusType.despawn;
             }
         }
         else
         {
             if (Rand.Value < .001f)
             {
-                status = "despawn";
+                status = StatusType.despawn;
             }
         }
     }
@@ -354,30 +362,30 @@ public class SpringComp : SpringCompAbstract
             return;
         }
 
-        if (terrainType == "")
+        if (terrainType == null)
         {
             springTerrain(c);
         }
 
-        if (status != "despawn")
+        if (status != StatusType.despawn)
         {
             if (c == parent.Position)
             {
                 isSpawnCell = true;
-                terrainType = "wet";
+                terrainType = TerrainType.Wet;
             }
 
             //double check we're not adding a border into another instance.
-            if (terrainType == "dry")
+            if (terrainType == TerrainType.Dry)
             {
                 if (!doBorder(c))
                 {
-                    terrainType = "wet";
+                    terrainType = TerrainType.Wet;
                 }
             }
         }
 
-        if (terrainType == "dry")
+        if (terrainType == TerrainType.Dry)
         {
             var num = c.GetThingList(parent.Map).Count;
             //spawn whatever special items surround this thing.
@@ -396,14 +404,14 @@ public class SpringComp : SpringCompAbstract
             specialCellAffects(c);
         }
 
-        if (status == "expand")
+        if (status == StatusType.expand)
         {
             if (!isSpawnCell)
             {
-                _ = (ThingWithComps)GenSpawn.Spawn(ThingMaker.MakeThing(parent.def), c, parent.Map);
+                GenSpawn.Spawn(ThingMaker.MakeThing(parent.def), c, parent.Map);
             }
 
-            status = "stable";
+            status = StatusType.stable;
         }
 
         if (parent.Map.GetComponent<Watcher>().cellWeatherAffects.TryGetValue(c, out var affect))
@@ -411,7 +419,7 @@ public class SpringComp : SpringCompAbstract
             affect.baseTerrain = c.GetTerrain(parent.Map);
         }
 
-        terrainType = "";
+        terrainType = null;
     }
 
     public override bool doBorder(IntVec3 c)
@@ -445,14 +453,18 @@ public class SpringComp : SpringCompAbstract
     public override void specialCellAffects(IntVec3 c)
     {
         //set terrain
-        if (terrainType == "wet")
+        if (terrainType == TerrainType.Wet)
         {
             parent.Map.terrainGrid.SetTerrain(c, Props.wetTile);
         }
-        else if (terrainType == "deep")
+        /*
+         terrainType is never deep. This option can never happen
+        else 
+         
+        if (terrainType == "deep")
         {
             parent.Map.terrainGrid.SetTerrain(c, Props.deepTile);
-        }
+        }*/
 
         FilthMaker.RemoveAllFilth(c, parent.Map);
     }
