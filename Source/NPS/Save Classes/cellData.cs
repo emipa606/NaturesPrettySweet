@@ -69,7 +69,7 @@ public class cellData : IExposable
         {
             baseTerrain = currentTerrain;
         }
-        else if (!baseTerrain.HasModExtension<TerrainWeatherReactions>() && baseTerrain != currentTerrain)
+        else if (baseTerrain != currentTerrain && !baseTerrain.HasModExtension<TerrainWeatherReactions>())
         {
             baseTerrain = currentTerrain;
         }

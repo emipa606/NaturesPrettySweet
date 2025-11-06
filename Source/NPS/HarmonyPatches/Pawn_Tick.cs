@@ -101,9 +101,10 @@ internal class Pawn_Tick
             return;
         }
 
-        if (pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.TKKN_Drowning) != null)
+        var drowning = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.TKKN_Drowning);
+        if (drowning != null)
         {
-            pawn.health.RemoveHediff(pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.TKKN_Drowning));
+            pawn.health.RemoveHediff(drowning);
         }
     }
 
