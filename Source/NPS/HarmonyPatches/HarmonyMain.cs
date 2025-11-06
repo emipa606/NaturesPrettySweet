@@ -14,7 +14,7 @@ internal class HarmonyMain
     {
         new Harmony("com.github.tkkntkkn.Natures-Pretty-Sweet").PatchAll(Assembly.GetExecutingAssembly());
 
-        if (ModLister.OdysseyInstalled)
+        if (ModsConfig.OdysseyActive)
         {
             Settings.doIce = false;
             Settings.doTides = false;
