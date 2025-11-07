@@ -19,6 +19,6 @@ public static class Graphic_Shadow_DrawWorker
         }
 
         var terrain = pawn.Position.GetTerrain(pawn.MapHeld);
-        return terrain == null || !terrain.HasTag("TKKN_Swim");
+        return terrain == null || !TerrainTagUtil.TKKN_Swim.Contains(terrain);
     }
 }

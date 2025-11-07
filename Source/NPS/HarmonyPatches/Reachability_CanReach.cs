@@ -27,8 +27,8 @@ internal class Reachability_CanReach
         }
 
         var c = dest.Cell;
-        if (c.GetTerrain(traverseParams.pawn.Map).HasTag("TKKN_Swim") ||
-            c.GetTerrain(traverseParams.pawn.Map).HasTag("TKKN_Lava"))
+        if (TerrainTagUtil.TKKN_Swim.Contains(c.GetTerrain(traverseParams.pawn.Map))||
+            TerrainTagUtil.Lava.Contains(c.GetTerrain(traverseParams.pawn.Map)))
         {
             __result = false;
         }

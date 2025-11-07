@@ -35,7 +35,7 @@ internal class PawnRenderNodeWorker_Body_CanDrawNow
             return;
         }
 
-        if (terrain.HasTag("TKKN_Swim"))
+        if (TerrainTagUtil.TKKN_Swim.Contains(terrain))
         {
             __result = false;
         }

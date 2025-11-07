@@ -71,7 +71,7 @@ public class JobGiver_GoSwimming : JobGiver_Wander
             }
 
             var terrain = c2.GetTerrain(pawn.Map);
-            if (terrain.HasTag("TKKN_Swim"))
+            if (TerrainTagUtil.TKKN_Swim.Contains(terrain))
             {
                 return c2;
             }

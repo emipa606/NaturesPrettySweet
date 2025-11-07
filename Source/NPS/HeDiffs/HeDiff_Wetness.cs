@@ -62,10 +62,10 @@ public class Hediff_Wetness : HediffWithComps
         var rate = 0f;
         //check if the pawn is in water
         var terrain = position.GetTerrain(map);
-        if (terrain != null && terrain.HasTag("TKKN_Wet"))
+        if (terrain != null && TerrainTagUtil.TKKN_Wet.Contains(terrain))
         {
             //deep water gets them soaked.
-            if (terrain.HasTag("TKKN_Swim"))
+            if (TerrainTagUtil.TKKN_Swim.Contains(terrain))
             {
                 if (Severity < .65f)
                 {

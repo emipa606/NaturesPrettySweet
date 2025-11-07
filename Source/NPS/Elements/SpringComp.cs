@@ -430,7 +430,7 @@ public class SpringComp : SpringCompAbstract
             return false;
         }
 
-        return !currentTerrain.HasTag("TKKN_Wet");
+        return !TerrainTagUtil.TKKN_Wet.Contains(currentTerrain);
     }
 
     private void atmosphereAffectCell()

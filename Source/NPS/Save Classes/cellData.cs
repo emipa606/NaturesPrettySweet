@@ -413,12 +413,12 @@ public class cellData : IExposable
                 GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_crab), location, map);
             }
             else {
-                if (currentTerrain.HasTag("TKKN_Wet")) {
+                if (TerrainTagUtil.TKKN_Wet.Contains(currentTerrain)) {
                     FleckMaker.WaterSplash(location.ToVector3(), map, 1, 1);
                 }
             }
         }
-        else if (Rand.Value < .04 && currentTerrain.HasTag("Lava"))
+        else if (Rand.Value < .04 && TerrainTagUtil.Lava.Contains(currentTerrain))
         {
             FleckMaker.ThrowSmoke(location.ToVector3(), map, 5);
         }

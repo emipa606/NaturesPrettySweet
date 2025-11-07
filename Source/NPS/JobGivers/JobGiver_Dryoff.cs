@@ -39,7 +39,7 @@ public class JobGiver_Dryoff : ThinkNode_JobGiver
 
         bool Validator(IntVec3 pos)
         {
-            if (pos.GetTerrain(pawn.MapHeld).HasTag("TKKN_Wet"))
+            if (TerrainTagUtil.TKKN_Wet.Contains(pos.GetTerrain(pawn.MapHeld)))
             {
                 return false;
             }

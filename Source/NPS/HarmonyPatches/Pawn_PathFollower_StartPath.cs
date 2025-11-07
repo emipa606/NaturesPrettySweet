@@ -16,7 +16,7 @@ public static class Pawn_PathFollower_StartPath
         }
 
         var terrain = ___pawn.Position.GetTerrain(___pawn.Map);
-        if (!terrain.HasTag("TKKN_Swim") && !terrain.HasTag("TKKN_Lava"))
+        if (!TerrainTagUtil.TKKN_Swim.Contains(terrain) && TerrainTagUtil.Lava.Contains(terrain))
         {
             return true;
         }
@@ -72,6 +72,6 @@ public static class Pawn_PathFollower_StartPath
             return true;
         }
 
-        return !c.GetTerrain(pawn.Map).HasTag("TKKN_Swim") && !c.GetTerrain(pawn.Map).HasTag("TKKN_Lava");
+        return !TerrainTagUtil.TKKN_Swim.Contains(c.GetTerrain(pawn.Map)) && !TerrainTagUtil.Lava.Contains(c.GetTerrain(pawn.Map));
     }
 }

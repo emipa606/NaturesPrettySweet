@@ -221,7 +221,7 @@ public class Watcher(Map map) : MapComponent(map)
                     }
                 }
                 else if (terrain != RimWorld.TerrainDefOf.WaterOceanShallow && terrain != RimWorld.TerrainDefOf.WaterOceanDeep &&
-                         terrain.HasTag("TKKN_Wet"))
+                         TerrainTagUtil.TKKN_Wet.Contains(terrain))
                 {
                     for (var j = 0; j < howManyFloodSteps; j++)
                     {
@@ -235,7 +235,7 @@ public class Watcher(Map map) : MapComponent(map)
                             }
 
                             var bankCheckTerrain = bankCheck.GetTerrain(map);
-                            if (terrain == TerrainDefOf.TKKN_SandBeachWetSalt || bankCheckTerrain.HasTag("TKKN_Wet"))
+                            if (terrain == TerrainDefOf.TKKN_SandBeachWetSalt || TerrainTagUtil.TKKN_Wet.Contains(bankCheckTerrain))
                             {
                                 continue;
                             }
@@ -313,12 +313,12 @@ public class Watcher(Map map) : MapComponent(map)
                 }
             }
 
-            if (thiscell.Value.baseTerrain.HasTag("TKKN_Swim"))
+            if (TerrainTagUtil.TKKN_Swim.Contains(thiscell.Value.baseTerrain))
             {
                 swimmingCellsList.Add(thiscell.Key);
             }
 
-            if (thiscell.Value.baseTerrain.HasTag("Lava"))
+            if (TerrainTagUtil.Lava.Contains(thiscell.Value.baseTerrain))
             {
                 //future me: to do: split lava actions into ones that will affect pawns and ones that won't, since pawns can't walk on deep lava
                 lavaCellsList.Add(thiscell.Key);
@@ -596,7 +596,7 @@ public class Watcher(Map map) : MapComponent(map)
                     continue;
                 }
 
-                if (!cell.baseTerrain.HasTag("TKKN_Wet"))
+                if (!TerrainTagUtil.TKKN_Wet.Contains(cell.baseTerrain))
                 {
                     cell.baseTerrain = TerrainDefOf.TKKN_RiverDeposit;
                 }
@@ -696,7 +696,7 @@ public class Watcher(Map map) : MapComponent(map)
         }
 
 
-        if (Settings.showRain && !cell.currentTerrain.HasTag("TKKN_Wet"))
+        if (Settings.showRain && !TerrainTagUtil.TKKN_Wet.Contains(cell.currentTerrain))
         {
             //if it's raining in this cell:
             if (!roofed && map.weatherManager.curWeather.rainRate > .0001f)
@@ -784,9 +784,10 @@ public class Watcher(Map map) : MapComponent(map)
                 cell.howWetPlants += -1 * (outdoorTemp / humidity / 10);
                 if (cell.howWetPlants <= 0)
                 {
-                    if (cell.currentTerrain.HasModExtension<TerrainWeatherReactions>())
+                    var weather = cell.currentTerrain.GetModExtension<TerrainWeatherReactions>();
+                    if (weather != null)
                     {
-                        var weather = cell.currentTerrain.GetModExtension<TerrainWeatherReactions>();
+                        
                         if (weather.dryTerrain == null)
                         {
                             //only hurt plants on terrain that's not wet.
@@ -971,23 +972,23 @@ public class Watcher(Map map) : MapComponent(map)
 
         var flood = getFloodType();
 
-
-        var overrideType = "";
+        TerrainType? overrideType = null;
+        
         if (floodLevel < max && flood == FloodType.High)
         {
-            overrideType = "wet";
+            overrideType = TerrainType.Wet;
         }
         else if (floodLevel > 0 && flood == FloodType.Low)
         {
-            overrideType = "dry";
+            overrideType = TerrainType.Dry;
         }
         else if (floodLevel < half && flood == FloodType.Normal)
         {
-            overrideType = "wet";
+            overrideType = TerrainType.Wet;
         }
         else if (floodLevel > half && flood == FloodType.Normal)
         {
-            overrideType = "dry";
+            overrideType = TerrainType.Dry;
         }
 
         if (floodLevel == howManyFloodSteps && flood == FloodType.High)
@@ -1013,9 +1014,9 @@ public class Watcher(Map map) : MapComponent(map)
                 continue;
             }
 
-            if (overrideType != "")
+            if (overrideType != null)
             {
-                cell.overrideType = overrideType;
+                cell.overrideType = nameof(overrideType);
             }
 
             cell.setTerrain(TerrainType.Flooded);
@@ -1195,7 +1196,7 @@ public class Watcher(Map map) : MapComponent(map)
             }
 
             //check to see if it's still lava. Ignore roughhewn because lava can freeze/rain will cool it.
-            if (c.GetTerrain(map).HasTag("Lava") || c.GetTerrain(map) == TerrainDefOf.TKKN_LavaRock_RoughHewn)
+            if (TerrainTagUtil.Lava.Contains(c.GetTerrain(map)) || c.GetTerrain(map) == TerrainDefOf.TKKN_LavaRock_RoughHewn)
             {
                 continue;
             }

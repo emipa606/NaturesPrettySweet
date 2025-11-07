@@ -9,7 +9,7 @@ internal class Pawn_Tick
 {
     public static void Postfix(Pawn __instance)
     {
-        if (__instance is not ({ Spawned: true } and { Dead: false }))
+        if (!__instance.Spawned || __instance.Dead)
         {
             return;
         }
@@ -62,13 +62,13 @@ internal class Pawn_Tick
             return;
         }
 
-        if (pawn.health.Downed && terrain.HasTag("TKKN_Wet"))
+        if (pawn.health.Downed && TerrainTagUtil.TKKN_Wet.Contains(terrain))
         {
             var damage = .0005f;
             //if they're awake, take less damage
             if (!pawn.health.capacities.CanBeAwake)
             {
-                if (terrain.HasTag("TKKN_Swim"))
+                if (TerrainTagUtil.TKKN_Swim.Contains(terrain))
                 {
                     damage = .0001f;
                 }
@@ -139,7 +139,7 @@ internal class Pawn_Tick
         }
         else
         {
-            if (currentTerrain.HasTag("TKKN_Wet"))
+            if (TerrainTagUtil.TKKN_Wet.Contains(currentTerrain))
             {
                 isWet = true;
             }
