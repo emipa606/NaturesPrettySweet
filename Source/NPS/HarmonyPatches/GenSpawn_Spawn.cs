@@ -12,7 +12,7 @@ internal class GenSpawn_Spawn
     public static void Postfix(Thing newThing, IntVec3 loc, Map map)
     {
         var terrain = loc.GetTerrain(map);
-        if (terrain == null || !TerrainTagUtil.Lava.Contains(terrain))
+        if (!TerrainTagUtil.Lava.Contains(terrain))
         {
             return;
         }

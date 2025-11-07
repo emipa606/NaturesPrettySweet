@@ -82,7 +82,7 @@ internal class MouseoverReadout_MouseoverReadoutOnGUI
 
                 rect = new Rect(BotLeft.x, UI.screenHeight - BotLeft.y - num, 999f, 999f);
                 var label6 =
-                    $"TKKN_Wet {cell.currentTerrain.HasTag("TKKN_Wet")}TKKN_Swim {cell.currentTerrain.HasTag("TKKN_Swim")}";
+                    $"TKKN_Wet {TerrainTagUtil.TKKN_Wet.Contains(cell.currentTerrain)}TKKN_Swim {TerrainTagUtil.TKKN_Swim.Contains(cell.currentTerrain)}";
                 Widgets.Label(rect, label6);
                 num += 19f;
 

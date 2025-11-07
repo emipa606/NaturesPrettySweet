@@ -15,8 +15,7 @@ internal class Pawn_Tick
         }
 
         var terrain = __instance.Position.GetTerrain(__instance.MapHeld);
-        if (terrain == null)
-            return;
+        
         MakePaths(__instance);
         MakeBreath(__instance);
         MakeWet(__instance, terrain);
