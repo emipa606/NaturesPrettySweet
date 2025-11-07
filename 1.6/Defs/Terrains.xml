@@ -397,6 +397,14 @@
       <TKKN_BlockLava>20</TKKN_BlockLava>
     </costList>
   </TerrainDef>
+  <TerrainDef ParentName="FineTileStoneBase" MayRequire="Ludeon.Rimworld.Royalty">
+    <defName>TKKN_FineTileBasalt</defName>
+    <label>fine basalt tile</label>
+    <color>(50,50,50)</color>
+    <costList>
+      <TKKN_BlockLava>20</TKKN_BlockLava>
+    </costList>
+  </TerrainDef>
   <TerrainDef Abstract="True" ParentName="FloorBase" Name="SpecialTileBase">
     <renderPrecedence>220</renderPrecedence>
     <description>Carefully-cut and fit fancy tiles. They are pretty to look at, but they take a long time to lay.</description>

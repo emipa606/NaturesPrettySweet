@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/BiomeDef[defName = "TKKN_Desert"]/wildAnimals</xpath>
+        <value>
+            <ACPThornyDevil>0.04</ACPThornyDevil>
+            <ACPWildDog>0.04</ACPWildDog>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/BiomeDef[defName = "TKKN_Oasis"]/wildAnimals</xpath>
+        <value>
+            <ACPChipmunk>0.1</ACPChipmunk>
+            <ACPBlackbear>0.04</ACPBlackbear>
+            <ACPBlackRhinoceros>0.08</ACPBlackRhinoceros>
+            <ACPLion>0.04</ACPLion>
+            <ACPCheetah>0.08</ACPCheetah>
+            <ACPDuckBilledPlatypus>0.08</ACPDuckBilledPlatypus>
+            <!--Removed if Odyssey active-->
+            <ACPHippopotamus>0.08</ACPHippopotamus>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/BiomeDef[defName = "TKKN_RedwoodForest"]/wildAnimals</xpath>
+        <value>
+            <ACPChipmunk>1.0</ACPChipmunk>
+            <ACPBlackbear>0.4</ACPBlackbear>
+            <ACPDuckBilledPlatypus>0.4</ACPDuckBilledPlatypus>
+            <ACPRedPanda>0.08</ACPRedPanda>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/BiomeDef[defName = "TKKN_VolcanicFlow"]/wildAnimals</xpath>
+        <value>
+            <ACPMajoreraGoat>0.1</ACPMajoreraGoat>
+            <ACPAcidAnt>1</ACPAcidAnt>
+            <!--Removed if Odyssey active-->
+            <ACPKomodo>1</ACPKomodo>
+        </value>
+    </Operation>
+
+
+</Patch>

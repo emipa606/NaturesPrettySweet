@@ -186,6 +186,8 @@
       <fertility>0.001</fertility>
     </value>
   </Operation>
+  <!--
+  defName is not valid in base game
   <Operation Class="PatchOperationConditional">
     <xpath>/Defs/MainButtonDef[defName="Achievements"]</xpath>
     <success>Always</success>
@@ -193,6 +195,7 @@
       <xpath>/Defs/TerrainDef[@Name = "WaterDeepBase"]/passability</xpath>
     </match>
   </Operation>
+  -->
   <Operation Class="PatchOperationAdd">
     <xpath>/Defs/TerrainDef[@Name = "WaterBase"]/tags</xpath>
     <value>

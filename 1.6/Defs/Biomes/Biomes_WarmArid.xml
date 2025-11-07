@@ -183,6 +183,7 @@
       <Cougar>0.4</Cougar>
       <Rhinoceros>0.02</Rhinoceros>
       <Fox_Fennec>0.02</Fox_Fennec>
+        <Hippo MayRequire="Ludeon.Rimworld.Odyssey">0.08</Hippo>
     </wildAnimals>
     <allowedPackAnimals>
       <li>Muffalo</li>

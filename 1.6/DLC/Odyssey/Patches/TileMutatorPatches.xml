@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<!--
+	<li>TKKN_VolcanicFlow</li>
+	<li>TKKN_RedwoodForest</li>
+	<li>TKKN_Oasis</li>
+	<li>TKKN_Desert</li>
+	<li>TKKN_Grasslands</li>
+	-->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[@Name="AncientStructureMutBase"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_VolcanicFlow</li>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Oasis</li>
+			<li>TKKN_Desert</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="ArcheanTrees"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_VolcanicFlow</li>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="FoggyMutator"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="WetClimate"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_RedwoodForest</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="WindyMutator"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_VolcanicFlow</li>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Oasis</li>
+			<li>TKKN_Desert</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Fish_Increased"]/biomeBlacklist</xpath>
+		<value>
+			<li>TKKN_Oasis</li>
+			<li>TKKN_Desert</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="ObsidianDeposits"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_VolcanicFlow</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[@Name="BaseLakeMut"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Pond"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Oasis"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_Desert</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="DryLake"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_Oasis</li>
+			<li>TKKN_Desert</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Wetland"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_RedwoodForest</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="HotSprings"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_VolcanicFlow</li>
+			<li>TKKN_RedwoodForest</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Plateau"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_Desert</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Cliffs"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_VolcanicFlow</li>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Desert</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Basin"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_VolcanicFlow</li>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="TerraformingScar"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_VolcanicFlow</li>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Oasis</li>
+			<li>TKKN_Desert</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[@Name="BaseCoastMut"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_VolcanicFlow</li>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Oasis</li>
+			<li>TKKN_Desert</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Marshy"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Sandy"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_Grasslands</li>
+			<li>TKKN_VolcanicFlow</li>
+		</value>
+	</Operation>
+	
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Fertile"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Muddy"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Dunes"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_Oasis</li>
+			<li>TKKN_Desert</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[@Name="BaseAncientVentMut"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Oasis</li>
+			<li>TKKN_Desert</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="AncientHeatVent"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_Oasis</li>
+			<li>TKKN_Desert</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="AncientHeatVent"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_Oasis</li>
+			<li>TKKN_Desert</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="MixedBiome"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_VolcanicFlow</li>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Oasis</li>
+			<li>TKKN_Desert</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="PlantGrove"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_RedwoodForest</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="WildPlants"]/biomeWhitelist</xpath>
+		<value>
+			<li>TKKN_VolcanicFlow</li>
+			<li>TKKN_RedwoodForest</li>
+			<li>TKKN_Grasslands</li>
+		</value>
+	</Operation>
+
+</Patch>
