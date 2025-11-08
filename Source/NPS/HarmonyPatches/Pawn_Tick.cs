@@ -7,6 +7,9 @@ namespace TKKN_NPS;
 [HarmonyPatch(typeof(Pawn), "Tick")]
 internal class Pawn_Tick
 {
+    private static Map cachedMap;
+    private static Watcher watcher;
+    
     public static void Postfix(Pawn __instance)
     {
         if (!__instance.Spawned || __instance.Dead)
@@ -15,7 +18,11 @@ internal class Pawn_Tick
         }
 
         var terrain = __instance.Position.GetTerrain(__instance.MapHeld);
-        
+        if (cachedMap != __instance.Map)
+        {
+            cachedMap = __instance.Map;
+            watcher = cachedMap.GetComponent<Watcher>();
+        }
         MakePaths(__instance);
         MakeBreath(__instance);
         MakeWet(__instance, terrain);
@@ -119,18 +126,17 @@ internal class Pawn_Tick
         {
             return;
         }
-
-        var map = pawn.MapHeld;
+        
         var c = pawn.Position;
-        if (map == null || !c.IsValid)
+        if (!c.IsValid)
         {
             return;
         }
 
         var isWet = false;
-        if (map.weatherManager.curWeather.rainRate > .001f)
+        if (cachedMap.weatherManager.curWeather.rainRate > .001f)
         {
-            var roofed = map.roofGrid.Roofed(c);
+            var roofed = cachedMap.roofGrid.Roofed(c);
             if (!roofed)
             {
                 isWet = true;
@@ -160,19 +166,9 @@ internal class Pawn_Tick
     }
 
     
-
-    private static Map cachedMap;
-    private static Watcher watcher;
     private static void MakePaths(Pawn pawn)
     {
-        if (cachedMap != pawn.Map)
-        {
-            cachedMap = pawn.Map;
-            watcher = cachedMap.GetComponent<Watcher>();
-        }
-
-        if (watcher == null)
-        {
+        if (!Settings.doDirtPath) {
             return;
         }
 
@@ -188,13 +184,13 @@ internal class Pawn_Tick
             cachedMap.snowGrid.AddDepth(pawn.Position, (float)-.05);
         }
 
-        if (Settings.doDirtPath) {
-            //pack down the soil only if the pawn is moving AND is in our colony
-            if (pawn.pather.MovingNow && pawn.IsColonist &&
-                watcher.cellWeatherAffects.TryGetValue(pawn.Position, out var cell)) {
-                cell.doPack();
-            }
+        
+        //pack down the soil only if the pawn is moving AND is in our colony
+        if (pawn.pather.MovingNow && pawn.IsColonist &&
+            watcher.cellWeatherAffects.TryGetValue(pawn.Position, out var cell)) {
+            cell.doPack();
         }
+        
 
         /*
         if (Settings.allowPlantEffects)
