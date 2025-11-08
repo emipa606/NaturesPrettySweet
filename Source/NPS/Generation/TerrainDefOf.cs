@@ -31,7 +31,7 @@ public static class TerrainDefOf
 
     //flooding
     public static TerrainDef TKKN_RiverDeposit;
-    
+
     static TerrainDefOf()
     {
         DefOfHelper.EnsureInitializedInCtor(typeof(TerrainDefOf));

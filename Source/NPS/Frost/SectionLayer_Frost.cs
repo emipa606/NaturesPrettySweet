@@ -18,12 +18,6 @@ internal class SectionLayer_Frost : SectionLayer
 
     public override bool Visible => true;
 
-    private bool Filled(int index)
-    {
-        var building = Map.edificeGrid[index];
-        return building != null && building.def.Fillage == FillCategory.Full;
-    }
-
     public override void Regenerate()
     {
         var subMesh = GetSubMesh(Verse.MatBases.Snow);
@@ -82,7 +76,7 @@ internal class SectionLayer_Frost : SectionLayer
                         b = true;
                     }
 
-                    subMesh.colors.Add(FrostDepthColor(vertDepth[k]));
+                    subMesh.colors.Add(frostDepthColor(vertDepth[k]));
                 }
             }
         }
@@ -99,8 +93,8 @@ internal class SectionLayer_Frost : SectionLayer
     }
 
 
-    private static Color32 FrostDepthColor(float FrostDepth)
+    private static Color32 frostDepthColor(float frostDepth)
     {
-        return Color32.Lerp(ColorClear, ColorWhite, FrostDepth);
+        return Color32.Lerp(ColorClear, ColorWhite, frostDepth);
     }
 }

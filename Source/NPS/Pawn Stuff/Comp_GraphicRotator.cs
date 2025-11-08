@@ -36,15 +36,7 @@ public class Comp_GraphicRotator : ThingComp
         }
 
         var c = pawn.pather.nextCell - pawn.Position;
-        if (c.x > 0)
-        {
-            curAngle += turnDegree;
-        }
-        else if (c.x < 0)
-        {
-            curAngle += turnDegree;
-        }
-        else if (c.z > 0)
+        if (c.x > 0 || c.x < 0 || c.z > 0)
         {
             curAngle += turnDegree;
         }
@@ -53,14 +45,10 @@ public class Comp_GraphicRotator : ThingComp
             curAngle -= turnDegree;
         }
 
-        if (curAngle > 360)
+        curAngle = curAngle switch
         {
-            curAngle = 360 - curAngle;
-        }
-        else if (curAngle < 0)
-        {
-            curAngle = 360 + curAngle;
-        }
+            > 360 => 360 - curAngle, < 0 => 360 + curAngle, _ => curAngle
+        };
 
         return curAngle;
     }

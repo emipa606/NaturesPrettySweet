@@ -14,34 +14,33 @@ public static class Plant_Graphic
     private static Watcher watcher;
     private static Vector2 location;
     private static Season season;
-    
+
     public static void Postfix(Plant __instance, ref Graphic __result)
     {
         var mod = __instance.def.GetModExtension<ThingWeatherReaction>();
-        if (mod==null)
+        if (mod == null)
         {
             return;
         }
-        
-        if(cachedMap != __instance.Map)
+
+        if (cachedMap != __instance.Map)
         {
-            cachedMap=__instance.Map;
+            cachedMap = __instance.Map;
             watcher = cachedMap.GetComponent<Watcher>();
         }
-        
+
         var id = __instance.def.defName;
 
         var path = "";
-        
+
 
         //get flowering or drought graphic if it's over 70
         if (__instance.AmbientTemperature > 21)
         {
-            
-
             if (watcher.cellWeatherAffects.TryGetValue(__instance.Position, out var cell))
             {
-                if (cachedTicks != Find.TickManager.TicksAbs) {
+                if (cachedTicks != Find.TickManager.TicksAbs)
+                {
                     cachedTicks = Find.TickManager.TicksAbs;
                     location = Find.WorldGrid.LongLatOf(__instance.MapHeld.Tile);
                     season = GenDate.Season(Find.TickManager.TicksAbs, location);

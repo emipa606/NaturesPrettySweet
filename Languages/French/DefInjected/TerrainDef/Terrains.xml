@@ -66,4 +66,8 @@
   <TKKN_TileBasalt.description>Des carreaux de pierre soigneusement taillés et ajustés pour donner l'impression d'un château. Elles sont jolies à regarder, mais il faut beaucoup de temps pour les poser.</TKKN_TileBasalt.description>
   <!-- EN: wet lichen-covered dirt -->
   <TKKN_WetMossyTerrain.label>terre humide recouverte de lichen</TKKN_WetMossyTerrain.label>
+  <!-- EN: fine basalt tile -->
+  <TKKN_FineTileBasalt.label>tuile de basalte fin</TKKN_FineTileBasalt.label>
+  <!-- EN: Exquisite stone tiles, made with no compromises, for expressing economic status. Slow to construct. -->
+  <TKKN_FineTileBasalt.description>Tuiles de pierre exquises, fabriquées sans compromis, pour exprimer le statut économique. Lent à construire.</TKKN_FineTileBasalt.description>
 </LanguageData>

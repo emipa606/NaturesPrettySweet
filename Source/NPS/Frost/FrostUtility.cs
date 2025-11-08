@@ -39,21 +39,4 @@ internal class FrostUtility
                 return "Frost";
         }
     }
-
-    public static int MovementTicksAddOn(FrostCategory category)
-    {
-        switch (category)
-        {
-            case FrostCategory.None:
-            case FrostCategory.Dusting:
-            case FrostCategory.Thin:
-                return 0;
-            case FrostCategory.Medium:
-                return 1;
-            case FrostCategory.Thick:
-                return 2;
-            default:
-                return 0;
-        }
-    }
 }

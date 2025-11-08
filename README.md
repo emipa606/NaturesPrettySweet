@@ -1,6 +1,6 @@
 # [Nature's Pretty Sweet (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3542949511)
 
-![Image](https://i.imgur.com/buuPQel.png)
+![Image](https://i.postimg.cc/1X4HT06h/Info.png)
 
 Update of tkkntkkns mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1211694919
@@ -12,9 +12,9 @@ To avoid doubling the size of the mod, it was re-released using only Asset Bundl
 - Added support for [Rimbrellas!](https://steamcommunity.com/sharedfiles/filedetails/?id=2079784964)
 - If Odyssey is installed, the water-freezing, flooding and swimming will be turned off to not conflict with the DLC-features.
 
-![Image](https://i.imgur.com/pufA0kM.png)
+![Image](https://i.postimg.cc/8csH3dWV/Notice.png)
 	
-![Image](https://i.imgur.com/Z4GOv8H.png)
+![Image](https://i.postimg.cc/hvhrw8xB/Original-Description.png)
 
 [Full description! (I'm out of space here)](http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/) 
 
@@ -148,7 +148,7 @@ And a ton of minor additions to make the world feel more alive! ~~[Read them her
 
 *Currently requires a new game, because the biomes are generated when your world is generated. If you don't care about that, there's an option called "LEAVE ALONE: Regen cell lists". Click it, save and reload your file. Then uncheck it and save again. This will give you weather effects and tides. I use this option for debugging and resetting maps on my end. It's not tested or supported. Use at your own risk.
 
-![Image](https://i.imgur.com/PwoNOj4.png)
+![Image](https://i.postimg.cc/x8qR7GH9/Reporting-Issues.png)
 
 
 

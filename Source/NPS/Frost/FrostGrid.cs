@@ -18,14 +18,11 @@ public sealed class FrostGrid : MapComponent
 
     internal float[] DepthGridDirect_Unsafe { get; }
 
-    public float TotalDepth => (float)totalDepth;
-
-
-    private bool CanHaveFrost(int ind)
+    private bool canHaveFrost(int ind)
     {
         var building = map.edificeGrid[ind];
 
-        if (building != null && !CanCoexistWithFrost(building.def))
+        if (building != null && !canCoexistWithFrost(building.def))
         {
             return false;
         }
@@ -38,7 +35,7 @@ public sealed class FrostGrid : MapComponent
         //return terrainDef.affordances.Contains(TerrainAffordance.Light);
     }
 
-    private bool CanCoexistWithFrost(ThingDef def)
+    private static bool canCoexistWithFrost(ThingDef def)
     {
         return def.category != ThingCategory.Building; // || def.Fillage != FillCategory.Full;
     }
@@ -62,7 +59,7 @@ public sealed class FrostGrid : MapComponent
             return;
         }
 
-        if (!CanHaveFrost(num))
+        if (!canHaveFrost(num))
         {
             DepthGridDirect_Unsafe[num] = 0f;
             return;
@@ -78,7 +75,7 @@ public sealed class FrostGrid : MapComponent
         }
 
         DepthGridDirect_Unsafe[num] = num3;
-        CheckVisualOrPathCostChange(c, num2, num3);
+        checkVisualOrPathCostChange(c, num2, num3);
     }
 
     public void SetDepth(IntVec3 c, float newDepth)
@@ -89,7 +86,7 @@ public sealed class FrostGrid : MapComponent
         }
 
         var num = map.cellIndices.CellToIndex(c);
-        if (!CanHaveFrost(num))
+        if (!canHaveFrost(num))
         {
             DepthGridDirect_Unsafe[num] = 0f;
             return;
@@ -100,10 +97,10 @@ public sealed class FrostGrid : MapComponent
         DepthGridDirect_Unsafe[num] = newDepth;
         var num3 = newDepth - num2;
         totalDepth += num3;
-        CheckVisualOrPathCostChange(c, num2, newDepth);
+        checkVisualOrPathCostChange(c, num2, newDepth);
     }
 
-    private void CheckVisualOrPathCostChange(IntVec3 c, float oldDepth, float newDepth)
+    private void checkVisualOrPathCostChange(IntVec3 c, float oldDepth, float newDepth)
     {
         if (!map.GetComponent<Watcher>().cellWeatherAffects.TryGetValue(c, out var cell))
         {
@@ -130,10 +127,5 @@ public sealed class FrostGrid : MapComponent
     public float GetDepth(IntVec3 c)
     {
         return !c.InBounds(map) ? 0f : DepthGridDirect_Unsafe[map.cellIndices.CellToIndex(c)];
-    }
-
-    public FrostCategory GetCategory(IntVec3 c)
-    {
-        return FrostUtility.GetFrostCategory(GetDepth(c));
     }
 }

@@ -44,21 +44,6 @@ public class BiomeSeasonalSettings : DefModExtension
     public List<WeatherCommonalityRecord> winterWeathers;
 
 
-    public bool canPutOnTerrain(IntVec3 c, ThingDef thingDef, Map map)
-    {
-        var terrain = c.GetTerrain(map);
-
-        //make sure plants are spawning on terrain that they're limited to:
-        var weatherReaction = thingDef.GetModExtension<ThingWeatherReaction>();
-        if (weatherReaction?.allowedTerrains == null)
-        {
-            return true;
-        }
-
-        //if they're only allowed to spawn in certain terrains, stop it from spawning.
-        return weatherReaction.allowedTerrains.Contains(terrain);
-    }
-
     public void setWeatherBySeason(Map map, Season season, Quadrum quadrum)
     {
         if (springWeathers == null || !springWeathers.Any() ||

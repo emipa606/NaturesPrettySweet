@@ -31,7 +31,7 @@ public class IncidentWorker_Dustdevil : IncidentWorker
         var randomInRange = devils.RandomInRange;
         for (var i = 0; i < randomInRange; i++)
         {
-            if (!CellFinder.TryFindRandomCellInsideWith(cellRect, x => CanSpawnDustDevilAt(x, map), out var loc))
+            if (!CellFinder.TryFindRandomCellInsideWith(cellRect, x => canSpawnDustDevilAt(x, map), out var loc))
             {
                 return false;
             }
@@ -44,7 +44,7 @@ public class IncidentWorker_Dustdevil : IncidentWorker
         return true;
     }
 
-    private bool CanSpawnDustDevilAt(IntVec3 c, Map map)
+    private static bool canSpawnDustDevilAt(IntVec3 c, Map map)
     {
         if (c.Fogged(map))
         {
@@ -60,7 +60,7 @@ public class IncidentWorker_Dustdevil : IncidentWorker
                 continue;
             }
 
-            if (AnyPawnOfPlayerFactionAt(c2, map))
+            if (anyPawnOfPlayerFactionAt(c2, map))
             {
                 return false;
             }
@@ -69,7 +69,7 @@ public class IncidentWorker_Dustdevil : IncidentWorker
         return true;
     }
 
-    private static bool AnyPawnOfPlayerFactionAt(IntVec3 c, Map map)
+    private static bool anyPawnOfPlayerFactionAt(IntVec3 c, Map map)
     {
         var thingList = c.GetThingList(map);
         foreach (var thing in thingList)

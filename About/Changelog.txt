@@ -1,5 +1,9 @@
 # Changelog for NaturesPrettySweet
 
+1.6.6 - Large performance and bug-fix update, thanks to Halicade!
+Now also has some support for Odyssey
+
+
 1.6.5 - Settings and dlc fix, thanks rokel
 
 

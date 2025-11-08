@@ -28,11 +28,11 @@ public class TKKN_SpecialHerdMigration : IncidentWorker
             return false;
         }
 
-        return TryFindAnimalKind(map1.Tile, out _) &&
-               TryFindStartAndEndCells(map1, out _, out _);
+        return tryFindAnimalKind(map1.Tile, out _) &&
+               tryFindStartAndEndCells(map1, out _, out _);
     }
 
-    private bool TryFindAnimalKind(int tile, out PawnKindDef animalKind)
+    private bool tryFindAnimalKind(int tile, out PawnKindDef animalKind)
     {
         var specialHerds = mod.specialHerds;
         var possibleAnimals = from k in DefDatabase<PawnKindDef>.AllDefs
@@ -52,18 +52,18 @@ public class TKKN_SpecialHerdMigration : IncidentWorker
     protected override bool TryExecuteWorker(IncidentParms parms)
     {
         var parmsTarget = (Map)parms.target;
-        if (!TryFindAnimalKind(parmsTarget.Tile, out var pawnKindDef))
+        if (!tryFindAnimalKind(parmsTarget.Tile, out var pawnKindDef))
         {
             return false;
         }
 
-        if (!TryFindStartAndEndCells(parmsTarget, out var intVec, out var near))
+        if (!tryFindStartAndEndCells(parmsTarget, out var intVec, out var near))
         {
             return false;
         }
 
         var rot = Rot4.FromAngleFlat((parmsTarget.Center - intVec).AngleFlat);
-        var list = GenerateAnimals(pawnKindDef, parmsTarget.Tile);
+        var list = generateAnimals(pawnKindDef, parmsTarget.Tile);
         foreach (var newThing in list)
         {
             var loc = CellFinder.RandomClosewalkCellNear(intVec, parmsTarget, 10);
@@ -77,7 +77,7 @@ public class TKKN_SpecialHerdMigration : IncidentWorker
         return true;
     }
 
-    private static bool TryFindStartAndEndCells(Map localMap, out IntVec3 start, out IntVec3 end)
+    private static bool tryFindStartAndEndCells(Map localMap, out IntVec3 start, out IntVec3 end)
     {
         if (!RCellFinder.TryFindRandomPawnEntryCell(out start, localMap, CellFinder.EdgeRoadChance_Animal))
         {
@@ -106,7 +106,7 @@ public class TKKN_SpecialHerdMigration : IncidentWorker
         return end.IsValid;
     }
 
-    private static List<Pawn> GenerateAnimals(PawnKindDef animalKind, int tile)
+    private static List<Pawn> generateAnimals(PawnKindDef animalKind, int tile)
     {
         var randomInRange = AnimalsCount.RandomInRange;
         var list = new List<Pawn>();

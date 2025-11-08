@@ -10,7 +10,7 @@ public static class WeatherDecider_CurrentWeatherCommonality
 {
     public static bool Prefix(WeatherDef weather, ref float __result, Map ___map, int ___ticksWhenRainAllowedAgain)
     {
-        if (___map == null || ___map.weatherManager == null || ___map.gameConditionManager == null ||
+        if (___map?.weatherManager == null || ___map.gameConditionManager == null ||
             ___map.Biome == null || ___map.mapTemperature == null || weather == null)
         {
             __result = 0f;

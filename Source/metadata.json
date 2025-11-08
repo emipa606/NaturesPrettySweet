@@ -9,11 +9,11 @@
     " weather",
     " biomes"
   ],
-  "LastXmlCleaning": "2025-08-25T21:34:25.4914234+02:00",
+  "LastXmlCleaning": "2025-11-08T23:28:18.2327988+01:00",
   "Patches": true,
   "Defs": true,
   "Assemblies": true,
-  "LinesOfCode": 192562,
-  "LinesOfXML": 356618,
+  "LinesOfCode": 189327,
+  "LinesOfXML": 359556,
   "CodeBaseSize": 90
 }

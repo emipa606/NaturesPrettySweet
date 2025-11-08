@@ -21,16 +21,16 @@ public static class Pawn_PathFollower_StartPath
             return true;
         }
 
-        return PawnCanOccupy(___pawn.Position, ___pawn) || TryRecoverFromUnwalkablePosition(___pawn);
+        return pawnCanOccupy(___pawn.Position, ___pawn) || tryRecoverFromUnwalkablePosition(___pawn);
     }
 
-    private static bool TryRecoverFromUnwalkablePosition(Pawn pawn)
+    private static bool tryRecoverFromUnwalkablePosition(Pawn pawn)
     {
         var tryRecoverFromUnwalkablePosition = false;
         foreach (var intVec3 in GenRadial.RadialPattern)
         {
             var intVec = pawn.Position + intVec3;
-            if (!PawnCanOccupy(intVec, pawn))
+            if (!pawnCanOccupy(intVec, pawn))
             {
                 continue;
             }
@@ -54,7 +54,7 @@ public static class Pawn_PathFollower_StartPath
         return tryRecoverFromUnwalkablePosition;
     }
 
-    private static bool PawnCanOccupy(IntVec3 c, Pawn pawn)
+    private static bool pawnCanOccupy(IntVec3 c, Pawn pawn)
     {
         if (!c.Walkable(pawn.Map))
         {
@@ -62,7 +62,7 @@ public static class Pawn_PathFollower_StartPath
         }
 
         var edifice = c.GetEdifice(pawn.Map);
-        if (edifice is Building_Door building_Door && !building_Door.PawnCanOpen(pawn) && !building_Door.Open)
+        if (edifice is Building_Door buildingDoor && !buildingDoor.PawnCanOpen(pawn) && !buildingDoor.Open)
         {
             return false;
         }

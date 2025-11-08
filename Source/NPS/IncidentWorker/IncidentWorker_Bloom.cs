@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using RimWorld;
+﻿using RimWorld;
 using Verse;
 
 namespace TKKN_NPS;
@@ -25,7 +24,7 @@ public class IncidentWorker_Bloom : IncidentWorker_TKKN_Weather
             return false;
         }
 
-        
+
         if (biomeSettings.bloomPlants.Count == 0)
         {
             return false;

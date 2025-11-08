@@ -16,20 +16,22 @@ internal class MouseoverReadout_MouseoverReadoutOnGUI
         {
             return;
         }
+
         var c = UI.MouseCell();
         var map = Find.CurrentMap;
         if (!c.InBounds(map))
         {
             return;
         }
-        if (cachedMap != map) 
+
+        if (cachedMap != map)
         {
             cachedMap = map;
             cachedFrostGrid = map.GetComponent<FrostGrid>();
         }
 
         Rect rect;
-        var BotLeft = new Vector2(15f, 65f);
+        var botLeft = new Vector2(15f, 65f);
         var num = 38f;
         var zone = c.GetZone(map);
         if (zone != null)
@@ -60,7 +62,7 @@ internal class MouseoverReadout_MouseoverReadoutOnGUI
 
         if (Settings.showDevReadout)
         {
-            rect = new Rect(BotLeft.x, UI.screenHeight - BotLeft.y - num, 999f, 999f);
+            rect = new Rect(botLeft.x, UI.screenHeight - botLeft.y - num, 999f, 999f);
             var label3 = $"C: x-{c.x} y-{c.y} z-{c.z}";
             Widgets.Label(rect, label3);
             num += 19f;
@@ -69,25 +71,25 @@ internal class MouseoverReadout_MouseoverReadoutOnGUI
 
             if (watcher.cellWeatherAffects.TryGetValue(c, out var cell))
             {
-                rect = new Rect(BotLeft.x, UI.screenHeight - BotLeft.y - num, 999f, 999f);
+                rect = new Rect(botLeft.x, UI.screenHeight - botLeft.y - num, 999f, 999f);
                 var label2 = $"Temperature: {cell.temperature}";
                 Widgets.Label(rect, label2);
                 num += 19f;
 
-                rect = new Rect(BotLeft.x, UI.screenHeight - BotLeft.y - num, 999f, 999f);
+                rect = new Rect(botLeft.x, UI.screenHeight - botLeft.y - num, 999f, 999f);
                 var label4 =
                     $"Cell Info: Base Terrain {cell.baseTerrain.defName} Current Terrain {cell.currentTerrain.defName} | Wet {cell.isWet} | Melt {cell.isMelt} | Flooded {cell.isFlooded} | Frozen {cell.isFrozen} | Thawed {cell.isThawed} | Getting Wet? {cell.gettingWet}";
                 Widgets.Label(rect, label4);
                 num += 19f;
 
-                rect = new Rect(BotLeft.x, UI.screenHeight - BotLeft.y - num, 999f, 999f);
+                rect = new Rect(botLeft.x, UI.screenHeight - botLeft.y - num, 999f, 999f);
                 var label6 =
                     $"TKKN_Wet {TerrainTagUtil.TKKN_Wet.Contains(cell.currentTerrain)}TKKN_Swim {TerrainTagUtil.TKKN_Swim.Contains(cell.currentTerrain)}";
                 Widgets.Label(rect, label6);
                 num += 19f;
 
 
-                rect = new Rect(BotLeft.x, UI.screenHeight - BotLeft.y - num, 999f, 999f);
+                rect = new Rect(botLeft.x, UI.screenHeight - botLeft.y - num, 999f, 999f);
                 var label5 =
                     $"Cell Info: howWet {cell.howWet} | How Wet (Plants) {cell.howWetPlants} | How Packed {cell.howPacked}";
                 if (cell.weather != null)
@@ -126,7 +128,7 @@ internal class MouseoverReadout_MouseoverReadoutOnGUI
             return;
         }
 
-        rect = new Rect(BotLeft.x, UI.screenHeight - BotLeft.y - num, 999f, 999f);
+        rect = new Rect(botLeft.x, UI.screenHeight - botLeft.y - num, 999f, 999f);
         var frostCategory = FrostUtility.GetFrostCategory(depth);
         var label = FrostUtility.GetDescription(frostCategory);
         Widgets.Label(rect, label);

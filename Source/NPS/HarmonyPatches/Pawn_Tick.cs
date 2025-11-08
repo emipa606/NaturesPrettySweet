@@ -9,7 +9,7 @@ internal class Pawn_Tick
 {
     private static Map cachedMap;
     private static Watcher watcher;
-    
+
     public static void Postfix(Pawn __instance)
     {
         if (!__instance.Spawned || __instance.Dead)
@@ -23,17 +23,18 @@ internal class Pawn_Tick
             cachedMap = __instance.Map;
             watcher = cachedMap.GetComponent<Watcher>();
         }
-        MakePaths(__instance);
-        MakeBreath(__instance);
-        MakeWet(__instance, terrain);
-        DyingCheck(__instance, terrain);
+
+        makePaths(__instance);
+        makeBreath(__instance);
+        makeWet(__instance, terrain);
+        dyingCheck(__instance, terrain);
 
         if (__instance.RaceProps.Humanlike && __instance.needs == null)
         {
             return;
         }
 
-        
+
         if (terrain == TerrainDefOf.TKKN_HotSpringsWater)
         {
             if (__instance.needs.comfort != null)
@@ -41,17 +42,21 @@ internal class Pawn_Tick
                 __instance.needs.comfort.lastComfortUseTick--;
             }
 
-            HediffDef hediffDef = HediffDefOf.TKKN_hotspring_chill_out;
-            if (__instance.health.hediffSet.GetFirstHediffOfDef(hediffDef) == null)
+            var hediffDef = HediffDefOf.TKKN_hotspring_chill_out;
+            if (__instance.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null)
             {
-                var hediff = HediffMaker.MakeHediff(hediffDef, __instance);
-                __instance.health.AddHediff(hediff);
+                return;
             }
+
+            var hediff = HediffMaker.MakeHediff(hediffDef, __instance);
+            __instance.health.AddHediff(hediff);
         }
-        else if (terrain == TerrainDefOf.TKKN_ColdSpringsWater) {
+        else if (terrain == TerrainDefOf.TKKN_ColdSpringsWater)
+        {
             __instance.needs.rest?.TickResting(.05f);
-            HediffDef hediffDef = HediffDefOf.TKKN_coldspring_chill_out;
-            if (__instance.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null) {
+            var hediffDef = HediffDefOf.TKKN_coldspring_chill_out;
+            if (__instance.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null)
+            {
                 return;
             }
 
@@ -60,7 +65,7 @@ internal class Pawn_Tick
         }
     }
 
-    private static void DyingCheck(Pawn pawn, TerrainDef terrain)
+    private static void dyingCheck(Pawn pawn, TerrainDef terrain)
     {
         //drowning == immobile and in water
         if (!pawn.RaceProps.Humanlike)
@@ -114,7 +119,7 @@ internal class Pawn_Tick
         }
     }
 
-    private static void MakeWet(Pawn pawn, TerrainDef currentTerrain)
+    private static void makeWet(Pawn pawn, TerrainDef currentTerrain)
     {
         if (!Settings.allowPawnsToGetWet)
         {
@@ -126,7 +131,7 @@ internal class Pawn_Tick
         {
             return;
         }
-        
+
         var c = pawn.Position;
         if (!c.IsValid)
         {
@@ -165,10 +170,11 @@ internal class Pawn_Tick
         pawn.health.AddHediff(hediff);
     }
 
-    
-    private static void MakePaths(Pawn pawn)
+
+    private static void makePaths(Pawn pawn)
     {
-        if (!Settings.doDirtPath) {
+        if (!Settings.doDirtPath)
+        {
             return;
         }
 
@@ -184,23 +190,16 @@ internal class Pawn_Tick
             cachedMap.snowGrid.AddDepth(pawn.Position, (float)-.05);
         }
 
-        
+
         //pack down the soil only if the pawn is moving AND is in our colony
         if (pawn.pather.MovingNow && pawn.IsColonist &&
-            watcher.cellWeatherAffects.TryGetValue(pawn.Position, out var cell)) {
+            watcher.cellWeatherAffects.TryGetValue(pawn.Position, out var cell))
+        {
             cell.doPack();
         }
-        
-
-        /*
-        if (Settings.allowPlantEffects)
-        {
-            //this will be handled by the terrain changing in doPack
-            //		watcher.hurtPlants(pawn.Position, true, true);
-        }*/
     }
 
-    private static void MakeBreath(Pawn pawn)
+    private static void makeBreath(Pawn pawn)
     {
         if (Find.TickManager.TicksGame % 150 != 0)
         {

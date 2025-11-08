@@ -22,16 +22,8 @@ public class SpringComp : SpringCompAbstract
     private bool spawnThings;
     private StatusType status = StatusType.spawning;
     protected ModuleBase terrainNoise;
-    protected TerrainType? terrainType = TerrainType.Wet;
+    private TerrainType? terrainType = TerrainType.Wet;
     private float width;
-
-    private enum StatusType : byte
-    {
-        spawning,
-        stable,
-        expand,
-        despawn
-    }
 
     protected CompProperties_Springs Props => (CompProperties_Springs)props;
 
@@ -121,13 +113,13 @@ public class SpringComp : SpringCompAbstract
                 foreach (var cell in affectableCells)
                 {
                     terrainType = TerrainType.Wet;
-                    AffectCell(cell);
+                    affectCell(cell);
                     specialFXAffect(cell);
                 }
 
                 foreach (var cell in boundaryCellsRough)
                 {
-                    AffectCell(cell);
+                    affectCell(cell);
                     specialFXAffect(cell);
                 }
 
@@ -139,7 +131,7 @@ public class SpringComp : SpringCompAbstract
                     }
 
                     terrainType = TerrainType.Dry;
-                    AffectCell(cell);
+                    affectCell(cell);
                 }
             }
             else
@@ -334,7 +326,7 @@ public class SpringComp : SpringCompAbstract
             return;
         }
 
-        if (!source.TryRandomElementByWeight(def => PlantChoiceWeight(def, map), out var thingDef))
+        if (!source.TryRandomElementByWeight(def => plantChoiceWeight(def, map), out var thingDef))
         {
             return;
         }
@@ -349,12 +341,12 @@ public class SpringComp : SpringCompAbstract
         GenSpawn.Spawn(plant, c, map);
     }
 
-    private static float PlantChoiceWeight(ThingDef def, Map map)
+    private static float plantChoiceWeight(ThingDef def, Map map)
     {
         return map.Biome.CommonalityOfPlant(def) * def.plant.wildClusterWeight;
     }
 
-    private void AffectCell(IntVec3 c)
+    private void affectCell(IntVec3 c)
     {
         var isSpawnCell = false;
         if (!c.InBounds(parent.Map))
@@ -438,33 +430,12 @@ public class SpringComp : SpringCompAbstract
         GenTemperature.PushHeat(parent, Props.temperature);
     }
 
-    public void AffectPawns(IntVec3 c)
-    {
-        var pawns = c.GetThingList(parent.Map);
-        foreach (var thing in pawns)
-        {
-            if (thing is Pawn)
-            {
-                //    pawn.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.NearNPS, null);
-            }
-        }
-    }
-
     public override void specialCellAffects(IntVec3 c)
     {
-        //set terrain
         if (terrainType == TerrainType.Wet)
         {
             parent.Map.terrainGrid.SetTerrain(c, Props.wetTile);
         }
-        /*
-         terrainType is never deep. This option can never happen
-        else 
-         
-        if (terrainType == "deep")
-        {
-            parent.Map.terrainGrid.SetTerrain(c, Props.deepTile);
-        }*/
 
         FilthMaker.RemoveAllFilth(c, parent.Map);
     }
@@ -472,5 +443,13 @@ public class SpringComp : SpringCompAbstract
     protected override void specialFXAffect(IntVec3 c)
     {
         base.specialFXAffect(c);
+    }
+
+    private enum StatusType : byte
+    {
+        spawning,
+        stable,
+        expand,
+        despawn
     }
 }

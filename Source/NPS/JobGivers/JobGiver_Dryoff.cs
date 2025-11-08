@@ -33,11 +33,11 @@ public class JobGiver_Dryoff : ThinkNode_JobGiver
     private static IntVec3 getDryCell(Pawn pawn)
     {
         pawn.MapHeld.regionAndRoomUpdater.Enabled = true;
-        CellFinder.TryFindRandomCellNear(pawn.Position, pawn.MapHeld, 6, Validator, out var c);
+        CellFinder.TryFindRandomCellNear(pawn.Position, pawn.MapHeld, 6, validator, out var c);
         pawn.MapHeld.regionAndRoomUpdater.Enabled = false;
         return c;
 
-        bool Validator(IntVec3 pos)
+        bool validator(IntVec3 pos)
         {
             if (TerrainTagUtil.TKKN_Wet.Contains(pos.GetTerrain(pawn.MapHeld)))
             {

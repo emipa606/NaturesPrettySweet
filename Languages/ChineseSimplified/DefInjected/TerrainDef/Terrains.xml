@@ -66,4 +66,8 @@
   <TKKN_TileBasalt.description>精心切割和安装石砖，营造城堡的感觉。它们看起来很漂亮，但铺设起来需要很长时间。</TKKN_TileBasalt.description>
   <!-- EN: wet lichen-covered dirt -->
   <TKKN_WetMossyTerrain.label>地衣覆盖的湿土</TKKN_WetMossyTerrain.label>
+  <!-- EN: fine basalt tile -->
+  <TKKN_FineTileBasalt.label>细玄武岩瓦</TKKN_FineTileBasalt.label>
+  <!-- EN: Exquisite stone tiles, made with no compromises, for expressing economic status. Slow to construct. -->
+  <TKKN_FineTileBasalt.description>精致的石砖，不折不扣地制作而成，用于表达经济地位。建造缓慢。</TKKN_FineTileBasalt.description>
 </LanguageData>

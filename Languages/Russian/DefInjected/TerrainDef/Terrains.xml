@@ -66,4 +66,8 @@
   <TKKN_TileBasalt.description>Тщательно вырезанные и подогнанные каменные плитки создают ощущение замка. На них приятно смотреть, но укладка занимает много времени.</TKKN_TileBasalt.description>
   <!-- EN: wet lichen-covered dirt -->
   <TKKN_WetMossyTerrain.label>мокрая грязь, покрытая лишайником</TKKN_WetMossyTerrain.label>
+  <!-- EN: fine basalt tile -->
+  <TKKN_FineTileBasalt.label>мелкая базальтовая плитка</TKKN_FineTileBasalt.label>
+  <!-- EN: Exquisite stone tiles, made with no compromises, for expressing economic status. Slow to construct. -->
+  <TKKN_FineTileBasalt.description>Изысканные каменные плитки, сделанные без компромиссов, для выражения экономического статуса. Медленно строятся.</TKKN_FineTileBasalt.description>
 </LanguageData>

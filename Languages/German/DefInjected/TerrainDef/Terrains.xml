@@ -66,4 +66,8 @@
   <TKKN_TileBasalt.description>Sorgfältig geschnittene und angepasste Steinfliesen für ein Schlossgefühl. Sie sind hübsch anzuschauen, aber es dauert lange, sie zu verlegen.</TKKN_TileBasalt.description>
   <!-- EN: wet lichen-covered dirt -->
   <TKKN_WetMossyTerrain.label>feuchter, mit Flechten bedeckter Schmutz</TKKN_WetMossyTerrain.label>
+  <!-- EN: fine basalt tile -->
+  <TKKN_FineTileBasalt.label>feine Basaltfliese</TKKN_FineTileBasalt.label>
+  <!-- EN: Exquisite stone tiles, made with no compromises, for expressing economic status. Slow to construct. -->
+  <TKKN_FineTileBasalt.description>Exquisite, kompromisslos hergestellte Steinplatten, die den wirtschaftlichen Status ausdrücken. Langsam zu konstruieren.</TKKN_FineTileBasalt.description>
 </LanguageData>

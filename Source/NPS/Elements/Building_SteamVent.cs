@@ -18,18 +18,18 @@ internal class Building_SteamVent : Building
         base.SpawnSetup(map, respawningAfterLoad);
         steamSprayer = new IntermittentSteamSprayer(this)
         {
-            startSprayCallback = StartSpray, endSprayCallback = EndSpray
+            startSprayCallback = startSpray, endSprayCallback = endSpray
         };
     }
 
-    private void StartSpray()
+    private void startSpray()
     {
         WeatherBuildupUtility.AddSnowRadial(this.OccupiedRect().RandomCell, Map, 4f, -0.06f);
         spraySustainer = SoundDefOf.GeyserSpray.TrySpawnSustainer(new TargetInfo(Position, Map));
         spraySustainerStartTick = Find.TickManager.TicksGame;
     }
 
-    private void EndSpray()
+    private void endSpray()
     {
         if (spraySustainer == null)
         {

@@ -14,9 +14,9 @@ public abstract class SpringCompAbstract : ThingComp
     protected virtual void specialFXAffect(IntVec3 c)
     {
         springTerrain(c);
-        var FX = specialFX;
+        var fx = specialFX;
         specialFX = false;
-        if (!FX)
+        if (!fx)
         {
         }
     }

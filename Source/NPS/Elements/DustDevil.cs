@@ -110,7 +110,7 @@ public class DustDevil : ThingWithComps
             ticksLeftToDisappear = DurationTicks.RandomInRange;
         }
 
-        CreateSustainer();
+        createSustainer();
     }
 
     protected override void Tick()
@@ -123,11 +123,11 @@ public class DustDevil : ThingWithComps
         if (sustainer == null)
         {
             Log.Error("DustDevil sustainer is null.");
-            CreateSustainer();
+            createSustainer();
         }
 
         sustainer?.Maintain();
-        UpdateSustainerVolume();
+        updateSustainerVolume();
         GetComp<CompWindSource>().wind = 5f * FadeInOutFactor;
         if (leftFadeOutTicks > 0)
         {
@@ -151,12 +151,12 @@ public class DustDevil : ThingWithComps
                 Position = intVec;
                 if (this.IsHashIntervalTick(15))
                 {
-                    DamageCloseThings();
+                    damageCloseThings();
                 }
 
                 if (Rand.MTBEventOccurs(15f, 1f, 1f))
                 {
-                    DamageFarThings();
+                    damageFarThings();
                 }
 
                 if (ticksLeftToDisappear > 0)
@@ -170,7 +170,7 @@ public class DustDevil : ThingWithComps
                     }
                 }
 
-                if (!this.IsHashIntervalTick(4) || CellImmuneToDamage(Position))
+                if (!this.IsHashIntervalTick(4) || cellImmuneToDamage(Position))
                 {
                     return;
                 }
@@ -197,21 +197,21 @@ public class DustDevil : ThingWithComps
         Rand.Seed = thingIDNumber;
         for (var i = 0; i < 180; i++)
         {
-            DrawDustDevilPart(PartsDistanceFromCenter.RandomInRange, Rand.Range(0f, 360f), Rand.Range(0.9f, 1.1f),
+            drawDustDevilPart(PartsDistanceFromCenter.RandomInRange, Rand.Range(0f, 360f), Rand.Range(0.9f, 1.1f),
                 Rand.Range(0.52f, 0.88f));
         }
 
         Rand.PopState();
     }
 
-    private void DrawDustDevilPart(float distanceFromCenter, float initialAngle, float speedMultiplier,
+    private void drawDustDevilPart(float distanceFromCenter, float initialAngle, float speedMultiplier,
         float colorMultiplier)
     {
         var ticksGame = Find.TickManager.TicksGame;
         var num = 1f / distanceFromCenter;
         var num2 = 25f * speedMultiplier * num;
         var num3 = (initialAngle + (ticksGame * num2)) % 360f;
-        var vector = realPosition.Moved(num3, AdjustedDistanceFromCenter(distanceFromCenter));
+        var vector = realPosition.Moved(num3, adjustedDistanceFromCenter(distanceFromCenter));
         vector.y += distanceFromCenter * 4f;
         vector.y += ZOffsetBias;
         var vector2 = new Vector3(vector.x, AltitudeLayer.Weather.AltitudeFor() + (0.046875f * Rand.Range(0f, 1f)),
@@ -238,35 +238,35 @@ public class DustDevil : ThingWithComps
         Graphics.DrawMesh(MeshPool.plane10, matrix, DustDevilMaterial, 0, null, 0, matPropertyBlock);
     }
 
-    private static float AdjustedDistanceFromCenter(float distanceFromCenter)
+    private static float adjustedDistanceFromCenter(float distanceFromCenter)
     {
         var num = Mathf.Min(distanceFromCenter / 8f, 1f);
         num *= num;
         return distanceFromCenter * num;
     }
 
-    private void UpdateSustainerVolume()
+    private void updateSustainerVolume()
     {
         sustainer.info.volumeFactor = FadeInOutFactor;
     }
 
-    private void CreateSustainer()
+    private void createSustainer()
     {
         LongEventHandler.ExecuteWhenFinished(delegate
         {
             var soundDef = SoundDef.Named("Tornado");
             sustainer = soundDef.TrySpawnSustainer(SoundInfo.InMap(this, MaintenanceType.PerTick));
-            UpdateSustainerVolume();
+            updateSustainerVolume();
         });
     }
 
-    private void DamageCloseThings()
+    private void damageCloseThings()
     {
         var num = GenRadial.NumCellsInRadius(3f);
         for (var i = 0; i < num; i++)
         {
             var intVec = Position + GenRadial.RadialPattern[i];
-            if (!intVec.InBounds(Map) || CellImmuneToDamage(intVec))
+            if (!intVec.InBounds(Map) || cellImmuneToDamage(intVec))
             {
                 continue;
             }
@@ -278,24 +278,24 @@ public class DustDevil : ThingWithComps
             }
 
             var damageFactor = GenMath.LerpDouble(0f, 3f, 1f, 0.2f, intVec.DistanceTo(Position));
-            DoDamage(intVec, damageFactor);
+            doDamage(intVec, damageFactor);
         }
     }
 
-    private void DamageFarThings()
+    private void damageFarThings()
     {
         var c = (from x in GenRadial.RadialCellsAround(Position, 8f, true)
             where x.InBounds(Map)
             select x).RandomElement();
-        if (CellImmuneToDamage(c))
+        if (cellImmuneToDamage(c))
         {
             return;
         }
 
-        DoDamage(c, 0.5f);
+        doDamage(c, 0.5f);
     }
 
-    private bool CellImmuneToDamage(IntVec3 c)
+    private bool cellImmuneToDamage(IntVec3 c)
     {
         if (c.Roofed(Map) && c.GetRoof(Map).isThickRoof)
         {
@@ -308,7 +308,7 @@ public class DustDevil : ThingWithComps
                 edifice.def == RimWorld.ThingDefOf.Wall && edifice.Faction == null);
     }
 
-    private void DoDamage(IntVec3 c, float damageFactor)
+    private void doDamage(IntVec3 c, float damageFactor)
     {
         tmpThings.Clear();
         tmpThings.AddRange(c.GetThingList(Map));

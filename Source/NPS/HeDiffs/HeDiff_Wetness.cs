@@ -5,6 +5,9 @@ namespace TKKN_NPS;
 
 public class Hediff_Wetness : HediffWithComps
 {
+    private Map map;
+
+    private IntVec3 position;
     private int timeDrying;
     private float wetnessLevel;
 
@@ -15,20 +18,18 @@ public class Hediff_Wetness : HediffWithComps
         Scribe_Values.Look(ref timeDrying, "timeDrying");
     }
 
-    private IntVec3 position;
-    private Map map;
-
     public override void Tick()
     {
         base.Tick();
         position = pawn.Position;
-        
+
         if (!position.IsValid)
         {
             return;
         }
+
         map = pawn.MapHeld;
-        if(map == null||!position.InBounds(map))
+        if (map == null || !position.InBounds(map))
         {
             return;
         }
@@ -84,11 +85,11 @@ public class Hediff_Wetness : HediffWithComps
         var roofed = map.roofGrid.Roofed(position);
         if (!roofed)
         {
-            if (map.weatherManager.curWeather.rainRate > .001f) 
+            if (map.weatherManager.curWeather.rainRate > .001f)
             {
                 rate = map.weatherManager.curWeather.rainRate / 10;
             }
-            else if (map.weatherManager.curWeather.snowRate > .001f) 
+            else if (map.weatherManager.curWeather.snowRate > .001f)
             {
                 rate = map.weatherManager.curWeather.snowRate / 100;
             }

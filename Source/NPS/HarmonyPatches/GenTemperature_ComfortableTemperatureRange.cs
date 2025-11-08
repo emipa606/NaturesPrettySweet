@@ -37,7 +37,8 @@ internal class GenTemperature_ComfortableTemperatureRange
     private static int getOffSet(Hediff_Wetness wetness, Pawn pawn)
     {
         //soaked
-        var setTo = wetness.CurStageIndex switch {
+        var setTo = wetness.CurStageIndex switch
+        {
             0 => 0, //dry
             1 => 5, //damp
             2 => 10, //soggy

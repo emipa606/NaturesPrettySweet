@@ -6,6 +6,10 @@
   <TKKN_ColdSpringsWater.tools.water.label>water</TKKN_ColdSpringsWater.tools.water.label>
   <!-- EN: dirt path -->
   <TKKN_DirtPath.label>dirt path</TKKN_DirtPath.label>
+  <!-- EN: fine basalt tile -->
+  <TKKN_FineTileBasalt.label>fine basalt tile</TKKN_FineTileBasalt.label>
+  <!-- EN: Exquisite stone tiles, made with no compromises, for expressing economic status. Slow to construct. -->
+  <TKKN_FineTileBasalt.description>Exquisite stone tiles, made with no compromises, for expressing economic status. Slow to construct.</TKKN_FineTileBasalt.description>
   <!-- EN: basalt flagstone -->
   <TKKN_FlagstoneBasalt.label>basalt flagstone</TKKN_FlagstoneBasalt.label>
   <!-- EN: Roughly-cut stone tiles. These are not beautiful, but they make good surfaces for roads and outdoor walkways. Deconstructing flagstone yields no resources. -->

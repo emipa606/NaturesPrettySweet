@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Verse;
 
 namespace TKKN_NPS;
@@ -7,29 +6,12 @@ namespace TKKN_NPS;
 public class Settings : ModSettings
 {
     public static bool leaveStuff = true;
-    public static Dictionary<string, IntVec3> wetCells;
-
-    public static Dictionary<string, int> totalThings = new()
-    {
-        { "TKKN_Lava_Spring", 0 },
-        { "TKKN_ColdSpring", 0 },
-        { "TKKN_HotSpring", 0 }
-    };
-
-    public static Dictionary<string, int> totalSpecialThings = new()
-    {
-        { "TKKN_Total_Special_Elements", 0 },
-        { "TKKN_Total_Discovered_Elements", 0 },
-        { "TKKN_Total_Removed_Elements", 0 }
-    };
-
-    public static readonly Dictionary<string, Texture2D> customWeathers;
 
     public static bool spawnLavaOnlyInBiome = true;
     public static bool allowLavaEruption = true;
     public static bool allowPlantEffects = true;
     public static bool showCold = true;
-    public static bool showHot = true;
+    private static bool showHot = true;
     public static bool allowPawnsToGetWet = true;
     public static bool allowPawnsSwim = true;
     public static bool showRain = true;
@@ -48,9 +30,6 @@ public class Settings : ModSettings
     static Settings()
     {
     }
-
-
-    public static bool showTempOverlay => showCold && showHot;
 
     public static void DoWindowContents(Rect inRect)
     {
@@ -197,6 +176,5 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref allowLavaEruption, "allowLavaEruption", true, true);
         Scribe_Values.Look(ref regenCells, "regenCells", false, true);
         Scribe_Values.Look(ref showUpdateNotes, "showUpdateNotes", true, true);
-        
     }
 }

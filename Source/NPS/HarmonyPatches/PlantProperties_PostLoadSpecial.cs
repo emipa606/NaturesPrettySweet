@@ -17,12 +17,14 @@ public static class PlantProperties_PostLoadSpecial
 
         var mod = __instance.def.GetModExtension<ThingWeatherReaction>();
 
+        string id;
         if (!mod.frostGraphicPath.NullOrEmpty())
         {
-            var id = $"{__instance.def.defName}frost";
+            id = $"{__instance.def.defName}frost";
+            var localId = id;
             LongEventHandler.ExecuteWhenFinished(delegate
             {
-                __instance.Map.GetComponent<Watcher>().graphicHolder.Add(id,
+                __instance.Map.GetComponent<Watcher>().graphicHolder.Add(localId,
                     GraphicDatabase.Get(__instance.def.graphicData.graphicClass, mod.frostGraphicPath,
                         __instance.def.graphic.Shader, __instance.def.graphicData.drawSize,
                         __instance.def.graphicData.color, __instance.def.graphicData.colorTwo));
@@ -31,10 +33,11 @@ public static class PlantProperties_PostLoadSpecial
 
         if (!mod.droughtGraphicPath.NullOrEmpty())
         {
-            var id = $"{__instance.def.defName}drought";
+            id = $"{__instance.def.defName}drought";
+            var localId = id;
             LongEventHandler.ExecuteWhenFinished(delegate
             {
-                __instance.Map.GetComponent<Watcher>().graphicHolder.Add(id,
+                __instance.Map.GetComponent<Watcher>().graphicHolder.Add(localId,
                     GraphicDatabase.Get(__instance.def.graphicData.graphicClass, mod.droughtGraphicPath,
                         __instance.def.graphic.Shader, __instance.def.graphicData.drawSize,
                         __instance.def.graphicData.color, __instance.def.graphicData.colorTwo));
@@ -46,15 +49,13 @@ public static class PlantProperties_PostLoadSpecial
             return;
         }
 
+        id = $"{__instance.def.defName}flowering";
+        LongEventHandler.ExecuteWhenFinished(delegate
         {
-            var id = $"{__instance.def.defName}flowering";
-            LongEventHandler.ExecuteWhenFinished(delegate
-            {
-                __instance.Map.GetComponent<Watcher>().graphicHolder.Add(id,
-                    GraphicDatabase.Get(__instance.def.graphicData.graphicClass, mod.floweringGraphicPath,
-                        __instance.def.graphic.Shader, __instance.def.graphicData.drawSize,
-                        __instance.def.graphicData.color, __instance.def.graphicData.colorTwo));
-            });
-        }
+            __instance.Map.GetComponent<Watcher>().graphicHolder.Add(id,
+                GraphicDatabase.Get(__instance.def.graphicData.graphicClass, mod.floweringGraphicPath,
+                    __instance.def.graphic.Shader, __instance.def.graphicData.drawSize,
+                    __instance.def.graphicData.color, __instance.def.graphicData.colorTwo));
+        });
     }
 }

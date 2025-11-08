@@ -62,7 +62,8 @@ public class cellData : IExposable
         Scribe_Defs.Look(ref originalTerrain, "originalTerrain");
     }
 
-    public void setTerrain(TerrainType type) {
+    public void setTerrain(TerrainType type)
+    {
         var thisTerrain = currentTerrain;
         //Make sure it hasn't been made a floor or a floor hasn't been removed.
         if (!thisTerrain.HasModExtension<TerrainWeatherReactions>())
@@ -122,46 +123,38 @@ public class cellData : IExposable
         {
             return;
         }
-        var thisTerrain=currentTerrain;
+
+        var thisTerrain = currentTerrain;
 
         if (weather.wetTerrain != null && thisTerrain != weather.wetTerrain && howWet > weather.wetAt)
         {
             changeTerrain(weather.wetTerrain);
-            /*
-            if (baseTerrain == TerrainDefOf.TKKN_Lava)
-            {
-                map.GetComponent<Watcher>().lavaCellsList.Remove(location);
-            }
-            */
             isWet = true;
             rainSpawns();
         }
-        else if (howWet == 0 && thisTerrain != baseTerrain && isWet && !isFlooded)
+        else
         {
-            changeTerrain(baseTerrain);
-            /*
-            if (baseTerrain == TerrainDefOf.TKKN_Lava)
+            switch (howWet)
             {
-                map.GetComponent<Watcher>().lavaCellsList.Add(location);
+                case 0 when thisTerrain != baseTerrain && isWet && !isFlooded:
+                    changeTerrain(baseTerrain);
+                    isWet = false;
+                    howWet = -1;
+                    break;
+                case -1 when weather.dryTerrain != null && !isFlooded:
+                {
+                    if (thisTerrain == weather.dryTerrain && baseTerrain == weather.dryTerrain)
+                    {
+                        return;
+                    }
+
+                    isWet = false;
+                    baseTerrain = weather.dryTerrain;
+                    changeTerrain(weather.dryTerrain);
+                    break;
+                }
             }
-            */
-
-            isWet = false;
-            howWet = -1;
         }
-        else if (howWet == -1 && weather.dryTerrain != null && !isFlooded)
-        {
-            if (thisTerrain == weather.dryTerrain && baseTerrain == weather.dryTerrain)
-            {
-                return;
-            }
-
-            isWet = false;
-            baseTerrain = weather.dryTerrain;
-            changeTerrain(weather.dryTerrain);
-        }
-
-        //			*/
     }
 
     private void setFrozenTerrain(bool frozen)
@@ -172,6 +165,7 @@ public class cellData : IExposable
             {
                 return;
             }
+
             var thisTerrain = currentTerrain;
 
             if (isFlooded && weather.freezeTerrain != thisTerrain)
@@ -185,12 +179,6 @@ public class cellData : IExposable
             else if (!isFrozen)
             {
                 changeTerrain(weather.freezeTerrain);
-                /*
-                if (baseTerrain == TerrainDefOf.TKKN_Lava)
-                {
-                    map.GetComponent<Watcher>().lavaCellsList.Remove(location);
-                }
-                */
             }
 
             isFrozen = true;
@@ -202,12 +190,7 @@ public class cellData : IExposable
         {
             return;
         }
-        /*
-        if (baseTerrain == TerrainDefOf.TKKN_Lava)
-        {
-            map.GetComponent<Watcher>().lavaCellsList.Add(location);
-        }
-        */
+
         isFrozen = false;
         isThawed = true;
         changeTerrain(baseTerrain);
@@ -219,6 +202,7 @@ public class cellData : IExposable
         {
             return;
         }
+
         var thisTerrain = currentTerrain;
         var floodTerrain = weather.floodTerrain;
         if (isFrozen)
@@ -260,6 +244,7 @@ public class cellData : IExposable
         {
             return;
         }
+
         var thisTerrain = currentTerrain;
         switch (overrideType)
         {
@@ -355,16 +340,16 @@ public class cellData : IExposable
 
     public void doPack()
     {
-var thisTerrain = currentTerrain;
+        var thisTerrain = currentTerrain;
         if (map.zoneManager.ZoneAt(location) is Zone_Growing &&
-            (thisTerrain != TerrainDefOf.TKKN_DirtPath &&
-             thisTerrain != TerrainDefOf.TKKN_SandPath))
+            thisTerrain != TerrainDefOf.TKKN_DirtPath &&
+            thisTerrain != TerrainDefOf.TKKN_SandPath)
         {
             return;
         }
 
         //don't pack if there's a growing zone.
-        if (baseTerrain == RimWorld.TerrainDefOf.Soil 
+        if (baseTerrain == RimWorld.TerrainDefOf.Soil
             || baseTerrain == RimWorld.TerrainDefOf.Sand
             || baseTerrain.texturePath == "Terrain/Surfaces/RoughStone")
         {
@@ -373,7 +358,6 @@ var thisTerrain = currentTerrain;
 
         if (howPacked > packAt)
         {
-            //	this.howPacked = this.packAt;
             if (baseTerrain == RimWorld.TerrainDefOf.Soil)
             {
                 var packed = TerrainDefOf.TKKN_DirtPath;
@@ -412,16 +396,20 @@ var thisTerrain = currentTerrain;
     private void rainSpawns()
     {
         //spawn special things when it rains.
-        if (Rand.Value < .009) {
-            if (baseTerrain == TerrainDefOf.TKKN_Lava) {
+        if (Rand.Value < .009)
+        {
+            if (baseTerrain == TerrainDefOf.TKKN_Lava)
+            {
                 GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_LavaRock), location, map);
             }
-            else if (baseTerrain == TerrainDefOf.TKKN_SandBeachWetSalt) {
-                //Log.Warning("Spawning crab");
+            else if (baseTerrain == TerrainDefOf.TKKN_SandBeachWetSalt)
+            {
                 GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_crab), location, map);
             }
-            else {
-                if (TerrainTagUtil.TKKN_Wet.Contains(currentTerrain)) {
+            else
+            {
+                if (TerrainTagUtil.TKKN_Wet.Contains(currentTerrain))
+                {
                     FleckMaker.WaterSplash(location.ToVector3(), map, 1, 1);
                 }
             }
@@ -440,128 +428,133 @@ var thisTerrain = currentTerrain;
         }
 
         var leaveSomething = Rand.Value;
-        if (leaveSomething < 0.001f)
+        switch (leaveSomething)
         {
-            var leaveWhat = Rand.Value;
-            var allowed = new List<string>();
-            switch (leaveWhat)
+            case < 0.001f:
             {
-                case > 0.1f:
-                    //leave trash;
-                    allowed =
-                    [
-                        "Filth_Slime",
-                        "TKKN_FilthShells",
-                        "TKKN_FilthPuddle",
-                        "TKKN_FilthSeaweed",
-                        "TKKN_FilthDriftwood",
-                        "TKKN_Sculpture_Shell",
-                        "Kibble",
-                        "EggRoeFertilized",
-                        "EggRoeUnfertilized"
-                    ];
-                    break;
-                case > 0.05f:
-                    //leave resource;
-                    allowed =
-                    [
-                        "Steel",
-                        "Cloth",
-                        "WoodLog",
-                        "Synthread",
-                        "Hyperweave",
-                        "Kibble",
-                        "SimpleProstheticLeg",
-                        "MedicineIndustrial",
-                        "ComponentIndustrial",
-                        "Neutroamine",
-                        "Chemfuel",
-                        "MealSurvivalPack",
-                        "Pemmican"
-                    ];
-                    break;
-                case > 0.03f:
+                var leaveWhat = Rand.Value;
+                var allowed = new List<string>();
+                switch (leaveWhat)
                 {
-                    // leave treasure.
-                    allowed =
-                    [
-                        "Silver",
-                        "Plasteel",
-                        "Gold",
-                        "Uranium",
-                        "Jade",
-                        "Heart",
-                        "Lung",
-                        "BionicEye",
-                        "ScytherBlade",
-                        "ElephantTusk"
-                    ];
+                    case > 0.1f:
+                        //leave trash;
+                        allowed =
+                        [
+                            "Filth_Slime",
+                            "TKKN_FilthShells",
+                            "TKKN_FilthPuddle",
+                            "TKKN_FilthSeaweed",
+                            "TKKN_FilthDriftwood",
+                            "TKKN_Sculpture_Shell",
+                            "Kibble",
+                            "EggRoeFertilized",
+                            "EggRoeUnfertilized"
+                        ];
+                        break;
+                    case > 0.05f:
+                        //leave resource;
+                        allowed =
+                        [
+                            "Steel",
+                            "Cloth",
+                            "WoodLog",
+                            "Synthread",
+                            "Hyperweave",
+                            "Kibble",
+                            "SimpleProstheticLeg",
+                            "MedicineIndustrial",
+                            "ComponentIndustrial",
+                            "Neutroamine",
+                            "Chemfuel",
+                            "MealSurvivalPack",
+                            "Pemmican"
+                        ];
+                        break;
+                    case > 0.03f:
+                    {
+                        // leave treasure.
+                        allowed =
+                        [
+                            "Silver",
+                            "Plasteel",
+                            "Gold",
+                            "Uranium",
+                            "Jade",
+                            "Heart",
+                            "Lung",
+                            "BionicEye",
+                            "ScytherBlade",
+                            "ElephantTusk"
+                        ];
 
-                    string text = "TKKN_NPS_TreasureWashedUpText".Translate();
-                    Messages.Message(text, MessageTypeDefOf.NeutralEvent);
-                    break;
+                        string text = "TKKN_NPS_TreasureWashedUpText".Translate();
+                        Messages.Message(text, MessageTypeDefOf.NeutralEvent);
+                        break;
+                    }
+                    case > 0.02f:
+                    {
+                        //leave ultrarare
+                        allowed =
+                        [
+                            "AIPersonaCore",
+                            "MechSerumHealer",
+                            "MechSerumNeurotrainer",
+                            "ComponentSpacer",
+                            "MedicineUltratech",
+                            "ThrumboHorn"
+                        ];
+                        string text = "TKKN_NPS_UltraRareWashedUpText".Translate();
+                        Messages.Message(text, MessageTypeDefOf.NeutralEvent);
+                        break;
+                    }
                 }
-                case > 0.02f:
+
+                if (allowed.Count <= 0)
                 {
-                    //leave ultrarare
-                    allowed =
-                    [
-                        "AIPersonaCore",
-                        "MechSerumHealer",
-                        "MechSerumNeurotrainer",
-                        "ComponentSpacer",
-                        "MedicineUltratech",
-                        "ThrumboHorn"
-                    ];
-                    string text = "TKKN_NPS_UltraRareWashedUpText".Translate();
-                    Messages.Message(text, MessageTypeDefOf.NeutralEvent);
-                    break;
+                    return;
                 }
-            }
 
-            if (allowed.Count <= 0)
-            {
-                return;
-            }
+                var leaveWhat2 = Rand.Range(1, allowed.Count) - 1;
+                var loot = ThingMaker.MakeThing(ThingDef.Named(allowed[leaveWhat2]));
+                if (loot != null)
+                {
+                    GenSpawn.Spawn(loot, location, map);
+                }
 
-            var leaveWhat2 = Rand.Range(1, allowed.Count) - 1;
-            var loot = ThingMaker.MakeThing(ThingDef.Named(allowed[leaveWhat2]));
-            if (loot != null)
-            {
-                GenSpawn.Spawn(loot, location, map);
+                break;
             }
-        }
-        else
-
             //grow water and shore plants:
-        if (leaveSomething < 0.002f && location.GetPlant(map) == null && location.GetCover(map) == null)
-        {
-            var plants = map.Biome.AllWildPlants;
-            for (var i = plants.Count - 1; i >= 0; i--)
+            case < 0.002f when location.GetPlant(map) == null && location.GetCover(map) == null:
             {
-                //spawn some water plants:
-                var plantDef = plants[i];
-                if (!plantDef.HasModExtension<ThingWeatherReaction>())
+                var plants = map.Biome.AllWildPlants;
+                for (var i = plants.Count - 1; i >= 0; i--)
                 {
-                    continue;
+                    //spawn some water plants:
+                    var plantDef = plants[i];
+                    if (!plantDef.HasModExtension<ThingWeatherReaction>())
+                    {
+                        continue;
+                    }
+
+                    //_ = currentTerrain;
+                    var thingWeather = plantDef.GetModExtension<ThingWeatherReaction>();
+                    var okTerrains = thingWeather.allowedTerrains;
+                    if (okTerrains == null || !okTerrains.Contains<TerrainDef>(currentTerrain))
+                    {
+                        continue;
+                    }
+
+                    var plant = (Plant)ThingMaker.MakeThing(plantDef);
+                    plant.Growth = Rand.Range(0.07f, 1f);
+                    if (plant.def.plant.LimitedLifespan)
+                    {
+                        plant.Age = Rand.Range(0, Mathf.Max(plant.def.plant.LifespanTicks - 50, 0));
+                    }
+
+                    GenSpawn.Spawn(plant, location, map);
+                    break;
                 }
 
-                //_ = currentTerrain;
-                var thingWeather = plantDef.GetModExtension<ThingWeatherReaction>();
-                var okTerrains = thingWeather.allowedTerrains;
-                if (okTerrains == null || !okTerrains.Contains<TerrainDef>(currentTerrain))
-                {
-                    continue;
-                }
-
-                var plant = (Plant)ThingMaker.MakeThing(plantDef);
-                plant.Growth = Rand.Range(0.07f, 1f);
-                if (plant.def.plant.LimitedLifespan)
-                {
-                    plant.Age = Rand.Range(0, Mathf.Max(plant.def.plant.LifespanTicks - 50, 0));
-                }
-
-                GenSpawn.Spawn(plant, location, map);
                 break;
             }
         }
