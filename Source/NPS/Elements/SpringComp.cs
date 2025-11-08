@@ -99,7 +99,7 @@ public class SpringComp : SpringCompAbstract
         {
             var radius = width;
             width += .5f;
-            if (radius == Props.radius)
+            if (radius >= Props.radius)
             {
                 status = StatusType.stable;
             }
