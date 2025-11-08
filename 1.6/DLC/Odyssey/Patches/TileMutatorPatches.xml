@@ -62,6 +62,13 @@
 	</Operation>
 	
 	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TileMutatorDef[defName="Fish_Decreased"]/biomeBlacklist</xpath>
+		<value>
+			<li>TKKN_Desert</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/TileMutatorDef[defName="ObsidianDeposits"]/biomeWhitelist</xpath>
 		<value>
 			<li>TKKN_VolcanicFlow</li>

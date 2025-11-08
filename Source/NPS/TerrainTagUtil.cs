@@ -5,9 +5,10 @@ namespace TKKN_NPS;
 
 public static class TerrainTagUtil
 {
-    public static HashSet<TerrainDef> TKKN_Wet=[];
-    public static HashSet<TerrainDef> TKKN_Swim=[];
+    public static HashSet<TerrainDef> TKKN_Wet = [];
+    public static HashSet<TerrainDef> TKKN_Swim = [];
     public static HashSet<TerrainDef> Lava = [];
+    public static HashSet<TerrainDef> TKKN_SwimOrLava = [];
 
     public static void intializeTerrainTags() {
         var allTerrains=DefDatabase<TerrainDef>.AllDefsListForReading;
@@ -19,10 +20,12 @@ public static class TerrainTagUtil
 
             if (terrain.HasTag("TKKN_Swim")) {
                 TKKN_Swim.Add(terrain);
+                TKKN_SwimOrLava.Add(terrain);
             }
 
             if (terrain.HasTag("Lava")) {
                 Lava.Add(terrain);
+                TKKN_SwimOrLava.Add(terrain);
             }
         }
     }

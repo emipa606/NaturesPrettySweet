@@ -80,6 +80,23 @@
         </thresholds>
       </li>
     </terrainPatchMakers>
+    <maxFishPopulation>450</maxFishPopulation>
+    <fishTypes MayRequire="Ludeon.Rimworld.Odyssey">
+      <freshwater_Common>
+        <Fish_Bass MayRequire="Ludeon.Rimworld.Odyssey">1</Fish_Bass>
+      </freshwater_Common>
+      <freshwater_Uncommon>
+        <Fish_Catfish MayRequire="Ludeon.Rimworld.Odyssey">1</Fish_Catfish>
+      </freshwater_Uncommon>
+      <saltwater_Common>
+        <Fish_Bluefish MayRequire="Ludeon.Rimworld.Odyssey">1</Fish_Bluefish>
+      </saltwater_Common>
+      <saltwater_Uncommon>
+        <Fish_Flounder MayRequire="Ludeon.Rimworld.Odyssey">1</Fish_Flounder>
+        <Fish_Marlin MayRequire="Ludeon.Rimworld.Odyssey">1</Fish_Marlin>
+      </saltwater_Uncommon>
+      <rareCatchesSetMaker MayRequire="Ludeon.Rimworld.Odyssey">RareFishingCatches_Hot</rareCatchesSetMaker>
+    </fishTypes>
     <baseWeatherCommonalities>
       <Clear>2</Clear>
       <TKKN_LavaSmoke>20</TKKN_LavaSmoke>

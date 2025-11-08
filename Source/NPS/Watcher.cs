@@ -320,12 +320,12 @@ public class Watcher(Map map) : MapComponent(map)
             {
                 swimmingCellsList.Add(thiscell.Key);
             }
-
+            /*
             if (TerrainTagUtil.Lava.Contains(thiscell.Value.baseTerrain))
             {
                 //future me: to do: split lava actions into ones that will affect pawns and ones that won't, since pawns can't walk on deep lava
                 //lavaCellsList.Add(thiscell.Key);
-            }
+            }*/
         }
 
         bugFixFrostIsRemoved = true;
