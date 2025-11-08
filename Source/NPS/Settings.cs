@@ -196,5 +196,7 @@ public class Settings : ModSettings
         Scribe_Values.Look(ref spawnLavaOnlyInBiome, "spawnLavaOnlyInBiome", false, true);
         Scribe_Values.Look(ref allowLavaEruption, "allowLavaEruption", true, true);
         Scribe_Values.Look(ref regenCells, "regenCells", false, true);
+        Scribe_Values.Look(ref showUpdateNotes, "showUpdateNotes", true, true);
+        
     }
 }
