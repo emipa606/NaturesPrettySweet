@@ -34,12 +34,12 @@ public class JobGiver_RelaxInSpring : ThinkNode_JobGiver
 
         bool Validator(Thing t)
         {
-            if (t.def.defName == "TKKN_HotSpring" && t.AmbientTemperature is < 26 and > 15)
+            if (t.def == ThingDefOf.TKKN_HotSpring && t.AmbientTemperature is < 26 and > 15)
             {
                 return true;
             }
 
-            return t.def.defName == "TKKN_ColdSpring" && t.AmbientTemperature > 24;
+            return t.def == ThingDefOf.TKKN_ColdSpring && t.AmbientTemperature > 24;
         }
     }
 
@@ -50,17 +50,12 @@ public class JobGiver_RelaxInSpring : ThinkNode_JobGiver
         spring.MapHeld.regionAndRoomUpdater.Enabled = false;
         return c;
 
-        bool Validator(IntVec3 pos)
-        {
-            switch (spring.def.defName)
-            {
-                case "TKKN_HotSpring":
-                    return pos.GetTerrain(spring.Map).defName == "TKKN_HotSpringsWater";
-                case "TKKN_ColdSpring":
-                    return pos.GetTerrain(spring.Map).defName == "TKKN_ColdSpringsWater";
-                default:
-                    return false;
-            }
+        bool Validator(IntVec3 pos) {
+            if (spring.def == ThingDefOf.TKKN_HotSpring)
+                return pos.GetTerrain(spring.Map) == TerrainDefOf.TKKN_HotSpringsWater;
+            if (spring.def == ThingDefOf.TKKN_ColdSpring)
+                return pos.GetTerrain(spring.Map) == TerrainDefOf.TKKN_ColdSpringsWater;
+            return false;
         }
     }
 }

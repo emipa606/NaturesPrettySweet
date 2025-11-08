@@ -25,7 +25,7 @@ public sealed class FrostGrid : MapComponent
     {
         var building = map.edificeGrid[ind];
 
-        if (building != null && !map.GetComponent<FrostGrid>().CanCoexistWithFrost(building.def))
+        if (building != null && !CanCoexistWithFrost(building.def))
         {
             return false;
         }

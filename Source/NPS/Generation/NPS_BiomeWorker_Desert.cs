@@ -13,7 +13,7 @@ internal class NPS_BiomeWorker_Desert : BiomeWorker_Desert
             return 0f;
         }
 
-        if (Rand.Value > .006)
+        if (Rand.ValueSeeded(tile.tile.tileId * 4) > .006)
         {
             return 0f;
         }

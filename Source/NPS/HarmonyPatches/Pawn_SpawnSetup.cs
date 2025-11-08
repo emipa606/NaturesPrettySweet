@@ -15,7 +15,7 @@ internal class Pawn_SpawnSetup
         }
 
         var terrain = __instance.Position.GetTerrain(__instance.Map);
-        if (terrain == null || !terrain.HasTag("Lava"))
+        if (!TerrainTagUtil.Lava.Contains(terrain))
         {
             return;
         }

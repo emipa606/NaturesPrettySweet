@@ -30,12 +30,8 @@ internal class PawnRenderNodeWorker_Body_CanDrawNow
         }
 
         var terrain = pawn.Position.GetTerrain(pawn.MapHeld);
-        if (terrain == null)
-        {
-            return;
-        }
 
-        if (terrain.HasTag("TKKN_Swim"))
+        if (TerrainTagUtil.TKKN_Swim.Contains(terrain))
         {
             __result = false;
         }

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="LavaSnail"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="LavaSnail"]</xpath>
+			<value>
+				<comps/>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="LavaSnail"]/comps</xpath>
+		<value>
+			<li Class="TKKN_NPS.CompProperties_DeadlySalt">
+				<deadlyTerrain>
+					<li>TKKN_SaltField</li>
+					<li>TKKN_Salted_Earth</li>
+				</deadlyTerrain>
+			</li>
+		</value>
+	</Operation>
+
+
+</Patch>

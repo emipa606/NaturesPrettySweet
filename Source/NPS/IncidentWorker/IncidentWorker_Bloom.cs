@@ -16,7 +16,7 @@ public class IncidentWorker_Bloom : IncidentWorker_TKKN_Weather
         }
 
         var map = (Map)parms.target;
-        _ = CellFinder.RandomNotEdgeCell(15, map);
+        //_ = CellFinder.RandomNotEdgeCell(15, map);
 
         //can the biome support it?
         var biomeSettings = map.Biome.GetModExtension<BiomeSeasonalSettings>();
@@ -25,8 +25,8 @@ public class IncidentWorker_Bloom : IncidentWorker_TKKN_Weather
             return false;
         }
 
-        var bloomPlants = biomeSettings.bloomPlants.ToList();
-        if (bloomPlants.Count == 0)
+        
+        if (biomeSettings.bloomPlants.Count == 0)
         {
             return false;
         }

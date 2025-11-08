@@ -69,6 +69,23 @@
       <SnowGentle>4</SnowGentle>
       <SnowHard>4</SnowHard>
     </baseWeatherCommonalities>
+    <maxFishPopulation>540</maxFishPopulation>
+    <fishTypes MayRequire="Ludeon.RimWorld.Odyssey">
+      <freshwater_Common>
+        <Fish_Bass MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Bass>
+      </freshwater_Common>
+      <freshwater_Uncommon>
+        <Fish_Catfish MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Catfish>
+      </freshwater_Uncommon>
+      <saltwater_Common>
+        <Fish_Bluefish MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Bluefish>
+      </saltwater_Common>
+      <saltwater_Uncommon>
+        <Fish_Marlin MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Marlin>
+        <Fish_Flounder MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Flounder>
+      </saltwater_Uncommon>
+      <rareCatchesSetMaker MayRequire="Ludeon.RimWorld.Odyssey">RareFishingCatches_Hot</rareCatchesSetMaker>
+    </fishTypes>
     <wildPlants>
       <TKKN_PlantTallGrasses>5.0</TKKN_PlantTallGrasses>
       <Plant_TallGrass>5.0</Plant_TallGrass>
@@ -176,6 +193,23 @@
       <SnowGentle>4</SnowGentle>
       <SnowHard>4</SnowHard>
     </baseWeatherCommonalities>
+    <maxFishPopulation>450</maxFishPopulation>
+    <fishTypes MayRequire="Ludeon.RimWorld.Odyssey">
+      <freshwater_Common>
+        <Fish_Bass MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Bass>
+      </freshwater_Common>
+      <freshwater_Uncommon>
+        <Fish_Catfish MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Catfish>
+      </freshwater_Uncommon>
+      <saltwater_Common>
+        <Fish_Bluefish MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Bluefish>
+      </saltwater_Common>
+      <saltwater_Uncommon>
+        <Fish_Marlin MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Marlin>
+        <Fish_Flounder MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Flounder>
+      </saltwater_Uncommon>
+      <rareCatchesSetMaker MayRequire="Ludeon.RimWorld.Odyssey">RareFishingCatches_Hot</rareCatchesSetMaker>
+    </fishTypes>
     <wildPlants>
       <TKKN_PlantTallGrasses>7.0</TKKN_PlantTallGrasses>
       <Plant_Grass>10.0</Plant_Grass>

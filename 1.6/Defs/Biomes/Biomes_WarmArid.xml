@@ -64,6 +64,7 @@
       <SnowGentle>1</SnowGentle>
       <SnowHard>3</SnowHard>
     </baseWeatherCommonalities>
+    <maxFishPopulation>0</maxFishPopulation>
     <wildPlants>
       <Plant_Grass>6</Plant_Grass>
       <Plant_SaguaroCactus>1</Plant_SaguaroCactus>
@@ -148,6 +149,22 @@
       <SnowGentle>3</SnowGentle>
       <SnowHard>3</SnowHard>
     </baseWeatherCommonalities>
+    <maxFishPopulation>320</maxFishPopulation>
+    <fishTypes MayRequire="Ludeon.RimWorld.Odyssey">
+      <freshwater_Common>
+        <Fish_Guppy MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Guppy>
+      </freshwater_Common>
+      <freshwater_Uncommon>
+        <Fish_Tilapia MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Tilapia>
+      </freshwater_Uncommon>
+      <saltwater_Common>
+        <Fish_Bluefish MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Bluefish>
+      </saltwater_Common>
+      <saltwater_Uncommon>
+        <Fish_Tuna MayRequire="Ludeon.RimWorld.Odyssey">1</Fish_Tuna>
+      </saltwater_Uncommon>
+      <rareCatchesSetMaker MayRequire="Ludeon.RimWorld.Odyssey">RareFishingCatches_Hot</rareCatchesSetMaker>
+    </fishTypes>
     <wildPlants>
       <Plant_Grass>3</Plant_Grass>
       <TKKN_PlantTreeBaobab>.5</TKKN_PlantTreeBaobab>
@@ -183,6 +200,7 @@
       <Cougar>0.4</Cougar>
       <Rhinoceros>0.02</Rhinoceros>
       <Fox_Fennec>0.02</Fox_Fennec>
+      <Hippo MayRequire="Ludeon.Rimworld.Odyssey">0.08</Hippo>
     </wildAnimals>
     <allowedPackAnimals>
       <li>Muffalo</li>

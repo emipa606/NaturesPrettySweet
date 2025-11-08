@@ -11,4 +11,9 @@ public static class HediffDefOf
 
     public static HediffDef TKKN_Wetness;
     public static HediffDef TKKN_Drowning;
+    
+    static HediffDefOf()
+    {
+        DefOfHelper.EnsureInitializedInCtor(typeof(HediffDefOf));
+    }
 }

@@ -50,7 +50,7 @@ public class BiomeSeasonalSettings : DefModExtension
 
         //make sure plants are spawning on terrain that they're limited to:
         var weatherReaction = thingDef.GetModExtension<ThingWeatherReaction>();
-        if (weatherReaction == null || terrain == null || weatherReaction.allowedTerrains == null)
+        if (weatherReaction?.allowedTerrains == null)
         {
             return true;
         }

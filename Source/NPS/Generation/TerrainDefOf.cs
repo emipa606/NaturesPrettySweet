@@ -7,11 +7,14 @@ namespace TKKN_NPS;
 public static class TerrainDefOf
 {
     public static TerrainDef TKKN_SaltField;
+    public static TerrainDef TKKN_Salted_Earth;
     public static TerrainDef TKKN_HotSpringsWater;
     public static TerrainDef TKKN_ColdSpringsWater;
     public static TerrainDef TKKN_Lava;
     public static TerrainDef TKKN_LavaDeep;
     public static TerrainDef TKKN_LavaRock_RoughHewn;
+    public static TerrainDef TKKN_DirtPath;
+    public static TerrainDef TKKN_SandPath;
 
     //FOR WEATHER:
 
@@ -28,4 +31,9 @@ public static class TerrainDefOf
 
     //flooding
     public static TerrainDef TKKN_RiverDeposit;
+    
+    static TerrainDefOf()
+    {
+        DefOfHelper.EnsureInitializedInCtor(typeof(TerrainDefOf));
+    }
 }

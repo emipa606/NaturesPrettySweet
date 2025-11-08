@@ -90,6 +90,15 @@
     <tags>
       <li>Lava</li>
     </tags>
+    <heatPerTick>0.25</heatPerTick>
+    <throwFleckChance>0.06</throwFleckChance>
+    <fleckData>
+      <fleck>Smoke</fleck>
+      <scaleRange>3~5</scaleRange>
+      <velocityAngleRange>-30~40</velocityAngleRange>
+      <velocitySpeedRange>0.5~0.7</velocitySpeedRange>
+      <rotationSpeedRange>-30~30</rotationSpeedRange>
+    </fleckData>
     <extraNonDraftedPerceivedPathCost>200</extraNonDraftedPerceivedPathCost>
     <extraDraftedPerceivedPathCost>30</extraDraftedPerceivedPathCost>
   </TerrainDef>
@@ -115,6 +124,15 @@
     <tags>
       <li>Lava</li>
     </tags>
+    <heatPerTick>0.25</heatPerTick>
+    <throwFleckChance>0.03</throwFleckChance>
+    <fleckData>
+      <fleck>Smoke</fleck>
+      <scaleRange>3~5</scaleRange>
+      <velocityAngleRange>-30~40</velocityAngleRange>
+      <velocitySpeedRange>0.5~0.7</velocitySpeedRange>
+      <rotationSpeedRange>-30~30</rotationSpeedRange>
+    </fleckData>
   </TerrainDef>
   <TerrainDef ParentName="WaterShallowBase">
     <defName>TKKN_ColdSpringsWater</defName>
@@ -392,6 +410,14 @@
   <TerrainDef MayRequire="Ludeon.RimWorld.Ideology" ParentName="MorbidStoneTile">
     <defName>TKKN_Tile_MorbidBasalt</defName>
     <label>morbid basalt tile</label>
+    <color>(50,50,50)</color>
+    <costList>
+      <TKKN_BlockLava>20</TKKN_BlockLava>
+    </costList>
+  </TerrainDef>
+  <TerrainDef ParentName="FineTileStoneBase" MayRequire="Ludeon.Rimworld.Royalty">
+    <defName>TKKN_FineTileBasalt</defName>
+    <label>fine basalt tile</label>
     <color>(50,50,50)</color>
     <costList>
       <TKKN_BlockLava>20</TKKN_BlockLava>

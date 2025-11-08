@@ -19,6 +19,7 @@ public static class ThingDefOf
     //ANIMALS
     public static ThingDef TKKN_crab;
     public static ThingDef TKKN_Tumbleweed;
+    public static ThingDef TKKN_giantsnail;
 
     //HARVESTABLES
     public static ThingDef TKKN_Cattails;
@@ -47,4 +48,13 @@ public static class ThingDefOf
     public static ThingDef TKKN_PlantLilypad;
     public static ThingDef TKKN_PlantWatercress;
     public static ThingDef TKKN_PlantBarnacles;
+    public static ThingDef TKKN_Mote_ColdBreath;
+    public static ThingDef TKKN_FilthPuddle;
+    public static ThingDef TKKN_SaltCrystal;
+    public static ThingDef TKKN_OasisSpring;
+
+    static ThingDefOf()
+    {
+        DefOfHelper.EnsureInitializedInCtor(typeof(ThingDefOf));
+    }
 }

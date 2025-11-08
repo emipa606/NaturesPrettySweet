@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Patch>
+  <!--
+  These patches do not work and do not appear to have worked since the mods creation
+  
   <Operation Class="PatchOperationSequence">
     <success>Always</success>
     <operations>
@@ -112,4 +115,5 @@
       </li>
     </operations>
   </Operation>
+  -->
 </Patch>

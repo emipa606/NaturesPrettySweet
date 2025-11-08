@@ -281,10 +281,13 @@
       </li>
     </tools>
     <comps>
+      <!--
+      Serves no function
       <li Class="TKKN_NPS.CompProperties_GraphicRotator">
         <howManyDegrees>2</howManyDegrees>
         <howOften>1</howOften>
       </li>
+      -->
     </comps>
     <race>
       <body>QuadrupedAnimalWithPawsAndTail</body>
@@ -557,6 +560,12 @@
         <eggFertilizationCountMax>10</eggFertilizationCountMax>
         <eggLayIntervalDays>7</eggLayIntervalDays>
         <eggCountRange>10</eggCountRange>
+      </li>
+      <li Class="TKKN_NPS.CompProperties_DeadlySalt">
+        <deadlyTerrain>
+          <li>TKKN_SaltField</li>
+          <li>TKKN_Salted_Earth</li>
+        </deadlyTerrain>
       </li>
     </comps>
     <race>

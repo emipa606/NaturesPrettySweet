@@ -62,16 +62,16 @@ public class cellData : IExposable
         Scribe_Defs.Look(ref originalTerrain, "originalTerrain");
     }
 
-    public void setTerrain(string type)
-    {
+    public void setTerrain(TerrainType type) {
+        var thisTerrain = currentTerrain;
         //Make sure it hasn't been made a floor or a floor hasn't been removed.
-        if (!currentTerrain.HasModExtension<TerrainWeatherReactions>())
+        if (!thisTerrain.HasModExtension<TerrainWeatherReactions>())
         {
-            baseTerrain = currentTerrain;
+            baseTerrain = thisTerrain;
         }
-        else if (!baseTerrain.HasModExtension<TerrainWeatherReactions>() && baseTerrain != currentTerrain)
+        else if (baseTerrain != thisTerrain && !baseTerrain.HasModExtension<TerrainWeatherReactions>())
         {
-            baseTerrain = currentTerrain;
+            baseTerrain = thisTerrain;
         }
 
         if (weather == null)
@@ -82,25 +82,25 @@ public class cellData : IExposable
         switch (type)
         {
             //change the terrain
-            case "frozen":
+            case TerrainType.Frozen:
                 setFrozenTerrain(true);
                 break;
-            case "dry":
-            case "wet":
+            case TerrainType.Dry:
+            case TerrainType.Wet:
                 setWetTerrain();
                 break;
-            case "thaw" when isFrozen:
+            case TerrainType.Thaw when isFrozen:
                 howWet = 1;
                 setWetTerrain();
                 isFrozen = false;
                 break;
-            case "thaw":
+            case TerrainType.Thaw:
                 setFrozenTerrain(false);
                 break;
-            case "flooded":
+            case TerrainType.Flooded:
                 setFloodedTerrain();
                 break;
-            case "tide":
+            case TerrainType.Tide:
                 setTidesTerrain();
                 break;
         }
@@ -122,32 +122,36 @@ public class cellData : IExposable
         {
             return;
         }
+        var thisTerrain=currentTerrain;
 
-        if (weather.wetTerrain != null && currentTerrain != weather.wetTerrain && howWet > weather.wetAt)
+        if (weather.wetTerrain != null && thisTerrain != weather.wetTerrain && howWet > weather.wetAt)
         {
             changeTerrain(weather.wetTerrain);
-            if (baseTerrain.defName == "TKKN_Lava")
+            /*
+            if (baseTerrain == TerrainDefOf.TKKN_Lava)
             {
                 map.GetComponent<Watcher>().lavaCellsList.Remove(location);
             }
-
+            */
             isWet = true;
             rainSpawns();
         }
-        else if (howWet == 0 && currentTerrain != baseTerrain && isWet && !isFlooded)
+        else if (howWet == 0 && thisTerrain != baseTerrain && isWet && !isFlooded)
         {
             changeTerrain(baseTerrain);
-            if (baseTerrain.defName == "TKKN_Lava")
+            /*
+            if (baseTerrain == TerrainDefOf.TKKN_Lava)
             {
                 map.GetComponent<Watcher>().lavaCellsList.Add(location);
             }
+            */
 
             isWet = false;
             howWet = -1;
         }
         else if (howWet == -1 && weather.dryTerrain != null && !isFlooded)
         {
-            if (currentTerrain == weather.dryTerrain && baseTerrain == weather.dryTerrain)
+            if (thisTerrain == weather.dryTerrain && baseTerrain == weather.dryTerrain)
             {
                 return;
             }
@@ -168,22 +172,25 @@ public class cellData : IExposable
             {
                 return;
             }
+            var thisTerrain = currentTerrain;
 
-            if (isFlooded && weather.freezeTerrain != currentTerrain)
+            if (isFlooded && weather.freezeTerrain != thisTerrain)
             {
-                if (currentTerrain.HasModExtension<TerrainWeatherReactions>())
+                if (thisTerrain.HasModExtension<TerrainWeatherReactions>())
                 {
-                    var curWeather = currentTerrain.GetModExtension<TerrainWeatherReactions>();
+                    var curWeather = thisTerrain.GetModExtension<TerrainWeatherReactions>();
                     changeTerrain(curWeather.freezeTerrain);
                 }
             }
             else if (!isFrozen)
             {
                 changeTerrain(weather.freezeTerrain);
-                if (baseTerrain.defName == "TKKN_Lava")
+                /*
+                if (baseTerrain == TerrainDefOf.TKKN_Lava)
                 {
                     map.GetComponent<Watcher>().lavaCellsList.Remove(location);
                 }
+                */
             }
 
             isFrozen = true;
@@ -195,12 +202,12 @@ public class cellData : IExposable
         {
             return;
         }
-
-        if (baseTerrain.defName == "TKKN_Lava")
+        /*
+        if (baseTerrain == TerrainDefOf.TKKN_Lava)
         {
             map.GetComponent<Watcher>().lavaCellsList.Add(location);
         }
-
+        */
         isFrozen = false;
         isThawed = true;
         changeTerrain(baseTerrain);
@@ -212,11 +219,11 @@ public class cellData : IExposable
         {
             return;
         }
-
+        var thisTerrain = currentTerrain;
         var floodTerrain = weather.floodTerrain;
         if (isFrozen)
         {
-            var currWeather = currentTerrain.GetModExtension<TerrainWeatherReactions>();
+            var currWeather = thisTerrain.GetModExtension<TerrainWeatherReactions>();
             var frozenTerrain = currWeather.freezeTerrain;
             if (frozenTerrain != null)
             {
@@ -229,12 +236,12 @@ public class cellData : IExposable
             floodTerrain = baseTerrain;
             changeTerrain(floodTerrain);
         }
-        else if (floodTerrain != null && currentTerrain != floodTerrain)
+        else if (floodTerrain != null && thisTerrain != floodTerrain)
         {
             changeTerrain(floodTerrain);
 
             isFlooded = true;
-            if (!floodTerrain.HasTag("Water"))
+            if (!floodTerrain.IsWater)
             {
                 isFlooded = false;
                 howWetPlants = 100;
@@ -253,7 +260,7 @@ public class cellData : IExposable
         {
             return;
         }
-
+        var thisTerrain = currentTerrain;
         switch (overrideType)
         {
             case "dry":
@@ -264,7 +271,7 @@ public class cellData : IExposable
                 break;
             default:
             {
-                changeTerrain(currentTerrain != baseTerrain ? baseTerrain : weather.tideTerrain);
+                changeTerrain(thisTerrain != baseTerrain ? baseTerrain : weather.tideTerrain);
                 break;
             }
         }
@@ -274,7 +281,7 @@ public class cellData : IExposable
             return;
         }
 
-        if (currentTerrain.HasTag("TKKN_Wet"))
+        if (TerrainTagUtil.TKKN_Wet.Contains(thisTerrain))
         {
             clearLoot();
         }
@@ -293,7 +300,7 @@ public class cellData : IExposable
 
         //KEEPING TO REMOVE OLD WAY OF DOING FROST
         var overlayIce = (from t in location.GetThingList(map)
-            where t.def.defName == "TKKN_IceOverlay"
+            where t.def == ThingDefOf.TKKN_IceOverlay
             select t).FirstOrDefault();
         if (overlayIce == null)
         {
@@ -311,14 +318,15 @@ public class cellData : IExposable
 
     public void unpack()
     {
+        var thisTerrain = currentTerrain;
         if (!Settings.doDirtPath)
         {
-            if (currentTerrain.defName == "TKKN_DirtPath")
+            if (thisTerrain == TerrainDefOf.TKKN_DirtPath)
             {
                 changeTerrain(RimWorld.TerrainDefOf.Soil);
             }
 
-            if (currentTerrain.defName == "TKKN_SandPath")
+            if (thisTerrain == TerrainDefOf.TKKN_SandPath)
             {
                 changeTerrain(RimWorld.TerrainDefOf.Sand);
             }
@@ -335,11 +343,11 @@ public class cellData : IExposable
         {
             howPacked--;
         }
-        else if (howPacked <= packAt / 2 && currentTerrain.defName == "TKKN_DirtPath")
+        else if (howPacked <= packAt / 2 && thisTerrain == TerrainDefOf.TKKN_DirtPath)
         {
             changeTerrain(RimWorld.TerrainDefOf.Soil);
         }
-        else if (howPacked <= packAt / 2 && currentTerrain.defName == "TKKN_SandPath")
+        else if (howPacked <= packAt / 2 && thisTerrain == TerrainDefOf.TKKN_SandPath)
         {
             changeTerrain(RimWorld.TerrainDefOf.Sand);
         }
@@ -347,20 +355,18 @@ public class cellData : IExposable
 
     public void doPack()
     {
-        if (!Settings.doDirtPath)
-        {
-            return;
-        }
-
+var thisTerrain = currentTerrain;
         if (map.zoneManager.ZoneAt(location) is Zone_Growing &&
-            currentTerrain.defName is not ("TKKN_DirtPath" or "TKKN_SandPath"))
+            (thisTerrain != TerrainDefOf.TKKN_DirtPath &&
+             thisTerrain != TerrainDefOf.TKKN_SandPath))
         {
             return;
         }
 
         //don't pack if there's a growing zone.
-        if (baseTerrain.defName is "Soil" or "Sand" ||
-            baseTerrain.texturePath == "Terrain/Surfaces/RoughStone")
+        if (baseTerrain == RimWorld.TerrainDefOf.Soil 
+            || baseTerrain == RimWorld.TerrainDefOf.Sand
+            || baseTerrain.texturePath == "Terrain/Surfaces/RoughStone")
         {
             howPacked++;
         }
@@ -368,16 +374,16 @@ public class cellData : IExposable
         if (howPacked > packAt)
         {
             //	this.howPacked = this.packAt;
-            if (baseTerrain.defName == "Soil")
+            if (baseTerrain == RimWorld.TerrainDefOf.Soil)
             {
-                var packed = TerrainDef.Named("TKKN_DirtPath");
+                var packed = TerrainDefOf.TKKN_DirtPath;
                 changeTerrain(packed);
                 baseTerrain = packed;
             }
 
-            if (baseTerrain.defName == "Sand")
+            if (baseTerrain == RimWorld.TerrainDefOf.Sand)
             {
-                var packed = TerrainDef.Named("TKKN_SandPath");
+                var packed = TerrainDefOf.TKKN_SandPath;
                 changeTerrain(packed);
                 baseTerrain = packed;
             }
@@ -406,29 +412,21 @@ public class cellData : IExposable
     private void rainSpawns()
     {
         //spawn special things when it rains.
-        if (Rand.Value < .009)
-        {
-            switch (baseTerrain.defName)
-            {
-                case "TKKN_Lava":
-                    GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_LavaRock), location, map);
-                    break;
-                case "TKKN_SandBeachWetSalt":
-                    Log.Warning("Spawning crab");
-                    GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_crab), location, map);
-                    break;
-                default:
-                {
-                    if (currentTerrain.HasTag("TKKN_Wet"))
-                    {
-                        FleckMaker.WaterSplash(location.ToVector3(), map, 1, 1);
-                    }
-
-                    break;
+        if (Rand.Value < .009) {
+            if (baseTerrain == TerrainDefOf.TKKN_Lava) {
+                GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_LavaRock), location, map);
+            }
+            else if (baseTerrain == TerrainDefOf.TKKN_SandBeachWetSalt) {
+                //Log.Warning("Spawning crab");
+                GenSpawn.Spawn(ThingMaker.MakeThing(ThingDefOf.TKKN_crab), location, map);
+            }
+            else {
+                if (TerrainTagUtil.TKKN_Wet.Contains(currentTerrain)) {
+                    FleckMaker.WaterSplash(location.ToVector3(), map, 1, 1);
                 }
             }
         }
-        else if (Rand.Value < .04 && currentTerrain.HasTag("Lava"))
+        else if (Rand.Value < .04 && TerrainTagUtil.Lava.Contains(currentTerrain))
         {
             FleckMaker.ThrowSmoke(location.ToVector3(), map, 5);
         }
@@ -548,7 +546,7 @@ public class cellData : IExposable
                     continue;
                 }
 
-                _ = currentTerrain;
+                //_ = currentTerrain;
                 var thingWeather = plantDef.GetModExtension<ThingWeatherReaction>();
                 var okTerrains = thingWeather.allowedTerrains;
                 if (okTerrains == null || !okTerrains.Contains<TerrainDef>(currentTerrain))
@@ -634,7 +632,7 @@ public class cellData : IExposable
 
             if (plant.def.HasModExtension<ThingWeatherReaction>())
             {
-                _ = currentTerrain;
+                //_ = currentTerrain;
                 var thingWeather = plant.def.GetModExtension<ThingWeatherReaction>();
                 var okTerrains = thingWeather.allowedTerrains;
                 if (okTerrains.Contains<TerrainDef>(currentTerrain))

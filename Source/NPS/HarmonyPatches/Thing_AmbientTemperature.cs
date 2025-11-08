@@ -18,10 +18,11 @@ internal class Thing_AmbientTemperature
         if (map != null && c.InBounds(map))
         {
             var terrain = c.GetTerrain(map);
-            if (terrain.HasModExtension<TerrainWeatherReactions>() &&
-                terrain.GetModExtension<TerrainWeatherReactions>().temperatureAdjust != 0)
+            var weatherExtension = terrain.GetModExtension<TerrainWeatherReactions>();
+            if (weatherExtension != null &&
+                weatherExtension.temperatureAdjust != 0)
             {
-                temperature += terrain.GetModExtension<TerrainWeatherReactions>().temperatureAdjust;
+                temperature += weatherExtension.temperatureAdjust;
             }
         }
 
