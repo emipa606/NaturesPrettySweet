@@ -8,6 +8,7 @@ public class LavaComp : SpringComp
     public override void specialCellAffects(IntVec3 c)
     {
         base.specialCellAffects(c);
+        /*
         if (terrainType == TerrainType.Wet)
         {
             parent.Map.GetComponent<Watcher>().lavaCellsList.Add(c);
@@ -16,6 +17,7 @@ public class LavaComp : SpringComp
         {
             parent.Map.GetComponent<Watcher>().lavaCellsList.Remove(c);
         }
+        */
     }
 
     public override void fillBorder()

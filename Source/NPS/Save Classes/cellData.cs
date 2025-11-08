@@ -127,21 +127,24 @@ public class cellData : IExposable
         if (weather.wetTerrain != null && thisTerrain != weather.wetTerrain && howWet > weather.wetAt)
         {
             changeTerrain(weather.wetTerrain);
+            /*
             if (baseTerrain == TerrainDefOf.TKKN_Lava)
             {
                 map.GetComponent<Watcher>().lavaCellsList.Remove(location);
             }
-
+            */
             isWet = true;
             rainSpawns();
         }
         else if (howWet == 0 && thisTerrain != baseTerrain && isWet && !isFlooded)
         {
             changeTerrain(baseTerrain);
+            /*
             if (baseTerrain == TerrainDefOf.TKKN_Lava)
             {
                 map.GetComponent<Watcher>().lavaCellsList.Add(location);
             }
+            */
 
             isWet = false;
             howWet = -1;
@@ -182,10 +185,12 @@ public class cellData : IExposable
             else if (!isFrozen)
             {
                 changeTerrain(weather.freezeTerrain);
+                /*
                 if (baseTerrain == TerrainDefOf.TKKN_Lava)
                 {
                     map.GetComponent<Watcher>().lavaCellsList.Remove(location);
                 }
+                */
             }
 
             isFrozen = true;
@@ -197,12 +202,12 @@ public class cellData : IExposable
         {
             return;
         }
-
+        /*
         if (baseTerrain == TerrainDefOf.TKKN_Lava)
         {
             map.GetComponent<Watcher>().lavaCellsList.Add(location);
         }
-
+        */
         isFrozen = false;
         isThawed = true;
         changeTerrain(baseTerrain);

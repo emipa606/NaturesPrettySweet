@@ -33,7 +33,9 @@ public class Watcher(Map map) : MapComponent(map)
 
     private ModuleBase frostNoise;
     private float humidity;
-    public HashSet<IntVec3> lavaCellsList = [];
+
+    private float wetPlantsValue;
+    //public HashSet<IntVec3> lavaCellsList = [];
     public Thing overlay;
 
     //used by weather
@@ -62,7 +64,7 @@ public class Watcher(Map map) : MapComponent(map)
 
 
         //run through saved terrain and check it
-        checkThingsforLava();
+        //checkThingsforLava();
 
         //environmental changes
         if (Settings.doWeather)
@@ -75,6 +77,7 @@ public class Watcher(Map map) : MapComponent(map)
             var currentHumidity =
                 (1 + map.weatherManager.curWeather.rainRate) * (1 + outdoorTemp);
             humidity = ((baseHumidity + currentHumidity) / 1000) + 18;
+            wetPlantsValue = -1 * (outdoorTemp / humidity / 10);
 
 
             // this.checkRandomTerrain(); triggering on atmosphere affects
@@ -107,7 +110,7 @@ public class Watcher(Map map) : MapComponent(map)
         Scribe_Collections.Look(ref activeSprings, "TKKN_activeSprings", LookMode.Value, LookMode.Deep);
         Scribe_Collections.Look(ref cellWeatherAffects, "cellWeatherAffects", LookMode.Value, LookMode.Deep);
 
-        Scribe_Collections.Look(ref lavaCellsList, "lavaCellsList", LookMode.Value);
+        //Scribe_Collections.Look(ref lavaCellsList, "lavaCellsList", LookMode.Value);
 
         Scribe_Values.Look(ref doCoast, "doCoast", true, true);
         Scribe_Values.Look(ref floodThreat, "floodThreat", 0, true);
@@ -260,7 +263,7 @@ public class Watcher(Map map) : MapComponent(map)
 
 
         //rebuild lookup lists.
-        lavaCellsList = [];
+        //lavaCellsList = [];
         swimmingCellsList = [];
         tideCellsList = [];
         floodCellsList = [];
@@ -321,7 +324,7 @@ public class Watcher(Map map) : MapComponent(map)
             if (TerrainTagUtil.Lava.Contains(thiscell.Value.baseTerrain))
             {
                 //future me: to do: split lava actions into ones that will affect pawns and ones that won't, since pawns can't walk on deep lava
-                lavaCellsList.Add(thiscell.Key);
+                //lavaCellsList.Add(thiscell.Key);
             }
         }
 
@@ -710,7 +713,7 @@ public class Watcher(Map map) : MapComponent(map)
                 cell.gettingWet = true;
                 cell.setTerrain(TerrainType.Wet);
             }
-            else if (Settings.showRain && !roofed && map.weatherManager.curWeather.snowRate > .001f)
+            else if (!roofed && map.weatherManager.curWeather.snowRate > .001f)
             {
                 gettingWet = true;
                 cell.gettingWet = true;
@@ -751,7 +754,7 @@ public class Watcher(Map map) : MapComponent(map)
         {
             cell.setTerrain(TerrainType.Thaw);
             var frosty = cell.temperature * -.025f;
-//				float frosty = this.map.mapTemperature.OutdoorTemp * -.03f;
+			//float frosty = this.map.mapTemperature.OutdoorTemp * -.03f;
             frostGridComponent.AddDepth(c, frosty);
             /*
             if (map.GetComponent<FrostGrid>().GetDepth(c) > .3f)
@@ -781,7 +784,7 @@ public class Watcher(Map map) : MapComponent(map)
         else {
             if (outdoorTemp > 20)
             {
-                cell.howWetPlants += -1 * (outdoorTemp / humidity / 10);
+                cell.howWetPlants += wetPlantsValue;
                 if (cell.howWetPlants <= 0)
                 {
                     var weather = cell.currentTerrain.GetModExtension<TerrainWeatherReactions>();
@@ -1182,6 +1185,9 @@ public class Watcher(Map map) : MapComponent(map)
             thing.TakeDamage(new DamageInfo(DamageDefOf.Rotting, damage, 0, 0));
         }
     }
+    /*
+     Replaced with using base game mechanics inside TerrainDefs TKKN_Lava and TKKN_LavaDeep
+     Provides the same effect
     private HashSet<IntVec3> removeFromLava = new HashSet<IntVec3>();
     private void checkThingsforLava() {
         if (lavaCellsList.Count==0)
@@ -1238,5 +1244,5 @@ public class Watcher(Map map) : MapComponent(map)
 
             n++;
         }
-    }
+    }*/
 }
