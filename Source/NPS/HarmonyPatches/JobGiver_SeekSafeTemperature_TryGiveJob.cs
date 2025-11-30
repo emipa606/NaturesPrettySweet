@@ -10,56 +10,42 @@ namespace TKKN_NPS;
 [HarmonyPatch(typeof(JobGiver_SeekSafeTemperature), "TryGiveJob")]
 internal class JobGiver_SeekSafeTemperature_TryGiveJob
 {
-    public static void Postfix(ref Job __result, Pawn pawn)
-    {
-        if (__result != null || pawn?.RaceProps?.CanPassFences == false)
-        {
+    public static void Postfix(ref Job __result, Pawn pawn) {
+        if (__result != null || pawn?.RaceProps?.CanPassFences == false) {
             return;
         }
 
-        if (Find.CurrentMap.GetComponent<Watcher>().activeSprings.Count != 0)
-        {
-            __result = null;
+        if (pawn == null) {
             return;
         }
 
-        var isHot = false;
-        if (pawn == null)
-        {
+        if (Find.CurrentMap.GetComponent<Watcher>()?.activeSprings?.Count == 0) {
             return;
         }
 
-        foreach (var hediff in pawn.health.hediffSet.hediffs)
-        {
-            if (hediff.def != RimWorld.HediffDefOf.Heatstroke ||
-                hediff.CurStageIndex < (int)TemperatureInjuryStage.Serious)
-            {
-                continue;
-            }
+        var heatstroke = pawn.health.hediffSet.GetFirstHediffOfDef(RimWorld.HediffDefOf.Heatstroke);
 
-            isHot = true;
-            break;
+        if (heatstroke == null) {
+            return;
         }
 
-        if (!isHot)
-        {
-            __result = null;
+        //Setting this to lower stages will make the pawn repeatedly enter and leave hotspring
+        if (heatstroke.CurStageIndex != (int)TemperatureInjuryStage.Serious) {
             return;
         }
 
         var terrain = pawn.Position.GetTerrain(Find.CurrentMap);
-        if (terrain == TerrainDefOf.TKKN_ColdSpringsWater)
-        {
+        if (terrain == TerrainDefOf.TKKN_ColdSpringsWater) {
             __result = new Job(RimWorld.JobDefOf.Wait_SafeTemperature, 500, true);
             return;
         }
 
+        IntVec3 pawnLocation = pawn.GetLord()?.CurLordToil?.FlagLoc ?? pawn.Position;
         //send them to the closest spring to relax
-
-        var thing = GenClosest.ClosestThingReachable(pawn.GetLord().CurLordToil.FlagLoc, pawn.Map,
-            ThingRequest.ForDef(ThingDefOf.TKKN_ColdSpring), PathEndMode.Touch, TraverseParms.For(pawn), -1f);
-        if (thing != null)
-        {
+        var thing = GenClosest.ClosestThingReachable(pawnLocation, pawn.Map,
+            ThingRequest.ForDef(ThingDefOf.TKKN_ColdSpring), PathEndMode.Touch, TraverseParms.For(pawn), 50f,
+            ignoreEntirelyForbiddenRegions: true);
+        if (thing != null) {
             __result = new Job(RimWorld.JobDefOf.GotoSafeTemperature, thing.Position);
         }
     }
