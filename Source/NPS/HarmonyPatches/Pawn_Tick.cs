@@ -10,16 +10,13 @@ internal class Pawn_Tick
     private static Map cachedMap;
     private static Watcher watcher;
 
-    public static void Postfix(Pawn __instance)
-    {
-        if (!__instance.Spawned || __instance.Dead)
-        {
+    public static void Postfix(Pawn __instance) {
+        if (!__instance.Spawned || __instance.Dead) {
             return;
         }
 
         var terrain = __instance.Position.GetTerrain(__instance.MapHeld);
-        if (cachedMap != __instance.Map)
-        {
+        if (cachedMap != __instance.Map) {
             cachedMap = __instance.Map;
             watcher = cachedMap.GetComponent<Watcher>();
         }
@@ -29,34 +26,36 @@ internal class Pawn_Tick
         makeWet(__instance, terrain);
         dyingCheck(__instance, terrain);
 
-        if (__instance.RaceProps.Humanlike && __instance.needs == null)
-        {
+        if (__instance.RaceProps.Humanlike && __instance.needs == null) {
             return;
         }
 
 
-        if (terrain == TerrainDefOf.TKKN_HotSpringsWater)
-        {
-            if (__instance.needs.comfort != null)
-            {
+        if (terrain == TerrainDefOf.TKKN_HotSpringsWater) {
+            if (__instance.needs.comfort != null) {
                 __instance.needs.comfort.lastComfortUseTick--;
             }
 
             var hediffDef = HediffDefOf.TKKN_hotspring_chill_out;
-            if (__instance.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null)
-            {
+            if (__instance.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null) {
                 return;
             }
 
             var hediff = HediffMaker.MakeHediff(hediffDef, __instance);
             __instance.health.AddHediff(hediff);
         }
-        else if (terrain == TerrainDefOf.TKKN_ColdSpringsWater)
-        {
+        else if (terrain == TerrainDefOf.TKKN_ColdSpringsWater) {
             __instance.needs.rest?.TickResting(.05f);
+            if (Find.TickManager.TicksAbs % 300 == 0) {
+                //Remove heatstroke if pawn is in cold spring
+                Hediff heatstroke = __instance.health.hediffSet.GetFirstHediffOfDef(RimWorld.HediffDefOf.Heatstroke);
+                if (heatstroke != null) {
+                    __instance.health.RemoveHediff(heatstroke);
+                }
+            }
+
             var hediffDef = HediffDefOf.TKKN_coldspring_chill_out;
-            if (__instance.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null)
-            {
+            if (__instance.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null) {
                 return;
             }
 
@@ -65,26 +64,20 @@ internal class Pawn_Tick
         }
     }
 
-    private static void dyingCheck(Pawn pawn, TerrainDef terrain)
-    {
+    private static void dyingCheck(Pawn pawn, TerrainDef terrain) {
         //drowning == immobile and in water
-        if (!pawn.RaceProps.Humanlike)
-        {
+        if (!pawn.RaceProps.Humanlike) {
             return;
         }
 
-        if (pawn.health.Downed && TerrainTagUtil.TKKN_Wet.Contains(terrain))
-        {
+        if (pawn.health.Downed && TerrainTagUtil.TKKN_Wet.Contains(terrain)) {
             var damage = .0005f;
             //if they're awake, take less damage
-            if (!pawn.health.capacities.CanBeAwake)
-            {
-                if (TerrainTagUtil.TKKN_Swim.Contains(terrain))
-                {
+            if (!pawn.health.capacities.CanBeAwake) {
+                if (TerrainTagUtil.TKKN_Swim.Contains(terrain)) {
                     damage = .0001f;
                 }
-                else
-                {
+                else {
                     return;
                 }
             }
@@ -92,8 +85,7 @@ internal class Pawn_Tick
             //heavier clothing hurts them more
             var apparel = pawn.apparel.WornApparel;
             var weight = 0f;
-            foreach (var apparel1 in apparel)
-            {
+            foreach (var apparel1 in apparel) {
                 weight += (float)apparel1.HitPoints / 10000;
             }
 
@@ -102,8 +94,7 @@ internal class Pawn_Tick
 
             var hediffDef = HediffDefOf.TKKN_Drowning;
             if (pawn.Faction is not { IsPlayer: true } ||
-                pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null)
-            {
+                pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null) {
                 return;
             }
 
@@ -113,55 +104,44 @@ internal class Pawn_Tick
         }
 
         var drowning = pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.TKKN_Drowning);
-        if (drowning != null)
-        {
+        if (drowning != null) {
             pawn.health.RemoveHediff(drowning);
         }
     }
 
-    private static void makeWet(Pawn pawn, TerrainDef currentTerrain)
-    {
-        if (!Settings.allowPawnsToGetWet)
-        {
+    private static void makeWet(Pawn pawn, TerrainDef currentTerrain) {
+        if (!Settings.allowPawnsToGetWet) {
             return;
         }
 
         var hediffDef = HediffDefOf.TKKN_Wetness;
-        if (!pawn.RaceProps.Humanlike || pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null)
-        {
+        if (!pawn.RaceProps.Humanlike || pawn.health.hediffSet.GetFirstHediffOfDef(hediffDef) != null) {
             return;
         }
 
         var c = pawn.Position;
-        if (!c.IsValid)
-        {
+        if (!c.IsValid) {
             return;
         }
 
         var isWet = false;
-        if (cachedMap.weatherManager.curWeather.rainRate > .001f)
-        {
+        if (cachedMap.weatherManager.curWeather.rainRate > .001f) {
             var roofed = cachedMap.roofGrid.Roofed(c);
-            if (!roofed)
-            {
+            if (!roofed) {
                 isWet = true;
             }
         }
-        else
-        {
-            if (TerrainTagUtil.TKKN_Wet.Contains(currentTerrain))
-            {
+        else {
+            if (TerrainTagUtil.TKKN_Wet.Contains(currentTerrain)) {
                 isWet = true;
             }
         }
 
-        if (!isWet)
-        {
+        if (!isWet) {
             return;
         }
 
-        if (HarmonyMain.RimBrellasActive && (bool)HarmonyMain.HasUmbrella.Invoke(pawn, [pawn]))
-        {
+        if (HarmonyMain.RimBrellasActive && (bool)HarmonyMain.HasUmbrella.Invoke(pawn, [pawn])) {
             return;
         }
 
@@ -171,21 +151,17 @@ internal class Pawn_Tick
     }
 
 
-    private static void makePaths(Pawn pawn)
-    {
-        if (!Settings.doDirtPath)
-        {
+    private static void makePaths(Pawn pawn) {
+        if (!Settings.doDirtPath) {
             return;
         }
 
-        if (!pawn.RaceProps.Humanlike || !pawn.Position.InBounds(cachedMap))
-        {
+        if (!pawn.RaceProps.Humanlike || !pawn.Position.InBounds(cachedMap)) {
             return;
         }
 
         //damage plants and remove snow/frost where they are. This will hopefully generate paths as pawns walk :)
-        if (watcher.checkIfCold(pawn.Position))
-        {
+        if (watcher.checkIfCold(pawn.Position)) {
             watcher.frostGridComponent.AddDepth(pawn.Position, (float)-.05);
             cachedMap.snowGrid.AddDepth(pawn.Position, (float)-.05);
         }
@@ -193,29 +169,24 @@ internal class Pawn_Tick
 
         //pack down the soil only if the pawn is moving AND is in our colony
         if (pawn.pather.MovingNow && pawn.IsColonist &&
-            watcher.cellWeatherAffects.TryGetValue(pawn.Position, out var cell))
-        {
+            watcher.cellWeatherAffects.TryGetValue(pawn.Position, out var cell)) {
             cell.doPack();
         }
     }
 
-    private static void makeBreath(Pawn pawn)
-    {
-        if (Find.TickManager.TicksGame % 150 != 0)
-        {
+    private static void makeBreath(Pawn pawn) {
+        if (Find.TickManager.TicksGame % 150 != 0) {
             return;
         }
 
         var isCold = watcher.checkIfCold(pawn.Position);
-        if (!isCold)
-        {
+        if (!isCold) {
             return;
         }
 
         var head = pawn.Position;
         head.z += 1;
-        if (!head.ShouldSpawnMotesAt(cachedMap) || cachedMap.moteCounter.SaturatedLowPriority)
-        {
+        if (!head.ShouldSpawnMotesAt(cachedMap) || cachedMap.moteCounter.SaturatedLowPriority) {
             return;
         }
 
