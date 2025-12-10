@@ -1,6 +1,6 @@
 # [Nature's Pretty Sweet (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3542949511)
 
-![Image](https://i.postimg.cc/1X4HT06h/Info.png)
+![Image](https://img.litet.net/logos/Info.png)
 
 Update of tkkntkkns mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1211694919
@@ -11,33 +11,28 @@ To avoid doubling the size of the mod, it was re-released using only Asset Bundl
 - Reduced the amount of barnacles spawned to more sensible levels
 - Added support for [Rimbrellas!](https://steamcommunity.com/sharedfiles/filedetails/?id=2079784964)
 - If Odyssey is installed, the water-freezing, flooding and swimming will be turned off to not conflict with the DLC-features.
+- Large performance and bug-fix update, thanks to Halicade!
 
-![Image](https://i.postimg.cc/8csH3dWV/Notice.png)
+![Image](https://img.litet.net/logos/Notice.png)
 	
-![Image](https://i.postimg.cc/hvhrw8xB/Original-Description.png)
+![Image](https://img.litet.net/logos/OriginalDescription.png)
 
 [Full description! (I'm out of space here)](http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/) 
 
-**Dec 1 - Bug fix update and a few new things, see git, notes on update, or full description for deets **
-
 **TKKNTKKN's Nature's Pretty Sweet makes the environment in RimWorld a unique and dangerous force to be reckoned with.** The mod adds additional terrain elements, weather and biomes. It also updates the map in response to weather, giving a more wild, untamed and alive feeling to the world. Finally, it adds a variety of plants, springs, and other things (like barnacles) to the world, working to make each biome look and feel completely unique.
 
-**Requires a new save.* Some of the weather effects might cause a little bit of lag (at high speeds or if you're really zoomed out) but you can turn them off in the options. Map generation, your first save, and loading saves should take slightly longer than usual.**
+**Some of the weather effects might cause a little bit of lag (at high speeds or if you're really zoomed out) but you can turn them off in the options. Map generation, your first save, and loading saves should take slightly longer than usual.**
 
 Most new elements will generate in the standard biomes, but there are some biomes that guarantee new features, and a few elements are ONLY available in some biomes. Most of the elements were directly inspired by places I've camped in the US.
 
-There are also new resources, items, dangers, natural protection from raids and other effects. Resources can be harvested to get items, which can be sold or consumed.
-
 The amount of additions and compatiability is too long to list here, [so here's the full list!](http://www.kamicomics.com/mods/tkkn-natures-pretty-sweet/)
-
-**Added:**
 
 Weather:
 
 
 - Soil and sand will darken when wet. Wet sand and soil increase fertility. Deserts will see a lot of growth after it rains.
 - Puddles form after rainfall and snow melt.
-- Rivers flood from rain, and are higher in the spring and lower in the fall.
+- Rivers flood from rain
 - Water freezes in the winter.
 - New weather:
 
@@ -148,7 +143,7 @@ And a ton of minor additions to make the world feel more alive! ~~[Read them her
 
 *Currently requires a new game, because the biomes are generated when your world is generated. If you don't care about that, there's an option called "LEAVE ALONE: Regen cell lists". Click it, save and reload your file. Then uncheck it and save again. This will give you weather effects and tides. I use this option for debugging and resetting maps on my end. It's not tested or supported. Use at your own risk.
 
-![Image](https://i.postimg.cc/x8qR7GH9/Reporting-Issues.png)
+![Image](https://img.litet.net/logos/ReportingIssues.png)
 
 
 

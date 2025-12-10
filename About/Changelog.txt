@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.6.7 - Bugfix and more flooding terrain. Thanks to Halicade
+
+
 1.6.6 - Large performance and bug-fix update, thanks to Halicade!
 Now also has some support for Odyssey
 
