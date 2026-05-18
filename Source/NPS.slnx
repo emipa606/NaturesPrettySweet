@@ -6,4 +6,63 @@
     <BuildType Name="Release" />
   </Configurations>
   <Project Path="NPS/NPS.csproj" />
+  <Folder Name="/XML/1.6/Defs/">
+    <File Path="../1.6/Defs/DesignatorDropdownGroupDef.xml" />
+    <File Path="../1.6/Defs/ElementSpawnDefs.xml" />
+    <File Path="../1.6/Defs/Filth.xml" />
+    <File Path="../1.6/Defs/GameConditions_Seasonal.xml" />
+    <File Path="../1.6/Defs/Jobs.xml" />
+    <File Path="../1.6/Defs/Mote_Visual.xml" />
+    <File Path="../1.6/Defs/RecipeDefs.xml" />
+    <File Path="../1.6/Defs/Tales_Job_Seasonal.xml" />
+    <File Path="../1.6/Defs/Terrains.xml" />
+    <File Path="../1.6/Defs/Thoughts_Seasonal.xml" />
+  </Folder>
+  <Folder Name="/XML/Languages/English/Keyed/">
+    <File Path="../Languages/English/Keyed/NPS_Keys.xml" />
+  </Folder>
+  <Folder Name="/XML/1.6/Defs/WeatherDef/">
+    <File Path="../1.6/Defs/WeatherDef/Weathers.xml" />
+  </Folder>
+  <Folder Name="/XML/About/">
+    <File Path="../About/about.xml" />
+  </Folder>
+  <Folder Name="/XML/1.6/Defs/Biomes/">
+    <File Path="../1.6/Defs/Biomes/Biomes_Special.xml" />
+    <File Path="../1.6/Defs/Biomes/Biomes_Temperate.xml" />
+    <File Path="../1.6/Defs/Biomes/Biomes_Warm.xml" />
+    <File Path="../1.6/Defs/Biomes/Biomes_WarmArid.xml" />
+  </Folder>
+  <Folder Name="/XML/1.6/Defs/HeDiffs/">
+    <File Path="../1.6/Defs/HeDiffs/HeDiffs_Disease.xml" />
+    <File Path="../1.6/Defs/HeDiffs/HeDiffs_RelaxInSprings.xml" />
+    <File Path="../1.6/Defs/HeDiffs/HeDiffs.xml" />
+  </Folder>
+  <Folder Name="/XML/1.6/Defs/Pawns/">
+    <File Path="../1.6/Defs/Pawns/Bodies_Animals.xml" />
+    <File Path="../1.6/Defs/Pawns/Races_Animals.xml" />
+  </Folder>
+  <Folder Name="/XML/1.6/Defs/Incidents/">
+    <File Path="../1.6/Defs/Incidents/Incedents_Map_Disease.xml" />
+    <File Path="../1.6/Defs/Incidents/Incedents_Map_Seasonal.xml" />
+    <File Path="../1.6/Defs/Incidents/Incidents_Map_Threats.xml" />
+  </Folder>
+  <Folder Name="/XML/1.6/Defs/Things/">
+    <File Path="../1.6/Defs/Things/Buildings.xml" />
+    <File Path="../1.6/Defs/Things/Crystals.xml" />
+    <File Path="../1.6/Defs/Things/Plants_Arid_Biome.xml" />
+    <File Path="../1.6/Defs/Things/Plants_Grassland_Biomes.xml" />
+    <File Path="../1.6/Defs/Things/Plants_Misc.xml" />
+    <File Path="../1.6/Defs/Things/Plants_Redwood_Biome.xml" />
+    <File Path="../1.6/Defs/Things/ThingDefs_Resources.xml" />
+  </Folder>
+  <Folder Name="/XML/1.6/Patches/">
+    <File Path="../1.6/Patches/biome-patches-mod-extension.xml" />
+    <File Path="../1.6/Patches/biome-patches.xml" />
+    <File Path="../1.6/Patches/incident-patches.xml" />
+    <File Path="../1.6/Patches/mods-vegetable-garden.xml" />
+    <File Path="../1.6/Patches/plant-patches.xml" />
+    <File Path="../1.6/Patches/terrain-patches.xml" />
+    <File Path="../1.6/Patches/terrain-water-patches.xml" />
+  </Folder>
 </Solution>

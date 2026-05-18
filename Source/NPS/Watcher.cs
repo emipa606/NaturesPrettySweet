@@ -452,17 +452,22 @@ public class Watcher(Map map) : MapComponent(map)
 
     private void spawnOasis()
     {
-        if (map.Biome == BiomeDefOf.TKKN_Oasis)
+        while (true)
         {
-            //spawn a big ol cold spring
-            var springSpot = CellFinderLoose.TryFindCentralCell(map, 10, 15, x => !x.Roofed(map));
-            var spring = (Spring)ThingMaker.MakeThing(ThingDefOf.TKKN_OasisSpring);
-            GenSpawn.Spawn(spring, springSpot, map);
-        }
+            if (map.Biome == BiomeDefOf.TKKN_Oasis)
+            {
+                //spawn a big ol cold spring
+                var springSpot = CellFinderLoose.TryFindCentralCell(map, 10, 15, x => !x.Roofed(map));
+                var spring = (Spring)ThingMaker.MakeThing(ThingDefOf.TKKN_OasisSpring);
+                GenSpawn.Spawn(spring, springSpot, map);
+            }
 
-        if (Rand.Value < .001f)
-        {
-            spawnOasis();
+            if (Rand.Value < .001f)
+            {
+                continue;
+            }
+
+            break;
         }
     }
 
