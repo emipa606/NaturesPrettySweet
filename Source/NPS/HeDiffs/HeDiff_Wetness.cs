@@ -131,7 +131,6 @@ public class Hediff_Wetness : HediffWithComps
         }
 
         rate -= (float)timeDrying / 250;
-//			Log.Warning(rate.ToString());
         return rate;
     }
 }

@@ -5,7 +5,7 @@ using Verse;
 namespace TKKN_NPS;
 
 [HarmonyPatch(typeof(Pawn), nameof(Pawn.SpawnSetup))]
-internal class Pawn_SpawnSetup
+internal static class Pawn_SpawnSetup
 {
     public static void Postfix(Pawn __instance)
     {

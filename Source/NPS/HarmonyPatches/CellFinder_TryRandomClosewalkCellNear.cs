@@ -15,7 +15,6 @@ public static class CellFinder_TryRandomClosewalkCellNear
             TraverseParms.For(TraverseMode.NoPassClosedDoors).WithFenceblocked(true),
             c => c.Standable(map) && !TerrainTagUtil.TKKN_SwimOrLava.Contains(c.GetTerrain(map)) &&
                  (extraValidator == null || extraValidator(c)), null, out result);
-        //			Log.Warning("result " + result.ToString());
         return false;
     }
 }

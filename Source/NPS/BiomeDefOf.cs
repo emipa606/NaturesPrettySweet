@@ -3,7 +3,7 @@
 namespace TKKN_NPS;
 
 [DefOf]
-public class BiomeDefOf
+public static class BiomeDefOf
 {
     public static BiomeDef TKKN_VolcanicFlow;
     public static BiomeDef TKKN_Oasis;

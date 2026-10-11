@@ -25,7 +25,6 @@ internal class SectionLayer_Frost : SectionLayer
 
         if (subMesh.mesh.vertexCount == 0)
         {
-//				SectionLayerGeometryMaker_Solid.MakeBaseGeometry(this.section, subMesh, AltitudeLayer.MoteLow);
             SectionLayerGeometryMaker_Solid.MakeBaseGeometry(section, subMesh,
                 AltitudeLayer.LayingPawn); //so frost forms over items/plants
         }

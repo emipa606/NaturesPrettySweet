@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -90,12 +91,10 @@ public class JobGiver_GoSwimming : JobGiver_Wander
         var watcher = pawn.Map.GetComponent<Watcher>();
         swimmingSpots.Clear();
 
-        foreach (var position in watcher.swimmingCellsList)
+        foreach (var position in watcher.swimmingCellsList.Where(p =>
+                     !p.IsForbidden(pawn) && pawn.CanReach(p, PathEndMode.Touch, Danger.None)))
         {
-            if (!position.IsForbidden(pawn) && pawn.CanReach(position, PathEndMode.Touch, Danger.None))
-            {
-                swimmingSpots.Add(position);
-            }
+            swimmingSpots.Add(position);
         }
 
         return swimmingSpots.Count > 0 ? swimmingSpots.RandomElement() : IntVec3.Invalid;

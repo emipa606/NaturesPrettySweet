@@ -157,4 +157,4 @@ And a ton of minor additions to make the world feel more alive! ~~[Read them her
 
   | tags: environment,  weather,  biomes 
 
-[![Image](https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3542949511) | tags: environment, biomes, weather
+[![Image](https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3542949511) | environment, biomes, weather

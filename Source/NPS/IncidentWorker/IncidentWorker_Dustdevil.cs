@@ -12,10 +12,6 @@ public class IncidentWorker_Dustdevil : IncidentWorker
     protected override bool CanFireNowSub(IncidentParms parms)
     {
         return false;
-/*
-            var map = (Map) parms.target;
-            return map.weatherManager.CurWindSpeedFactor >= 1f;
-*/
     }
 
     protected override bool TryExecuteWorker(IncidentParms parms)

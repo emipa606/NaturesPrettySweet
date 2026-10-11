@@ -243,7 +243,7 @@ public class SpringComp : SpringCompAbstract
         terrainNoise = new Add(moduleBase, moduleBase2);
     }
 
-    protected override void springTerrain(IntVec3 loc)
+    protected override void springTerrain(IntVec3 c)
     {
         if (terrainNoise == null)
         {
@@ -251,7 +251,7 @@ public class SpringComp : SpringCompAbstract
             return;
         }
 
-        var value = terrainNoise.GetValue(loc);
+        var value = terrainNoise.GetValue(c);
         value /= Props.radius;
         var dif = (int)Math.Floor(value);
         value -= dif;
@@ -368,12 +368,9 @@ public class SpringComp : SpringCompAbstract
             }
 
             //double check we're not adding a border into another instance.
-            if (terrainType == TerrainType.Dry)
+            if (terrainType == TerrainType.Dry && !doBorder(c))
             {
-                if (!doBorder(c))
-                {
-                    terrainType = TerrainType.Wet;
-                }
+                terrainType = TerrainType.Wet;
             }
         }
 

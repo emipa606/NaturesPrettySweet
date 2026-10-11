@@ -2,7 +2,7 @@
 
 namespace TKKN_NPS;
 
-internal class FrostUtility
+internal static class FrostUtility
 {
     public static FrostCategory GetFrostCategory(float FrostDepth)
     {

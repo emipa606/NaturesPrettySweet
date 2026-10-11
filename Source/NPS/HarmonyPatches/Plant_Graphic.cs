@@ -35,34 +35,32 @@ public static class Plant_Graphic
 
 
         //get flowering or drought graphic if it's over 70
-        if (__instance.AmbientTemperature > 21)
+        if (__instance.AmbientTemperature > 21 &&
+            watcher.cellWeatherAffects.TryGetValue(__instance.Position, out var cell))
         {
-            if (watcher.cellWeatherAffects.TryGetValue(__instance.Position, out var cell))
+            if (cachedTicks != Find.TickManager.TicksAbs)
             {
-                if (cachedTicks != Find.TickManager.TicksAbs)
-                {
-                    cachedTicks = Find.TickManager.TicksAbs;
-                    location = Find.WorldGrid.LongLatOf(__instance.MapHeld.Tile);
-                    season = GenDate.Season(Find.TickManager.TicksAbs, location);
-                }
+                cachedTicks = Find.TickManager.TicksAbs;
+                location = Find.WorldGrid.LongLatOf(__instance.MapHeld.Tile);
+                season = GenDate.Season(Find.TickManager.TicksAbs, location);
+            }
 
-                if (!string.IsNullOrEmpty(mod.floweringGraphicPath) &&
-                    (cell.howWetPlants > 60 && cachedMap.weatherManager.RainRate <= .001f || season == Season.Spring))
-                {
-                    id += "flowering";
-                    path = mod.floweringGraphicPath;
-                }
+            if (!string.IsNullOrEmpty(mod.floweringGraphicPath) &&
+                (cell.howWetPlants > 60 && cachedMap.weatherManager.RainRate <= .001f || season == Season.Spring))
+            {
+                id += "flowering";
+                path = mod.floweringGraphicPath;
+            }
 
-                if (!string.IsNullOrEmpty(mod.droughtGraphicPath) && cell.howWetPlants < 20)
-                {
-                    id += "drought";
-                    path = mod.droughtGraphicPath;
-                }
-                else if (__instance.def.plant.leaflessGraphic != null && cell.howWetPlants < 20)
-                {
-                    id += "drought";
-                    path = __instance.def.plant.leaflessGraphic.path;
-                }
+            if (!string.IsNullOrEmpty(mod.droughtGraphicPath) && cell.howWetPlants < 20)
+            {
+                id += "drought";
+                path = mod.droughtGraphicPath;
+            }
+            else if (__instance.def.plant.leaflessGraphic != null && cell.howWetPlants < 20)
+            {
+                id += "drought";
+                path = __instance.def.plant.leaflessGraphic.path;
             }
         }
 
@@ -96,13 +94,11 @@ public static class Plant_Graphic
                     path = mod.snowGraphicPath;
                 }
             }
-            else if (watcher.frostGridComponent.GetDepth(__instance.Position) >= 0.6f)
+            else if (watcher.frostGridComponent.GetDepth(__instance.Position) >= 0.6f &&
+                     !string.IsNullOrEmpty(mod.frostGraphicPath))
             {
-                if (!string.IsNullOrEmpty(mod.frostGraphicPath))
-                {
-                    id += "frost";
-                    path = mod.frostGraphicPath;
-                }
+                id += "frost";
+                path = mod.frostGraphicPath;
             }
 
             if (string.IsNullOrEmpty(path))
@@ -117,11 +113,6 @@ public static class Plant_Graphic
                 path = path.Replace("Frosted", "Frosted/Leafless");
                 path = path.Replace("Snow", "Snow/Leafless");
                 path += "_Leafless";
-            }
-            else if (__instance.def.blockWind)
-            {
-                //make it so snow doesn't fall under the tree until it's leafless.
-                //	map.snowGrid.AddDepth(__instance.Position, -.05f);
             }
         }
 

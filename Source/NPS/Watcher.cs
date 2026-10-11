@@ -10,12 +10,11 @@ namespace TKKN_NPS;
 
 public class Watcher(Map map) : MapComponent(map)
 {
+    private readonly int MaxPuddles = 50;
     public readonly Dictionary<string, Graphic> graphicHolder = new();
     private readonly int howManyFloodSteps = 5;
 
     private readonly int howManyTideSteps = 13;
-
-    private readonly int MaxPuddles = 50;
 
     //used to save data about active springs.
     public Dictionary<int, springData> activeSprings = new();
@@ -37,8 +36,6 @@ public class Watcher(Map map) : MapComponent(map)
     private float humidity;
 
     private float outdoorTemp;
-
-    //public HashSet<IntVec3> lavaCellsList = [];
     public Thing overlay;
 
     //used by weather
@@ -136,15 +133,6 @@ public class Watcher(Map map) : MapComponent(map)
         {
             regenCellLists = Settings.regenCells;
         }
-
-
-        /*
-        #region devonly
-        this.regenCellLists = true;
-        Log.Error("DEV STUFF IS ON");
-        this.cellWeatherAffects = new Dictionary<IntVec3, cellData>();
-        #endregion
-        */
 
         if (regenCellLists)
         {
@@ -315,19 +303,17 @@ public class Watcher(Map map) : MapComponent(map)
     {
         //salt crystals:
         var terrain = c.GetTerrain(map);
-        if (terrain == TerrainDefOf.TKKN_SaltField || terrain == TerrainDefOf.TKKN_SandBeachWetSalt)
+        if ((terrain == TerrainDefOf.TKKN_SaltField || terrain == TerrainDefOf.TKKN_SandBeachWetSalt) &&
+            c.GetEdifice(map) == null && c.GetCover(map) == null && Rand.Value < .003f)
         {
-            if (c.GetEdifice(map) == null && c.GetCover(map) == null && Rand.Value < .003f)
+            var plant = (Plant)ThingMaker.MakeThing(ThingDefOf.TKKN_SaltCrystal);
+            plant.Growth = Rand.Range(0.07f, 1f);
+            if (plant.def.plant.LimitedLifespan)
             {
-                var plant = (Plant)ThingMaker.MakeThing(ThingDefOf.TKKN_SaltCrystal);
-                plant.Growth = Rand.Range(0.07f, 1f);
-                if (plant.def.plant.LimitedLifespan)
-                {
-                    plant.Age = Rand.Range(0, Mathf.Max(plant.def.plant.LifespanTicks - 50, 0));
-                }
-
-                GenSpawn.Spawn(plant, c, map);
+                plant.Age = Rand.Range(0, Mathf.Max(plant.def.plant.LifespanTicks - 50, 0));
             }
+
+            GenSpawn.Spawn(plant, c, map);
         }
 
         //barnacles and other ocean stuff
@@ -620,7 +606,6 @@ public class Watcher(Map map) : MapComponent(map)
             return;
         }
 
-        //Log.Message("[NPS]: Updating seasonal settings");
         biomeSettings.setWeatherBySeason(map, season, quadrum);
         biomeSettings.setDiseaseBySeason(season, quadrum);
         biomeSettings.setIncidentsBySeason(season, quadrum);
@@ -656,22 +641,19 @@ public class Watcher(Map map) : MapComponent(map)
         }
 
         //spawn special things
-        if (Rand.Value < .0001f)
+        if (Rand.Value < .0001f && c.InBounds(map))
         {
-            if (c.InBounds(map))
+            if (currentTerrain == TerrainDefOf.TKKN_Lava)
             {
-                if (currentTerrain == TerrainDefOf.TKKN_Lava)
-                {
-                    var thing = ThingMaker.MakeThing(ThingDefOf.TKKN_LavaRock);
-                    GenSpawn.Spawn(thing, c, map);
-                }
-                else if (currentTerrain == TerrainDefOf.TKKN_LavaRock_RoughHewn &&
-                         map.Biome == BiomeDefOf.TKKN_VolcanicFlow &&
-                         map.listerThings.ThingsOfDef(ThingDefOf.TKKN_SteamVent).Count < 10)
-                {
-                    var thing = ThingMaker.MakeThing(ThingDefOf.TKKN_SteamVent);
-                    GenSpawn.Spawn(thing, c, map);
-                }
+                var thing = ThingMaker.MakeThing(ThingDefOf.TKKN_LavaRock);
+                GenSpawn.Spawn(thing, c, map);
+            }
+            else if (currentTerrain == TerrainDefOf.TKKN_LavaRock_RoughHewn &&
+                     map.Biome == BiomeDefOf.TKKN_VolcanicFlow &&
+                     map.listerThings.ThingsOfDef(ThingDefOf.TKKN_SteamVent).Count < 10)
+            {
+                var thing = ThingMaker.MakeThing(ThingDefOf.TKKN_SteamVent);
+                GenSpawn.Spawn(thing, c, map);
             }
         }
 
@@ -735,14 +717,7 @@ public class Watcher(Map map) : MapComponent(map)
         {
             cell.setTerrain(TerrainType.Thaw);
             var frosty = cell.temperature * -.025f;
-            //float frosty = this.map.mapTemperature.OutdoorTemp * -.03f;
             frostGridComponent.AddDepth(c, frosty);
-            /*
-            if (map.GetComponent<FrostGrid>().GetDepth(c) > .3f)
-            {
-                // cell.isMelt = true;
-            }
-            */
         }
 
 
@@ -830,7 +805,7 @@ public class Watcher(Map map) : MapComponent(map)
         var cellAffected = cellWeatherAffects.TryGetValue(c, out var cell);
         if (!Settings.showCold)
         {
-            if (cellAffected && cell.temperature < -998)
+            if (cellAffected && cell is { temperature: < -998 })
             {
                 cell.temperature = c.GetTemperature(map);
             }
@@ -848,7 +823,7 @@ public class Watcher(Map map) : MapComponent(map)
         var isCold = false;
         if (room == null || room.UsesOutdoorTemperature)
         {
-            cell.temperature = outdoorTemp;
+            cell?.temperature = outdoorTemp;
             if (outdoorTemp < 0f)
             {
                 isCold = true;
@@ -858,7 +833,7 @@ public class Watcher(Map map) : MapComponent(map)
         }
 
         var temperature = room.Temperature;
-        cell.temperature = temperature;
+        cell?.temperature = temperature;
         if (temperature < 0f)
         {
             isCold = true;

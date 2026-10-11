@@ -16,8 +16,8 @@ public class PlaceWorker_OnSteamVent : PlaceWorker
         return true;
     }
 
-    public override bool ForceAllowPlaceOver(BuildableDef otherDef)
+    public override bool ForceAllowPlaceOver(BuildableDef other)
     {
-        return otherDef == ThingDefOf.TKKN_SteamVent;
+        return other == ThingDefOf.TKKN_SteamVent;
     }
 }

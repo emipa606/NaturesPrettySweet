@@ -6,7 +6,7 @@ namespace TKKN_NPS;
 
 [HarmonyPatch(typeof(GenSpawn), nameof(GenSpawn.Spawn), typeof(Thing), typeof(IntVec3), typeof(Map), typeof(Rot4),
     typeof(WipeMode), typeof(bool), typeof(bool))]
-internal class GenSpawn_Spawn
+internal static class GenSpawn_Spawn
 {
     // Dont let it spawn  in lave
     public static void Postfix(Thing newThing, IntVec3 loc, Map map)

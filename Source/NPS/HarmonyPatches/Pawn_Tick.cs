@@ -5,7 +5,7 @@ using Verse;
 namespace TKKN_NPS;
 
 [HarmonyPatch(typeof(Pawn), "Tick")]
-internal class Pawn_Tick
+internal static class Pawn_Tick
 {
     private static Map cachedMap;
     private static Watcher watcher;

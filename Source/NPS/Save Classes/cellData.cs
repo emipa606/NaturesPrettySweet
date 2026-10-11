@@ -68,11 +68,8 @@ public class cellData : IExposable
     {
         var thisTerrain = currentTerrain;
         //Make sure it hasn't been made a floor or a floor hasn't been removed.
-        if (!thisTerrain.HasModExtension<TerrainWeatherReactions>())
-        {
-            baseTerrain = thisTerrain;
-        }
-        else if (baseTerrain != thisTerrain && !baseTerrain.HasModExtension<TerrainWeatherReactions>())
+        if (!thisTerrain.HasModExtension<TerrainWeatherReactions>() || baseTerrain != thisTerrain &&
+            !baseTerrain.HasModExtension<TerrainWeatherReactions>())
         {
             baseTerrain = thisTerrain;
         }
@@ -521,7 +518,6 @@ public class cellData : IExposable
                         continue;
                     }
 
-                    //_ = currentTerrain;
                     var thingWeather = plantDef.GetModExtension<ThingWeatherReaction>();
                     var okTerrains = thingWeather.allowedTerrains;
                     if (okTerrains == null || !okTerrains.Contains<TerrainDef>(currentTerrain))
@@ -610,7 +606,6 @@ public class cellData : IExposable
 
             if (plant.def.HasModExtension<ThingWeatherReaction>())
             {
-                //_ = currentTerrain;
                 var thingWeather = plant.def.GetModExtension<ThingWeatherReaction>();
                 var okTerrains = thingWeather.allowedTerrains;
                 if (okTerrains.Contains<TerrainDef>(currentTerrain))

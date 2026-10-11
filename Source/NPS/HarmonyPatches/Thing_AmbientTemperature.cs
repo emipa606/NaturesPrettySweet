@@ -4,7 +4,7 @@ using Verse;
 namespace TKKN_NPS;
 
 [HarmonyPatch(typeof(Thing), nameof(Thing.AmbientTemperature), MethodType.Getter)]
-internal class Thing_AmbientTemperature
+internal static class Thing_AmbientTemperature
 {
     public static void Postfix(Thing __instance, ref float __result)
     {

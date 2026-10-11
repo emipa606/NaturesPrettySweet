@@ -33,13 +33,11 @@ public sealed class FrostGrid : MapComponent
         return terrainDef.HasModExtension<TerrainWeatherReactions>()
             ? terrainDef.GetModExtension<TerrainWeatherReactions>().holdFrost
             : terrainDef.holdSnowOrSand;
-
-        //return terrainDef.affordances.Contains(TerrainAffordance.Light);
     }
 
     private static bool canCoexistWithFrost(ThingDef def)
     {
-        return def.category != ThingCategory.Building; // || def.Fillage != FillCategory.Full;
+        return def.category != ThingCategory.Building;
     }
 
     public void AddDepth(IntVec3 c, float depthToAdd)

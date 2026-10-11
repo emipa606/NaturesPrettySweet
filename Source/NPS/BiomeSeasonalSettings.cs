@@ -28,11 +28,11 @@ public class BiomeSeasonalSettings : DefModExtension
     public List<BiomeDiseaseRecord> springDiseases;
     public List<TKKN_IncidentCommonalityRecord> springEvents;
     public float springSpawnChance;
-    public bool springsSurviveDrought;
-    public bool springsSurviveSummer;
 
     //weather settings
     public List<WeatherCommonalityRecord> springWeathers;
+    public bool springsSurviveDrought;
+    public bool springsSurviveSummer;
     public List<BiomeDiseaseRecord> summerDiseases;
     public List<TKKN_IncidentCommonalityRecord> summerEvents;
     public List<WeatherCommonalityRecord> summerWeathers;

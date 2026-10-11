@@ -6,7 +6,7 @@ using Verse;
 namespace TKKN_NPS;
 
 [HarmonyPatch(typeof(GenTemperature), nameof(GenTemperature.ComfortableTemperatureRange), typeof(Pawn))]
-internal class GenTemperature_ComfortableTemperatureRange
+internal static class GenTemperature_ComfortableTemperatureRange
 {
     public static void Postfix(Pawn p, ref FloatRange __result)
     {
@@ -30,8 +30,6 @@ internal class GenTemperature_ComfortableTemperatureRange
         //they are comfortable only at higher temp
         __result.min = Math.Max(12, __result.min + setTo);
         __result.max = Math.Min(32, __result.max + setTo);
-
-        //	Log.Warning(p.Name.ToString() + " temp old: " + old.ToString() + " temp range: " + __result.ToString() + " temp: " + p.AmbientTemperature);
     }
 
     private static int getOffSet(Hediff_Wetness wetness, Pawn pawn)

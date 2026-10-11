@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.6.11 - Code cleanup based on SonarQube report
+
+
 1.6.10 - Should work better with Smooth Terrain
 
 

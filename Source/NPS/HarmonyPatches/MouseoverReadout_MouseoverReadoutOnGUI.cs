@@ -5,12 +5,12 @@ using Verse;
 namespace TKKN_NPS;
 
 [HarmonyPatch(typeof(MouseoverReadout), nameof(MouseoverReadout.MouseoverReadoutOnGUI))]
-internal class MouseoverReadout_MouseoverReadoutOnGUI
+internal static class MouseoverReadout_MouseoverReadoutOnGUI
 {
     private static Map cachedMap;
     private static FrostGrid cachedFrostGrid;
 
-    private static void Postfix()
+    public static void Postfix()
     {
         if (Event.current.type != EventType.Repaint || Find.MainTabsRoot.OpenTab != null)
         {
@@ -132,6 +132,5 @@ internal class MouseoverReadout_MouseoverReadoutOnGUI
         var frostCategory = FrostUtility.GetFrostCategory(depth);
         var label = FrostUtility.GetDescription(frostCategory);
         Widgets.Label(rect, label);
-        //	Widgets.Label(rect, unused + " " + depth.ToString());
     }
 }

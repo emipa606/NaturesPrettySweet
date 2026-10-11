@@ -5,7 +5,7 @@ using Verse;
 namespace TKKN_NPS;
 
 [StaticConstructorOnStartup]
-internal class HarmonyMain
+internal static class HarmonyMain
 {
     public static readonly bool RimBrellasActive;
     public static readonly MethodInfo HasUmbrella;
