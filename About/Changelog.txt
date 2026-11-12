@@ -1,5 +1,8 @@
 # Changelog for NaturesPrettySweet
 
+1.6.12 - Last update, added end-of-life message
+
+
 1.6.11 - Code cleanup based on SonarQube report
 
 

@@ -1,4 +1,4 @@
-# [Nature's Pretty Sweet (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3542949511)
+# [[Deprecated] Nature's Pretty Sweet (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3542949511)
 
 ![Image](https://img.litet.net/logos/Info.png)
 
@@ -13,7 +13,9 @@ To avoid doubling the size of the mod, it was re-released using only Asset Bundl
 - If Odyssey is installed, the water-freezing, flooding and swimming will be turned off to not conflict with the DLC-features.
 - Large performance and bug-fix update, thanks to Halicade!
 
-![Image](https://img.litet.net/logos/Notice.png)
+![Image](https://img.litet.net/logos/Abandoned.png)
+
+This mod has been replaced by [Nature's Pretty Sweet: Biomes](https://steamcommunity.com/sharedfiles/filedetails/?id=3838151757) by Halicade
 	
 ![Image](https://img.litet.net/logos/OriginalDescription.png)
 
@@ -157,4 +159,4 @@ And a ton of minor additions to make the world feel more alive! ~~[Read them her
 
   | tags: environment,  weather,  biomes 
 
-[![Image](https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3542949511) | environment, biomes, weather
+[![Image](https://img.shields.io/github/v/release/emipa606/NaturesPrettySweet?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3542949511) | biomes, environment, weather

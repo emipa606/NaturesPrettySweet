@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="NaturesPrettySweet_UpdateFeatureBase">
+		<modNameReadable>NaturesPrettySweet</modNameReadable>
+		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3542949511</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="NaturesPrettySweet_UpdateFeatureBase">
+		<defName>NaturesPrettySweet_1_6_11</defName>
+		<assemblyVersion>1.6.11</assemblyVersion>
+		<content>This mod will not be further updated, please use Nature's Pretty Sweet: Biomes by Halicade instead.</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>
+

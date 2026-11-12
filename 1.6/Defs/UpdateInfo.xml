@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<TabulaRasa.UpdateDef Abstract="true" Name="NaturesPrettySweet_UpdateInfoBase">
+		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3542949511</linkUrl>
+		<banner>UpdateInfo/NaturesPrettySweet</banner>
+	</TabulaRasa.UpdateDef>
+	<TabulaRasa.UpdateDef ParentName="NaturesPrettySweet_UpdateInfoBase" MayRequire="neronix17.toolbox">
+		<defName>NaturesPrettySweet_1_6_11</defName>
+		<date>2026/11/12</date>
+		<content>This mod will not be further updated, please use Nature's Pretty Sweet: Biomes by Halicade instead.</content>
+	</TabulaRasa.UpdateDef>
+</Defs>
+
